@@ -7,12 +7,10 @@ module.exports = sequelize => {
       primaryKey: true,
       autoIncrement: true
     },
-
     total: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-
   },
     { timestamps: false },
   )
