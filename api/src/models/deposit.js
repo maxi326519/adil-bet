@@ -1,22 +1,18 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
-  sequelize.define('order', {
+  sequelize.define('deposit', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    status: {
-      type: DataTypes.ENUM('Pending', 'Paid'),
-      allowNull: false,
-      defaultValue: 'Pending'
-    },
-    betTo: {
-      type: DataTypes.STRING,
+    amount: {
+      type: DataTypes.FLOAT,
       allowNull: false
+    },
+    method: {
+      type: DataTypes.STRING,
     }
-  },
-  { timestamps: false }
-  )
+  })
 }

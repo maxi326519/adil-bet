@@ -36,36 +36,25 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Bet,Match, Order, User } = sequelize.models;
+const { User, Deposit, Order, Bet, Match } = sequelize.models;
 
+// Relationships User
+User.hasMany(Deposit);
+Deposit.belongsTo(User);
 
-//RELACIONES MUCHOS A MUCHOS
+User.hasMany(Order);
+Order.belongsTo(User);
 
-Bet.belongsToMany(Match, {through: "Bet_Match"});
-Match.belongsToMany(Bet,{through: "Bet_Match"})
+User.hasMany(Bet);
+Bet.belongsTo(User);
 
-Order.belongsToMany(Match, {through: "Order_Match"});
-Match.belongsToMany(Order,{through: "Order_Match"})
+// Relationships Order
+Order.belongsTo(Match);
+Match.hasMany(Order);
 
-User.belongsToMany(Match, {through: "User_Match"});
-Match.belongsToMany(User,{through: "User_Match"})
-
-//RELACIONES 1 A 1
-
-Order.hasOne(Bet, { foreignKey: 'Bet_Order' });
-Bet.belongsTo(Order, { foreignKey: 'Bet_Order' });
-
-//RELACIONES 1 A MUCHOS
-
-Match.hasMany(Bet, { foreignKey: 'Match_Bet' });
-Bet.belongsTo(Match, { foreignKey: 'Match_Bet' });
-
-User.hasMany(Order, { foreignKey: 'Order_User' });
-Order.belongsTo(User, { foreignKey: 'Order_User' });
-
-User.hasMany(Bet, { foreignKey: 'Bet_User' });
-Bet.belongsTo(User, { foreignKey: 'Bet_User' });
-
+// Relationships Bet
+Bet.belongsTo(Match);
+Match.hasMany(Bet);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

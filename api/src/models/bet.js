@@ -7,11 +7,21 @@ module.exports = sequelize => {
       primaryKey: true,
       autoIncrement: true
     },
-    total: {
-      type: DataTypes.INTEGER,
+    amount: {
+      type: DataTypes.FLOAT,
       allowNull: false
     },
-  },
-    { timestamps: false },
-  )
+    betTo: {
+      type: DataTypes.ENUM('homeBet', 'awayBet', 'tieBet'),
+      allowNull: false
+    },
+    multiplier: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
+    date: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
+  })
 };

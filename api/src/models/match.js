@@ -7,7 +7,7 @@ module.exports = sequelize => {
          primaryKey: true,
          autoIncrement: true
       },
-      games: {
+      game: {
          type: DataTypes.STRING,
          allowNull: false
       },
@@ -19,19 +19,19 @@ module.exports = sequelize => {
          type: DataTypes.STRING,
          allowNull: false
       },
-      logoLeague: {
-         type: DataTypes.STRING,
-         allowNull: false
-      },
       homeTeam: {
          type: DataTypes.STRING,
          allowNull: false
       },
-      logoHome: {
+      awayTeam: {
          type: DataTypes.STRING,
          allowNull: false
       },
-      awayTeam: {
+      logoLeague: {
+         type: DataTypes.STRING,
+         allowNull: false
+      },
+      logoHome: {
          type: DataTypes.STRING,
          allowNull: false
       },
@@ -40,24 +40,14 @@ module.exports = sequelize => {
          allowNull: false
       },
       scoreHome: {
-         type: DataTypes.STRING,
+         type: DataTypes.FLOAT,
          allowNull: false
       },
       scoreAway: {
-         type: DataTypes.STRING,
+         type: DataTypes.FLOAT,
          allowNull: false
-      },
-      homeBet: {
-         type: DataTypes.FLOAT,
-         defaultValue: 1.80
-      },
-      awayBet: {
-         type: DataTypes.FLOAT,
-         defaultValue: 2.50
-      },
-   },
-      {
-         timestamps: false,
       }
+   },
+   { timestamps: false }
    )
 }
