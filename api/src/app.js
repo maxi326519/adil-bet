@@ -5,8 +5,9 @@ const morgan = require('morgan');
 require('./db.js');
 
 // Import Routes
-const test = require('./routes/test.js');
+const routes = require('./routes');
 
+// Server init
 const server = express();
 
 // Middlewares
@@ -22,8 +23,8 @@ server.use((req, res, next) => {
     next();
 });
 
-// Routes
-server.use(test);
+// Add Routes
+routes.forEach( r => server.use(r));
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
