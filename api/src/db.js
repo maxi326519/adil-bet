@@ -41,6 +41,7 @@ const { Bet,Match, Order, User } = sequelize.models;
 
 //RELACIONES MUCHOS A MUCHOS
 
+console.log(sequelize.models);
 Bet.belongsToMany(Match, {through: "Bet_Match"});
 Match.belongsToMany(Bet,{through: "Bet_Match"})
 

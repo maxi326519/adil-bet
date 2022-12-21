@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
   sequelize.define('order', {
+
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -17,6 +18,7 @@ module.exports = sequelize => {
       allowNull: false,
     },
   },
+
     {
       timestamps: false,
     }
