@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = sequelize => {
    sequelize.define('match', {
       id: {
-         type: Number,
+         type: DataTypes.INTEGER,
          primaryKey: true,
          autoIncrement: true
       },
