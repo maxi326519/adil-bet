@@ -5,38 +5,44 @@ module.exports = sequelize => {
       id: {
          type: DataTypes.INTEGER,
          primaryKey: true,
-         allowNull: false,
          autoIncrement: true,
+      },
+      name: {
+         type: DataTypes.STRING,
+         allowNull: false
+      },
+      userName: {
+         type: DataTypes.STRING,
+         allowNull: false,
+         unique: true
       },
       email: {
          type: DataTypes.STRING,
          allowNull: false,
-      },
-      name: {
-         type: DataTypes.STRING,
-         allowNull: false,
-      },
-      suspense: {
-         type: DataTypes.BOOLEAN,
-         allowNull: false,
-         defaultValue: false,
+         unique: true
       },
       password: {
          type: DataTypes.STRING,
-         allowNull: false,
-      },
+         allowNull: false
+      },      
       phone: {
-         type: DataTypes.BIGINT,
+         type: DataTypes.STRING,
+         unique: true
       },
-
+      wallet: {
+         type: DataTypes.FLOAT,
+         defaultValue: 0
+      },
+      isActive: {
+         type: DataTypes.BOOLEAN,
+         defaultValue: false
+      },
       isAdmin: {
          type: DataTypes.BOOLEAN,
+         defaultValue: false
       },
    },
-
-      {
-         timestamps: false,
-      }
+   { timestamps: false }
    )
 }
 

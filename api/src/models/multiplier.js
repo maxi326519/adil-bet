@@ -15,9 +15,7 @@ module.exports = sequelize => {
          defaultValue: 3.00
       }
    },
-      {
-         timestamps: false,
-      }
+   { timestamps: false }
    )
 }
 
