@@ -1,6 +1,6 @@
 const { User, Order } = require("../../db");
 
-const postUser = async (req, res) => {
+/* const postUser = async (req, res) => {
   try {
     const {
       id,
@@ -49,6 +49,28 @@ const postUser = async (req, res) => {
     }
   } catch (error) {
     return res.status(500).send(error);
+  }
+};
+
+module.exports = { postUser };
+ */
+
+const postUser = async (req, res) => {
+  const { name, userName, email, password, phone, isAdmin } = req.body;
+
+  try {
+    await User.create({
+      name,
+      userName,
+      email,
+      password,
+      phone: phone ? phone : null,
+      isAdmin: isAdmin ? isAdmin : false,
+    });
+
+    return res.status(200).send("the user was made successfully");
+  } catch (error) {
+    return res.status(404).send("the user could not be made," + { error });
   }
 };
 
