@@ -45,6 +45,9 @@ Deposit.belongsTo(User);
 User.hasMany(Order);
 Order.belongsTo(User);
 
+User.hasMany(Bet);
+Bet.belongsTo(User);
+
 // Relationships Order
 Order.belongsTo(Match);
 Match.hasMany(Order);
