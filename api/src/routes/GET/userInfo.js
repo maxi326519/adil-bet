@@ -2,7 +2,7 @@ const router = require('express').Router();
 const getUserInfo = require ('../../controllers/GET/getUserInfo');
 
 
-router.get("/:id", async (req, res) => {
+router.get("user/:id", async (req, res) => {
     try {
         const { id } = req.params
         let userInfo = await getUserInfo(id)
