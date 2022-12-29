@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const getUserInfo = require ('../../controllers/GET/getUserInfo');
+const getUserInfo = require ('../../controllers/GET/getUserInfo.js');
 
 
-router.get("user/:id", async (req, res) => {
+router.get("/user/:id", async (req, res) => {
+    const { id } = req.params
+    console.log(id,"hola")
     try {
-        const { id } = req.params
         let userInfo = await getUserInfo(id)
-        return res.status(200).json(userInfo)
+        res.status(200).json(userInfo)
     }
     catch (error) {
-        return res.status(400).send(error.message)
+        res.status(400).send(error.message)
     }
 });
 

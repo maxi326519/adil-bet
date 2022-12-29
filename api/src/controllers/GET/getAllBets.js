@@ -1,19 +1,20 @@
-const {user, deposit, bet} = require ("../../db.js")
+const {User, Deposit, Bet} = require ("../../db.js")
 
 const getAllBets = async (req, res) => {
-    try {
-      const bets = await bet.findAll({
+    // try {
+      const bets = await Bet.findAll({
         include: {
-          model: user,
+          model: User,
           attributes: [
             'userName',
           ],
         },
       });
-      return res.json(bets);
-    } catch (error) {
-      return res.status(404).json({ msg: error });
-    }
+      // res.status(200).json(bets);
+      return bets
+    // } catch (error) {
+    //   res.status(404).json({ msg: 'holaaa' });
+    // }
   };
 
   module.exports = getAllBets;

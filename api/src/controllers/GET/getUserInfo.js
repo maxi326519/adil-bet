@@ -1,13 +1,12 @@
-const {user, deposit, bet} = require ("../../db.js")
+const {User, Deposit, Bet} = require ("../../db.js")
 
 
-  const getUserInfo = async (req, res) => {
-    const { id } = req.params;
-    try {
-      const userId = await user.findByPk(id, {
+  const getUserInfo = async (id) => {
+      const userInfo = await User.findByPk(id,
+        {
         include: [
           {
-            model: bet,
+            model: Bet,
             attributes: [
                 'betTo',
                 'amount',
@@ -15,18 +14,17 @@ const {user, deposit, bet} = require ("../../db.js")
               ],
           },
           {
-            model: deposit,
+            model: Deposit,
             attributes: [
               'amount',
               'method',
             ],
           },
         ],
-      });
-      return res.status(200).json(userId);
-    } catch (error) {
-      return res.status(404).json({ msg: error });
-    }
+      }
+      );
+      return userInfo;
+    
   };
 
 module.exports = getUserInfo;
