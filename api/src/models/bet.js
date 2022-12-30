@@ -5,8 +5,7 @@ module.exports = sequelize => {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     status: {
       type: DataTypes.ENUM('Active', 'Completed'),
