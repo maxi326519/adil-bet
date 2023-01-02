@@ -42,6 +42,9 @@ const { User, Deposit, Order, Bet, Match } = sequelize.models;
 User.hasMany(Deposit);
 Deposit.belongsTo(User);
 
+User.hasMany(Bet);
+Bet.belongsTo(User);
+
 User.hasMany(Order);
 Order.belongsTo(User);
 
