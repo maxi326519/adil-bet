@@ -2,7 +2,11 @@ const { DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
   sequelize.define('bet', {
-
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
+    },
     status: {
       type: DataTypes.ENUM('Active', 'Completed'),
       defaultValue: 'Active'
