@@ -3,9 +3,13 @@ const { DataTypes } = require('sequelize');
 module.exports = sequelize => {
   sequelize.define('bet', {
     id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true
+    },
+    status: {
+      type: DataTypes.ENUM('Active', 'Completed'),
+      defaultValue: 'Active'
     },
     amount: {
       type: DataTypes.FLOAT,
@@ -17,10 +21,6 @@ module.exports = sequelize => {
     },
     multiplier: {
       type: DataTypes.FLOAT,
-      allowNull: false
-    },
-    date: {
-      type: DataTypes.INTEGER,
       allowNull: false
     }
   },
