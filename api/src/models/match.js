@@ -27,6 +27,10 @@ module.exports = sequelize => {
          type: DataTypes.STRING,
          allowNull: false
       },
+      date: {
+         type: DataTypes.STRING,
+         allowNull: false
+      },
       logoLeague: {
          type: DataTypes.STRING,
          allowNull: false
