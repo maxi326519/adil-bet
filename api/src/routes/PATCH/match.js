@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const updateMatch = require("../../controllers/UPDATE/updateMatch")
+const updateMatch = require("../../controllers/PATCH/updateMatch")
 // const { isAdmin } = require('./controllers')
 
 // verificar si es administrador

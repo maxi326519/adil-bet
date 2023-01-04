@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const updateUser = require("../../controllers/UPDATE/updateUser")
+const updateUser = require("../../controllers/PATCH/updateUser")
 
 router.patch("/user/:id", async (req, res) => {
 

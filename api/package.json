@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
+<<<<<<< HEAD
     "test": "mocha -w ./tests/**/*.spec.js",
     "push": "git push origin routes-patch"
+=======
+    "test": "mocha -w ./tests/**/*.spec.js"
+>>>>>>> e8640d10bd7cf1e14f6178ab34988ff85504e97f
   },
   "author": "Henry",
   "license": "ISC",
@@ -22,8 +26,10 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "stripe": "^11.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

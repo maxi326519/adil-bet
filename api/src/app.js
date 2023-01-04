@@ -2,7 +2,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const initialMatch = require ('./requestAPI')
 require('./db.js');
 
 // Import Routes
@@ -10,21 +9,6 @@ const routes = require('./routes');
 
 // Server init
 const server = express();
-
-//--------------------------------------------------------------------------------------------------------------------
-// Auth-0
-/* const config = {
-  authRequired: false,
-  auth0Logout: true
-};
-
-const port = process.env.PORT || 3000;
-if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.NODE_ENV !== 'production') {
-  config.baseURL = `http://localhost:${port}`;
-}
-
-server.use(auth(config)); */
-//--------------------------------------------------------------------------------------------------------------------
 
 // Middlewares
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
@@ -49,8 +33,5 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     console.log(err);
     res.status(status).send(message);
 })
-
-// Importamos los match
-initialMatch();
 
 module.exports = server;
