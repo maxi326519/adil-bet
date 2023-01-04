@@ -21,10 +21,10 @@ const updateMatch = require("../../controllers/UPDATE/updateMatch")
 router.patch("/match/:id", async (req, res) => {
 
    const { id } = req.params
-   const { game, country, league, homeTeam, awayTeam, logoLeague, logoHome, logoAway, scoreHome, scoreAway } = req.body
+   const { date, game, country, league, homeTeam, awayTeam, logoLeague, logoHome, logoAway, scoreHome, scoreAway } = req.body
 
    try {
-      const update = await updateMatch(id, game, country, league, homeTeam, awayTeam, logoLeague, logoHome, logoAway, scoreHome, scoreAway)
+      const update = await updateMatch(id, date, game, country, league, homeTeam, awayTeam, logoLeague, logoHome, logoAway, scoreHome, scoreAway)
       
    } catch (error) {
       res.status(404).json({ error: error.message })
