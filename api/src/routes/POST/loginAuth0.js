@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const loginUserAuth0 = require ('../controllers/loginUserAuth0.js');
+const loginUserAuth0 = require ('../../controllers/POST/loginUserAuth0');
 
 router.post("/login/auth0", async (req, res) => {
     const { email, name } = req.body;

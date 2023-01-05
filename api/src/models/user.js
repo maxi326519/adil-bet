@@ -23,7 +23,7 @@ module.exports = sequelize => {
       },
       password: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },      
       phone: {
          type: DataTypes.STRING,
@@ -35,7 +35,7 @@ module.exports = sequelize => {
       },
       isActive: {
          type: DataTypes.BOOLEAN,
-         defaultValue: false
+         defaultValue: true
       },
       isAdmin: {
          type: DataTypes.BOOLEAN,
