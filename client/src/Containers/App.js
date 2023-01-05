@@ -1,26 +1,29 @@
-import { Route } from 'react-router-dom';
-
 import Landing from '../Components/Landing/Landing.jsx';
 import Home from '../Components/Home/Home.jsx';
 import Promotions from '../Components/Promotions/Promotions.jsx';
 import About from '../Components/About/About.jsx';
 import Dashboard from '../Components/Dashboard/Dashboard.jsx';
 import Login from '../Components/Login/Login.jsx';
-import Singin from '../Components/Singin/Singin.jsx';
+import Signin from '../Components/Signin/Signin.jsx';
 import Inprocess from '../Components/Inprocess/Inprocess.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Route exact path='/' render={Landing}/>
-      <Route exact path='/home' render={Home}/>
-      <Route exact path='/about' render={Inprocess}/>
-      <Route exact path='/promotions' render={Inprocess}/>
-      <Route exact path='/login' render={Login}/>
-      <Route exact path='/singin' render={Singin}/>
-      <Route exact path='/admin' render={Inprocess}/>
+      <BrowserRouter>
+      <Routes>
+      <Route path='/' element={<Landing/>}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route path='/about' element={<Inprocess/>}/>
+      <Route path='/promotions' element={<Inprocess/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/singin' element={<Signin/>}/>
+      <Route path='/admin' element={<Inprocess/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
