@@ -26,6 +26,7 @@ server.use((req, res, next) => {
 // Add Routes
 routes.forEach( r => server.use(r));
 
+
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     const status = err.status || 500;
