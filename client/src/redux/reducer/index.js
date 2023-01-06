@@ -1,8 +1,19 @@
-import { SEARCH_TEAM, GET_MATCHS } from "../actions/types";
+import {
+  SEARCH_TEAM,
+  GET_MATCHS,
+  SET_CURRENT_PAGE,
+  SET_PAGE,
+} from "../actions/types";
 
 const initialState = {
   // Agregrar las variables necesarias
   matches: [],
+  currentPage: {
+    data: [],
+    number: 1,
+    totalPages: 0,
+    maxPerPage: 10
+  },
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -19,10 +30,35 @@ export const Reducer = (state = initialState, action) => {
       };
 
     case GET_MATCHS:
-      return{
+      return {
         ...state,
-        matches: action.payload
-      }
+        matches: action.payload,
+      };
+
+    case SET_CURRENT_PAGE:
+      const newPage = state.currentPage.number + action.payload;
+      const fistMatch = state.currentPage.number * state.currentPage.maxPerPage;
+
+      return {
+        ...state,
+        currentPage: {
+          data: state.matches.slice(fistMatch, fistMatch + state.currentPage.maxPerPage),
+          number: newPage,
+          totalPages: Math.ceil(state.matches.length / state.currentPage.maxPerPage),
+          maxPerPage: 10
+        }
+      };
+
+    case SET_PAGE:
+      return {
+        ...state,
+        currentPage: {
+          data: state.matches.slice(0, state.currentPage.maxPerPage),
+          number: 1,
+          totalPages: Math.ceil(state.matches.length / state.currentPage.maxPerPage),
+          maxPerPage: 10
+        },
+      };
 
     default:
       return state;

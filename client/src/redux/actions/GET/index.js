@@ -1,10 +1,10 @@
 import axios from "axios";
 // Importar los actions types necesarios
-import { SEARCH_TEAM, GET_MATCHS } from "../types";
+import { SEARCH_TEAM, GET_MATCHS, SET_CURRENT_PAGE, SET_PAGE } from "../types";
 
 export function searchTeam(name) {
   return async function (dispatch) {
-/*     let json = await axios.get(`http://localhost:3001/matchs`);
+    /*     let json = await axios.get(`http://localhost:3001/matchs`);
 
     return dispatch({
       type: SEARCH_TEAM,
@@ -16,22 +16,40 @@ export function searchTeam(name) {
   };
 }
 
+export function handlePage(number) {
+  console.log('sadas');
+  return (dispatch) => {
+    dispatch({
+      type: SET_CURRENT_PAGE,
+      payload: number
+    });
+  };
+}
+
+export function handleSetPage(number) {
+  return (dispatch) => {
+    dispatch({
+      type: SET_PAGE
+    });
+  };
+}
+
 export function getMatchDetails() {
   console.log("matchDetails");
 }
 
 export function getMatchs() {
-  return async dispatch => {
-    try{
-      const response = await axios.get('http://localhost:3001/matchs');
+  return async (dispatch) => {
+    try {
+      const response = await axios.get("http://localhost:3001/matchs");
       dispatch({
         type: GET_MATCHS,
-        payload: response.data.message
+        payload: response.data.message,
       });
-    }catch(exception){
+    } catch (exception) {
       console.log(exception);
     }
-  }
+  };
 }
 
 export function getUserActivity() {
