@@ -4,15 +4,14 @@ import { SEARCH_TEAM, GET_MATCHS, SET_CURRENT_PAGE, SET_PAGE } from "../types";
 
 export function searchTeam(name) {
   return async function (dispatch) {
-    /*     let json = await axios.get(`http://localhost:3001/matchs`);
+    let json = await axios.get(
+      `http://localhost:3001/matchs/search?name=${name}`
+    );
 
     return dispatch({
       type: SEARCH_TEAM,
-      payload: {
-        name: name,
-        data: json.data,
-      },
-    }); */
+      payload: json.data,
+    });
   };
 }
 
@@ -20,7 +19,7 @@ export function handlePage(number) {
   return (dispatch) => {
     dispatch({
       type: SET_CURRENT_PAGE,
-      payload: number
+      payload: number,
     });
   };
 }
@@ -28,7 +27,7 @@ export function handlePage(number) {
 export function handleSetPage(number) {
   return (dispatch) => {
     dispatch({
-      type: SET_PAGE
+      type: SET_PAGE,
     });
   };
 }

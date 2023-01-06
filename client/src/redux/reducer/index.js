@@ -12,7 +12,7 @@ const initialState = {
     data: [],
     number: 1,
     totalPages: 0,
-    maxPerPage: 20
+    maxPerPage: 20,
   },
 };
 
@@ -22,11 +22,7 @@ export const Reducer = (state = initialState, action) => {
     case SEARCH_TEAM:
       return {
         ...state,
-        matchs: action.payload.data.filter((m) => {
-          if (m.homeTeam.include(action.payload.name)) return true;
-          if (m.awayTeam.include(action.payload.name)) return true;
-          if (m.league.include(action.payload.name)) return true;
-        }),
+        matches: action.payload,
       };
 
     case GET_MATCHS:
@@ -43,10 +39,15 @@ export const Reducer = (state = initialState, action) => {
         ...state,
         currentPage: {
           ...state.currentPage,
-          data: state.matches.slice(fistMatch, fistMatch + state.currentPage.maxPerPage),
+          data: state.matches.slice(
+            fistMatch,
+            fistMatch + state.currentPage.maxPerPage
+          ),
           number: newPage,
-          totalPages: Math.ceil(state.matches.length / state.currentPage.maxPerPage),
-        }
+          totalPages: Math.ceil(
+            state.matches.length / state.currentPage.maxPerPage
+          ),
+        },
       };
 
     case SET_PAGE:
@@ -56,7 +57,9 @@ export const Reducer = (state = initialState, action) => {
           ...state.currentPage,
           data: state.matches.slice(0, state.currentPage.maxPerPage),
           number: 1,
-          totalPages: Math.ceil(state.matches.length / state.currentPage.maxPerPage),
+          totalPages: Math.ceil(
+            state.matches.length / state.currentPage.maxPerPage
+          ),
         },
       };
 
