@@ -17,7 +17,6 @@ export function searchTeam(name) {
 }
 
 export function handlePage(number) {
-  console.log('sadas');
   return (dispatch) => {
     dispatch({
       type: SET_CURRENT_PAGE,

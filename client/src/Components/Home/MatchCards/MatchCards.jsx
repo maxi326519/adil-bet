@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getMatchs, handleSetPage } from '../../../redux/actions/GET';
+import { handleSetPage } from '../../../redux/actions/GET';
 import Card from './Card/Card';
 import PaginationControllers from './PaginationControllers/PaginationControllers';
 
@@ -11,12 +11,11 @@ export default function MatchCards({ currentMatchs }) {
 
   const matches = useSelector((state) => state.matches);
   const currentPage = useSelector((state) => state.currentPage.data);
-  const totalPages = useSelector((state) => state.currentPage.totalPages);
   const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(handleSetPage())
-  },[matches]);
+  },[matches, dispatch]);
 
   return (
     <div className={styles.container}>

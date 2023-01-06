@@ -36,7 +36,7 @@ export const Reducer = (state = initialState, action) => {
       };
 
     case SET_CURRENT_PAGE:
-      const newPage = state.currentPage.number + action.payload;
+      let newPage = state.currentPage.number + action.payload;
       const fistMatch = state.currentPage.number * state.currentPage.maxPerPage;
 
       return {
