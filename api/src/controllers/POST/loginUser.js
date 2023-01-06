@@ -1,10 +1,9 @@
-const {User, Deposit, Bet} = require ("../db.js")
+const {User, Deposit, Bet} = require ("../../db.js")
 
 const loginUser= async (email, password) => {
-
+  console.log(email)
       const user = await User.findOne({
-        where: { email,
-        password},
+        where: { email,},
         include: [
           {
             model: Deposit,
@@ -14,9 +13,7 @@ const loginUser= async (email, password) => {
           },
         ],
       });
-
-      if (!user) throw new Error('Usuario o contraseña incorrecta');
-      else return user;
+      return user
   };
 
   module.exports = loginUser;
