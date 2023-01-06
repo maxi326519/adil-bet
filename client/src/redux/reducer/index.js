@@ -6,7 +6,6 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  // Agregrar las variables necesarias
   matches: [],
   currentPage: {
     data: [],
@@ -60,7 +59,34 @@ export const Reducer = (state = initialState, action) => {
         },
       };
 
-    default:
-      return state;
-  }
-};
+      case 'POST_CREATE_USER': {
+        //window.localStorage.setItem(USER, JSON.stringify([action.payload]));
+        return {
+          ...state,
+          userDates: action.payload,
+          userlogin: true,
+        };
+          }
+          case 'LOGIN_USER': {
+            console.log(action.payload);
+            // window.localStorage.setItem(USER, JSON.stringify([action.payload]));
+            return {
+              ...state,
+              userDates: action.payload,
+              userlogin: true,
+            };
+          }
+          case 'CREATE_USER_AUTH0': {
+            console.log(action.payload);
+            // window.localStorage.setItem(USER, JSON.stringify([action.payload]));
+            // window.localStorage.setItem(AUTH0, 'YES');
+            return {
+              ...state,
+              userlogin: true,
+              userDates: action.payload,
+            };
+          }
+          default:
+            return state;
+        }
+}

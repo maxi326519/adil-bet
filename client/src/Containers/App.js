@@ -6,6 +6,8 @@ import Dashboard from '../Components/Dashboard/Dashboard.jsx';
 import Login from '../Components/Login/Login.jsx';
 import Signin from '../Components/Signin/Signin.jsx';
 import Inprocess from '../Components/Inprocess/Inprocess.jsx';
+import Header from '../Components/Header.js';
+import CreateUserForm from '../Components/CreateUserForm.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -20,9 +22,11 @@ function App() {
       <Route path='/about' element={<Inprocess/>}/>
       <Route path='/promotions' element={<Inprocess/>}/>
       <Route path='/tutorial' element={<Inprocess/>}/>
-      <Route path='/login' element={<Inprocess/>}/>
-      <Route path='/signin' element={<Inprocess/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/register' element={<CreateUserForm/>}/>
+      <Route path='/signin' element={<Signin/>}/>
       <Route path='/admin' element={<Inprocess/>}/>
+{/*       <Route path='/loginout' element={<Header/>}/> */}
       </Routes>
       </BrowserRouter>
     </div>
