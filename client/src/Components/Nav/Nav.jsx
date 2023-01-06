@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../images";
+//import logo from "../../images";
 import "./Nav.css";
 import "../Home/Home";
 import "../Promotions/Promotions";
@@ -13,7 +13,7 @@ export default function Nav() {
   return (
     <div className="header">
       <nav className="nav">
-        <img className={"logo"} src={logo} alt="logo_Adilbet" />
+        {/* <img className={"logo"} src={logo} alt="logo_Adilbet" /> */}
 
         <Link to="/home">
           <h1 className="link_home nav-menu-link">HOME</h1>
