@@ -2,10 +2,10 @@ const router = require('express').Router();
 const getMatchs = require('../../controllers/GET/getMatchs');
 
 router.get('/matchs', async (req, res) => {
-    const filters = { country, leage, team } = req.query;
+    const {name} = req.query;
     try{
-        const response = await getMatchs(filters);
-        res.status(200).json({ message: response });
+        const matchs = await getMatchs(name);
+        res.status(200).json(matchs);
     }catch(exception){
         res.status(400).json({ error: exception.message });
     }
