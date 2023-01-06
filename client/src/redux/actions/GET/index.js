@@ -1,6 +1,6 @@
 import axios from "axios";
 // Importar los actions types necesarios
-import { SEARCH_TEAM } from "../types";
+import { SEARCH_TEAM, GET_MATCHS } from "../types";
 
 export function searchTeam(name) {
   return async function (dispatch) {
@@ -21,7 +21,17 @@ export function getMatchDetails() {
 }
 
 export function getMatchs() {
-  console.log("matchs");
+  return async dispatch => {
+    try{
+      const response = await axios.get('http://localhost:3001/matchs');
+      dispatch({
+        type: GET_MATCHS,
+        payload: response
+      });
+    }catch(exception){
+      console.log();
+    }
+  }
 }
 
 export function getUserActivity() {

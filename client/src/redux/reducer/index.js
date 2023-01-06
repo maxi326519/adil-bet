@@ -2,7 +2,7 @@ import { SEARCH_TEAM } from "../actions/types";
 
 const initialState = {
   // Agregrar las variables necesarias
-  matchs: [],
+  matches: [],
 };
 
 export const Reducer = (state = initialState, action) => {
