@@ -17,7 +17,7 @@ const INITIAL_STATE = {
 };
 const expresiones = {
   name: /^[a-zA-ZÀ-ÿ\s]{5,40}$/, // Letras y espacios, pueden llevar acentos.
-  password: /^.{8,12}$/, // 4 a 12 digitos.
+  password: /^[\s\S]{8,25}$/, // 4 a 12 digitos.
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 };
 
@@ -73,9 +73,9 @@ const CreateUserForm = () => {
       </div>
       <div className="container-register-form">
         <div className="container-form-body">
-          <h3>Registrate.</h3>
+          <h3 className="title-form">Registrate.</h3>
           <form onSubmit={handleSubmitRegister} className="form-body">
-            <div>
+            <div className={"container-input-name" + validateRegister.name ? null : ' nameError'}>
               <p className="text-form">Nombre</p>
               <input
                 placeholder="Nombre"
@@ -86,12 +86,15 @@ const CreateUserForm = () => {
                 className="form-input"
               />
               {validateRegister.name ? null : (
-                <span>
-                  El nombre no puede contener numeros y menos de 5 letras
-                </span>
+                <div>
+                  <span className="span-form">
+                    El nombre no puede contener numeros y menos de 5
+                    letras
+                  </span>
+                </div>
               )}
             </div>
-            <div>
+            <div className="container-input-name">
               <p className="text-form">Nombre de Usuario</p>
               <input
                 placeholder="Nombre de Usuario"
@@ -102,7 +105,8 @@ const CreateUserForm = () => {
                 className="form-input"
               />
             </div>
-            <div>
+            
+            <div className="container-input-name">
               <p className="text-form">Correo Electronico</p>
               <input
                 placeholder="Correo Electronico"
@@ -113,10 +117,13 @@ const CreateUserForm = () => {
                 className="form-input"
               />
               {validateRegister.email ? null : (
-                <span>El correo electronico no es valido</span>
+                <span className="span-form">
+                  El correo electronico no es valido
+                </span>
               )}
             </div>
-            <div>
+
+            <div className="container-input-name">
               <p className="text-form">Contraseña</p>
               <input
                 placeholder="Contraseña"
@@ -126,6 +133,9 @@ const CreateUserForm = () => {
                 type="password"
                 className="form-input"
               />
+            </div>
+
+            <div className="container-input-name">
               <p className="text-form">Confirmar Contraseña</p>
               <input
                 placeholder="Confirmar Contraseña"
@@ -136,24 +146,33 @@ const CreateUserForm = () => {
                 className="form-input"
               />
             </div>
+            
             {validateRegister.password ? null : (
-              <span>La contraseña tiene que contener minimo 8 caracteres</span>
+              <span className="span-form">
+                La contraseña tiene que contener minimo 8 caracteres
+              </span>
             )}
             {register.password !== register.confirm_password &&
             register.password.length >= 8 ? (
-              <span>Las contraseñas no coinciden</span>
+              <span className="span-form">Las contraseñas no coinciden</span>
             ) : null}
 
-            <p className="text-form">Numero de telefono</p>
-            <input
-              placeholder="Telefono"
-              value={register.phone}
-              name="phone"
-              onChange={handleChange}
-              type="text"
-              className="form-input"
-            />
-            <button>Confirma registro</button>
+            <div className="container-input-name">
+              <p className="text-form">Numero de telefono</p>
+              <input
+                placeholder="Telefono"
+                value={register.phone}
+                name="phone"
+                onChange={handleChange}
+                type="text"
+                className="form-input"
+              />
+            </div>
+
+            <div className="button-check-register">
+              <button className="button-register">Confirma registro</button>
+            </div>
+
           </form>
         </div>
       </div>
