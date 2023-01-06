@@ -6,7 +6,7 @@ const postUser = async (req, res) => {
     if (name && userName && email && password && phone && isAdmin)
       throw new Error("missing parameters", { statusCode: 400 });
 
-    await User.create({
+      const newUser = await User.create({
       name,
       userName,
       email,
@@ -15,7 +15,7 @@ const postUser = async (req, res) => {
       isAdmin: isAdmin ? isAdmin : false,
     });
 
-    return res.status(200).send("the user was made successfully");
+    return res.status(200).json(newUser)
   } catch (error) {
     return res.status(error.statusCode).send({ error: error.message });
   }
