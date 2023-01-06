@@ -1,0 +1,115 @@
+.container-Login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #591411;
+    height: 100vh;
+}
+.container-form-all{
+    background-color: white;
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  margin: 200px;
+  padding: 100px;
+  background-color: rgb(241, 241, 241);
+}
+
+.container-button-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px;
+}
+
+.form-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.left .container-Login {
+  display: flex;
+}
+
+.text-login {
+  text-align: left;
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.container-logo-adilbet {
+  background-color: #591411;
+  margin-top: 380px;
+}
+
+.form-input {
+  border: 0;
+  border-radius: 20px;
+  padding: 15px;
+  background-color: rgb(191, 191, 191);
+  color: white;
+  width: 100%;
+}
+
+.form-input::placeholder {
+  color: rgb(232, 231, 231);
+  border-color: white;
+}
+
+.button-form-login {
+  border: 0;
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+  background-color: #591411;
+  color: white;
+}
+
+.button-form-login:hover{
+    cursor: pointer;
+}
+
+.button-form-register {
+  text-decoration: none;
+  color: white;
+  background-color: #591411;
+  border: 0;
+  border-radius: 20px;
+  padding: 7px 50px 7px 50px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+.title-login {
+  font-size: 50px;
+  margin: 0;
+}
+
+.button-google {
+  border: 0;
+}
+
+.google-logo {
+  width: 30px;
+}
+
+.container-google {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid rgb(199, 199, 199);
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.container-google:hover{
+    cursor: pointer;
+}
+
+.text-form-register{
+    font-size: 20px;
+}
