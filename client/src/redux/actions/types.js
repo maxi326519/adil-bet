@@ -8,6 +8,7 @@ export const GET_MATCHS = 'GET_MATCHS';
 export const GET_USER_ACTIVITY = 'GET_USER_ACTIVITY'
 export const GET_USER_INFO = 'GET_USER_INFO'
 export const GET_USER_ORDERS = 'GET_USER_ORDERS'
+export const SEARCH_TEAM = 'SEARCH_TEAM';
 
 // PATCH
 export const UPDATE_MATCH = 'UPDATE_MATCH';

@@ -8,12 +8,6 @@ import styles from "./MatchCards.module.css";
 
 export default function MatchCards() {
   const matches = useSelector((state) => state.matches);
-  const dispatch = useDispatch();
-
-  useEffect(()=>{
-    console.log('Componente montado');
-    dispatch(getMatchs());
-  });
 
   return (
     <div className={'Match' + styles.container}>

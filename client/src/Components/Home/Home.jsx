@@ -1,5 +1,8 @@
 /* import React, { useState } from "react";
 import { useSelector } from "react-redux"; */
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getMatchs } from '../../redux/actions/GET';
 
 import MatchCards from "./MatchCards/MatchCards";
 // import Nav from "../Nav/Nav";
@@ -11,6 +14,12 @@ import Footer from "../Footer/Footer";
 import styles from "./Home.css";
 
 export default function Home() {
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+      console.log('Componente montado');
+      dispatch(getMatchs());
+    });
 /*   const matches = useSelector((store) => store.Matches);
 
   const [order, setOrder] = useState("");

@@ -1,4 +1,4 @@
-import { SEARCH_TEAM } from "../actions/types";
+import { SEARCH_TEAM, GET_MATCHS } from "../actions/types";
 
 const initialState = {
   // Agregrar las variables necesarias
@@ -17,6 +17,12 @@ export const Reducer = (state = initialState, action) => {
           if (m.league.include(action.payload.name)) return true;
         }),
       };
+
+    case GET_MATCHS:
+      return{
+        ...state,
+        matches: action.payload
+      }
 
     default:
       return state;
