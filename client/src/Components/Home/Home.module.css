@@ -1,0 +1,7 @@
+.content{
+    display: flex;
+}
+
+.Searchbar{
+    background-color: var(--primary-color);
+}

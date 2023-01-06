@@ -18,7 +18,7 @@ export default function MatchCards({ currentMatchs }) {
   },[matches, dispatch]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.list}>
       {
         currentPage.map((match) => {
           return (

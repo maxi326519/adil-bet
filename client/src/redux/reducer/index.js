@@ -12,7 +12,7 @@ const initialState = {
     data: [],
     number: 1,
     totalPages: 0,
-    maxPerPage: 10
+    maxPerPage: 20
   },
 };
 
@@ -42,10 +42,10 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: {
+          ...state.currentPage,
           data: state.matches.slice(fistMatch, fistMatch + state.currentPage.maxPerPage),
           number: newPage,
           totalPages: Math.ceil(state.matches.length / state.currentPage.maxPerPage),
-          maxPerPage: 10
         }
       };
 
@@ -53,10 +53,10 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: {
+          ...state.currentPage,
           data: state.matches.slice(0, state.currentPage.maxPerPage),
           number: 1,
           totalPages: Math.ceil(state.matches.length / state.currentPage.maxPerPage),
-          maxPerPage: 10
         },
       };
 

@@ -1,24 +1,24 @@
 *{
     margin: 0;
     box-sizing: border-box;
-    font-family: "Cinzel", serif;
   }
+  
   .header {
-    background-color: rgb(15, 28, 61);
-
-    height: 100px;
+    background-color: var(--primary-color);
+    height: 80px;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 25px 0 22px;
+    padding: 25px 15px;
     z-index: 1;
   }
+
   .nav {
     display: flex;
-    justify-content: space-between;
-    max-width: 992px;
+    max-width: 1400px;
     margin: 0 auto;
   }
+
   .logo {
     position: relative;
     top: -15px;
@@ -26,18 +26,33 @@
     height: 90px;
     /* padding: 0px 0px 10px; */
   }
+
+  .nav .menu{
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .nav a{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+  }
+
   .nav-menu-link {
     padding: 8px 12px;
     border-radius: 3px;
   }
+
   .nav-menu-link:hover {
     background-color: rgb(66, 136, 240);
     transition: 0.5s;
   }
+
   .login {
     /* gap: 20px; */
     width: 150px;
   }
+
   .signin {
     /* gap: 20px; */
     width: 150px;

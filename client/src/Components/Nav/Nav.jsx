@@ -13,30 +13,34 @@ export default function Nav() {
   return (
     <div className="header">
       <nav className="nav">
-        {/* <img className={"logo"} src={logo} alt="logo_Adilbet" /> */}
+        <div className="menu">
+          {/* <img className={"logo"} src={logo} alt="logo_Adilbet" /> */}
 
-        <Link to="/home">
-          <h1 className="link_home nav-menu-link">HOME</h1>
-        </Link>
+          <Link to="/home">
+            <span className="link_home nav-menu-link">Home</span>
+          </Link>
 
-        <Link to="/promotions">
-          <h1 className="link_promotions nav-menu-link">PROMOCIONES</h1>
-        </Link>
+          <Link to="/promotions">
+            <span className="link_promotions nav-menu-link">Promociones</span>
+          </Link>
 
-        <Link to="/tutorial">
-          <h1 className="link_tutorial nav-menu-link">TUTORIAL</h1>
-        </Link>
+          <Link to="/tutorial">
+            <span className="link_tutorial nav-menu-link">Tutorial</span>
+          </Link>
 
-        <Link to="/about">
-          <h1 className="link_about ">NOSOTROS</h1>
-        </Link>
-
-        <div className="login">
-          <Login />
+          <Link to="/about">
+            <span className="link_about nav-menu-link">Nosotros</span>
+          </Link>
         </div>
 
-        <div className="signin">
-          <Signin />
+        <div className="secion">
+          <Link to="/login">
+            <span className="link_about ">Login</span>
+          </Link>
+
+          <Link to="/signin">
+            <span className="link_about ">Signin</span>
+          </Link>
         </div>
       </nav>
     </div>

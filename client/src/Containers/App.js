@@ -19,8 +19,9 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/about' element={<Inprocess/>}/>
       <Route path='/promotions' element={<Inprocess/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/singin' element={<Signin/>}/>
+      <Route path='/tutorial' element={<Inprocess/>}/>
+      <Route path='/login' element={<Inprocess/>}/>
+      <Route path='/signin' element={<Inprocess/>}/>
       <Route path='/admin' element={<Inprocess/>}/>
       </Routes>
       </BrowserRouter>

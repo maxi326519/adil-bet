@@ -1,11 +1,13 @@
 import React from "react";
 import Footer from "../Footer/Footer";
+import Nav from '../Nav/Nav';
 import "./Landing.css";
 import ImageTeam from "./Images/team.png";
 
 export default function Landing() {
   return (
     <div>
+      <Nav/>
       <div className="body_full">
         <div className="container-all">
           <input type="radio" id="1" name="image-slide" hidden />
@@ -88,6 +90,7 @@ export default function Landing() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

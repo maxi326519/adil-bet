@@ -6,14 +6,9 @@ export default function Card({ league, homeTeam, awayTeam, date, logoLeague, log
         <div className={styles.card}>
           <span className={styles.league}>{league}</span>
           <div className={styles.teams}>
-            <span className={styles.homeTeam}>
-              <img src={logoHome} alt={`Logo del equipo ${homeTeam}`} />
-              {homeTeam}
-            </span>
-            <span className={styles.awayTeam}>
-              <img src={logoAway} alt={`Logo del equipo ${awayTeam}`} />
-              {awayTeam}
-            </span>
+            <span className={styles.homeTeam}>{homeTeam}</span>
+            <span> vs</span>
+            <span className={styles.awayTeam}>{awayTeam}</span>
           </div>
           <span className={styles.date}>{date}</span>
           <span className={styles.score}>
