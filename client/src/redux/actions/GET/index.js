@@ -1,6 +1,6 @@
 import axios from "axios";
 // Importar los actions types necesarios
-import { SEARCH_TEAM, GET_MATCHS, SET_CURRENT_PAGE, SET_PAGE } from "../types";
+import { SEARCH_TEAM, GET_MATCHS, SET_CURRENT_PAGE, SET_PAGE, MATCH_DETAILS } from "../types";
 
 export function searchTeam(name) {
   return async function (dispatch) {
@@ -32,8 +32,19 @@ export function handleSetPage(number) {
   };
 }
 
-export function getMatchDetails() {
-  console.log("matchDetails");
+export function getMatchDetails(id) {
+  console.log(id)
+  return async function (dispatch) {
+    try {
+      const result = await axios.get(`http://localhost:3001/details/${id}`);
+      return dispatch({
+        type: MATCH_DETAILS,
+        payload: result.data,
+      });
+    } catch (error) {
+        throw new Error (error.message)
+    }
+  };
 }
 
 export function getMatchs() {
@@ -61,3 +72,4 @@ export function getUserInfo() {
 export function getUserOrders() {
   console.log("userOrders");
 }
+

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { handleSetPage } from '../../../redux/actions/GET';
 import Card from './Card/Card';
 import PaginationControllers from './PaginationControllers/PaginationControllers';
+import { Link } from "react-router-dom";
 
 import styles from "./MatchCards.module.css";
 
@@ -22,6 +23,7 @@ export default function MatchCards({ currentMatchs }) {
       {
         currentPage.map((match) => {
           return (
+            <Link to={`/details/${match.id}`}>
             <Card
               league={match.league}
               homeTeam={match.homeTeam}
@@ -32,7 +34,9 @@ export default function MatchCards({ currentMatchs }) {
               logoAway={match.logoAway}
               scoreHome={match.scoreHome}
               scoreAway={match.scoreAway}
-            />)
+            />
+            </Link>
+            )
           })
         }
       <PaginationControllers/>

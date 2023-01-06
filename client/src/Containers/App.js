@@ -11,6 +11,7 @@ import CreateUserForm from '../Components/CreateUserForm.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
+import MatchDetails from '../Components/MatchDetails/MatchDetails.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/' element={<Landing/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route path='/about' element={<Inprocess/>}/>
+      <Route path='/details/:id' element={<MatchDetails/>}/>
       <Route path='/promotions' element={<Inprocess/>}/>
       <Route path='/tutorial' element={<Inprocess/>}/>
       <Route path='/login' element={<Login/>}/>

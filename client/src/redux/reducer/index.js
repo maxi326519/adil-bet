@@ -13,6 +13,7 @@ const initialState = {
     totalPages: 0,
     maxPerPage: 20,
   },
+  matchDetail:[]
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -88,6 +89,12 @@ export const Reducer = (state = initialState, action) => {
         userlogin: true,
         userDates: action.payload,
       };
+    }
+    case 'MATCH_DETAILS':{
+      return {
+          ...state,
+          matchDetail: action.payload
+      }
     }
     default:
       return state;
