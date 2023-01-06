@@ -14,7 +14,7 @@ export default function MatchCards({ currentMatchs }) {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(handleSetPage())
+    if(matches.length > 0) dispatch(handleSetPage())
   },[matches, dispatch]);
 
   return (
