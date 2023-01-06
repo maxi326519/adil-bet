@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../Footer/Footer";
 import Nav from '../Nav/Nav';
 import "./Landing.css";
-import ImageTeam from "./Images/team.png";
+import ImageTeam from "../../Assets/Images/team.png";
 
 export default function Landing() {
   return (

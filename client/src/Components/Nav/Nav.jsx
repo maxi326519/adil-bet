@@ -8,13 +8,16 @@ import "../Tutorial/Tutorial";
 import "../About/About";
 import Signin from "../Signin/Signin";
 import Login from "../Login/Login";
+import Logo from "../../Assets/Images/Logo.png";
 
 export default function Nav() {
   return (
     <div className="header">
       <nav className="nav">
         <div className="menu">
-          {/* <img className={"logo"} src={logo} alt="logo_Adilbet" /> */}
+          <Link to="/">
+            <img className="logo" src={Logo} alt="logo_Adilbet" />
+          </Link>
 
           <Link to="/home">
             <span className="link_home nav-menu-link">Home</span>
