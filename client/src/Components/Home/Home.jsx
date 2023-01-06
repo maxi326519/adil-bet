@@ -35,13 +35,13 @@ export default function Home() {
         <Searchbar returnToFirstPage={returnToFirstPage} />
         <Filter setCurrentPage={setCurrentPage} setOrder={setOrder} />
       </div>
-      <MatchCards currentRecipes={currentMatchs} />
-      <Paged
+      <MatchCards /* currentRecipes={currentMatchs} */ />
+{/*       <Paged
         recipePerPage={matchsPerPage}
         recipes={MatchCards.length}
         paged={paged}
         currentPage={currentPage}
-      />
+      /> */}
       <Footer />
     </div>
   );

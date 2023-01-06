@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchTeam } from "../../../redux/actions/GET/Index";
+import { searchTeam } from "../../../redux/actions/GET";
 
 import styles from "./Searchbar.module.css";
 

@@ -4,7 +4,7 @@ import { SEARCH_TEAM } from "../types";
 
 export function searchTeam(name) {
   return async function (dispatch) {
-    let json = await axios.get(`http://localhost:3001/matchs`);
+/*     let json = await axios.get(`http://localhost:3001/matchs`);
 
     return dispatch({
       type: SEARCH_TEAM,
@@ -12,7 +12,7 @@ export function searchTeam(name) {
         name: name,
         data: json.data,
       },
-    });
+    }); */
   };
 }
 
