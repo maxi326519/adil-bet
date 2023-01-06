@@ -150,15 +150,17 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   justify-content: center;
   font-family: "Roboto Condensed", sans-serif;
   background-color: #d2d7d3;
-  margin-left: 290px;
-  margin-right: 290px;
+  margin-left: 460px;
+  margin-right: 490px;
   border-radius: 40px;
+  box-shadow: 1px 1px 10px 6px gray;
 }
 
 .promo-button {
   border: none;
   background-color: yellow;
   border-radius: 20px;
+  padding: 20px;
 }
 
 .title-promo-landing {

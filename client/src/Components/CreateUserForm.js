@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { postCreateUser } from "../redux/actions/POST/index";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
-import Logo from "./Login/Images/Logo.png";
+import Logo from "../Assets/Images/Logo.png";
 const INITIAL_STATE = {
   name: "",
   userName: "",

@@ -8,9 +8,11 @@
 .list-footer{
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .list-item-footer{
+    margin: 10px;
     padding-right: 20px;
     list-style: none;
     text-decoration: none;
@@ -19,16 +21,20 @@
 
 .title-footer{
     color: white;
+    margin: 10px;
 }
 
 .text-footer{
     color: white;
+    margin: 10px;
 }
 
 .logo-social-footer{
     width: 50px;
+    margin: 10px;
 }
 
 .logos-payment-footer{
     width: 350px;
+    margin: 10px;
 }
