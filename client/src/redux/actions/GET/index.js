@@ -43,7 +43,7 @@ export function getMatchs() {
       const response = await axios.get("http://localhost:3001/matchs");
       dispatch({
         type: GET_MATCHS,
-        payload: response.data.message,
+        payload: response.data,
       });
     } catch (exception) {
       console.log(exception);
