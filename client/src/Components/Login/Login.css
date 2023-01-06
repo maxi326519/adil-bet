@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 20px;
-  margin: 200px;
+  margin: 130px 200px 200px 200px;
   padding: 100px;
   background-color: rgb(241, 241, 241);
 }
@@ -44,7 +44,7 @@
 
 .container-logo-adilbet {
   background-color: #591411;
-  margin-top: 380px;
+  margin-top: 300px;
 }
 
 .form-input {

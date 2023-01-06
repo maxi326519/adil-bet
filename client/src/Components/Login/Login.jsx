@@ -42,7 +42,7 @@ const Login = () => {
         <div className="container-form">
           <h3 className="title-login">Inicia Sesion.</h3>
           <form onSubmit={handleSubmit} className="form-body">
-            <p className="text-login">Correo Electronico</p>
+            <p className="text-login">Correo electronico</p>
             <input
               className="form-input"
               placeholder="Correo Electronico"
