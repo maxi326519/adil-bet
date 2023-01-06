@@ -15,7 +15,6 @@ export default function PaginationControllers() {
         if(number < totalPages) dispatch(handlePage(1));
     }
     
-
     return (
       <div>
         <div>
