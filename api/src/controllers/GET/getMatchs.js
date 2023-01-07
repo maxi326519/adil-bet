@@ -3,6 +3,8 @@ const { Match } = require('../../db.js');
 async function getMatchs(league, teams, country){
     let attributes = {}
 
+    console.log(league, teams, country);
+    
       // Filters
       if(league) attributes['league'] = league;
       if(country) attributes['country'] = country;
