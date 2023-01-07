@@ -3,6 +3,7 @@ import {
   GET_MATCHS,
   SET_CURRENT_PAGE,
   SET_PAGE,
+  MATCH_FILTERS
 } from "../actions/types";
 
 const initialState = {
@@ -16,6 +17,11 @@ const initialState = {
   matchDetail:[],
   userDates: {},
   userlogin: false,
+  filters: {
+    league: [],
+    country: [],
+    teams: []
+  }
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -32,6 +38,12 @@ export const Reducer = (state = initialState, action) => {
         ...state,
         matches: action.payload,
       };
+
+    case MATCH_FILTERS:
+      return{
+        ...state,
+        filters: action.payload
+      }
 
     case SET_CURRENT_PAGE:
       let newPage = state.currentPage.number + action.payload;
