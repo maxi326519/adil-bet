@@ -3,6 +3,7 @@ import {
   GET_MATCHS,
   SET_CURRENT_PAGE,
   SET_PAGE,
+  GET_FILTERS,
 } from "../actions/types";
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
     totalPages: 0,
     maxPerPage: 20,
   },
-  matchDetail:[]
+  matchDetail:[],
+  filters:[]
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -94,6 +96,12 @@ export const Reducer = (state = initialState, action) => {
       return {
           ...state,
           matchDetail: action.payload
+      }
+    }
+    case GET_FILTERS:{
+      return {
+        ...state,
+        filters: action.payload
       }
     }
     default:

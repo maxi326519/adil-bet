@@ -1,17 +1,17 @@
 import axios from "axios";
 // Importar los actions types necesarios
-import { SEARCH_TEAM, GET_MATCHS, SET_CURRENT_PAGE, SET_PAGE, MATCH_DETAILS } from "../types";
+import { SEARCH_TEAM, GET_MATCHS, SET_CURRENT_PAGE, SET_PAGE, MATCH_DETAILS, GET_FILTERS } from "../types";
 
 export function searchTeam(name) {
   return async function (dispatch) {
-    let json = await axios.get(
-      `http://localhost:3001/matchs/search?name=${name}`
-    );
+    // let json = await axios.get(
+    //   `http://localhost:3001/matchs/search?name=${name}`
+    // );
 
-    return dispatch({
-      type: SEARCH_TEAM,
-      payload: json.data,
-    });
+    // return dispatch({
+    //   type: SEARCH_TEAM,
+    //   payload: json.data,
+    // });
   };
 }
 
@@ -47,10 +47,13 @@ export function getMatchDetails(id) {
   };
 }
 
-export function getMatchs() {
+export function getMatchs(filters) {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/matchs");
+      const response = await axios.get(
+        `http://localhost:3001/matchs?country=${filters.country}&teams=${filters.teams}&league=${filters.league}
+        `
+        );
       dispatch({
         type: GET_MATCHS,
         payload: response.data,
@@ -71,5 +74,19 @@ export function getUserInfo() {
 
 export function getUserOrders() {
   console.log("userOrders");
+}
+
+export function getFilters(){
+  return async (dispatch)=>{
+    try{
+      const response = await axios.get('http://localhost:3001/getFilters')
+      dispatch({
+        type: GET_FILTERS,
+        payload: response.data
+      })
+    }catch(err){
+      console.log(err)
+    }
+  }
 }
 
