@@ -13,7 +13,9 @@ const initialState = {
     totalPages: 0,
     maxPerPage: 20,
   },
-  matchDetail:[]
+  matchDetail:[],
+  userDates: {},
+  userlogin: false,
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -83,7 +85,6 @@ export const Reducer = (state = initialState, action) => {
     case "CREATE_USER_AUTH0": {
       console.log(action.payload);
       // window.localStorage.setItem(USER, JSON.stringify([action.payload]));
-      // window.localStorage.setItem(AUTH0, 'YES');
       return {
         ...state,
         userlogin: true,
