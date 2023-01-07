@@ -9,6 +9,7 @@ import Inprocess from '../Components/Inprocess/Inprocess.jsx';
 import Header from '../Components/Header.js';
 import CreateUserForm from '../Components/CreateUserForm.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Filters from '../Components/filters/Filters.jsx';
 
 import './App.css';
 import MatchDetails from '../Components/MatchDetails/MatchDetails.jsx';
@@ -28,7 +29,6 @@ function App() {
       <Route path='/register' element={<CreateUserForm/>}/>
       <Route path='/signin' element={<Signin/>}/>
       <Route path='/admin' element={<Inprocess/>}/>
-{/*       <Route path='/loginout' element={<Header/>}/> */}
       </Routes>
       </BrowserRouter>
     </div>

@@ -7,15 +7,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  matches: [],
-  currentPage: {
-    data: [],
-    number: 1,
-    totalPages: 0,
-    maxPerPage: 20,
-  },
-  matchDetail:[],
-  filters:[]
+
 };
 
 export const Reducer = (state = initialState, action) => {
