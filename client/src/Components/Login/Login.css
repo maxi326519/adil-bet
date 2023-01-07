@@ -1,11 +1,11 @@
 .container-Login {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: #591411;
-    height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #591411;
+  height: 100vh;
 }
-.container-form-all{
-    background-color: white;
+.container-form-all {
+  background-color: white;
 }
 
 .container-form {
@@ -70,8 +70,8 @@
   color: white;
 }
 
-.button-form-login:hover{
-    cursor: pointer;
+.button-form-login:hover {
+  cursor: pointer;
 }
 
 .button-form-register {
@@ -106,10 +106,40 @@
   border-radius: 10px;
 }
 
-.container-google:hover{
-    cursor: pointer;
+.container-google:hover {
+  cursor: pointer;
 }
 
-.text-form-register{
-    font-size: 20px;
+.text-form-register {
+  font-size: 20px;
+}
+
+/*-------Button-------*/
+.btn-X {
+  background-color: #eee;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 3.2em;
+  border-radius: 0.8rem;
+  color: lightcoral;
+  box-shadow: 0 0.4rem #dfd9d9;
+  cursor: pointer;
+}
+
+.btn-X:active {
+  color: white;
+  box-shadow: 0 0.2rem #dfd9d9;
+  transform: translateY(0.2rem);
+}
+
+.btn-X:hover:not(:disabled) {
+  background: rgb(247, 79, 79);
+  color: white;
+  text-shadow: 0 0.1rem #bcb4b4;
+}
+
+.btn-X:disabled {
+  cursor: auto;
+  color: grey;
 }

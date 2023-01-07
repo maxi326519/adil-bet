@@ -39,6 +39,11 @@ const Login = () => {
         <img src={Logo} alt="Logo-adilbet" className="Logo-login" />
       </div>
       <div className="container-form-all">
+        <Link to="/home">
+          <button className="btn-X">
+            <span>X</span>
+          </button>
+        </Link>
         <div className="container-form">
           <h3 className="title-login">Inicia Sesion.</h3>
           <form onSubmit={handleSubmit} className="form-body">
