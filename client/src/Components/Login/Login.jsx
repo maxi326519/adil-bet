@@ -72,7 +72,7 @@ const Login = () => {
               <div>
                 <p className="text-form-register">No tienes cuenta?</p>
                 <div className="button-form-register-cont">
-                  <Link to="/register" className="button-form-register">
+                  <Link to="/signin" className="button-form-register">
                     Registrate
                   </Link>
                 </div>
