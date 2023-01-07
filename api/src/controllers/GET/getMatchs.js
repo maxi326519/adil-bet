@@ -1,15 +1,25 @@
 const { Match } = require('../../db.js');
 
-function getMatchs(filters){
-    // let atributtes = {}
+async function getMatchs(league, teams, country){
+    let attributes = {}
 
-    // Filters
-    if(filters.country) atributtes.where['country'] = filters.country;
-    if(filters.leage) atributtes.where['leage'] = filters.leage;
-    if(filters.team) atributtes.where['team'] = filters.team;
-
+      // Filters
+      if(league !== '') attributes['league'] = league;
+      if(country !== '') attributes['country'] = country;
+      
     // Find matchs
-    const allMatchs = Match.findAll()
+    let allMatchs = await Match.findAll({ where: attributes })
+
+    if(!allMatchs) throw new Error('No existen partidos con esos filtros');
+
+    // Team Filter
+    if(teams !== ''){
+        allMatchs = allMatchs.filter(m => {
+            console.log(m.dataValues.homeTeam);
+            if(m.dataValues.homeTeam === teams) return true;
+            if(m.dataValues.awayTeam === teams) return true;
+        });
+    }
 
     if(!allMatchs) throw new Error('No existen partidos con esos filtros');
 

@@ -3,6 +3,7 @@ export const DELETE_ORDER = 'DELETE_ORDER';
 export const DELETE_USER = 'DELETE_USER'
 
 // GET
+export const GET_FILTERS = 'GET_FILTERS'
 export const MATCH_DETAILS = 'MATCH_DETAILS';
 export const GET_MATCHS = 'GET_MATCHS';
 export const GET_USER_ACTIVITY = 'GET_USER_ACTIVITY'
