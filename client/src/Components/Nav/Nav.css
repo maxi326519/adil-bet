@@ -1,31 +1,32 @@
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
-
 .header {
+  display: flex;
+  justify-content: space-evenly;
   background-color: var(--primary-color);
-  height: 80px;
-  top: 0;
-  left: 0;
-  width: 100%;
+  height: 60px;
   padding: 25px 15px;
   z-index: 1;
 }
 
+.nav-menu-link{
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+}
+
 .nav {
   display: flex;
-  max-width: 1400px;
-  margin: 0 auto;
+  justify-content: space-around;
 }
+
 
 .logo {
-  width: 70px;
+  margin: 0;
+  width: 90px;
 }
 
-.nav .menu {
+.menu {
   display: flex;
-  flex-grow: 1;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -41,8 +42,12 @@
 }
 
 .nav-menu-link:hover {
-  background-color: rgb(66, 136, 240);
+  background-color: rgba(255, 100, 100, 0.394);
   transition: 0.5s;
+}
+
+.sesion{
+  margin: 20px 0;
 }
 
 .login {
