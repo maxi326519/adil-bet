@@ -1,15 +1,20 @@
-.cntleague{
-    margin: 0;
-    padding: 0;
+.matchdetail{
+    display: flex;
+    flex-direction: column;
 }
 
-.matchdetail{
+.details-content{
     margin: 150px;
     padding: 20px;
     background-color: rgb(229, 229, 229);
     border: 1px solid black;
     border-radius: 50px;
     box-shadow: 1px 1px 10px 3px gray;
+}
+
+.cntleague{
+    margin: 0;
+    padding: 0;
 }
 
 .titleleague{
