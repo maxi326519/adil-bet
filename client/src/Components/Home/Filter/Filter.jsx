@@ -48,7 +48,6 @@ export default function Filter() {
       <div className="filter">
       <select className='select' value= {selected.country === "All" ? 'country' : null} name= 'country' onChange={(e) => filterState(e)}>
           <option value= 'All' key='All' >Filtro por pais</option>
-          {console.log(allFilters.country)}
           {allFilters.country?.map((e, i) => {
             return <option value={e} key={i}>{e}</option>;
           })}
