@@ -58,15 +58,8 @@ export default function Filter() {
     <form onSubmit={handleSubmit} className="filtersDiv">
       <h3>Filtros</h3>
       <div className="filter">
-        <select
-          className="select"
-          value={selected.country === "All" ? "country" : null}
-          name="country"
-          onChange={(e) => filterState(e)}
-        >
-          <option value="All" key="All">
-            Filtro por pais
-          </option>
+      <select className='select' value= {selected.country === "All" ? 'country' : null} name= 'country' onChange={(e) => filterState(e)}>
+          <option value= 'All' key='All' >Filtro por pais</option>
           {console.log(allFilters.country)}
           {allFilters.country?.map((e, i) => {
             return (
