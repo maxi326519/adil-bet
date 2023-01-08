@@ -1,52 +1,83 @@
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 5px;
-  }
-  
-  .league {
-    font-size: 20px;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  outline: 1px solid gray;
+  width: max-content;
+}
 
-/*     background-color: red; */
-  }
-  
-  .teams {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.Link {
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
 
-/*     background-color: green; */
-  }
-  
-  .home-team,
-  .away-team {
-    display: flex;
-    align-items: center;
-  }
-  
-  .home-team img,
-  .away-team img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .date {
-    font-size: 16px;
-    margin-bottom: 20px;
+.buttons{
+  margin: 0 20px;
+}
 
-/*     background-color: yellow; */
-  }
-  
-  .score {
-    font-size: 20px;
-    font-weight: bold;
-/* 
+.league {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+
+  /*     background-color: red; */
+}
+
+.cntteams {
+  margin: 20px;
+}
+
+.teams {
+  display: flex;
+  flex-direction: column;
+  color: black;
+
+  outline: 1px solid gray;
+  min-width: 400px;
+  /*     background-color: green; */
+}
+
+.teams span:nth-child(2) {
+  margin: 0 9px;
+}
+
+.cntlogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.teams {
+}
+
+.logo {
+  width: 50px;
+}
+
+.home-team,
+.away-team {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.date {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: black;
+
+  /*     background-color: yellow; */
+}
+
+.score {
+  font-size: 20px;
+  font-weight: bold;
+  /* 
     background-color: blue; */
-  }
+}

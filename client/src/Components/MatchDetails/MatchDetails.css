@@ -1,0 +1,31 @@
+.cntleague{
+    margin: 0;
+    padding: 0;
+}
+
+.matchdetail{
+    margin: 150px;
+    padding: 20px;
+    background-color: rgb(229, 229, 229);
+    border: 1px solid black;
+    border-radius: 50px;
+    box-shadow: 1px 1px 10px 3px gray;
+}
+
+.titleleague{
+    font-size: 30px;
+}
+
+.imgleague{
+    width: 70px;
+}
+
+.cnt-teams{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+
+.imgteam{
+    margin: 10px;
+}

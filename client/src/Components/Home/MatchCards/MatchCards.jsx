@@ -1,30 +1,29 @@
-import React from 'react';
+import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { handleSetPage } from '../../../redux/actions/GET';
-import Card from './Card/Card';
-import PaginationControllers from './PaginationControllers/PaginationControllers';
+import { handleSetPage } from "../../../redux/actions/GET";
+import Card from "./Card/Card";
+import PaginationControllers from "./PaginationControllers/PaginationControllers";
 import { Link } from "react-router-dom";
 
 import styles from "./MatchCards.module.css";
 
 export default function MatchCards({ currentMatchs }) {
-
   const matches = useSelector((state) => state.matches);
   const currentPage = useSelector((state) => state.currentPage.data);
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    if(matches.length > 0) dispatch(handleSetPage())
-  },[matches, dispatch]);
+  useEffect(() => {
+    if (matches.length > 0) dispatch(handleSetPage());
+  }, [matches, dispatch]);
 
   return (
-    <div className={styles.list}>
-      {
-        currentPage.map((match) => {
+    <div className={styles.content}>
+      <div className={styles.list}>
+        {currentPage.map((match) => {
           return (
-            <Link to={`/details/${match.id}`}>
             <Card
+              matchId={match.id}
               league={match.league}
               homeTeam={match.homeTeam}
               awayTeam={match.awayTeam}
@@ -35,11 +34,10 @@ export default function MatchCards({ currentMatchs }) {
               scoreHome={match.scoreHome}
               scoreAway={match.scoreAway}
             />
-            </Link>
-            )
-          })
-        }
-      <PaginationControllers/>
+          );
+        })}
+      </div>
+      <PaginationControllers />
     </div>
   );
 }
