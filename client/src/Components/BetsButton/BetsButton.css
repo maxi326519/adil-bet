@@ -1,0 +1,15 @@
+.Button-bet{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+    border: 1px solid rgb(155, 155, 155);
+    background-color: rgb(255, 255, 255);
+    padding: 3px;
+    margin: 5px;
+}
+
+.team-name{
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+}
