@@ -6,7 +6,8 @@ import {
   SET_CURRENT_PAGE,
   SET_PAGE,
   MATCH_DETAILS,
-  MATCH_FILTERS
+  MATCH_FILTERS,
+  ORDER_BY_NAME
 } from "../types";
 
 export function searchTeam(name) {
@@ -86,6 +87,13 @@ export function getMatchs(filters) {
       console.log(exception);
     }
   };
+}
+
+export function orderByName(payload){
+  return{
+      type: ORDER_BY_NAME,
+      payload
+  }
 }
 
 export function getUserActivity() {

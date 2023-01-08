@@ -3,7 +3,8 @@ import {
   GET_MATCHS,
   SET_CURRENT_PAGE,
   SET_PAGE,
-  MATCH_FILTERS
+  MATCH_FILTERS,
+  ORDER_BY_NAME
 } from "../actions/types";
 
 const initialState = {
@@ -20,7 +21,7 @@ const initialState = {
   filters: {
     league: [],
     country: [],
-    teams: []
+    teams: [],
   }
 };
 
@@ -109,7 +110,30 @@ export const Reducer = (state = initialState, action) => {
           matchDetail: action.payload
       }
     }
+    case ORDER_BY_NAME:{
+            let all = state.matches
+            let teamsByName =   action.payload === 'A to Z' ?
+          
+                all.sort((a, b) => {
+                    if (a.homeTeam > b.homeTeam) return 1;
+                    if (a.homeTeam < b.homeTeam) return -1;
+                    return 0;
+                }):
+                all.sort((a, b) => {
+                    if (a.homeTeam < b.homeTeam) return 1;
+                    if (a.homeTeam > b.homeTeam) return -1;
+                    return 0;
+                })
+            return {
+                ...state,
+                matches: teamsByName
+            }
+          }
     default:
       return state;
+
+      
   }
 };
+
+

@@ -17,7 +17,6 @@ async function getMatchs(league, teams, country){
     // Team Filter
     if(teams){
         allMatchs = allMatchs.filter(m => {
-            console.log(m.dataValues.homeTeam);
             if(m.dataValues.homeTeam === teams) return true;
             if(m.dataValues.awayTeam === teams) return true;
         });
