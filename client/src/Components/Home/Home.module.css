@@ -2,6 +2,8 @@
     display: flex;
 }
 
-.Searchbar{
-    background-color: var(--primary-color);
+.menu{
+    width: 300px;
+    padding: 10px;
+    background-color: #333;
 }

@@ -30,17 +30,17 @@ export default function Searchbar({ returnToFirstPage }) {
       <input
         type="search"
         value={team}
-        placeholder="Find your team..."
+        placeholder="Buscar tu equipo o liga favorita..."
         onChange={(e) => handleChange(e)}
         onKeyDown={handleKeyDown}
-        className={styles.input}
+        className={styles.input + 'input'}
       />
       <button
         type="submit"
         onClick={(e) => handleSubmit(e)}
         className={styles.btn}
       >
-        b
+        Buscar
       </button>
     </div>
   );

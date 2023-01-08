@@ -1,0 +1,34 @@
+.filtersDiv h3{
+    margin-bottom: 0;
+    padding: 5px;
+    font-size: 15px;
+    color: white;
+    background-color: #222;
+}
+
+.filtersDiv select{
+    width: 100%;
+    margin: 5px 0;
+    padding: 5px;
+    border-color: white;
+    border-style: solid;
+}
+
+.filtersDiv button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    color: white;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-style: solid;
+}
+
+
+.filtersDiv button:hover{
+    filter: brightness(80%);
+}
+
+.filtersDiv button:active{
+    transform: scale(0.95);
+}

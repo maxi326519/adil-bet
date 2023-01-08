@@ -23,7 +23,7 @@ export default function Home() {
     <div className={styles.home}>
       <Nav />
       <div className={styles.content}>
-        <div className={styles.Searchbar}>
+        <div className={styles.menu}>
           <Searchbar />
           <Filter />
         </div>
