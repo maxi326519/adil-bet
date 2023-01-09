@@ -58,8 +58,15 @@ export default function Filter() {
     <form onSubmit={handleSubmit} className="filtersDiv">
       <h3>Filtros</h3>
       <div className="filter">
-      <select className='select' value= {selected.country === "All" ? 'country' : null} name= 'country' onChange={(e) => filterState(e)}>
-          <option value= 'All' key='All' >Filtro por pais</option>
+        <select
+          className="select"
+          value={selected.country === "All" ? "country" : null}
+          name="country"
+          onChange={(e) => filterState(e)}
+        >
+          <option value="All" key="All">
+            Filtro por pais
+          </option>
           {console.log(allFilters.country)}
           {allFilters.country?.map((e, i) => {
             return (
@@ -116,12 +123,12 @@ export default function Filter() {
           onChange={(e) => handleName(e)}
         >
           <option value="alpha" key="alpha">
-            Alphabetically
+            Alfabéticamente
           </option>
           <option value="A to Z">A to Z</option>
           <option value="Z to A">Z to A</option>
         </select>
-      <button type="submit">Aplicar</button>
+        <button type="submit">Aplicar</button>
         <button className="btnreload" onClick={handleClick}>
           Restaurar filtros
         </button>
