@@ -3,6 +3,9 @@ import Footer from "../Footer/Footer";
 import Nav from '../Nav/Nav';
 import "./Landing.css";
 import ImageTeam from "../../Assets/Images/team.png";
+import ImageLanding from '../../Assets/Images/Imagen-landing.png'
+import ImageLanding2 from '../../Assets/Images/image-landing2.png'
+import ImageLanding3 from '../../Assets/Images/Image-Landing3.png'
 
 export default function Landing() {
   return (
@@ -17,7 +20,7 @@ export default function Landing() {
           <div className="slide">
             <div className="item-slide">
               <img
-                src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg"
+                src={ImageLanding}
                 alt="Slide-1"
                 className="image-slides"
               />
@@ -25,7 +28,7 @@ export default function Landing() {
 
             <div className="item-slide">
               <img
-                src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849822_960_720.jpg"
+                src={ImageLanding2}
                 alt="Slide-2"
                 className="image-slides"
               />
@@ -33,7 +36,7 @@ export default function Landing() {
 
             <div className="item-slide">
               <img
-                src="https://cdn.pixabay.com/photo/2015/05/26/23/52/technology-785742_960_720.jpg"
+                src={ImageLanding3}
                 alt="Slide-3"
                 className="image-slides"
               />
@@ -43,21 +46,21 @@ export default function Landing() {
           <div className="pagination">
             <label for="1" className="pagination-item">
               <img
-                src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg"
+                src={ImageLanding}
                 alt="Pagination-item1"
               />
             </label>
 
             <label for="2" className="pagination-item">
               <img
-                src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849822_960_720.jpg"
+                src={ImageLanding2}
                 alt="Pagination-item2"
               />
             </label>
 
             <label for="3" className="pagination-item">
               <img
-                src="https://cdn.pixabay.com/photo/2015/05/26/23/52/technology-785742_960_720.jpg"
+                src={ImageLanding3}
                 alt="Pagination-item3"
               />
             </label>
