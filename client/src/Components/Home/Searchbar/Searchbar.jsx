@@ -30,7 +30,7 @@ export default function Searchbar({ returnToFirstPage }) {
       <input
         type="search"
         value={team}
-        placeholder="Buscar tu equipo o liga favorita..."
+        placeholder="Buscar tu equipo favorito..."
         onChange={(e) => handleChange(e)}
         onKeyDown={handleKeyDown}
         className={styles.input + 'input'}
