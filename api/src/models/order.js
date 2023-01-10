@@ -12,8 +12,8 @@ module.exports = sequelize => {
       type: DataTypes.ENUM('Pending', 'Paid'),
       defaultValue: 'Pending'
     },
-    betTo: {
-      type: DataTypes.STRING,
+    amount: {
+      type: DataTypes.FLOAT,
       allowNull: false
     }
   },
