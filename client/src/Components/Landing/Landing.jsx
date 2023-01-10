@@ -85,7 +85,7 @@ export default function Landing() {
               <li>CASHBACK por primer recarga</li>
               <li>Atencion 24hs</li>
             </ul>
-            <a>
+            <a href="/singin">
               <button className="promo-button">
                 <p>REGISTRATE AQUI!</p>
               </button>

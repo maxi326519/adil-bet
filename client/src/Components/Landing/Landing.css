@@ -163,7 +163,12 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   border: none;
   background-color: yellow;
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.promo-button:hover{
+  box-shadow: 1px 1px 10px 8px rgb(77, 0, 0);
 }
 
 .title-promo-landing {
@@ -175,4 +180,8 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   margin-bottom: 20px;
   font-size: 20px;
   margin-bottom: 35px;
+}
+
+.button-register-landing{
+  cursor: pointer;
 }
