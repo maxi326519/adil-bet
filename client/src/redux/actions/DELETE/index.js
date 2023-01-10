@@ -7,3 +7,10 @@ export function deleteOrder (){
 export function deleteUser (){
     console.log('deleteUser')
 }
+
+export function deleteBetToCart(id) {
+    return ({
+        type: 'DELETE_BET_TO_CART',
+        payload: id,
+      });
+}

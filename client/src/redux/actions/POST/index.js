@@ -1,8 +1,47 @@
 import axios from 'axios';
 const api = 'http://localhost:3001'
 
-export function addBet(){
-    console.log('addBet')
+export function addBet(bet) {
+  if (bet.homeBet) {
+    const payload = {
+      'amount': Number(bet.homeBet),
+      'betTo': 'homeBet',
+      'multiplier': 1.8,
+      'idUser': bet.idUser,
+      'idMatch': bet.idMatch
+    }
+    console.log(payload)
+    return {
+      type: 'ADD_BET_TO_CART',
+      payload,
+    };
+  };
+  if (bet.awayBet) {
+    const payload = {
+      'amount': Number(bet.awayBet),
+      'betTo': 'awayBet',
+      'multiplier': 2.5,
+      'idUser': bet.idUser,
+      'idMatch': bet.idMatch
+    }
+    return {
+      type: 'ADD_BET_TO_CART',
+      payload,
+    };
+  }
+  if (bet.tieBet) {
+    const payload = {
+      'amount': Number(bet.tieBet),
+      'betTo': 'tieBet',
+      'multiplier': 3,
+      'idUser': bet.idUser,
+      'idMatch': bet.idMatch
+    }
+    return {
+      type: 'ADD_BET_TO_CART',
+      payload,
+    };
+  }
 }
 
 export function addOrder(){

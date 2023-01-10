@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
+import Cart from "../Components/Cart/Cart.jsx";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
-          {/*       <Route path='/loginout' element={<Header/>}/> */}
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>
