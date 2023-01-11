@@ -98,3 +98,42 @@ export function postCreateUser(payload) {
       }
     };
   }
+
+  export function createBetDB(payload) {
+         console.log(payload)
+      return async function (dispatch) {
+      try {
+        const result = await axios.post(`${api}/order/bet`, payload);
+        console.log(result.data)
+        return dispatch({
+          type: 'ADD_BET_DB',
+          payload: result.data,
+        });
+      } catch (error) {
+        console.log(error)
+          throw new Error (error.message)
+      }
+    };
+  };
+  export function createOrder({userId, total}) {
+    console.log(userId,total)
+    const payload={
+      'amount':total,
+      'idUser':userId,
+    }
+    console.log(payload)
+ return async function (dispatch) {
+ try {
+   const result = await axios.post(`${api}/order`, payload);
+   console.log(result.data)
+   return dispatch({
+     type: 'CREATE_ORDER',
+     payload: result.data,
+   });
+ } catch (error) {
+   console.log(error)
+     throw new Error (error.message)
+ }
+};
+};
+  

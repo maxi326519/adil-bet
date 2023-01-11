@@ -137,13 +137,29 @@ export const Reducer = (state = initialState, action) => {
       }
     }
     case 'DELETE_BET_TO_CART': {
-      console.log(action.payload)
       const matches = state.cart.filter(
         (match) => Number(match.idMatch) !== action.payload);
       console.log(matches)
       return {
         ...state,
         cart: matches
+      }
+    }
+    case 'ADD_BET_DB': {
+      return {
+        ...state,
+        cart: []
+      }
+    }
+    case 'CREATE_ORDER': {
+      return {
+        ...state,
+      }
+    }
+    case 'UPDATE_WALLET_USER': {
+      return {
+        ...state,
+        userDates: action.payload
       }
     }
     default:
