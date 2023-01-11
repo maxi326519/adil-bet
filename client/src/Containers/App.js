@@ -10,8 +10,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
+import { useSelector } from "react-redux";
+import Swal from 'sweetalert2';
+
+
 
 function App() {
+
+  const error = useSelector(state=>state.error)
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -28,6 +35,14 @@ function App() {
           {/*       <Route path='/loginout' element={<Header/>}/> */}
         </Routes>
       </BrowserRouter>
+      {error.length===0? null:Swal.fire({
+        title:'Error!',
+        text:'Inténtalo nuevamente',
+        icon:'error',
+        confirmButtonText:'OK'
+      }).then(function() {
+        window.location = "/home";
+    })}
     </div>
   );
 }
