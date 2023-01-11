@@ -33,13 +33,11 @@ export default function Cart() {
     <div className="container-cart">
       <div className="container-title-ticket">
         <h2 className="title-ticket">TICKET DE APUESTA</h2>
-        <input type="checkbox"></input>
       </div>
       <div className="container-allinfo">
         <div>
-          <p className="text-sumary">Resumen de Apuesta:</p>
           <div className="card-cart">
-            {cart?.map((match) => {
+            {/* {cart?.map((match) => {
               return (
                 <CardCart
                   id={match.idMatch}
@@ -47,7 +45,35 @@ export default function Cart() {
                   betTo={match.betTo}
                 />
               );
-            })}
+            })} */}
+            <div className="container-card-team-bet">
+              <div className="container-name-teams">
+                <div className="container-text-nameteams">
+                  <span className="team1-text">Team Henry vs</span>
+                  <span className="team2-text">Team CoderHouse</span>
+                </div>
+                <span className="date-bet">20/05/1998</span>
+                <span className="betto">Apuesta a: Team Henry</span>
+                <span className="quantity-bet">Cantidad: 10.00</span>
+              </div>
+              <div className="container-button-delete">
+                <button className="button-delete">Eliminar</button>
+              </div>
+            </div>
+          </div>
+          <div className="container-card-team-bet">
+            <div className="container-name-teams">
+              <div className="container-text-nameteams">
+                <span className="team1-text">New York Meets vs</span>
+                <span className="team2-text">Piratas</span>
+              </div>
+              <span className="date-bet">20/05/2005</span>
+              <span className="betto">Apuesta a: New York Meets</span>
+              <span className="quantity-bet">Cantidad: 10.00</span>
+            </div>
+            <div className="container-button-delete">
+              <button className="button-delete">Eliminar</button>
+            </div>
           </div>
         </div>
         <div className="bet-buttons">

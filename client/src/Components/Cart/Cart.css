@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700&display=swap");
 
 .container-cart {
   position: fixed;
@@ -47,13 +47,6 @@
   font-family: "Work Sans", sans-serif;
 }
 
-.card-cart {
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 1px 1px 10px 3px rgb(221, 221, 221);
-  outline: 1px solid rgb(205, 205, 205);
-}
-
-.text-sumary{
-    font-family: 'Roboto', sans-serif;
+.text-sumary {
+  font-family: sans-serif;
 }

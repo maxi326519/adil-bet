@@ -1,0 +1,61 @@
+.container-card-team-bet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 3px rgb(221, 221, 221);
+  outline: 1px solid rgb(205, 205, 205);
+}
+
+.container-name-teams {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 8px;
+}
+
+.date-bet {
+  text-align: left;
+  font-family: sans-serif;
+}
+
+.button-delete {
+  border: 1px solid rgb(232, 232, 232);
+  background-color: white;
+  box-shadow: 1px 1px 10px 3px rgb(241, 241, 241);
+  padding: 10px;
+}
+
+.button-delete:hover {
+  cursor: pointer;
+}
+
+.date-bet {
+  font-family: sans-serif;
+}
+
+.betto {
+  font-family: sans-serif;
+}
+
+.quantity-bet {
+  font-family: sans-serif;
+}
+
+.container-text-nameteams {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.team1-text,
+.team2-text {
+  font-size: 20px;
+}
+
+.container-button-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
