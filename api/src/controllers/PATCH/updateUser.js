@@ -1,12 +1,28 @@
 const { User } = require("../../db")
 
-const updateUser = async (id, name, userName, email, password, phone, wallet, isActive, isAdmin) => {
-    try {
+const updateUser = async ({id, name, userName, email, password, phone, wallet, isActive, isAdmin}) => {
+
         const userFound = await User.findOne({
             where: {
-                user: id
+                id: id
             }
         });
+
+        if(userFound && wallet && !name && !userName && !email && !password && !phone && !isActive && !isAdmin ){
+            userFound.update({
+                wallet: wallet,
+            });
+            await userFound.save();
+            return userFound
+        }
+        if(userFound && isAdmin && !wallet && !name && !userName && !email && !password && !phone && !isActive ){
+            userFound.update({
+                isAdmin,
+            });
+            await userFound.save();
+            return userFound
+        }
+
         if (userFound) {
             userFound.update({
                 name: name,
@@ -19,10 +35,8 @@ const updateUser = async (id, name, userName, email, password, phone, wallet, is
                 isAdmin: isAdmin
             });
             await userFound.save();
-        }
-    } catch (error) {
-        throw new Error("User not found")
-    }
+            return userFound
+}
 }
 
 module.exports = updateUser

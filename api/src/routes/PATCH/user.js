@@ -7,7 +7,8 @@ router.patch("/user/:id", async (req, res) => {
     const {name, userName, email, password, phone, wallet, isActive, isAdmin} = req.body
 
     try {
-        const update = await updateUser(id, name, userName, email, password, phone, wallet, isActive, isAdmin)
+        const update = await updateUser({id, name, userName, email, password, phone, wallet, isActive, isAdmin})
+        res.status(200).json(update)
     } catch (error) {
         res.status(404).json({error: error.message})
     }
