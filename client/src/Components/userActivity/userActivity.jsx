@@ -1,45 +1,35 @@
-import React, { useState } from "react";
-import axios from "axios";
-import user from "../../../../api/src/models/user";
-//enviar actividad de usuario a user.activity de modelo user
-//crear propiedad activity en user
+import React, { useEffect, useState } from "react";
+import styles from "./userActivity.css";
 
+export default function UserActivity() {
+  const [data, setData] = useState(null);
 
-function UserActivity() {
-  const [userActivity, setUserActivity] = useState([]);
+  useEffect(() => {
+    fetch("/activity/:id")
+      .then((response) => response.json())
+      .then((data) => setData(data))
 
-  const handleClick = async (e) => {
-    try {
-      const activity = {
-        name: e.target.innerText,
-        timestamp: Date.now(),
-      };
-
-      // Enviar actividad a servidor para guardarla en la base de datos
-      await axios.post("/api/user-activity", activity);
-
-      // Agregar actividad a lista de actividades del usuario
-      setUserActivity([...userActivity, activity]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div>
-      <button onClick={handleClick}>Click</button>
-      <div>
-        <h3>User Activity:</h3>
+      <h3>User Activity:</h3>
+      {data ? (
         <ul>
-          {userActivity.map((activity, index) => (
+          {data.map((activity, index) => (
             <li key={index}>
-              {activity.name} - {activity.timestamp}
+              {activity.name} - {activity.amount} - {activity.timestamp}
             </li>
           ))}
         </ul>
-      </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
 
-export default UserActivity;
+// <li>
+//   {data.name} - {data.amount} - {data.timestamp}
+// </li>
