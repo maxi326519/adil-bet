@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+
+.container-cart {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #591411;
+  border-left: 1px solid #591411;
+  width: 500px;
+  box-shadow: 1px 1px 10px 3px rgb(50, 50, 50);
+  background-color: white;
+}
+
+.bet-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-ticket {
+  background-color: #591411;
+  font-size: 20px;
+  color: white;
+  padding: 20px;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+}
+
+.button-pay {
+  border: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #2c0200;
+  color: white;
+  font-size: 22px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.button-pay:hover {
+  cursor: pointer;
+}
+
+.total-pay {
+  color: white;
+  background-color: #480501;
+  padding: 10px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.card-cart {
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 3px rgb(221, 221, 221);
+  outline: 1px solid rgb(205, 205, 205);
+}
+
+.text-sumary{
+    font-family: 'Roboto', sans-serif;
+}

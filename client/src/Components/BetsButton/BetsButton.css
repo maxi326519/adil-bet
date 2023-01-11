@@ -13,6 +13,10 @@
     filter: brightness(80%);
 }
 
+.text-button-bet{
+    text-decoration: none;
+}
+
 .Button-bet:active{
     transform: scale(0.95);
 }
