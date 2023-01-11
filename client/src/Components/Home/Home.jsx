@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMatchs, handleSetPage } from "../../redux/actions/GET";
@@ -33,3 +32,32 @@ export default function Home() {
     </div>
   );
 }
+//////////////////////////////////////////////////////////////
+// return (
+//   <div className={styles.Promotions}>
+//     <Nav />
+//     <div className={styles.content}>
+//       <div className={styles.menu}>
+//         <CarouselItem
+//           onExiting={this.onExiting}
+//           onExited={this.onExited}
+//           key={item.src}
+//         >
+//           <img
+//             src={item.src}
+//             alt={item.altText}
+//             width="100%"
+//             height="800"
+//           />
+//           <CarouselCaption
+//             captionText={item.caption}
+//             captionHeader={item.caption}
+//           />
+//         </CarouselItem>
+//       </div>
+//     </div>
+//     <Footer />
+//   </div>
+// );
+
+
