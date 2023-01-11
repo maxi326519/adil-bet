@@ -7,6 +7,7 @@ import Login from "../Components/Login/Login.jsx";
 import Signin from "../Components/Signin/Signin.jsx";
 import Inprocess from "../Components/Inprocess/Inprocess.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Stripe from "../Components/Stripe/Stripe";
 
 import "./App.css";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
+          <Route path="/payment" element={<Stripe />} />
           {/*       <Route path='/loginout' element={<Header/>}/> */}
         </Routes>
       </BrowserRouter>
