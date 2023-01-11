@@ -6,7 +6,11 @@ router.post("/login", async (req, res) => {
     console.log(email, password)
     try {
         let userLogin = await loginUser(email, password)
-        res.status(200).json(userLogin)
+        if(userLogin){
+            res.status(200).json(userLogin)
+        }else {
+            res.status(400).send(error.message)
+        }
     }
     catch (error) {
         res.status(400).send(error.message)
