@@ -90,49 +90,44 @@ class promotionsCar extends Component {
           <CarouselCaption
             captionText={item.caption}
             captionHeader={item.caption}
-            />
+          />
         </CarouselItem>
       );
     });
 
     return (
+      <div className={styles.Promotions}>
+        <Nav />
+        <div className={styles.content}>
+          <div className={styles.menu}></div>
 
-<div className={styles.Promotions}>
-     <Nav />
-     <div className={styles.content}>
-       <div className={styles.menu}></div>
-
-      <Carousel
-        activeIndex={activeIndex}
-        next={this.next}
-        previous={this.previous}
-        >
-        <CarouselIndicators
-          items={items}
-          activeIndex={activeIndex}
-          onClickHandler={this.goToIndex}
-          />
-        {slides}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={this.previous}
-          />
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={this.next}
-        />
-      </Carousel>
-
-
-   </div>
-    <Footer />
-    </div>
-
+          <Carousel
+            activeIndex={activeIndex}
+            next={this.next}
+            previous={this.previous}
+          >
+            <CarouselIndicators
+              items={items}
+              activeIndex={activeIndex}
+              onClickHandler={this.goToIndex}
+            />
+            {slides}
+            <CarouselControl
+              direction="prev"
+              directionText="Previous"
+              onClickHandler={this.previous}
+            />
+            <CarouselControl
+              direction="next"
+              directionText="Next"
+              onClickHandler={this.next}
+            />
+          </Carousel>
+        </div>
+        <Footer />
+      </div>
     );
   }
 }
 
-export default promotionsCar; 
-
+export default promotionsCar;
