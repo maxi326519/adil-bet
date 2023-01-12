@@ -59,6 +59,9 @@ Order.hasMany(Bet);
 Bet.belongsTo(Match);
 Match.hasMany(Bet);
 
+Score.belongsTo(Match);
+Match.hasOne(Score);
+
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
