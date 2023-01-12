@@ -129,6 +129,12 @@ export const Reducer = (state = initialState, action) => {
                 matches: teamsByName
             }
           }
+          case 'CREATE_PAYMENT':{
+            console.log(action.payload)
+            return {
+                ...state,
+            }
+          }
     default:
       return state;
 

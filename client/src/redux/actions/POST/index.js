@@ -59,3 +59,17 @@ export function postCreateUser(payload) {
       }
     };
   }
+
+  export function addDeposit(payload) {
+    return async function (dispatch) {
+      try {
+        const result = await axios.post(`${api}/paid`, payload);
+        return dispatch({
+          type: 'CREATE_PAYMENT',
+          payload: result.data,
+        });
+      } catch (error) {
+          throw new Error (error.message)
+      }
+    };
+  }
