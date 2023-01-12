@@ -13,23 +13,59 @@ module.exports = sequelize => {
       },
       homeHits: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       homeErrors: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       homeInings: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
+      },
+      1: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      2: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      3: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      4: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      5: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      6: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      7: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      8: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      9: {
+         type: DataTypes.STRING,
+         allowNull: true
       },
       homeExtra: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       homeTotal: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       away: {
          type: DataTypes.STRING,
@@ -37,26 +73,62 @@ module.exports = sequelize => {
       },
       awayHits: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       awayErrors: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       awayInings: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
+      },
+      1: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      2: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      3: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      4: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      5: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      6: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      7: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      8: {
+         type: DataTypes.STRING,
+         allowNull: true
+      },
+      9: {
+         type: DataTypes.STRING,
+         allowNull: true
       },
       awayExtra: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
       awayTotal: {
          type: DataTypes.STRING,
-         allowNull: false
+         allowNull: true
       },
    },
-      { timestamps: false }
+      { timestamps: true }
    )
 }
 
