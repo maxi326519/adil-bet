@@ -7,6 +7,7 @@ import Login from "../Components/Login/Login.jsx";
 import Signin from "../Components/Signin/Signin.jsx";
 import Inprocess from "../Components/Inprocess/Inprocess.jsx";
 import UserActivity from "../Components/userActivity/userActivity.jsx";
+import MyAccount from "../Components/MyAccount/MyAccount.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -28,7 +29,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/userActivity" element={<UserActivity />} />
+          <Route path="/MyAccount" element={<MyAccount />} />
         </Routes>
       </BrowserRouter>
     </div>
