@@ -1,0 +1,41 @@
+.button{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    margin: 5px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: inherit;
+    outline: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.button:nth-child(1){
+    margin-top: 20px;
+}
+
+.button:hover{
+    outline: 1px solid white;
+}
+
+.button:active{
+    transform: scale(0.95);
+    filter: brightness(90%);
+    transition: 0.2s;
+}
+
+.button span{
+    position: relative;
+    left: -30px;
+    margin-left: 50px;
+    font-size: 15px;
+    color: white;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.img{
+    width: 40px;
+    filter: invert(100%);
+}

@@ -1,0 +1,52 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ccc;
+}
+
+.container{
+    flex-grow: 1;
+    display: flex;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.user h2{
+    margin: 10px 30px;
+    text-align: left;
+    color: #666;
+}
+
+.graphics{
+    display: flex;
+}
+
+.graph1, .graph2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 25px;
+    color: #ccc;
+    background-color: white;
+}
+
+.graph2{
+    flex-grow: 1;
+}
+
+.data{
+    flex-grow: 1;
+    margin: 10px;
+    border-radius: 25px;
+    background-color: white;
+}
