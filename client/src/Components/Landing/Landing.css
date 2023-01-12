@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@1,800&display=swap");
 
 .body_full {
   display: flex;
@@ -130,8 +132,8 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 .text__second-container {
   margin: 30px;
   color: white;
-  font-size: 30px;
-  font-family: 'Roboto Flex', sans-serif;
+  font-size: 45px;
+  font-family: "Roboto Flex", sans-serif;
 }
 
 .container-promo {
@@ -155,15 +157,16 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   box-shadow: 1px 1px 10px 6px gray;
 }
 
-.container-promo-landing{
-  margin: 80px 0;
-}
-
 .promo-button {
   border: none;
   background-color: yellow;
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.promo-button:hover {
+  box-shadow: 1px 1px 10px 8px rgb(77, 0, 0);
 }
 
 .title-promo-landing {
@@ -175,4 +178,59 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   margin-bottom: 20px;
   font-size: 20px;
   margin-bottom: 35px;
+}
+
+.button-register-landing {
+  cursor: pointer;
+}
+
+.container-client {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 0;
+}
+
+.container-card-client {
+  padding: 40px;
+  outline: 1px solid rgb(184, 184, 184);
+  border-radius: 30px;
+  box-shadow: 1px 1px 10px 5px rgb(186, 186, 186);
+}
+
+.client-header {
+  display: flex;
+}
+
+.title-clients {
+  color: #591411;
+  font-size: 50px;
+  margin-bottom: 100px;
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  text-shadow: 1px 1px 4px rgb(161, 161, 161);
+}
+
+.image-client {
+  width: 50px;
+  border-radius: 400px;
+  margin: 0 35px;
+}
+
+.name-client {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-clients-review {
+  margin: 50px 200px;
+  border-top: 1px solid rgb(174, 174, 174);
+}
+
+.text-landing {
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+  padding: 40px;
+  margin: 50px 200px;
+  color: #591411;
+  font-size: 40px;
+  border-bottom: 1px solid rgb(174, 174, 174);
 }

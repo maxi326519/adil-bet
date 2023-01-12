@@ -1,0 +1,18 @@
+.container-buttons{
+    display: flex;
+}
+
+.button-login-navbar{
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(85, 21, 21);
+    font-size: 15px;
+    color: white;
+    padding: 10px;
+    margin: 14px 8px;
+}
+
+.button-login-navbar:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 6px 2px #591411;
+}
