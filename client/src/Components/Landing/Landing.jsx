@@ -3,7 +3,6 @@ import Footer from "../Footer/Footer";
 import Nav from "../Nav/Nav";
 import "./Landing.css";
 import ImageTeam from "../../Assets/Images/team.png";
-import logo2 from "../../Assets/Images/logo2.png";
 import ImageLanding from "../../Assets/Images/Imagen-landing.png";
 import ImageLanding2 from "../../Assets/Images/image-landing2.png";
 import ImageLanding3 from "../../Assets/Images/Image-Landing3.png";
