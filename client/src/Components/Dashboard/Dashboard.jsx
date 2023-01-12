@@ -1,9 +1,10 @@
 import React from "react";
 
+import './Dashboard.css'
+
 export default function Dashboard () {
     return (
         <div>
-            <p>Soy Dashboard</p>
         </div>
     )
 }
