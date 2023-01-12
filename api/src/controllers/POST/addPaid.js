@@ -2,29 +2,32 @@ const { User, Deposit } = require("../../db");
 
 const postPaid = async (req, res) => {
   try {
-    const { amount, method } = req.body;
-    if (!amount && !method)
-      throw new Error("missing parameters", { statusCode: 400 });
+    const { amount, method, userId } = req.body;
+    if (!amount && !method) return res.status(405).send("missing parameters");
 
-    const newUser = await User.create({
+    const newDeposit = await Deposit.create({
       amount,
       method,
     });
 
-    const depositDb = await Deposit.findOne({
+    const userDb = await User.findOne({
       where: {
-        id: id,
+        id:userId
       },
     });
+    console.log(userDb)
 
-    if (!depositDb) throw new Error("not found deposit", { statusCode: 404 });
+    if (!userDb) return res.status(406).send("no se encontró usuario")
 
-    await depositDb.addUser(newUser);
+    await userDb.addDeposit(newDeposit);
     return res
       .status(200)
-      .send(`message: has been charged to the account ${amount}`);
+      .json({
+        ...newDeposit.dataValues,
+      userId: userDb.id
+      });
   } catch (error) {
-    return res.status(error.statusCode).send({ error: error.message });
+    return res.status(400).send({ error: error.message });
   }
 };
 
