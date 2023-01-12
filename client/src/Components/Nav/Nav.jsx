@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postLoginUserAuth0 } from "../../redux/actions/POST/index.js";
 import MyAccountButton from "../MyAccountButton/MyAccountButton";
+import Wallet from "./Wallet/Wallet";
 
 export default function Nav() {
   const { user } = useAuth0();
@@ -50,6 +51,8 @@ export default function Nav() {
             <span>Nosotros</span>
           </Link>
         </div>
+        
+          <Wallet/>
 
         <div className="sesion">
           {Object.entries(userDates).length === 0 ? (
@@ -65,6 +68,9 @@ export default function Nav() {
           {/* <Link to="/signin">
             <span className="link_about ">Signin</span>
           </Link> */}
+          <Link to="/cart">
+          {Object.entries(userDates).length === 0? null:<button>Carrito</button>}
+          </Link>
         </div>
       </div>
   );

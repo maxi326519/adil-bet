@@ -1,0 +1,32 @@
+/* .wallet{
+    background-color: white;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.wwalet{
+    align-self: center;
+    border-radius: 3px;
+    right: 200px;
+    margin-right: 200px;
+}
+
+.dates{
+    display: none;
+}
+.wallet:hover ~ .dates{
+    display: flex;
+}
+
+.wallet:hover .wwalet{
+    display: grid;
+    opacity: 1;
+    background-color: antiquewhite;
+    height: 300px;
+    width: 400px;
+}
+ */
+
+ .wwalet{
+    display: grid;
+ }
