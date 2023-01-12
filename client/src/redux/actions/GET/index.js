@@ -107,3 +107,18 @@ export function getUserInfo() {
 export function getUserOrders() {
   console.log("userOrders");
 }
+export function getActivity({id, page, activity}) {
+  console.log(id);
+  return async function (dispatch) {
+    try {
+      const result = await axios.get(`http://localhost:3001/activity/${id}?activity=${activity}&&page=${page}`);
+
+      return dispatch({
+        type: 'GET_USER_ACTIVITY',
+        payload: result.data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
