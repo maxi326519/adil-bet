@@ -12,6 +12,15 @@
   background-color: white;
 }
 
+.container-allinfo{
+  height: 0;
+  transition: 500ms ease;
+}
+
+.ticket-animation{
+  height: 83px;
+}
+
 .bet-buttons {
   display: flex;
   flex-direction: column;

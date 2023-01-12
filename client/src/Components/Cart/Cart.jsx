@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardCart from "../CardCart/CardCart.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { createBetDB, createOrder } from "../../redux/actions/POST/index.js";
@@ -11,6 +11,7 @@ export default function Cart() {
   const userDates = useSelector((state) => state.userDates);
   const userId = userDates.id;
   console.log(userDates);
+  const [style, setStyle] = useState(false)
 
   let total = 0;
   cart.map((e) => {
@@ -29,12 +30,17 @@ export default function Cart() {
     dispatch(updateWalletUser({ wallet, userId }));
   };
 
+  function HandleStyle () {
+    style ? setStyle(false) : setStyle(true)
+    console.log("Soy estilo")
+  }
+
   return (
     <div className="container-cart">
-      <div className="container-title-ticket">
+      <div className="container-title-ticket" onClick={HandleStyle}>
         <h2 className="title-ticket">TICKET DE APUESTA</h2>
       </div>
-      <div className="container-allinfo">
+      <div className={`container-allinfo ${style ? "ticket-animation" : ""}`}>
         <div className="card-cart">
           {cart?.map((match) => {
             return (
