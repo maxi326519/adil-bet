@@ -80,7 +80,10 @@ export function postCreateUser(payload) {
           payload: result.data,
         });
       } catch (error) {
-          throw new Error (error.message)
+        return dispatch({
+          type: 'ERROR_BACK',
+          payload: 'Error, inténtalo nuevamente',
+        });
       }
     };
   }

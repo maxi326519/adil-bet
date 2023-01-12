@@ -23,8 +23,12 @@ const initialState = {
     country: [],
     teams: [],
   },
+<<<<<<< HEAD
   cart: [],
   userActivities: []
+=======
+  error:[]
+>>>>>>> development
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -170,6 +174,34 @@ export const Reducer = (state = initialState, action) => {
         userActivities: action.payload
       }
     }
+<<<<<<< HEAD
+=======
+    case ORDER_BY_NAME:{
+            let all = state.matches
+            let teamsByName =   action.payload === 'A to Z' ?
+          
+                all.sort((a, b) => {
+                    if (a.homeTeam > b.homeTeam) return 1;
+                    if (a.homeTeam < b.homeTeam) return -1;
+                    return 0;
+                }):
+                all.sort((a, b) => {
+                    if (a.homeTeam < b.homeTeam) return 1;
+                    if (a.homeTeam > b.homeTeam) return -1;
+                    return 0;
+                })
+            return {
+                ...state,
+                matches: teamsByName
+            }
+          }
+          case 'ERROR_BACK':{
+            return {
+                ...state,
+                error: action.payload
+            }
+          }
+>>>>>>> development
     default:
       return state;
 

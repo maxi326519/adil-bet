@@ -47,10 +47,6 @@
   transition: 0.5s;
 }
 
-.sesion{
-  margin: 20px 0;
-}
-
 .login {
   /* gap: 20px; */
   width: 150px;
@@ -59,4 +55,8 @@
 .signin {
   /* gap: 20px; */
   width: 150px;
+}
+
+.sesion{
+  display: flex;
 }
