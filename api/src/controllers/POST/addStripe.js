@@ -1,6 +1,6 @@
-/* const Stripe = require("stripe");
+const Stripe = require("stripe");
 const stripe = new Stripe(
-  "sk_test_51MJPEXA6SeeS9tTlg2Nyv3BaNRDd6PRV7PqDZzLRxaK5rozoKTuTbjRY4ezRuI53X4DTFHVvx91PFLrANqYytk5k00HCYuDS2N"
+  "sk_test_51MHby8F7eyBevS9ZXxRg9Eq86GTgwLX2gwHD1WV2WxuK4xSzGM5ZeDZBxImmAQQqSAlrPkjTsCAAOiUvM8mlXkml00oNKHF5N9"
 );
 const { User } = require("../../db.js");
 const nodemailer = require("nodemailer");
@@ -18,25 +18,28 @@ const transporter = nodemailer.createTransport({
     user: "AdilBets2022@gmail.com", // generated ethereal user
     pass: "wgbcndetyaocjvxo", // generated ethereal password
   },
-}); */
+});
 
-const postRecharge = async (req, res) => {
-/*   const { id, amount, userId } = req.body;
+const postRecharge = async (body) => {
+  const id = body.id;
+  const amount = body.amount;
+  const userId = body.userid;
 
-  try {
     const payment = await stripe.paymentIntents.create({
       amount,
       currency: "USD",
-      description: "BET",
-      payment_method: id,
-      confirm: true,
+      description: "RECHARGE",
+      source: id,
+  
+
+      
     });
 
     await transporter.sendMail({
       from: '"AdilBets2022" <AdilBets2022@gmail.com>', //Emisor
       to: user.email, //Receptor
       subject: "Mail Verification", //Asunto
-      html: `<b>You have made a bet ${amount}</b>`, //Texto del mail
+      html: `<b>you did a recharge of ${amount}</b>`, //Texto del mail
     });
 
     const user = await User.findOne({
@@ -60,10 +63,6 @@ const postRecharge = async (req, res) => {
     );
 
     console.log(updatedUser);
-    return res.status(200).json({ message: "Successful Payment" });
-  } catch (error) {
-    return res.status(400).json({ message: error.raw.message });
-  } */
 };
 
-module.exports = { postRecharge };
+module.exports = postRecharge;
