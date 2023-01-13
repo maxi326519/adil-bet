@@ -49,6 +49,10 @@ export default function Nav() {
           <Link to="/about" className="nav-menu-link">
             <span>Nosotros</span>
           </Link>
+
+          <Link to="/payment" className="nav-menu-link">
+          <span>Recargar</span>
+          </Link>
         </div>
 
         <div className="sesion">

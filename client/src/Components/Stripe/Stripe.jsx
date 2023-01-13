@@ -12,6 +12,8 @@ import "bootstrap";
 import "./Stripe.css";
 import {useDispatch} from 'react-redux'
 import {addDeposit} from '../../redux/actions/POST/index.js'
+import { useSelector } from 'react-redux';
+import cors from 'cors';
 
 const stripePromise = loadStripe(
   "pk_test_51MHby8F7eyBevS9ZTF3WvgrNWzEcmymWJE8d9KquqyAMHBwF1dIqEILuNBoAaa7Sgi3ZiEoZtWSps2gjdl9UNVpP00kXKAwJOc"
@@ -23,33 +25,42 @@ const CheckoutForm = (props) => {
   const elementsUse = useElements();
   const dispatch = useDispatch()
 
+  const user = useSelector(state => state.userDates.id);
+  console.log(user);
+
+  const handleChangeInput = (e) =>{
+    e.preventDefault()
+    setAmount(e.target.value)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { error, paymentMethod } = await stripeUse.createPaymentMethod({
       type: "card",
       card: elementsUse.getElement(CardElement),
     });
-
+     console.log(paymentMethod)
     if (!error) {
       const { id } = paymentMethod;
+      console.log(id)
+
 
       //el userId se debe obtener del estado de redux con useSelector y la cantidad se debe obtener de un estado useState del input 
 
       const data = await axios.post(
-        "http://localhost:3000/create-checkout-session",
+        "http://localhost:3001/create-checkout-session",
         {
-          id,
-          // amount: amount * 100,
-          "amount": 100,
-          "userId":1
+          "id": id,
+          "amount": amount,
+          "userId": user,
         },
         { withCredentials: true }
       );
       if(data.message === "Successful Payment"){
         const paid={
           "method": "Stripe",
-          "amount": 100,
-          "userId":1
+          "amount": amount,
+          "userId": user,
         }
 
         dispatch(addDeposit(paid))
@@ -62,7 +73,8 @@ const CheckoutForm = (props) => {
       <div className="form-group">
         <CardElement className="form-control" />
       </div>
-      <button className="btn btn-success">Pagar</button>
+      <input type='number' onChange={handleChangeInput}></input>
+      <button className="btn btn-success" type='submit'>Pagar</button>
     </form>
   );
 };
