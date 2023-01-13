@@ -53,6 +53,7 @@ export default function Nav() {
         </div>
 
         <div className="sesion">
+          <Wallet/>
           {Object.entries(userDates).length === 0 ? (
             <LoginButton />
           ) : (
