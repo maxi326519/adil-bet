@@ -4,7 +4,7 @@ import {
   SET_CURRENT_PAGE,
   SET_PAGE,
   MATCH_FILTERS,
-  ORDER_BY_NAME
+  ORDER_BY_NAME,
 } from "../actions/types";
 
 const initialState = {
@@ -23,8 +23,8 @@ const initialState = {
     country: [],
     teams: [],
   },
-  error:[],
-  cart: []
+  error: [],
+  cart: [],
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -45,8 +45,8 @@ export const Reducer = (state = initialState, action) => {
     case MATCH_FILTERS:
       return {
         ...state,
-        filters: action.payload
-      }
+        filters: action.payload,
+      };
 
     case SET_CURRENT_PAGE:
       let newPage = state.currentPage.number + action.payload;
@@ -106,74 +106,71 @@ export const Reducer = (state = initialState, action) => {
         userDates: action.payload,
       };
     }
-    case 'MATCH_DETAILS': {
+    case "MATCH_DETAILS": {
       return {
         ...state,
-        matchDetail: action.payload
-      }
+        matchDetail: action.payload,
+      };
     }
     case ORDER_BY_NAME: {
-      let all = state.matches
-      let teamsByName = action.payload === 'A to Z' ?
-
-        all.sort((a, b) => {
-          if (a.homeTeam > b.homeTeam) return 1;
-          if (a.homeTeam < b.homeTeam) return -1;
-          return 0;
-        }) :
-        all.sort((a, b) => {
-          if (a.homeTeam < b.homeTeam) return 1;
-          if (a.homeTeam > b.homeTeam) return -1;
-          return 0;
-        })
+      let all = state.matches;
+      let teamsByName =
+        action.payload === "A to Z"
+          ? all.sort((a, b) => {
+              if (a.homeTeam > b.homeTeam) return 1;
+              if (a.homeTeam < b.homeTeam) return -1;
+              return 0;
+            })
+          : all.sort((a, b) => {
+              if (a.homeTeam < b.homeTeam) return 1;
+              if (a.homeTeam > b.homeTeam) return -1;
+              return 0;
+            });
       return {
         ...state,
-        matches: teamsByName
-      }
+        matches: teamsByName,
+      };
     }
-    case 'ADD_BET_TO_CART': {
+    case "ADD_BET_TO_CART": {
       return {
         ...state,
-        cart: [...state.cart, action.payload]
-      }
+        cart: [...state.cart, action.payload],
+      };
     }
-    case 'DELETE_BET_TO_CART': {
+    case "DELETE_BET_TO_CART": {
       const matches = state.cart.filter(
-        (match) => Number(match.idMatch) !== action.payload);
-      console.log(matches)
+        (match) => Number(match.idMatch) !== action.payload
+      );
+      console.log(matches);
       return {
         ...state,
-        cart: matches
-      }
+        cart: matches,
+      };
     }
-    case 'ADD_BET_DB': {
+    case "ADD_BET_DB": {
       return {
         ...state,
-        cart: []
-      }
+        cart: [],
+      };
     }
-    case 'CREATE_ORDER': {
+    case "CREATE_ORDER": {
       return {
         ...state,
-      }
+      };
     }
-    case 'UPDATE_WALLET_USER': {
+    case "UPDATE_WALLET_USER": {
       return {
         ...state,
-        userDates: action.payload
-      }
+        userDates: action.payload,
+      };
     }
-          case 'ERROR_BACK':{
-            return {
-                ...state,
-                error: action.payload
-            }
-          }
+    case "ERROR_BACK": {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
     default:
       return state;
-
-
   }
 };
-
-

@@ -10,7 +10,6 @@ export default function Cart() {
   const cart = useSelector((state) => state.cart);
   const userDates = useSelector((state) => state.userDates);
   const userId = userDates.id;
-  console.log(userDates);
   const [style, setStyle] = useState(false)
 
   let total = 0;
@@ -32,7 +31,6 @@ export default function Cart() {
 
   function HandleStyle () {
     style ? setStyle(false) : setStyle(true)
-    console.log("Soy estilo")
   }
 
   return (
@@ -42,9 +40,10 @@ export default function Cart() {
       </div>
       <div className={`container-allinfo ${style ? "ticket-animation" : ""}`}>
         <div className="card-cart">
-          {cart?.map((match) => {
+          {cart?.map((match, i) => {
             return (
               <CardCart
+                key={i}
                 id={match.idMatch}
                 amount={match.amount}
                 betTo={match.betTo}
