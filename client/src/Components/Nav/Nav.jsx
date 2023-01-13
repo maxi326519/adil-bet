@@ -28,50 +28,50 @@ export default function Nav() {
   }, [user]);
 
   return (
-      <div className="header">
-        <div className="contlogo">
-          <Link to="/">
-            <img className="logo" src={Logo} alt="logo_Adilbet" />
-          </Link>
-        </div>
-        <div className="menu">
-          <Link to="/home" className="nav-menu-link">
-            <span>Home</span>
-          </Link>
+    <div className="header">
+      <div className="contlogo">
+        <Link to="/">
+          <img className="logo" src={Logo} alt="logo_Adilbet" />
+        </Link>
+      </div>
+      <div className="menu">
+        <Link to="/home" className="nav-menu-link">
+          <span>Home</span>
+        </Link>
 
-          <Link to="/promotions" className="nav-menu-link">
-            <span>Promociones</span>
-          </Link>
+        <Link to="/promotions" className="nav-menu-link">
+          <span>Promociones</span>
+        </Link>
 
-          <Link to="/tutorial" className="nav-menu-link">
-            <span>Tutorial</span>
-          </Link>
+        <Link to="/tutorial" className="nav-menu-link">
+          <span>Tutorial</span>
+        </Link>
 
-          <Link to="/about" className="nav-menu-link">
-            <span>Nosotros</span>
-          </Link>
-        </div>
-        
-          <Wallet/>
-
-        <div className="sesion">
-          {Object.entries(userDates).length === 0 ? (
-            <LoginButton />
-          ) : (
-            <LogoutButton />
-          )}
-          {Object.entries(userDates).length === 0 ? null : <MyAccountButton />}
-          {/* <Link to="/login">
+        <Link to="/about" className="nav-menu-link">
+          <span>Nosotros</span>
+        </Link>
+      </div>
+      <div className="sesion">
+        <Wallet />
+        {Object.entries(userDates).length === 0 ? (
+          <LoginButton />
+        ) : (
+          <LogoutButton />
+        )}
+        {Object.entries(userDates).length === 0 ? null : <MyAccountButton />}
+        {/* <Link to="/login">
             <span className="link_about ">Login</span>
           </Link> */}
 
-          {/* <Link to="/signin">
+        {/* <Link to="/signin">
             <span className="link_about ">Signin</span>
           </Link> */}
-          <Link to="/cart">
-          {Object.entries(userDates).length === 0? null:<button>Carrito</button>}
-          </Link>
-        </div>
+        <Link to="/cart">
+          {Object.entries(userDates).length === 0 ? null : (
+            <button>Carrito</button>
+          )}
+        </Link>
       </div>
+    </div>
   );
 }

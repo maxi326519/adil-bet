@@ -1,32 +1,77 @@
-/* .wallet{
-    background-color: white;
-    width: 100px;
-    border-radius: 10px;
-}
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap');
 
-.wwalet{
-    align-self: center;
-    border-radius: 3px;
-    right: 200px;
-    margin-right: 200px;
-}
-
-.dates{
+.container-style {
     display: none;
 }
-.wallet:hover ~ .dates{
-    display: flex;
+
+.container-all-info {
+  width: 300px;
+  position: fixed;
+  flex-direction: column;
+  border: 2px solid #591411;
+  background-color: white;
+  z-index: 2;
 }
 
-.wallet:hover .wwalet{
-    display: grid;
-    opacity: 1;
-    background-color: antiquewhite;
-    height: 300px;
-    width: 400px;
+.wwalet {
+  display: flex;
+  flex-direction: column;
 }
- */
 
- .wwalet{
-    display: grid;
- }
+.dates {
+  font-size: 18px;
+  margin: 10px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.button-cash {
+  border: 0;
+  background-color: #591411;
+  padding: 10px;
+  font-size: 20px;
+  margin: 15px;
+  color: white;
+  border-radius: 20px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.button-cash:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 2px gray;
+}
+
+.container-wallet-title {
+  background-color: #591411;
+  margin: 0;
+  padding: 0;
+}
+
+.wallet-title {
+  color: white;
+  margin: 0;
+  padding: 20px;
+  font-size: 30px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.title-navbar-wallet{
+    padding: 10px;
+}
+
+.cash-currently {
+  font-size: 20px;
+  margin: 0;
+  padding: 5px;
+}
+
+.button-wallet{
+    background-color: #591411;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px #3a0e0b;
+    color: white;
+}
+
+.button-wallet:hover{
+    cursor: pointer;
+}
