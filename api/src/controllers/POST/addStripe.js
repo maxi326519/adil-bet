@@ -40,7 +40,6 @@ const postRecharge = async (req, res) => {
     });
 
     res.status(200).json(clientSecret);
-
 /*     const paymentIntent = await stripe.paymentIntents.create({
 
       payment_method: payment_method.paymentMethod,

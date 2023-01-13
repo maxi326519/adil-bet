@@ -34,11 +34,15 @@ const CheckoutForm = (props) => {
       billing_details: {
         name: user.name,
         email: user.email,
-        
+
       }
     });
 
-    console.log(paymentMethod);
+    const response = await axios.post('/create-checkout-session', {
+      payment_method: paymentMethod.id,
+      amount: 100 /* Traer del estado */,
+      userId: user.id
+    })
   };
 
   return (
