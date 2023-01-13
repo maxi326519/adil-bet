@@ -7,7 +7,8 @@ import {
   SET_PAGE,
   MATCH_DETAILS,
   MATCH_FILTERS,
-  ORDER_BY_NAME
+  ORDER_BY_NAME,
+  GET_USER_INFO,
 } from "../types";
 
 export function searchTeam(name) {
@@ -57,13 +58,13 @@ export function getMatchDetails(id) {
 
 export function getFilters() {
   return async (dispatch) => {
-    try{
+    try {
       const response = await axios.get(`http://localhost:3001/getFilters`);
       dispatch({
         type: MATCH_FILTERS,
-        payload: response.data
+        payload: response.data,
       });
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
   };
@@ -89,32 +90,45 @@ export function getMatchs(filters) {
   };
 }
 
-export function orderByName(payload){
-  return{
-      type: ORDER_BY_NAME,
-      payload
-  }
+export function orderByName(payload) {
+  return {
+    type: ORDER_BY_NAME,
+    payload,
+  };
 }
 
 export function getUserActivity() {
   console.log("userActivity");
 }
 
-export function getUserInfo() {
-  console.log("userInfo");
+export function getUserInfo(id) {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/user/${id}`);
+      console.log(response, "actionn");
+      dispatch({
+        type: GET_USER_INFO,
+        payload: response.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
 
 export function getUserOrders() {
   console.log("userOrders");
 }
-export function getActivity({id, page, activity}) {
+export function getActivity({ id, page, activity }) {
   console.log(id);
   return async function (dispatch) {
     try {
-      const result = await axios.get(`http://localhost:3001/activity/${id}?activity=${activity}&&page=${page}`);
+      const result = await axios.get(
+        `http://localhost:3001/activity/${id}?activity=${activity}&&page=${page}`
+      );
 
       return dispatch({
-        type: 'GET_USER_ACTIVITY',
+        type: "GET_USER_ACTIVITY",
         payload: result.data,
       });
     } catch (error) {

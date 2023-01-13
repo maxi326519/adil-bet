@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 // Componentes
 import Landing from "../Components/Landing/Landing.jsx";
 import Home from "../Components/Home/Home.jsx";
@@ -8,7 +8,6 @@ import About from "../Components/About/About.jsx";
 import Login from "../Components/Login/Login.jsx";
 import Signin from "../Components/Signin/Signin.jsx";
 import Inprocess from "../Components/Inprocess/Inprocess.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Dashboard
 import Dashboard from "../Components/Dashboard/Dashboard";
 import UsersDashboard from "../Components/Dashboard/UsersDashboard/UsersDashboard.jsx";
@@ -17,7 +16,6 @@ import MatchesDashboard from "../Components/Dashboard/MatchesDashboard/MatchesDa
 import DepositsDashboard from "../Components/Dashboard/DepositsDashboard/DepositsDashboard.jsx";
 import UserActivity from "../Components/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
@@ -39,10 +37,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
+          <Route path="/myaccount" element={<MyAccount />} />
           {/*       <Route path='/loginout' element={<Header/>}/> */}
         </Routes>
       </BrowserRouter>
-      {error.length === 0
+      {/* {error.length === 0
         ? null
         : Swal.fire({
             title: "Error!",
@@ -51,7 +50,7 @@ function App() {
             confirmButtonText: "OK",
           }).then(function () {
             window.location = "/home";
-          })}
+          })} */}
     </div>
   );
 }

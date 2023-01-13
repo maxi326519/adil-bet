@@ -9,6 +9,7 @@ import Nav from "../Nav/Nav";
 import Searchbar from "./Searchbar/Searchbar";
 import Filter from "./Filter/Filter";
 import Footer from "../Footer/Footer";
+import MyAccount from "../MyAccount/MyAccount";
 
 import styles from "./Home.module.css";
 
