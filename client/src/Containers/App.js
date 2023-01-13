@@ -18,10 +18,9 @@ import DepositsDashboard from '../Components/Dashboard/DepositsDashboard/Deposit
 
 import "./App.css";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
+import Cart from "../Components/Cart/Cart.jsx";
 import { useSelector } from "react-redux";
 import Swal from 'sweetalert2';
-
-
 
 function App() {
 
@@ -41,8 +40,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
-
-        {/* DASHBOARD */}
+          <Route path="/cart" element={<Cart />} />
+          {/* DASHBOARD */}
           <Route path="/dashboard" element={ <Dashboard/> }/>
           <Route path="/dashboard/users" element={ <UsersDashboard/> }/>
           <Route path="/dashboard/bets" element={ <BetsDashboard/> }/>

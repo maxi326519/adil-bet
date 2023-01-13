@@ -9,6 +9,7 @@ import Nav from "../Nav/Nav";
 import Searchbar from "./Searchbar/Searchbar";
 import Filter from "./Filter/Filter";
 import Footer from "../Footer/Footer";
+import Cart from "../Cart/Cart";
 
 import styles from "./Home.module.css";
 
@@ -29,6 +30,7 @@ export default function Home() {
         </div>
         <MatchCards />
       </div>
+      <Cart />
       <Footer />
     </div>
   );
