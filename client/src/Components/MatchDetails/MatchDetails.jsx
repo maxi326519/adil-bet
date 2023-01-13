@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import Nav from "../Nav/Nav";
 
 import "./MatchDetails.css";
+import BetsButtonInput from "../BetsButtonInput/BetsButtonInput.jsx";
 
 export default function MatchDetails() {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ export default function MatchDetails() {
             <h3>Equipo Visitante: {match?.awayTeam}</h3>
           </div>
         </div>
-        <BetsButton />
+        <BetsButtonInput id={id} />
       </div>
     </div>
   );

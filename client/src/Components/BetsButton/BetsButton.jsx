@@ -1,31 +1,31 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./BetsButton.css";
-import { addOrder } from "../../redux/actions/POST";
+import { addBet } from "../../redux/actions/POST";
+import { Link } from "react-router-dom";
 
 export default function BetsButton() {
-  const dispatch = useDispatch();
   const multiplier = {
     homebet: 1.8,
     awaybet: 2.5,
     tiebet: 3.0,
   };
 
-  function handleAddOrder() {
-    dispatch(addOrder);
-  }
-
   return (
     <div className={styles.bttmcontainer}>
-      <button onClick={handleAddOrder} className="Button-bet">
-        <span className="team-name">Apuesta local: </span>
-        <span>{multiplier.homebet}</span>
-      </button>
+      <Link to="/login" className="text-button-bet">
+        <button className="Button-bet">
+          <span className="team-name">Apuesta local: </span>
+          <span>{multiplier.homebet}</span>
+        </button>
+      </Link>
 
-      <button onClick={handleAddOrder} className="Button-bet">
-        <span className="team-name">Apuesta Visitante: </span>
-        <span>{multiplier.awaybet}</span>
-      </button>
+      <Link to="/login" className="text-button-bet">
+        <button className="Button-bet">
+          <span className="team-name">Apuesta Visitante: </span>
+          <span>{multiplier.awaybet}</span>
+        </button>
+      </Link>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-/* const Stripe = require("stripe");
+ const Stripe = require("stripe");
 const stripe = new Stripe(
   "sk_test_51MJPEXA6SeeS9tTlg2Nyv3BaNRDd6PRV7PqDZzLRxaK5rozoKTuTbjRY4ezRuI53X4DTFHVvx91PFLrANqYytk5k00HCYuDS2N"
 );
@@ -18,10 +18,11 @@ const transporter = nodemailer.createTransport({
     user: "AdilBets2022@gmail.com", // generated ethereal user
     pass: "wgbcndetyaocjvxo", // generated ethereal password
   },
-}); */
+}); 
 
 const postRecharge = async (req, res) => {
-/*   const { id, amount, userId } = req.body;
+  const { id, amount, userId } = req.body;
+  console.log(id,amount, userId)
 
   try {
     const payment = await stripe.paymentIntents.create({
@@ -31,7 +32,7 @@ const postRecharge = async (req, res) => {
       payment_method: id,
       confirm: true,
     });
-
+    console.log("holi1")
     await transporter.sendMail({
       from: '"AdilBets2022" <AdilBets2022@gmail.com>', //Emisor
       to: user.email, //Receptor
@@ -43,7 +44,7 @@ const postRecharge = async (req, res) => {
       where: { id: userId },
       attributes: ["wallet"],
     });
-
+    console.log(user, "holii2")
     // Actualiza el usuario
 
     const updatedUser = await user.update(
@@ -63,7 +64,7 @@ const postRecharge = async (req, res) => {
     return res.status(200).json({ message: "Successful Payment" });
   } catch (error) {
     return res.status(400).json({ message: error.raw.message });
-  } */
+  } 
 };
 
 module.exports = { postRecharge };

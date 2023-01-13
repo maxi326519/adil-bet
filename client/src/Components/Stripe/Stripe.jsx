@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -14,47 +15,37 @@ import {useDispatch} from 'react-redux'
 import {addDeposit} from '../../redux/actions/POST/index.js'
 
 const stripePromise = loadStripe(
-  "pk_test_51MHby8F7eyBevS9ZTF3WvgrNWzEcmymWJE8d9KquqyAMHBwF1dIqEILuNBoAaa7Sgi3ZiEoZtWSps2gjdl9UNVpP00kXKAwJOc"
+  "pk_test_51MPqgHHDF8goU6ElSNxHEMDSRl3jnVFalpylIlOwIyF6ppIrWdXL8j6QI4JLwtO2h94rz0703e0zgoKuH8t6675C00VxHwEQzT"
 );
 
 const CheckoutForm = (props) => {
-  const [amount, setAmount] = useState(0);
-  const stripeUse = useStripe();
+  const stripe = useStripe();
   const elementsUse = useElements();
   const dispatch = useDispatch()
+  const user = useSelector(state => state.userDates);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { error, paymentMethod } = await stripeUse.createPaymentMethod({
+
+    // Creamos el metodo de pago
+    const { paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elementsUse.getElement(CardElement),
+      billing_details: {
+        name: user.name,
+        email: user.email,
+        
+      }
     });
 
-    if (!error) {
-      const { id } = paymentMethod;
-
-      //el userId se debe obtener del estado de redux con useSelector y la cantidad se debe obtener de un estado useState del input 
-
-      const data = await axios.post(
-        "http://localhost:3000/create-checkout-session",
-        {
-          id,
-          // amount: amount * 100,
-          "amount": 100,
-          "userId":1
-        },
-        { withCredentials: true }
-      );
-      if(data.message === "Successful Payment"){
-        const paid={
-          "method": "Stripe",
-          "amount": 100,
-          "userId":1
-        }
-
-        dispatch(addDeposit(paid))
+    // Hacemos el post al back con al info del pago
+    const response = await axios.post("/create-checkout-session",
+      {
+        payment_method: paymentMethod.id,
+        amount: 100,
+        userId: user.id
       }
-    }
+    );
   };
 
   return (

@@ -28,10 +28,14 @@ const postBet = async (req, res) => {
 
     if (!matchDb) throw new Error("not found match", { statusCode: 404 });
 
-    await matchDb.addBets(newBet);
-    await userDb.addBet(newBet);
-
-    return res.status(200).send({ message: "The bet was made successfully" });
+    const matchr = await matchDb.addBets(newBet);
+    const bet_user= await userDb.addBet(newBet);
+    
+    return res.status(200).json({
+      ...newBet.dataValues,
+      matchId: matchr.id,
+      userId: userDb.id
+    });
   } catch (error) {
     return res.status(error.statusCode).send({ error: error.message });
   }

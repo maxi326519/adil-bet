@@ -67,7 +67,6 @@ export default function Filter() {
           <option value="All" key="All">
             Filtro por pais
           </option>
-          {console.log(allFilters.country)}
           {allFilters.country?.map((e, i) => {
             return (
               <option value={e} key={i}>

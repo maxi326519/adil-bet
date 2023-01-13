@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import './MyAccountButton.css'
 
 const MyAccountButton = () => {
   return (
-    <div>
+    <div className="container-myaccount-button">
       <Link to='/myaccount'>
-      <button >Mi cuenta</button>;
+      <button className="button-myaccount-navbar">Mi cuenta</button>
       </Link>
     </div>
   )

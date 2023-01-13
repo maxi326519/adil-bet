@@ -6,15 +6,15 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY
 } = process.env;
 
-/*const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/adilBetDb`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});*/
-
-const sequelize = new Sequelize(DB_DEPLOY, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/adilBetDb`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
+
+/* const sequelize = new Sequelize(DB_DEPLOY, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+}); */
 
 const basename = path.basename(__filename);
 
@@ -58,8 +58,8 @@ User.hasMany(Bet);
 Bet.belongsTo(User);
 
 // Relationships Order
-Order.belongsTo(Match);
-Match.hasMany(Order);
+Bet.belongsTo(Order);
+Order.hasMany(Bet);
 
 // Relationships Bet
 Bet.belongsTo(Match);

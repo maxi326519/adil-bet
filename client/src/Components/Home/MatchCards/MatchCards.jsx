@@ -23,6 +23,7 @@ export default function MatchCards({ currentMatchs }) {
         {currentPage.map((match) => {
           return (
             <Card
+              key={match.id}
               matchId={match.id}
               league={match.league}
               homeTeam={match.homeTeam}
