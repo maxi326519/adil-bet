@@ -65,6 +65,9 @@ export default function Nav() {
           {/* <Link to="/signin">
             <span className="link_about ">Signin</span>
           </Link> */}
+          <Link to="/cart">
+          {Object.entries(userDates).length === 0? null:<button>Carrito</button>}
+          </Link>
         </div>
       </div>
   );

@@ -58,8 +58,8 @@ User.hasMany(Bet);
 Bet.belongsTo(User);
 
 // Relationships Order
-Order.belongsTo(Match);
-Match.hasMany(Order);
+Bet.belongsTo(Order);
+Order.hasMany(Bet);
 
 // Relationships Bet
 Bet.belongsTo(Match);
