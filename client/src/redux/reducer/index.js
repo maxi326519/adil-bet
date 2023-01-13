@@ -4,10 +4,14 @@ import {
   SET_CURRENT_PAGE,
   SET_PAGE,
   MATCH_FILTERS,
-  ORDER_BY_NAME
+  ORDER_BY_NAME,
+  ITEM_CART
 } from "../actions/types";
 
+const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem("cartItems") || "[]")
+
 const initialState = {
+  items: cartItemsFromLocalStorage || [],
   matches: [],
   currentPage: {
     data: [],
@@ -29,6 +33,12 @@ const initialState = {
 export const Reducer = (state = initialState, action) => {
   switch (action.type) {
     // Agregar cada caso
+    case ITEM_CART:
+      return {
+        ...state,
+        items: [...state.items, action.payload]
+      }
+
     case SEARCH_TEAM:
       return {
         ...state,

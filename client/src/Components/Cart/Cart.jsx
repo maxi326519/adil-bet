@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import CardCart from "../CardCart/CardCart.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { createBetDB, createOrder } from "../../redux/actions/POST/index.js";
+import { createBetDB, createOrder, itemCart } from "../../redux/actions/POST/index.js";
 import { updateWalletUser } from "../../redux/actions/PATCH/index.js";
 import "./Cart.css";
+import { useEffect } from "react";
+
+
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -12,6 +15,10 @@ export default function Cart() {
   const userId = userDates.id;
   console.log(userDates);
   const [style, setStyle] = useState(false)
+
+  const items = useSelector((state) => state.items)
+  useEffect(() => { localStorage.setItem("cartItems", JSON.stringify(items)) }, [items]);
+
 
   let total = 0;
   cart.map((e) => {
@@ -30,7 +37,7 @@ export default function Cart() {
     dispatch(updateWalletUser({ wallet, userId }));
   };
 
-  function HandleStyle () {
+  function HandleStyle() {
     style ? setStyle(false) : setStyle(true)
     console.log("Soy estilo")
   }

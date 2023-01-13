@@ -44,96 +44,102 @@ export function addBet(bet) {
   }
 }
 
-export function addOrder(){
-    console.log('addOrder')
+export function addOrder() {
+  console.log('addOrder')
 }
 
-export function addPayment(){
-    console.log('addPayment')
+export function addPayment() {
+  console.log('addPayment')
 }
 
-export function addUser(){
-    console.log('addUser')
+export function addUser() {
+  console.log('addUser')
 }
 
 export function postCreateUser(payload) {
-    return async function (dispatch) {
-      try {
-        const result = await axios.post(`${api}/user`, payload);
-        return dispatch({
-          type: 'POST_CREATE_USER',
-          payload: result.data,
-        });
-      } catch (error) {
-          throw new Error (error.message)
-      }
-    };
-  }
-
-  export function postLoginUser(payload) {
-    return async function (dispatch) {
-      try {
-        const result = await axios.post(`${api}/login`, payload);
-        console.log(result.data)
-        return dispatch({
-          type: 'LOGIN_USER',
-          payload: result.data,
-        });
-      } catch (error) {
-          throw new Error (error.message)
-      }
-    };
-  }
-
-  export function postLoginUserAuth0(payload) {
-    return async function (dispatch) {
-      try {
-        const result = await axios.post(`${api}/login/auth0`, payload);
-        return dispatch({
-          type: 'CREATE_USER_AUTH0',
-          payload: result.data,
-        });
-      } catch (error) {
-          throw new Error (error.message)
-      }
-    };
-  }
-
-  export function createBetDB(payload) {
-         console.log(payload)
-      return async function (dispatch) {
-      try {
-        const result = await axios.post(`${api}/order/bet`, payload);
-        console.log(result.data)
-        return dispatch({
-          type: 'ADD_BET_DB',
-          payload: result.data,
-        });
-      } catch (error) {
-        console.log(error)
-          throw new Error (error.message)
-      }
-    };
-  };
-  export function createOrder({userId, total}) {
-    console.log(userId,total)
-    const payload={
-      'amount':total,
-      'idUser':userId,
+  return async function (dispatch) {
+    try {
+      const result = await axios.post(`${api}/user`, payload);
+      return dispatch({
+        type: 'POST_CREATE_USER',
+        payload: result.data,
+      });
+    } catch (error) {
+      throw new Error(error.message)
     }
-    console.log(payload)
- return async function (dispatch) {
- try {
-   const result = await axios.post(`${api}/order`, payload);
-   console.log(result.data)
-   return dispatch({
-     type: 'CREATE_ORDER',
-     payload: result.data,
-   });
- } catch (error) {
-   console.log(error)
-     throw new Error (error.message)
- }
+  };
+}
+
+export function postLoginUser(payload) {
+  return async function (dispatch) {
+    try {
+      const result = await axios.post(`${api}/login`, payload);
+      console.log(result.data)
+      return dispatch({
+        type: 'LOGIN_USER',
+        payload: result.data,
+      });
+    } catch (error) {
+      throw new Error(error.message)
+    }
+  };
+}
+
+export function postLoginUserAuth0(payload) {
+  return async function (dispatch) {
+    try {
+      const result = await axios.post(`${api}/login/auth0`, payload);
+      return dispatch({
+        type: 'CREATE_USER_AUTH0',
+        payload: result.data,
+      });
+    } catch (error) {
+      throw new Error(error.message)
+    }
+  };
+}
+
+export function createBetDB(payload) {
+  console.log(payload)
+  return async function (dispatch) {
+    try {
+      const result = await axios.post(`${api}/order/bet`, payload);
+      console.log(result.data)
+      return dispatch({
+        type: 'ADD_BET_DB',
+        payload: result.data,
+      });
+    } catch (error) {
+      console.log(error)
+      throw new Error(error.message)
+    }
+  };
 };
+export function createOrder({ userId, total }) {
+  console.log(userId, total)
+  const payload = {
+    'amount': total,
+    'idUser': userId,
+  }
+  console.log(payload)
+  return async function (dispatch) {
+    try {
+      const result = await axios.post(`${api}/order`, payload);
+      console.log(result.data)
+      return dispatch({
+        type: 'CREATE_ORDER',
+        payload: result.data,
+      });
+    } catch (error) {
+      console.log(error)
+      throw new Error(error.message)
+    }
+  };
 };
-  
+
+export const itemCart = (item) => {
+  return {
+      type: "ITEM_CART",
+      payload: item
+  }
+}
