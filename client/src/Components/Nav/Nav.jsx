@@ -47,19 +47,19 @@ export default function Nav() {
           <span>Tutorial</span>
         </Link>
 
-        <Link to="/about" className="nav-menu-link">
-          <span>Nosotros</span>
-        </Link>
-      </div>
-      <div className="sesion">
-        <Wallet />
-        {Object.entries(userDates).length === 0 ? (
-          <LoginButton />
-        ) : (
-          <LogoutButton />
-        )}
-        {Object.entries(userDates).length === 0 ? null : <MyAccountButton />}
-        {/* <Link to="/login">
+          <Link to="/about" className="nav-menu-link">
+            <span>Nosotros</span>
+          </Link>
+        </div>
+
+        <div className="sesion">
+          {Object.entries(userDates).length === 0 ? (
+            <LoginButton />
+          ) : (
+            <LogoutButton />
+          )}
+          {Object.entries(userDates).length === 0 ? null : <MyAccountButton />}
+          {/* <Link to="/login">
             <span className="link_about ">Login</span>
           </Link> */}
 

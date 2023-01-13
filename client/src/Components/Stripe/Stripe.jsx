@@ -38,14 +38,7 @@ const CheckoutForm = (props) => {
       }
     });
 
-    // Hacemos el post al back con al info del pago
-    const response = await axios.post("/create-checkout-session",
-      {
-        payment_method: paymentMethod.id,
-        amount: 100,
-        userId: user.id
-      }
-    );
+    console.log(paymentMethod);
   };
 
   return (
@@ -53,7 +46,7 @@ const CheckoutForm = (props) => {
       <div className="form-group">
         <CardElement className="form-control" />
       </div>
-      <button className="btn btn-success">Pagar</button>
+      <button className="btn btn-success" type='submit'>Pagar</button>
     </form>
   );
 };
