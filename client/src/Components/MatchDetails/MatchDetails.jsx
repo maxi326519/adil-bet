@@ -2,12 +2,12 @@ import React from "react";
 import { getMatchDetails } from "../../redux/actions/GET/index.js";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import BetsButton from "../BetsButton/BetsButton.jsx";
 import { useParams } from "react-router-dom";
 
 import Nav from "../Nav/Nav";
 
 import "./MatchDetails.css";
+import BetsButtonDetails from "../BetsButtonsDetails/BetsButton.jsx";
 
 export default function MatchDetails() {
   const dispatch = useDispatch();
@@ -28,16 +28,41 @@ export default function MatchDetails() {
           <img className="imgleague" src={match?.logoLeague} alt="not found" />
         </div>
         <div className="cnt-teams">
+          <div className="container-list-statistics">
+            <ul className="list-statistics">
+              <li className="item-statistics-good">Partidos Ganados: 87% 🠕</li>
+              <li className="item-statistics-bad">Promedio Rondas: 35 🠗</li>
+              <li className="item-statistics-good">
+                Apuestas realizadas: 563 🠕
+              </li>
+              <li className="item-statistics-good">Apuestas ganadas: 17 🠕</li>
+            </ul>
+          </div>
           <div>
             <img className="imgteam" src={match?.logoHome} alt="not found" />
-            <h3>Equipo local: {match?.homeTeam}</h3>
+            <h3>Equipo local:</h3>
+            <p className="name-teams"> {match?.homeTeam}</p>
+          </div>
+          <div className="text-vs">
+            <h3 className="text-vs">VS</h3>
           </div>
           <div>
             <img className="imgteam" src={match?.logoAway} alt="not found" />
-            <h3>Equipo Visitante: {match?.awayTeam}</h3>
+            <h3>Equipo Visitante:</h3>
+            <p className="name-teams"> {match?.awayTeam}</p>
+          </div>
+          <div className="container-list-statistics">
+            <ul className="list-statistics">
+              <li className="item-statistics-good">Partidos Ganados: 65% 🠕</li>
+              <li className="item-statistics-bad">Promedio Rondas: 20 🠗</li>
+              <li className="item-statistics-good">
+                Apuestas realizadas: 347 🠕
+              </li>
+              <li className="item-statistics-bad">Apuestas ganadas: 28 🠗</li>
+            </ul>
           </div>
         </div>
-        <BetsButton />
+        <BetsButtonDetails />
       </div>
     </div>
   );

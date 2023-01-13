@@ -1,36 +1,74 @@
-.matchdetail{
-    display: flex;
-    flex-direction: column;
+.matchdetail {
+  background: url("../../Assets/Images/field.jpg");
+  width: 100vw;
+  height: 100vh;
 }
 
-.details-content{
-    margin: 150px;
-    padding: 20px;
-    background-color: rgb(229, 229, 229);
-    border: 1px solid black;
-    border-radius: 50px;
-    box-shadow: 1px 1px 10px 3px gray;
+.matchdetail {
+  display: flex;
+  flex-direction: column;
 }
 
-.cntleague{
-    margin: 0;
-    padding: 0;
+.text-vs {
+  font-size: 40px;
 }
 
-.titleleague{
-    font-size: 30px;
+.name-teams {
+  font-size: 20px;
 }
 
-.imgleague{
-    width: 70px;
+.details-content {
+  margin: 150px;
+  background-color: rgb(229, 229, 229);
+  border: 1px solid black;
+  border-radius: 50px;
+  box-shadow: 1px 1px 10px 3px gray;
 }
 
-.cnt-teams{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 50px;
+.cntleague {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 0;
 }
 
-.imgteam{
-    margin: 10px;
+.titleleague {
+  font-size: 40px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.imgleague {
+  width: 70px;
+}
+
+.cnt-teams {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-list-statistics {
+  margin: 40px;
+  padding: 10px;
+}
+.item-statistics-good {
+  color: green;
+  font-size: 20px;
+}
+
+.item-statistics-bad {
+  color: red;
+  font-size: 18px;
+}
+
+.list-statistics {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imgteam {
+  margin: 10px;
 }
