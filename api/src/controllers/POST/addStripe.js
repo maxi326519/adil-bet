@@ -1,7 +1,4 @@
- const Stripe = require("stripe");
-const stripe = new Stripe(
-  "sk_test_51MJPEXA6SeeS9tTlg2Nyv3BaNRDd6PRV7PqDZzLRxaK5rozoKTuTbjRY4ezRuI53X4DTFHVvx91PFLrANqYytk5k00HCYuDS2N"
-);
+const stripe = require("stripe")("sk_test_51MPqgHHDF8goU6ElAtZxz40EN9SzKYYp0jc3PA0CHoiQEmdAlQzXeqYu0OtQMIeO944yawN3AZx1Jz2RJ3XFfUDQ00pc1lG9Of");
 const { User } = require("../../db.js");
 const nodemailer = require("nodemailer");
 
@@ -21,33 +18,52 @@ const transporter = nodemailer.createTransport({
 }); 
 
 const postRecharge = async (req, res) => {
-  const { id, amount, userId } = req.body;
-  console.log(id,amount, userId)
+  const { payment_method, amount, userId } = req.body;
 
   try {
-    const payment = await stripe.paymentIntents.create({
+/*     const payment = await stripe.charges.create({
       amount,
       currency: "USD",
       description: "BET",
-      payment_method: id,
-      confirm: true,
     });
-    console.log("holi1")
-    await transporter.sendMail({
+ */
+
+    console.log(payment_method, amount, userId);
+
+    const clientSecret = await stripe.paymentIntents.create({
+      amount: amount,
+      currency: 'usd',
+      payment_method: payment_method,
+      confirmation_method: 'manual',
+      confirm: true,
+      statement_descriptor: 'recarga',
+    });
+
+    res.status(200).json(clientSecret);
+
+/*     const paymentIntent = await stripe.paymentIntents.create({
+
+      payment_method: payment_method.paymentMethod,
+      confirmation_method: 'manual',
+      confirm: true,
+      statement_descriptor: 'Apuesta',
+    }); */
+
+/*     await transporter.sendMail({
       from: '"AdilBets2022" <AdilBets2022@gmail.com>', //Emisor
       to: user.email, //Receptor
       subject: "Mail Verification", //Asunto
       html: `<b>You have made a bet ${amount}</b>`, //Texto del mail
-    });
+    }); */
 
-    const user = await User.findOne({
+/*     const user = await User.findOne({
       where: { id: userId },
       attributes: ["wallet"],
-    });
-    console.log(user, "holii2")
+    }); */
+
     // Actualiza el usuario
 
-    const updatedUser = await user.update(
+/*     const updatedUser = await user.update(
       {
         wallet: user.wallet + amount,
       },
@@ -58,10 +74,7 @@ const postRecharge = async (req, res) => {
         return: true,
         plain: true,
       }
-    );
-
-    console.log(updatedUser);
-    return res.status(200).json({ message: "Successful Payment" });
+    ); */
   } catch (error) {
     return res.status(400).json({ message: error.raw.message });
   } 

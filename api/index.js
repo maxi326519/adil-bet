@@ -6,9 +6,9 @@ const getApi = require('./src/requestAPI');
 
 const port = process.env.PORT || 3001;
  
-conn.sync({ force: true }).then(()=>{ 
+conn.sync({ force: false }).then(()=>{ 
     // Traer datos a la DB
-    getApi();
+   /*  getApi(); */
     
     // Iniciamos el servidor
     server.listen(port, ()=>{
