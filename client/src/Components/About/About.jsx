@@ -21,7 +21,7 @@ const teamMembers = [
   {
     name: "Maximiliano García",
     image: require("../../Assets/Images/avatar-perfil-png.png"),
-    linkedin: "https://www.linkedin.com/in/",
+    linkedin: "https://www.linkedin.com/in/maxi-garcia-fsd/",
     github: "https://github.com/maxi326519",
   },
   {
@@ -61,6 +61,7 @@ const Team = () => {
   return (
     <div className="team-main-container">
       <Nav />
+      <h4>Conoce a nuestro equipo ADILBET</h4>
       <div className="team-container">
         {teamMembers.map((member) => (
           <div className="team-member">
@@ -69,17 +70,33 @@ const Team = () => {
               alt={member.name}
               className="team-member-photo"
             />
-            <h3>{member.name}</h3>
+            <h6>{member.name}</h6>
             <div className="GHyLDn">
               <a href={member.linkedin}>
                 <AiFillLinkedin />
-              </a>
+              </a>{" "}
+              &nbsp; &nbsp; &nbsp; &nbsp;
               <a href={member.github}>
                 <AiFillGithub />
               </a>
             </div>
           </div>
         ))}
+      </div>
+      <div className="team-description">
+        <h5>
+          Formado por talentosos estudiantes altamente comprometidos con el
+          aprendizaje y crecimiento personal y profesional, nuestro equipo
+          brinda y aplica sus conocimientos en diferentes areas del
+          desarrollo, desde el front-end hasta el back-end para lograr la
+          creación de soluciones tecnológicas de alta calidad, es asi como
+          presentamos la página de apuestas deportivas <b>ADILBET</b>. Estamos
+          orgullosos de ser parte de un equipo tan talentoso, empático y
+          dedicado, y estamos seguros de que nuestra experiencia en este
+          proyecto y en <b>HENRY</b> Bootcamp nos permitirá enfrentar de la mejor
+          manera cualquier reto en los proyectos en que participemos como
+          programadores.
+        </h5>
       </div>
       <Footer />
     </div>
