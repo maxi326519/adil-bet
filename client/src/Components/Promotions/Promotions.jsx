@@ -23,7 +23,7 @@ const items = [
     caption: "",
   },
   {
-    src: require("../../Assets/Images/beisbol promo 2.jpg"),
+    src: require("../../Assets/Images/beisbol promo 2.png"),
     altText: "",
     caption: "",
   },

@@ -15,7 +15,7 @@ const teamMembers = [
   {
     name: "Luis Rodríguez",
     image: require("../../Assets/Images/avatar-perfil-png.png"),
-    linkedin: "https://www.linkedin.com/in/luis-rodriguzz",
+    linkedin: "https://www.linkedin.com/in/luis-rodriguez",
     github: "https://github.com/LuisRodriguzz",
   },
   {
