@@ -1,5 +1,7 @@
 import React from "react";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
 import "./About.css";
 
 const teamMembers = [
@@ -13,7 +15,7 @@ const teamMembers = [
   {
     name: "Luis Rodríguez",
     image: require("../../Assets/Images/avatar-perfil-png.png"),
-    linkedin: "https://www.linkedin.com/in/luis-rodriguez",
+    linkedin: "https://www.linkedin.com/in/luis-rodriguzz",
     github: "https://github.com/LuisRodriguzz",
   },
   {
@@ -49,32 +51,37 @@ const teamMembers = [
   {
     name: "Juan Carlos Gómez",
     image: require("../../Assets/Images/avatar-perfil-png.png"),
-    linkedin: "https://www.linkedin.com/in/juan-carlos-gómez-cucaita-4677a218b/",
+    linkedin:
+      "https://www.linkedin.com/in/juan-carlos-gómez-cucaita-4677a218b/",
     github: "https://github.com/REALCHARLEX",
   },
 ];
 
 const Team = () => {
   return (
-    <div className="team-container">
-      {teamMembers.map((member) => (
-        <div className="team-member">
-          <img
-            src={member.image}
-            alt={member.name}
-            className="team-member-photo"
-          />
-          <h3>{member.name}</h3>
-          <div className="GHyLDn">
-            <a href={member.linkedin}>
-              <AiFillLinkedin />
-            </a>
-            <a href={member.github}>
-              <AiFillGithub />
-            </a>
+    <div className="team-main-container">
+      <Nav />
+      <div className="team-container">
+        {teamMembers.map((member) => (
+          <div className="team-member">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="team-member-photo"
+            />
+            <h3>{member.name}</h3>
+            <div className="GHyLDn">
+              <a href={member.linkedin}>
+                <AiFillLinkedin />
+              </a>
+              <a href={member.github}>
+                <AiFillGithub />
+              </a>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <Footer />
     </div>
   );
 };
