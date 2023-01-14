@@ -87,7 +87,7 @@ const Team = () => {
         <h5>
           Formado por talentosos estudiantes altamente comprometidos con el
           aprendizaje y crecimiento personal y profesional, nuestro equipo
-          brinda y aplica sus conocimientos en diferentes areas del
+          brinda y aplica sus conocimientos en diferentes áreas del
           desarrollo, desde el front-end hasta el back-end para lograr la
           creación de soluciones tecnológicas de alta calidad, es asi como
           presentamos la página de apuestas deportivas <b>ADILBET</b>. Estamos
