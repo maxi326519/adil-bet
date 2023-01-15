@@ -8,10 +8,10 @@ import {
   ITEM_CART
 } from "../actions/types";
 
-const cartItemsFromLocalStorage = JSON.parse(localStorage.getItem("cartItems") || "[]")
+const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
 
 const initialState = {
-  items: cartItemsFromLocalStorage || [],
+  items: cartItemsFromLocalStorage,
   matches: [],
   currentPage: {
     data: [],

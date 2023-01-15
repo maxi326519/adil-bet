@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./BetsButtonInput.css";
 import {addBet} from '../../redux/actions/POST'
@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 export default function BetsButtonInput({id}) {
   const userDates = useSelector(state => state.userDates)
+  const jj = useSelector(state => state.cart)
+  const ff = useSelector(state => state.items)
   const initialState = {
      homeBet: "",
      awayBet: "",
@@ -29,6 +31,10 @@ export default function BetsButtonInput({id}) {
       [name]: value,
     });
   };
+
+  useEffect(() => { localStorage.setItem("cartItem", bet) }, [jj]);
+  console.log('es esto', Object.entries(ff) )
+  console.log('cart = ', jj)
 
  const handleAddBet = () => {
   dispatch(addBet(bet))
