@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { /*useEffect,*/ useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../../../redux/actions/PATCH/index";
-import { useParams } from "react-router";
+import /*useParams*/ "react-router";
+import Swal from "sweetalert2";
+
+import "./userProfile.css";
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({
@@ -26,6 +29,12 @@ export default function UserProfile() {
     await dispatch(updateProfile(user.id, userData))
       .then(() => {
         console.log("usuario actualizado correctamente!");
+        Swal.fire({
+          title: "¡Exito!",
+          text: "El perfil del usuario ha sido actualizado.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
       })
       .catch((error) => {
         console.log("Error al actualizar usuario:", error);
@@ -90,11 +99,10 @@ export default function UserProfile() {
             disabled={disabled}
           />
         </div>
-
-        <h3>Wallet: {user.wallet} </h3>
       </div>
       <button onClick={handleDisabled}>Editar</button>
       <button type="submit">Save</button>
+        <h3>Wallet: {user.wallet} </h3>
     </form>
   );
 }

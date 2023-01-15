@@ -9,6 +9,7 @@ export function updateMatch() {
 export function updateUser() {
   console.log("updateUser");
 }
+
 export function updateProfile(id, { userName, email, phone }) {
   const payload = {
     userName,

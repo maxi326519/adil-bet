@@ -24,7 +24,7 @@ const updateProfile = async ({ id, userName, email, phone }) => {
     });
   }
 
-  await profileFound.save();
+  await profileFound.save();z
   return profileFound;
 
   // if(profileFound && isAdmin && !wallet && !name && !userName && !email && !password && !phone && !isActive ){
