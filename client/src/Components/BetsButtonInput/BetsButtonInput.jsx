@@ -32,8 +32,8 @@ export default function BetsButtonInput({id}) {
     });
   };
 
-  useEffect(() => { localStorage.setItem("cartItem", bet) }, [jj]);
-  console.log('es esto', Object.entries(ff) )
+  useEffect(() => { localStorage.setItem("cartItem", JSON.stringify(jj) ) }, [jj]);
+  console.log('es esto',ff )
   console.log('cart = ', jj)
 
  const handleAddBet = () => {

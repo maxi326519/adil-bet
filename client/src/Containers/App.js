@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 
 // Componentes
 import Landing from "../Components/Landing/Landing.jsx";
@@ -9,6 +11,7 @@ import Login from "../Components/Login/Login.jsx";
 import Signin from "../Components/Signin/Signin.jsx";
 import Inprocess from "../Components/Inprocess/Inprocess.jsx";
 import Stripe from "../Components/Stripe/Stripe";
+import { updateRedux } from "../redux/actions/POST/index.js";
 
 // Dashboard
 import Dashboard from '../Components/Dashboard/Dashboard';
@@ -22,10 +25,19 @@ import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
 import Cart from "../Components/Cart/Cart.jsx";
 import { useSelector } from "react-redux";
 import Swal from 'sweetalert2';
+import { useEffect } from "react";
 
 function App() {
 
   const error = useSelector(state=>state.error)
+  const dispatch = useDispatch()
+
+  
+  useEffect(()=>{
+    const loged = JSON.parse(window.localStorage.getItem('user'))
+    if(loged){dispatch(updateRedux(loged)) }
+  })
+  
 
   return (
     <div className="App">

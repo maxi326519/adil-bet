@@ -23,6 +23,7 @@ export const POST_ORDER = 'POST_ORDER'
 export const POST_PAYMENT = 'POST_PAYMENT'
 export const POST_USER = 'POST_USER'
 export const ITEM_CART = 'ITEM_CART'
+export const UPDATE_REDUX = 'UPDATE_REDUX'
 
 // Paginado
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';

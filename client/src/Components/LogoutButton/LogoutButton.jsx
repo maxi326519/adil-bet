@@ -3,10 +3,16 @@ import React from "react";
 import './LogoutButton.css'
 
 const LogoutButton = () => {
+  
   const { logout } = useAuth0();
 
+  const handleLogout = ()=>{
+    logout({ returnTo: window.location.origin })
+    window.localStorage.clear()
+  }
+
   return (
-    <button onClick={() => logout({ returnTo: window.location.origin })} className='button-logout-navbar'>
+    <button onClick={handleLogout} className='button-logout-navbar'>
       Cerrar Sesion
     </button>
   );

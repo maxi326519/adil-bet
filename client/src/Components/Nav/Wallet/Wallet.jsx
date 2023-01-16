@@ -12,7 +12,7 @@ export default function Wallet() {
     setStyle(!style);
   }
 
-  return userName ? (
+  return (
     <nav className="wallet">
       <div className="button-wallet" onClick={HandleStyle}>
         <p className="title-navbar-wallet">Billetera</p>
@@ -30,5 +30,5 @@ export default function Wallet() {
         </div>
       </div>
     </nav>
-  ) : null;
+  );
 }
