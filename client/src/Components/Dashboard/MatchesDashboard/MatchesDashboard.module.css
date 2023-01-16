@@ -1,0 +1,18 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ccc;
+}
+
+.container{
+    flex-grow: 1;
+    display: flex;
+}
+
+.matches{
+    flex-grow: 1;
+    margin: 20px;
+    border-radius: 25px;
+    background-color: white;
+}

@@ -1,5 +1,4 @@
 import axios from 'axios';
-const api = 'http://localhost:3001'
 
 export function addBet(bet) {
   if (bet.homeBet) {
@@ -59,7 +58,7 @@ export function addUser() {
 export function postCreateUser(payload) {
   return async function (dispatch) {
     try {
-      const result = await axios.post(`${api}/user`, payload);
+      const result = await axios.post(`/user`, payload);
       return dispatch({
         type: 'POST_CREATE_USER',
         payload: result.data,
@@ -73,14 +72,17 @@ export function postCreateUser(payload) {
 export function postLoginUser(payload) {
   return async function (dispatch) {
     try {
-      const result = await axios.post(`${api}/login`, payload);
+      const result = await axios.post(`/login`, payload);
       console.log(result.data)
       return dispatch({
         type: 'LOGIN_USER',
         payload: result.data,
       });
     } catch (error) {
-      throw new Error(error.message)
+    return dispatch({
+          type: 'ERROR_BACK',
+          payload: 'Error, inténtalonuevamente',
+        });
     }
   };
 }
@@ -88,7 +90,7 @@ export function postLoginUser(payload) {
 export function postLoginUserAuth0(payload) {
   return async function (dispatch) {
     try {
-      const result = await axios.post(`${api}/login/auth0`, payload);
+      const result = await axios.post(`/login/auth0`, payload);
       return dispatch({
         type: 'CREATE_USER_AUTH0',
         payload: result.data,
@@ -99,47 +101,54 @@ export function postLoginUserAuth0(payload) {
   };
 }
 
-export function createBetDB(payload) {
-  console.log(payload)
-  return async function (dispatch) {
-    try {
-      const result = await axios.post(`${api}/order/bet`, payload);
-      console.log(result.data)
-      return dispatch({
-        type: 'ADD_BET_DB',
-        payload: result.data,
-      });
-    } catch (error) {
-      console.log(error)
-      throw new Error(error.message)
-    }
-  };
+  export function createBetDB(payload) {
+    console.log(payload)
+ return async function (dispatch) {
+ try {
+   const result = await axios.post(`/order/bet`, payload);
+   console.log(result.data)
+   return dispatch({
+     type: 'ADD_BET_DB',
+     payload: result.data,
+   });
+ } catch (error) {
+   console.log(error)
+     throw new Error (error.message)
+ }
 };
-export function createOrder({ userId, total }) {
-  console.log(userId, total)
-  const payload = {
-    'amount': total,
-    'idUser': userId,
-  }
-  console.log(payload)
-  return async function (dispatch) {
-    try {
-      const result = await axios.post(`${api}/order`, payload);
-      console.log(result.data)
-      return dispatch({
-        type: 'CREATE_ORDER',
-        payload: result.data,
-      });
-    } catch (error) {
-      console.log(error)
-      throw new Error(error.message)
-    }
-  };
+};
+export function createOrder({userId, total}) {
+console.log(userId,total)
+const payload={
+ 'amount':total,
+ 'idUser':userId,
+}
+console.log(payload)
+return async function (dispatch) {
+try {
+const result = await axios.post(`/order`, payload);
+console.log(result.data)
+return dispatch({
+type: 'CREATE_ORDER',
+payload: result.data,
+});
+} catch (error) {
+console.log(error)
+throw new Error (error.message)
+}
+};
 };
 
-export const itemCart = (item) => {
-  return {
-      type: "ITEM_CART",
-      payload: item
-  }
+export function addDeposit(payload) {
+  return async function (dispatch) {
+    try {
+      const result = await axios.post(`/paid`, payload);
+      return dispatch({
+        type: 'CREATE_PAYMENT',
+        payload: result.data,
+      });
+    } catch (error) {
+        throw new Error (error.message)
+    }
+  };
 }

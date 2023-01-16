@@ -1,0 +1,8 @@
+.button-logout-navbar {
+  border: 0;
+  border-radius: 10px;
+  background-color: rgb(85, 21, 21);
+  font-size: 15px;
+  color: white;
+  margin: 14px 8px;
+}

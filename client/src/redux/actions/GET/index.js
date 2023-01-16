@@ -13,7 +13,7 @@ import {
 export function searchTeam(name) {
   return async function (dispatch) {
     let json = await axios.get(
-      `http://localhost:3001/matchs/search?name=${name}`
+      `/matchs/search?name=${name}`
     );
 
     return dispatch({
@@ -44,7 +44,7 @@ export function getMatchDetails(id) {
   console.log(id);
   return async function (dispatch) {
     try {
-      const result = await axios.get(`http://localhost:3001/details/${id}`);
+      const result = await axios.get(`/details/${id}`);
       return dispatch({
         type: MATCH_DETAILS,
         payload: result.data,
@@ -58,7 +58,7 @@ export function getMatchDetails(id) {
 export function getFilters() {
   return async (dispatch) => {
     try{
-      const response = await axios.get(`http://localhost:3001/getFilters`);
+      const response = await axios.get(`/getFilters`);
       dispatch({
         type: MATCH_FILTERS,
         payload: response.data
@@ -73,7 +73,7 @@ export function getMatchs(filters) {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/matchs?league=${
+        `/matchs?league=${
           filters ? filters.league : ""
         }&teams=${filters ? filters.teams : ""}&country=${
           filters ? filters.country : ""

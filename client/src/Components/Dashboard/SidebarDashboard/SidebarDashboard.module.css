@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 70px;
+    overflow: hidden;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: 0.2s;
+}
+
+.container:hover{
+    width: 250px;
+    padding: 0 10px;
+}
+
+.container:hover span{
+    left: 0px;
+    opacity: 100%;
+    transition: 0.5s;
+}
+
+.config{
+    position: absolute;
+    width: 220px;
+    bottom: 10px;
+}

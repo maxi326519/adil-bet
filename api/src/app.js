@@ -11,9 +11,17 @@ const routes = require('./routes');
 // Server init
 const server = express();
 
+// Corst options
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+    methods: 'GET, POST, OPTIONS, PUT, DELETE',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept'
+};
+
 // Middlewares
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
@@ -27,7 +35,6 @@ server.use((req, res, next) => {
 
 // Add Routes
 routes.forEach( r => server.use(r));
-
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
