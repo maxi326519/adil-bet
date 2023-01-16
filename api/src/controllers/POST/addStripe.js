@@ -21,7 +21,7 @@ const transporter = nodemailer.createTransport({
 const postRecharge = async ( { payment_method, amount, userId }) => { 
 
     const clientSecret = await stripe.paymentIntents.create({
-      amount: amount,
+      amount: amount * 100,
       currency: 'usd',
       payment_method: payment_method,
       confirmation_method: 'manual',
@@ -37,7 +37,7 @@ const postRecharge = async ( { payment_method, amount, userId }) => {
     
     await user.update(
       {
-        wallet: user.wallet + amount,
+        wallet: user.wallet + Number(amount),
       },
       {
         return: true,
@@ -49,7 +49,7 @@ const postRecharge = async ( { payment_method, amount, userId }) => {
         from: '"AdilBets2022" <AdilBets2022@gmail.com>', //Emisor
         to: user.email, //Receptor
         subject: "Mail Verification", //Asunto
-        html: `<b>your recharge of ${amount} was successful</b>`, //Texto del mail
+        html: `<b>your recharge of $${amount} was successful</b>`, //Texto del mail
       }); 
       
       await user.save();
