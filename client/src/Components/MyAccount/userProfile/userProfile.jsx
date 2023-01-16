@@ -2,6 +2,7 @@ import React, { /*useEffect,*/ useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../../../redux/actions/PATCH/index";
 import /*useParams*/ "react-router";
+import { FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 import "./userProfile.css";
@@ -12,15 +13,35 @@ export default function UserProfile() {
     email: "",
     phone: "",
   });
+  // nuevos estados para mostrar mensajes de error
+  const [emailError, setEmailError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userDates);
 
-  // user.phone !== userData.phone ? userData.phone : user.phone
-
   console.log(userData);
   const handleChange = (e) => {
+    // Validar formato de correo electrónico y teléfono
+    if (e.target.name === "email") {
+      const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      if (!emailRegex.test(e.target.value)) {
+        setEmailError("Debes ingresar un correo válido");
+      } else {
+        setEmailError("");
+      }
+    }
+    if (e.target.name === "phone") {
+      const phoneRegex = /^[+]{0,1}[0-9]{0,}$/;
+      if (!phoneRegex.test(e.target.value)) {
+        setPhoneError("Debes ingresar un número de teléfono válido");
+      } else {
+        setPhoneError("");
+      }
+    }
+
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
@@ -29,12 +50,9 @@ export default function UserProfile() {
     await dispatch(updateProfile(user.id, userData))
       .then(() => {
         console.log("usuario actualizado correctamente!");
-        Swal.fire({
-          title: "¡Exito!",
-          text: "El perfil del usuario ha sido actualizado.",
-          icon: "success",
-          confirmButtonText: "OK",
-        });
+
+        setShowSuccessAlert(true);
+        
       })
       .catch((error) => {
         console.log("Error al actualizar usuario:", error);
@@ -52,12 +70,23 @@ export default function UserProfile() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="formProfile" onSubmit={handleSubmit}>
+      {showSuccessAlert && (
+        <Swal
+          title="¡Exito!"
+          text="El perfil del usuario ha sido actualizado."
+          icon="success"
+          onClose={() => setShowSuccessAlert(false)}
+        />
+      )}
+
       <div>
-        <h3>Nombre: {user.name} </h3>
-        <div>
-          UserName:
+        <h3>{user.name} </h3>
+        <FaUser />
+        <div className="containerProfile">
+          <h3>Usuario</h3>
           <input
+            className="inputProfile"
             type="text"
             name="userName"
             value={
@@ -71,26 +100,27 @@ export default function UserProfile() {
             disabled={disabled}
           />
         </div>
-        <h3>
-          Email: {user.email !== userData.email ? userData.email : user.email}
-        </h3>
+        <h3>Email</h3>
         <div>
-          Email:
           <input
-            type="text"
+            className="inputProfile"
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             name="email"
-            value={userData.email}
+            value={user.email !== userData.email ? userData.email : user.email}
             placeholder={user.email}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
           />
+          <h5>{emailError}</h5>
         </div>
-        <h3>Phone: {user.phone} </h3>
+        <h3>Phone</h3>
         <div>
-          Phone:
           <input
-            type="text"
+            className="inputProfile"
+            type="tel"
+            pattern="[+]{0,1}[0-9]{0,}"
             name="phone"
             value={user.phone !== userData.phone ? userData.phone : user.phone}
             placeholder={user.phone}
@@ -98,11 +128,18 @@ export default function UserProfile() {
             onKeyDown={handleKeyDown}
             disabled={disabled}
           />
+          <h5>{phoneError}</h5>
         </div>
       </div>
-      <button onClick={handleDisabled}>Editar</button>
-      <button type="submit">Save</button>
-        <h3>Wallet: {user.wallet} </h3>
+      <div className="buttonsProfile">
+        <button className="button1" onClick={handleDisabled}>
+          Modificar
+        </button>
+        <button className="button2" type="submit">
+          Guardar
+        </button>
+      </div>
+      <h4>Wallet : $ {user.wallet} </h4>
     </form>
   );
 }
