@@ -6,7 +6,7 @@ const MyAccountButton = () => {
   return (
     <div className="container-myaccount-button">
       <Link to='/myaccount'>
-      <button className="button-myaccount-navbar">Mi cuenta</button>
+      <button className="btn btn-primary btn-color">Mi cuenta</button>
       </Link>
     </div>
   )

@@ -55,6 +55,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/myaccount" element={<Inprocess />} />
           <Route path="/payment" element={<Stripe />} />
 
           {/* DASHBOARD */}

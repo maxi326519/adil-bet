@@ -31,6 +31,19 @@
   align-items: center;
 }
 
+.sesions-btn{
+  display: flex;
+}
+
+.sesions-btn button, .container-buttons .btn{
+  display: flex;
+  margin: 0 5px;
+}
+
+.sesions-btn, .container-buttons{
+  text-decoration: none;
+}
+
 .nav a {
   font-size: 18px;
   text-decoration: none;

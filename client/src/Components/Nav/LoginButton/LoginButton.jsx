@@ -7,10 +7,10 @@ const LoginButton = () => {
   return (
     <div className="container-buttons">
       <Link to="/login">
-        <button className="button-login-navbar">Ingresar</button>
+        <button className="btn btn-primary btn-color">Ingresar</button>
       </Link>
       <Link to="/signin">
-        <button className="button-login-navbar">Registrar</button>
+        <button className="btn btn-primary btn-color">Registrar</button>
       </Link>
     </div>
   );
