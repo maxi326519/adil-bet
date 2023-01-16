@@ -39,13 +39,14 @@ const CheckoutForm = (props) => {
       }
     });
 
-    const response = await axios.post('/create-checkout-session', {
-      payment_method: paymentMethod.id,
-      amount:  amount /* Traer del estado */,
-      userId: user.id
-    })
 
-    props.handleLoading()
+const response = await axios.post('/create-checkout-session', {
+  payment_method: paymentMethod.id,
+  amount:  amount /* Traer del estado */,
+  userId: user.id
+})
+
+props.handleLoading()
 
     if (response.data.message === 'Successful Payment') {
       swal({
@@ -62,6 +63,7 @@ const CheckoutForm = (props) => {
     setAmount(inputAmount);
   }
 
+
   return (
     <form onSubmit={handleSubmit} className="card card-body">
       <div className="form-group">
@@ -73,13 +75,13 @@ const CheckoutForm = (props) => {
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         <option selected>Seleccione el monto a recargar</option>
-        <option value="50">$50</option>
-        <option value="100">$100</option>
-        <option value="200">$200</option>
-        <option value="500">$500</option>
-        <option value="1000">$1000</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
       </select>
-      <button className="btn btn-success" type='submit' onClick={props.handleLoading}>Pagar</button>
+      <button className="btn btn-success" type='submit'>Pagar</button>
     </form>
   );
 };

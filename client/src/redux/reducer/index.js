@@ -5,9 +5,15 @@ import {
   SET_PAGE,
   MATCH_FILTERS,
   ORDER_BY_NAME,
+  ITEM_CART
+
+
 } from "../actions/types";
 
+const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
+
 const initialState = {
+  items: cartItemsFromLocalStorage,
   matches: [],
   currentPage: {
     data: [],
@@ -30,6 +36,12 @@ const initialState = {
 export const Reducer = (state = initialState, action) => {
   switch (action.type) {
     // Agregar cada caso
+    case ITEM_CART:
+      return {
+        ...state,
+        items: [...state.items, action.payload]
+      }
+
     case SEARCH_TEAM:
       return {
         ...state,
@@ -81,7 +93,7 @@ export const Reducer = (state = initialState, action) => {
       };
 
     case "POST_CREATE_USER": {
-      //window.localStorage.setItem(USER, JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify([action.payload]));
       return {
         ...state,
         userDates: action.payload,
@@ -90,7 +102,7 @@ export const Reducer = (state = initialState, action) => {
     }
     case "LOGIN_USER": {
       console.log(action.payload);
-      // window.localStorage.setItem(USER, JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify([action.payload]));
       return {
         ...state,
         userDates: action.payload,
@@ -99,7 +111,7 @@ export const Reducer = (state = initialState, action) => {
     }
     case "CREATE_USER_AUTH0": {
       console.log(action.payload);
-      // window.localStorage.setItem(USER, JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify([action.payload]));
       return {
         ...state,
         userlogin: true,
@@ -111,6 +123,13 @@ export const Reducer = (state = initialState, action) => {
         ...state,
         matchDetail: action.payload,
       };
+    }
+    case 'UPDATE_REDUX':{
+      return{
+        ...state,
+        userDates: action.payload,
+        userlogin: true,
+      }
     }
     case ORDER_BY_NAME: {
       let all = state.matches;

@@ -53,11 +53,16 @@ export default function Nav() {
         </div>
 
         <div className="sesion">
-          <Wallet/>
           {Object.entries(userDates).length === 0 ? (
+            
             <LoginButton />
+            
           ) : (
+            <div>
             <LogoutButton />
+            <Wallet/>
+            </div>
+            
           )}
           {Object.entries(userDates).length === 0 ? null : <MyAccountButton />}
           {/* <Link to="/login">
