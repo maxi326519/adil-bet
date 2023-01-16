@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 
 // Componentes
 import Landing from "../Components/Landing/Landing.jsx";
@@ -8,6 +10,8 @@ import About from "../Components/About/About.jsx";
 import Login from "../Components/Login/Login.jsx";
 import Signin from "../Components/Signin/Signin.jsx";
 import Inprocess from "../Components/Inprocess/Inprocess.jsx";
+import Stripe from "../Components/Stripe/Stripe";
+import { updateRedux } from "../redux/actions/POST/index.js";
 
 // Dashboard
 import Dashboard from '../Components/Dashboard/Dashboard';
@@ -21,10 +25,20 @@ import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
 import Cart from "../Components/Cart/Cart.jsx";
 import { useSelector } from "react-redux";
 import Swal from 'sweetalert2';
+import { useEffect } from "react";
+// import Cart from "../Components/Cart/Cart.jsx";
 
 function App() {
 
   const error = useSelector(state=>state.error)
+  const dispatch = useDispatch()
+
+  
+  useEffect(()=>{
+    const loged = JSON.parse(window.localStorage.getItem('user'))
+    if(loged){dispatch(updateRedux(loged)) }
+  })
+  
 
   return (
     <div className="App">
@@ -33,14 +47,17 @@ function App() {
         {/* CLIENT PAGE */}
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<Inprocess />} />
+          <Route path="/about" element={<About />} />
           <Route path="/details/:id" element={<MatchDetails />} />
-          <Route path="/promotions" element={<Inprocess />} />
+          <Route path="/promotions" element={<Promotions />} />
           <Route path="/tutorial" element={<Inprocess />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/myaccount" element={<Inprocess />} />
+          <Route path="/payment" element={<Stripe />} />
+
           {/* DASHBOARD */}
           <Route path="/dashboard" element={ <Dashboard/> }/>
           <Route path="/dashboard/users" element={ <UsersDashboard/> }/>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMatchs, handleSetPage } from "../../redux/actions/GET";
