@@ -67,18 +67,6 @@ export default function BetsButtonInput({id}) {
         <span className="team-name">Apuesta Visitante: </span>
         <span>{multiplier.awaybet}</span>
       </button>
- 
-        <input
-          placeholder=""
-          name="tieBet"
-          onChange={handleChange}
-          value={bet.tieBet}
-          type="text"
-        />
-        <button onClick={handleAddBet} className="Button-bet">
-        <span className="team-name">Apuesta Empate: </span>
-        <span>{multiplier.tiebet}</span>
-      </button>
      
      </div>
     )
@@ -98,14 +86,7 @@ export default function BetsButtonInput({id}) {
         <span>{multiplier.awaybet}</span>
       </button>
         </Link>
- 
-        <Link to="/login">
-        <button onClick={handleAddBet} className="Button-bet">
-        <span className="team-name">Apuesta Empate: </span>
-        <span>{multiplier.tiebet}</span>
-      </button>
-        </Link>
-
+        
      </div>
   )
 }
