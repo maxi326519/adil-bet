@@ -26,6 +26,7 @@ import Cart from "../Components/Cart/Cart.jsx";
 import { useSelector } from "react-redux";
 import Swal from 'sweetalert2';
 import { useEffect } from "react";
+// import Cart from "../Components/Cart/Cart.jsx";
 
 function App() {
 
@@ -46,9 +47,9 @@ function App() {
         {/* CLIENT PAGE */}
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<Inprocess />} />
+          <Route path="/about" element={<About />} />
           <Route path="/details/:id" element={<MatchDetails />} />
-          <Route path="/promotions" element={<Inprocess />} />
+          <Route path="/promotions" element={<Promotions />} />
           <Route path="/tutorial" element={<Inprocess />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
