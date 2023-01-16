@@ -65,7 +65,6 @@ export default function MatchDetails() {
             </ul>
           </div>
         </div>
-        <BetsButtonInput id={id} />
         <BetsButtonDetails />
       </div>
     </div>
