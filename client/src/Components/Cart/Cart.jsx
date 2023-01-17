@@ -5,6 +5,7 @@ import { createBetDB, createOrder, itemCart } from "../../redux/actions/POST/ind
 import { updateWalletUser } from "../../redux/actions/PATCH/index.js";
 import "./Cart.css";
 import { useEffect } from "react";
+import { Link } from 'react-router-dom'
 
 
 
@@ -30,10 +31,12 @@ export default function Cart() {
     cart.map((e) => {
       dispatch(createBetDB(e));
     });
+      //accion para descontar el wallet ruta put
+      console.log(wallet, userId)
+      dispatch(updateWalletUser({ wallet, userId }));
     //accion para crear la orden
     dispatch(createOrder({ total, userId }));
-    //accion para descontar el wallet ruta put
-    dispatch(updateWalletUser({ wallet, userId }));
+  
   };
 
   function HandleStyle() {
@@ -67,6 +70,7 @@ export default function Cart() {
           >
             REALIZAR PAGO
           </button>
+          {Number(userDates.wallet) < Number(total)? <span>No tienes saldo suficiente, Recarga tu billetera <Link to="/payment">aquí</Link></span>:null}
         </div>
       </div>
     </div>
