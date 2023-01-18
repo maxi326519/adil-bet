@@ -47,7 +47,7 @@ export function updateWalletUser({ userId, wallet }) {
 
 export function updateReview (userId, reviewData){
   const payload = {
-    reviewData
+    ...reviewData
   }
   return async function(dispatch){
     try{

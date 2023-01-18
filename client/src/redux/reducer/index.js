@@ -222,16 +222,13 @@ export const Reducer = (state = initialState, action) => {
       }
     }
     case "GET_REVIEWS":{
+      // console.log(action.payload)
       return{
         ...state,
-        userDates: action.payload
+        reviews: action.payload
       }
     }
-    case 'UPDATE_REVIEW':{
-      return{
-        ...state
-      }
-    }
+    
     case "GET_REVIEW_BY_ID":{
       return{
         ...state,
@@ -242,6 +239,12 @@ export const Reducer = (state = initialState, action) => {
       console.log(action.payload)
       return {
         ...state
+      }
+    }
+    case UPDATE_REVIEW:{
+      return {
+        ...state,
+        reviewById:false
       }
     }
     default:

@@ -146,6 +146,7 @@ export function getAllReviews() {
         type: GET_REVIEWS,
         payload: response.data
       });
+      // console.log(response.data)
     }catch(err){
       console.log(err);
     }
