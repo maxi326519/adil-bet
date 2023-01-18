@@ -162,3 +162,18 @@ export function addDeposit(payload) {
     }
   };
 }
+
+export function addReview(payload) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.post(`/reviews`, payload);
+      return dispatch({
+        type: "POST_REVIEW",
+        payload: response.data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
+

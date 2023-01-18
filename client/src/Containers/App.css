@@ -40,3 +40,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* GENERALS STYLES */
+.btn-color{
+  background-color: #3a0e0b !important;
+}

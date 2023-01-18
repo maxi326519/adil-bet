@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMatchs, handleSetPage } from "../../redux/actions/GET";
 
-import MatchCards from "./MatchCards/MatchCards";
 import Nav from "../Nav/Nav";
 import Searchbar from "./Searchbar/Searchbar";
 import Filter from "./Filter/Filter";
-import Footer from "../Footer/Footer";
+import MatchCards from "./MatchCards/MatchCards";
 import Cart from "../Cart/Cart";
+import Footer from "../Footer/Footer";
 
 import styles from "./Home.module.css";
 

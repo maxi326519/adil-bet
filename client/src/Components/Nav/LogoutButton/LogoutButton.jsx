@@ -12,7 +12,7 @@ const LogoutButton = () => {
   }
 
   return (
-    <button onClick={handleLogout} className='button-logout-navbar'>
+    <button onClick={handleLogout} className='btn btn-primary btn-color'>
       Cerrar Sesion
     </button>
   );

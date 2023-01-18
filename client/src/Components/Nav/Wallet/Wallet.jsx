@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import  { Link } from 'react-router-dom';
 import "./Wallet.css";
 
@@ -14,19 +14,17 @@ export default function Wallet() {
 
   return (
     <nav className="wallet">
-      <div className="button-wallet" onClick={HandleStyle}>
-        <p className="title-navbar-wallet">Billetera</p>
-      </div>
+      <button className="btn btn-primary btn-color" onClick={HandleStyle}>Billetera</button>
       <div className={`${style ? "container-style" : ""}`}>
         <div className={`container-all-info`}>
           <div className="container-wallet-title">
             <p className="wallet-title">BILLETERA</p>
           </div>
-          <nav className="wwalet">
+          <div className="wwalet">
             <span className="dates">Hola! {userName}</span>
             <span className="dates">Tu saldo actual es: $ {walletStatus}</span>
             <Link to='/payment' className="button-cash"> RECARGAR BILLETERA </Link>
-          </nav>
+          </div>
         </div>
       </div>
     </nav>

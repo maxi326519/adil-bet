@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CardCart from "../CardCart/CardCart.jsx";
+import CardCart from "./CardCart/CardCart.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { createBetDB, createOrder, itemCart } from "../../redux/actions/POST/index.js";
 import { updateWalletUser } from "../../redux/actions/PATCH/index.js";

@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import styles from "./BetsButton.css";
-import { addBet } from "../../redux/actions/POST";
 import { Link } from "react-router-dom";
 
 export default function BetsButton() {
