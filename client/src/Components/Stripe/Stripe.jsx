@@ -8,11 +8,9 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-import "bootswatch/dist/united/bootstrap.min.css";
-import "bootstrap";
-import "./Stripe.css";
-import {useDispatch} from 'react-redux'
 import swal from "sweetalert";
+
+import "./Stripe.css";
 
 const stripePromise = loadStripe(
   "pk_test_51MPqgHHDF8goU6ElSNxHEMDSRl3jnVFalpylIlOwIyF6ppIrWdXL8j6QI4JLwtO2h94rz0703e0zgoKuH8t6675C00VxHwEQzT"
@@ -22,7 +20,6 @@ const CheckoutForm = (props) => {
   const [amount, setAmount] = useState(0);
   const stripe = useStripe();
   const elementsUse = useElements();
-  const dispatch = useDispatch()
   const user = useSelector(state => state.userDates);
 
   const handleSubmit = async (e) => {
@@ -39,14 +36,13 @@ const CheckoutForm = (props) => {
       }
     });
 
+    const response = await axios.post('/create-checkout-session', {
+      payment_method: paymentMethod.id,
+      amount:  amount /* Traer del estado */,
+      userId: user.id
+    })
 
-const response = await axios.post('/create-checkout-session', {
-  payment_method: paymentMethod.id,
-  amount:  amount /* Traer del estado */,
-  userId: user.id
-})
-
-props.handleLoading()
+    props.handleLoading()
 
     if (response.data.message === 'Successful Payment') {
       swal({
@@ -103,7 +99,7 @@ export default function Stripe() {
             <CheckoutForm handleLoading={handleLoading}/>
             {
         loading ? (<div className="loading-container">
-          <img src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif"></img>
+          <img src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif" alt='loading'></img>
           </div>) : null
             }
           </div>
