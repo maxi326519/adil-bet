@@ -1,7 +1,7 @@
 const { Review } = require("../../db");
 
-const updateReview = async (id, status) => {
-    console.log(status, id)
+const updateReview = async (id, status, score) => {
+  console.log('ss', score)
   try {
     const review = await Review.findOne({
       where: {
@@ -12,6 +12,7 @@ const updateReview = async (id, status) => {
     if (review.id) {
         review.update({
         status: status,
+        score: score,
       });
       await review.save();
 
