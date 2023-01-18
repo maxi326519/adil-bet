@@ -1,6 +1,5 @@
 // Importar los actions types necesarios
 import axios from "axios";
-const api = "http://localhost:3001";
 
 export function updateMatch() {
   console.log("updateMatch");
@@ -10,21 +9,37 @@ export function updateUser() {
   console.log("updateUser");
 }
 
+export function updateProfile(id, { userName, email, phone }) {
+  const payload = {
+    userName,
+    email,
+    phone,
+  };
+  return async function (dispatch) {
+    try {
+      const result = await axios.patch(`/user/${id}`, payload);
+      return dispatch({
+        type: "UPDATE_PROFILE",
+        payload: result.data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
+
 export function updateWalletUser({ userId, wallet }) {
   const payload = {
     wallet,
   };
-  console.log(payload);
   return async function (dispatch) {
     try {
-      const result = await axios.patch(`${api}/user/${userId}`, payload);
-      console.log(result.data);
+      const result = await axios.patch(`/user/${userId}`, payload);
       return dispatch({
         type: "UPDATE_WALLET_USER",
         payload: result.data,
       });
     } catch (error) {
-      console.log(error);
       throw new Error(error.message);
     }
   };

@@ -11,7 +11,7 @@ import {
   GET_REVIEW_BY_ID,
   POST_REVIEW,
   DELETE_REVIEW,
-
+  GET_USER_INFO
 } from "../actions/types";
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
@@ -36,6 +36,8 @@ const initialState = {
   },
   error: [],
   cart: [],
+  userActivities: [],
+  userProfile: [],
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -57,6 +59,12 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         matches: action.payload,
+      };
+
+    case GET_USER_INFO:
+      return {
+        ...state,
+        userProfile: action.payload,
       };
 
     case MATCH_FILTERS:
@@ -133,8 +141,8 @@ export const Reducer = (state = initialState, action) => {
       return{
         ...state,
         userDates: action.payload,
-        userlogin: true,
-      }
+        userlogin: true
+      };
     }
     case ORDER_BY_NAME: {
       let all = state.matches;
@@ -155,6 +163,11 @@ export const Reducer = (state = initialState, action) => {
         matches: teamsByName,
       };
     }
+    case "CREATE_ORDER": {
+      return {
+        ...state,
+      };
+    }
     case "ADD_BET_TO_CART": {
       return {
         ...state,
@@ -165,21 +178,15 @@ export const Reducer = (state = initialState, action) => {
       const matches = state.cart.filter(
         (match) => Number(match.idMatch) !== action.payload
       );
-      console.log(matches);
       return {
         ...state,
         cart: matches,
       };
-    }
+    };
     case "ADD_BET_DB": {
       return {
         ...state,
         cart: [],
-      };
-    }
-    case "CREATE_ORDER": {
-      return {
-        ...state,
       };
     }
     case "UPDATE_WALLET_USER": {
@@ -188,20 +195,28 @@ export const Reducer = (state = initialState, action) => {
         userDates: action.payload,
       };
     }
+    case "CREATE_PAYMENT":{
+      console.log(action.payload)
+      return {
+        ...state,
+      };
+    }
+    case "GET_USER_ACTIVITY": {
+      console.log(action.payload);
+      return {
+        ...state,
+        userActivities: action.payload,
+      };
+    }
     case "ERROR_BACK": {
       return {
         ...state,
         error: action.payload,
       };
     }
-    case 'CREATE_PAYMENT':{
-      console.log(action.payload)
-      return {
-          ...state,
-      }
-    }
-    case 'DELETE_REVIEW':{
-      console.log(action.payload)
+    
+    /* REVIEWS */
+    case 'POST_REVIEW':{
       return {
         ...state
       }
@@ -209,7 +224,12 @@ export const Reducer = (state = initialState, action) => {
     case "GET_REVIEWS":{
       return{
         ...state,
-        reviews: action.payload
+        userDates: action.payload
+      }
+    }
+    case 'UPDATE_REVIEW':{
+      return{
+        ...state
       }
     }
     case "GET_REVIEW_BY_ID":{
@@ -218,17 +238,12 @@ export const Reducer = (state = initialState, action) => {
         reviewById: action.payload
       }
     }
-    case 'POST_REVIEW':{
+    case "DELETE_REVIEW":{
+      console.log(action.payload)
       return {
         ...state
       }
     }
-    case 'UPDATE_REVIEW':{
-      return{
-        ...state
-      }
-    }
-    
     default:
       return state;
   }
