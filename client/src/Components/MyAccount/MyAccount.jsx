@@ -1,23 +1,33 @@
-import React from "react";
-import { getUserActivity } from "../../redux/actions/GET";
-import UserActivity from "../userActivity/userActivity";
-import UserProfile from "./userProfile/userProfile";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-import "../Home/Home";
-import "./MyAccount.css";
+// Components
+import Nav from "../Nav/Nav";
+import SideBar from "./SideBar/SideBar";
+import UserActivity from "./userActivity/userActivity";
+import UserProfile from "./userProfile/userProfile";
+
+import styles from "./MyAccount.module.css";
 
 export default function MyAccount() {
-  // LA INFORMACION DEL USUARIO ESTA EN EL ESTADO DE REDUX USERDATES REVISAR EL REDUCER
+  const [sections, setSection] = useState({
+    profile: true,
+    activity: false,
+  });
+
+  function handleSections(section) {
+    if (section === "profile") setSection({ profile: true, activity: false });
+    if (section === "activity") setSection({ profile: false, activity: true });
+    console.log(section);
+    console.log(sections);
+  }
+
   return (
-    <div className="main_container">
-      <div className="myAccount">
-        <Link to="/home">
-          <button className="home-button">Home</button>
-        </Link>
-        <p>MI CUENTA</p>
-        <UserProfile />
-        <UserActivity />
+    <div className={styles.myAccount}>
+      <Nav />
+      <div className={styles.content}>
+        <SideBar handleSections={handleSections} />
+        {sections.profile ? <UserProfile /> : null}
+        {sections.activity ? <UserActivity /> : null}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import /*useParams*/ "react-router";
 import { FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-import "./userProfile.css";
+import styles from "./userProfile.module.css";
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({
@@ -22,7 +22,6 @@ export default function UserProfile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userDates);
 
-  console.log(userData);
   const handleChange = (e) => {
     // Validar formato de correo electrónico y teléfono
     if (e.target.name === "email") {
@@ -70,7 +69,7 @@ export default function UserProfile() {
   };
 
   return (
-    <form className="formProfile" onSubmit={handleSubmit}>
+    <form className={ styles.profile } onSubmit={handleSubmit}>
       {showSuccessAlert && (
         <Swal
           title="¡Exito!"

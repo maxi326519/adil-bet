@@ -15,7 +15,7 @@ import Inprocess from "../Components/Inprocess/Inprocess.jsx";
 import Stripe from "../Components/Stripe/Stripe";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
 import Cart from "../Components/Cart/Cart.jsx";
-import UserActivity from "../Components/userActivity/userActivity.jsx";
+import UserActivity from "../Components/MyAccount/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
 
 // Dashboard

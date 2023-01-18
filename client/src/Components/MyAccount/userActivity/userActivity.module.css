@@ -1,0 +1,6 @@
+.activity{
+  flex-grow: 1;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: white;
+}
