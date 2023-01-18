@@ -7,6 +7,7 @@ const createUser = require('./src/createUsersDB/index.js')
 const createBet = require('./src/createBetsDB/index.js')
 const createOrder = require('./src/createOrdersDB/index.js')
 const createDeposit = require('./src/createDepositDB/index.js')
+const createReviewsDB = require('./src/createReviewsDB/index.js')
 
 const port = process.env.PORT || 3001;
  
@@ -23,6 +24,9 @@ conn.sync({ force: true }).then(()=>{
 
     //Crear apuetas en la DB
     createBet();
+
+    //Crear reviews en la DB
+    createReviewsDB()
     
     // Iniciamos el servidor
     server.listen(port, ()=>{
