@@ -15,7 +15,7 @@ const updateReview = async (id, status, score) => {
         score: score,
       });
       await review.save();
-
+      return review
     }
     return {messaje: "succesfull update"}
   } catch (error) {
