@@ -14,6 +14,8 @@ import { postLoginUserAuth0 } from "../../redux/actions/POST/index.js";
 import MyAccountButton from "./MyAccountButton/MyAccountButton";
 import Wallet from "./Wallet/Wallet";
 
+import cart from '../../Assets/svg/Nav/cart.svg'
+
 export default function Nav() {
   const { user } = useAuth0();
   const dispatch = useDispatch();
@@ -58,7 +60,7 @@ export default function Nav() {
               <Wallet/>
               <MyAccountButton />
               <Link to="/cart">
-                <button className="btn btn-primary btn-color">Carrito</button>
+                <button className="btn btn-primary btn-color"><img src={ cart } alt='cart' /></button>
               </Link>
               <LogoutButton />
             </div>
