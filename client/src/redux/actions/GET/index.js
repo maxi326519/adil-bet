@@ -7,7 +7,9 @@ import {
   SET_PAGE,
   MATCH_DETAILS,
   MATCH_FILTERS,
-  ORDER_BY_NAME
+  ORDER_BY_NAME,
+  GET_REVIEWS,
+  GET_REVIEW_BY_ID
 } from "../types";
 
 export function searchTeam(name) {
@@ -46,7 +48,7 @@ export function getMatchDetails(id) {
     try {
       const result = await axios.get(`/details/${id}`);
       return dispatch({
-        type: MATCH_DETAILS,
+        type: GET_REVIEW_BY_ID,
         payload: result.data,
       });
     } catch (error) {
@@ -106,4 +108,31 @@ export function getUserInfo() {
 
 export function getUserOrders() {
   console.log("userOrders");
+}
+
+export function getAllReviews() {
+  return async (dispatch) => {
+    try{
+      const response = await axios.get(`/allreviews`);
+      dispatch({
+        type: GET_REVIEWS,
+        payload: response.data
+      });
+    }catch(err){
+      console.log(err);
+    }
+  };
+}
+export function getReviewById(id){
+  return async (dispatch) => {
+    try{
+      const response = await axios.get(`/reviews/${id}`);
+      dispatch({
+        type: GET_REVIEW_BY_ID,
+        payload: response.data
+      })
+    }catch(err){
+      console.log(err)
+    }
+  }
 }

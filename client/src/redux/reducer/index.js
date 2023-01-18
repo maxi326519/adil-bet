@@ -5,15 +5,20 @@ import {
   SET_PAGE,
   MATCH_FILTERS,
   ORDER_BY_NAME,
-  ITEM_CART
-
+  ITEM_CART,
+  GET_REVIEWS,
+  UPDATE_REVIEW,
+  GET_REVIEW_BY_ID,
+  POST_REVIEW,
+  DELETE_REVIEW,
 
 } from "../actions/types";
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
 
 const initialState = {
-  items: cartItemsFromLocalStorage,
+  reviews: [],
+  reviewById: [],
   matches: [],
   currentPage: {
     data: [],
@@ -195,6 +200,35 @@ export const Reducer = (state = initialState, action) => {
           ...state,
       }
     }
+    case 'DELETE_REVIEW':{
+      console.log(action.payload)
+      return {
+        ...state
+      }
+    }
+    case "GET_REVIEWS":{
+      return{
+        ...state,
+        reviews: action.payload
+      }
+    }
+    case "GET_REVIEW_BY_ID":{
+      return{
+        ...state,
+        reviewById: action.payload
+      }
+    }
+    case 'POST_REVIEW':{
+      return {
+        ...state
+      }
+    }
+    case 'UPDATE_REVIEW':{
+      return{
+        ...state
+      }
+    }
+    
     default:
       return state;
   }
