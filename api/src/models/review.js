@@ -18,13 +18,15 @@ module.exports = (sequelize) => {
       },
       userId: {
         type: DataTypes.INTEGER,
-        // references: {
-        //   model: 'users',
-        //   key: 'id',
-        // },
-        // onUpdate: 'cascade',
-        // onDelete: 'cascade',
       },
+      userName:{
+        type: DataTypes.STRING,
+      },
+      score:{
+        type: DataTypes.INTEGER,
+        min: 1,
+        max: 5,
+      }
     },
     { timestamps: false }
   );
