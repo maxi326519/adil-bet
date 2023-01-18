@@ -8,6 +8,7 @@
 .container-all-info {
   width: 300px;
   position: fixed;
+  top: 85px;
   flex-direction: column;
   border: 2px solid #591411;
   background-color: white;

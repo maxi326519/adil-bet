@@ -15,8 +15,13 @@ const updateReview = async (id, status, score, reviewData) => {
         reviewData: reviewData
       });
       await review.save();
+<<<<<<< HEAD
 
     
+=======
+      return review
+    }
+>>>>>>> 1b9c29bcdb62c81a36b2a91504abe4214af1fc58
     return {messaje: "succesfull update"}
   } catch (error) {
     throw new Error("Review not found");
