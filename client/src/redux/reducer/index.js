@@ -5,15 +5,20 @@ import {
   SET_PAGE,
   MATCH_FILTERS,
   ORDER_BY_NAME,
-  ITEM_CART
-
-
+  ITEM_CART,
+  GET_REVIEWS,
+  UPDATE_REVIEW,
+  GET_REVIEW_BY_ID,
+  POST_REVIEW,
+  DELETE_REVIEW,
+  GET_USER_INFO
 } from "../actions/types";
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
 
 const initialState = {
-  items: cartItemsFromLocalStorage,
+  reviews: [],
+  reviewById: [],
   matches: [],
   currentPage: {
     data: [],
@@ -31,6 +36,8 @@ const initialState = {
   },
   error: [],
   cart: [],
+  userActivities: [],
+  userProfile: [],
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -52,6 +59,12 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         matches: action.payload,
+      };
+
+    case GET_USER_INFO:
+      return {
+        ...state,
+        userProfile: action.payload,
       };
 
     case MATCH_FILTERS:
@@ -128,8 +141,8 @@ export const Reducer = (state = initialState, action) => {
       return{
         ...state,
         userDates: action.payload,
-        userlogin: true,
-      }
+        userlogin: true
+      };
     }
     case ORDER_BY_NAME: {
       let all = state.matches;
@@ -150,6 +163,11 @@ export const Reducer = (state = initialState, action) => {
         matches: teamsByName,
       };
     }
+    case "CREATE_ORDER": {
+      return {
+        ...state,
+      };
+    }
     case "ADD_BET_TO_CART": {
       return {
         ...state,
@@ -160,21 +178,15 @@ export const Reducer = (state = initialState, action) => {
       const matches = state.cart.filter(
         (match) => Number(match.idMatch) !== action.payload
       );
-      console.log(matches);
       return {
         ...state,
         cart: matches,
       };
-    }
+    };
     case "ADD_BET_DB": {
       return {
         ...state,
         cart: [],
-      };
-    }
-    case "CREATE_ORDER": {
-      return {
-        ...state,
       };
     }
     case "UPDATE_WALLET_USER": {
@@ -183,16 +195,56 @@ export const Reducer = (state = initialState, action) => {
         userDates: action.payload,
       };
     }
+    case "CREATE_PAYMENT":{
+      console.log(action.payload)
+      return {
+        ...state,
+      };
+    }
+    case "GET_USER_ACTIVITY": {
+      console.log(action.payload);
+      return {
+        ...state,
+        userActivities: action.payload,
+      };
+    }
     case "ERROR_BACK": {
       return {
         ...state,
         error: action.payload,
       };
     }
-    case 'CREATE_PAYMENT':{
+    
+    /* REVIEWS */
+    case 'POST_REVIEW':{
+      return {
+        ...state
+      }
+    }
+    case "GET_REVIEWS":{
+      // console.log(action.payload)
+      return{
+        ...state,
+        reviews: action.payload
+      }
+    }
+    
+    case "GET_REVIEW_BY_ID":{
+      return{
+        ...state,
+        reviewById: action.payload
+      }
+    }
+    case "DELETE_REVIEW":{
       console.log(action.payload)
       return {
-          ...state,
+        ...state
+      }
+    }
+    case UPDATE_REVIEW:{
+      return {
+        ...state,
+        reviewById:false
       }
     }
     default:

@@ -8,11 +8,9 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-import "bootswatch/dist/united/bootstrap.min.css";
-import "bootstrap";
-import "./Stripe.css";
-import {useDispatch} from 'react-redux'
 import swal from "sweetalert";
+
+import "./Stripe.css";
 
 const stripePromise = loadStripe(
   "pk_test_51MPqgHHDF8goU6ElSNxHEMDSRl3jnVFalpylIlOwIyF6ppIrWdXL8j6QI4JLwtO2h94rz0703e0zgoKuH8t6675C00VxHwEQzT"
@@ -22,7 +20,6 @@ const CheckoutForm = (props) => {
   const [amount, setAmount] = useState(0);
   const stripe = useStripe();
   const elementsUse = useElements();
-  const dispatch = useDispatch()
   const user = useSelector(state => state.userDates);
 
   const handleSubmit = async (e) => {
@@ -39,14 +36,13 @@ const CheckoutForm = (props) => {
       }
     });
 
+    const response = await axios.post('/create-checkout-session', {
+      payment_method: paymentMethod.id,
+      amount:  amount /* Traer del estado */,
+      userId: user.id
+    })
 
-const response = await axios.post('/create-checkout-session', {
-  payment_method: paymentMethod.id,
-  amount:  amount /* Traer del estado */,
-  userId: user.id
-})
-
-props.handleLoading()
+    props.handleLoading()
 
     if (response.data.message === 'Successful Payment') {
       swal({
@@ -72,9 +68,9 @@ props.handleLoading()
       <select
         onChange={e => handleInputChange(e.target.value)}
         id="monto"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        <option selected>Seleccione el monto a recargar</option>
+        <option value="">Seleccione el monto a recargar</option>
         <option value="50">50</option>
         <option value="100">100</option>
         <option value="200">200</option>
@@ -97,18 +93,13 @@ export default function Stripe() {
   return (
     <div className="background">
     <Elements stripe={stripePromise}>
-      <div className="container p-4">
-        <div className="row">
-          <div className="col-md-4 offset-md-4">
-            <CheckoutForm handleLoading={handleLoading}/>
-            {
-        loading ? (<div className="loading-container">
-          <img src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif"></img>
-          </div>) : null
-            }
-          </div>
-        </div>
-      </div>
+      <CheckoutForm handleLoading={handleLoading}/>
+      {
+      loading ? (
+        <div className="loading-container">
+          <img src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif" alt='loading'></img>
+        </div>) : null
+      }
     </Elements>
     </div>
   );

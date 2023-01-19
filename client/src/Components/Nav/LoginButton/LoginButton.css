@@ -1,5 +1,10 @@
 .container-buttons{
     display: flex;
+    align-items: center;
+}
+
+.container-buttons a{
+    text-decoration: none;
 }
 
 .button-login-navbar{

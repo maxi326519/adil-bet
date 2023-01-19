@@ -24,7 +24,8 @@
     "nodemailer": "^6.8.0",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
-    "stripe": "^11.5.0"
+    "stripe": "^11.5.0",
+    "sweetalert2": "^11.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

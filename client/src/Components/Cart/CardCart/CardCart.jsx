@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteBetToCart } from "../../redux/actions/DELETE/index.js";
+import { deleteBetToCart } from "../../../redux/actions/DELETE/index.js";
 
 export default function CardCart({ id, betTo, amount }) {
   const dispatch = useDispatch();

@@ -1,0 +1,8 @@
+.formDiv{
+    display: grid;
+    margin-bottom: 60px;
+}
+.inputReview{
+    width: 700px;
+    height: 200px;
+}

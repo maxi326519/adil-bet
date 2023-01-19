@@ -6,8 +6,13 @@ import ImageTeam from "../../Assets/Images/team.png";
 import ImageLanding from "../../Assets/Images/Imagen-landing.png";
 import ImageLanding2 from "../../Assets/Images/image-landing2.png";
 import ImageLanding3 from "../../Assets/Images/Image-Landing3.png";
+import Reviews from "./Reviews/Reviews";
+import ReviewForm from "./Reviews/ReviewForm";
+import { useSelector } from "react-redux";
 
 export default function Landing() {
+  const userData = useSelector((state) => state.userDates);
+
   return (
     <div>
       <Nav />
@@ -71,50 +76,7 @@ export default function Landing() {
         </div>
         <div className="container-clients-review">
           <h3 className="title-clients">Clientes Satisfechos.</h3>
-          <div className="container-client">
-            <div className="container-card-client">
-              <div className="client-header">
-                <img
-                  src="https://www.soyusuario.ift.org.mx/styles/imagen/Acceso%20Nuevos%20Usuarios_Mesa%20de%20trabajo%201.png"
-                  alt="image-client"
-                  className="image-client"
-                />
-                <p className="name-client">Jordy Rodriguez</p>
-              </div>
-              <p>
-                He apostado en esta pagina y ha sido <br /> lo mejor que he
-                podido hacer!!!!!
-              </p>
-            </div>
-            <div className="container-card-client">
-              <div className="client-header">
-                <img
-                  src="https://www.soyusuario.ift.org.mx/styles/imagen/Acceso%20Nuevos%20Usuarios_Mesa%20de%20trabajo%201.png"
-                  alt="image-client"
-                  className="image-client"
-                />
-                <p className="name-client">Estela Amouranth</p>
-              </div>
-              <p>
-                Nunca habia recibido un pago tan bueno <br /> como cuando aposte
-                en esta pagina, increible.
-              </p>
-            </div>
-            <div className="container-card-client">
-              <div className="client-header">
-                <img
-                  src="https://www.soyusuario.ift.org.mx/styles/imagen/Acceso%20Nuevos%20Usuarios_Mesa%20de%20trabajo%201.png"
-                  alt="image-client"
-                  className="image-client"
-                />
-                <p className="name-client">Juan Salazar</p>
-              </div>
-              <p>
-                Definitivamente es magnifico tener <br /> la posibilidadde
-                apostar tan facil
-              </p>
-            </div>
-          </div>
+          <Reviews />
         </div>
         <div>
           <h3 className="text-landing">
@@ -123,6 +85,9 @@ export default function Landing() {
           </h3>
         </div>
       </div>
+
+      <div className="createReview">{userData.id ? <ReviewForm /> : null}</div>
+
       <Footer />
     </div>
   );

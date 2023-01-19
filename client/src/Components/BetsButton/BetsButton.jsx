@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import styles from "./BetsButton.css";
-import { addBet } from "../../redux/actions/POST";
 import { Link } from "react-router-dom";
 
 export default function BetsButton() {
@@ -13,14 +11,14 @@ export default function BetsButton() {
 
   return (
     <div className={styles.bttmcontainer}>
-      <Link to="/login" className="text-button-bet">
+      <Link className="text-button-bet">
         <button className="Button-bet">
           <span className="team-name">Apuesta local: </span>
           <span>{multiplier.homebet}</span>
         </button>
       </Link>
 
-      <Link to="/login" className="text-button-bet">
+      <Link className="text-button-bet">
         <button className="Button-bet">
           <span className="team-name">Apuesta Visitante: </span>
           <span>{multiplier.awaybet}</span>

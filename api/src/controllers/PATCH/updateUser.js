@@ -22,6 +22,13 @@ const updateUser = async ({id, name, userName, email, password, phone, wallet, i
             await userFound.save();
             return userFound
         }
+        if(userFound && isActive && !wallet && !name && !userName && !email && !password && !phone && !isAdmin ){
+            userFound.update({
+                isActive,
+            });
+            await userFound.save();
+            return userFound
+        }
 
         if (userFound) {
             userFound.update({
