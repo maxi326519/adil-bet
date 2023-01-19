@@ -45,7 +45,7 @@
   margin: 5px;
 }
 
-.form-floating{
+.form-body .form-floating{
   width: 400px;
 }
 
@@ -78,4 +78,23 @@
   background-color: #591411;
   border-color: #591411;
   color: white;
+}
+
+/* Boton de google */
+.google-logo {
+  width: 30px;
+}
+
+.container-google {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid rgb(199, 199, 199);
+  margin-top: 15px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.container-google:hover {
+  cursor: pointer;
+  filter: brightness(90%)
 }

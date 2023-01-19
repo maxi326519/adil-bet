@@ -180,12 +180,17 @@ const CreateUserForm = () => {
             </div>
 
             {/* Auth0 de 3ros */}
-            <button
-              onClick={() => loginWithRedirect()}
-              className="button-google"
-            >
-              Registrarte con Google
-            </button>
+              <button
+                onClick={() => loginWithRedirect()}
+                className="container-google"
+              >
+              <img
+                src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
+                alt="google-logo"
+                className="google-logo"
+              />
+                Iniciar con Google
+              </button>
 
           </form>
           <div className="register-link">
