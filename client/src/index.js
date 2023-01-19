@@ -14,8 +14,8 @@ axios.defaults.baseURL = 'https://adil-bet-production.up.railway.app/';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Auth0Provider
-  domain="dev-588r82613qdycpnk.us.auth0.com"
-  clientId="V8rFUHtIEr5dOClFvs3MTz4zBCg3ZgwV"
+  domain="dev-ihao33fcgv01dz1n.us.auth0.com"
+  clientId="N7If0oEPTTr6GlCUzpZsI7dYzie5QDG6"
   redirectUri={window.location.origin}
   >
   <Provider store={store}>
