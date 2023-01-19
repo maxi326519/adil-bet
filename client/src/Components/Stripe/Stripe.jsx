@@ -68,9 +68,9 @@ const CheckoutForm = (props) => {
       <select
         onChange={e => handleInputChange(e.target.value)}
         id="monto"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        <option selected>Seleccione el monto a recargar</option>
+        <option value="">Seleccione el monto a recargar</option>
         <option value="50">50</option>
         <option value="100">100</option>
         <option value="200">200</option>
@@ -93,18 +93,13 @@ export default function Stripe() {
   return (
     <div className="background">
     <Elements stripe={stripePromise}>
-      <div className="container p-4">
-        <div className="row">
-          <div className="col-md-4 offset-md-4">
-            <CheckoutForm handleLoading={handleLoading}/>
-            {
-        loading ? (<div className="loading-container">
+      <CheckoutForm handleLoading={handleLoading}/>
+      {
+      loading ? (
+        <div className="loading-container">
           <img src="https://i.pinimg.com/originals/65/ba/48/65ba488626025cff82f091336fbf94bb.gif" alt='loading'></img>
-          </div>) : null
-            }
-          </div>
-        </div>
-      </div>
+        </div>) : null
+      }
     </Elements>
     </div>
   );
