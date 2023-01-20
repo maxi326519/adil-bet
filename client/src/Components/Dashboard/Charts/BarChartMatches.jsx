@@ -6,8 +6,9 @@ import { getMatchs } from "../../../redux/actions/GET/index.js"
 export function BarChartMatches() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getMatchs()), [])
+  useEffect(() =>{
+      dispatch(getMatchs())
+    }, [])
   const matches = useSelector(state => state.matches)
 
   const array = []

@@ -39,7 +39,7 @@ export default function BetsDashboard() {
                 handleClick(event, cellValues);
               }}
             >
-              Completa
+              Completada
             </button>
           );
         } else {
@@ -58,7 +58,7 @@ export default function BetsDashboard() {
       },
     },
     {
-      field: "MULTIPLICADOR",
+      field: "Actualizar Info",
       renderCell: (cellValues) => {
         return (
           <>
@@ -68,27 +68,10 @@ export default function BetsDashboard() {
               onClick={(event) => {
                 console.log(cellValues)
                 handleClickMult(event, cellValues);
-              }}
-            >
-              Cambiar
-            </button>
-          </>
-        );
-      },
-    },
-    {
-      field: "CANTIDAD",
-      renderCell: (cellValues) => {
-        return (
-          <>
-            <button
-              variant="contained"
-              color="primary"
-              onClick={(event) => {
                 handleClickAmount(event, cellValues);
               }}
             >
-              Cambiar
+              Guardar Info
             </button>
           </>
         );

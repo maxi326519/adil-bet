@@ -6,8 +6,9 @@ import { getDeposits } from "../../../redux/actions/GET/index.js"
 export function BarChartDeposits() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getDeposits()), [])
+  useEffect(() =>{
+      dispatch(getDeposits())
+    }, [])
   const deposits = useSelector(state => state.deposits)
 
   const array = []

@@ -6,8 +6,9 @@ import { getBets } from "../../../redux/actions/GET/index.js"
 export function BarChartBets() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getBets()), [])
+  useEffect(() =>{
+      dispatch(getBets())
+    }, [])
   const bets = useSelector(state => state.bets)
 
   const array = []

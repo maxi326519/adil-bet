@@ -15,7 +15,7 @@ export default function UserDashboard() {
     { field: "userId", headerName: "Id Usuario" },
     // { field: "updateDeposit", headerName: "Actualizar" },
     {
-      field: "CANTIDAD",
+      field: "Actualizar",
       renderCell: (cellValues) => {
         return (
           <>
@@ -26,7 +26,7 @@ export default function UserDashboard() {
                 handleUpdateDeposit(event, cellValues);
               }}
             >
-              Cambiar
+              Guardar Info
             </button>
           </>
         );
