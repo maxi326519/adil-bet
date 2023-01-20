@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import Logo from "../../../Assets/Images/Logo.png";
 
-import "./NavDashboard.css";
 
-export default function NavDashboard (){
-    return (
-        <div className="nav">
-            <h2>Soy nav</h2>
-        </div>)
+export default function NavDashboard() {
+
+  return (
+    <div className="header">
+      <div className="contlogo">
+        <Link to="/">
+          <img className="logo" src={Logo} alt="logo_Adilbet" />
+        </Link>
+      </div>
+    </div>
+  );
 }
 
