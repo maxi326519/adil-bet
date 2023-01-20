@@ -23,4 +23,3 @@ root.render(
   </Provider>
   </Auth0Provider>
 );
-

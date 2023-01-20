@@ -20,7 +20,10 @@ export const GET_REVIEW_BY_ID = 'GET_REVIEW_BY_ID'
 export const UPDATE_MATCH = "UPDATE_MATCH";
 export const UPDATE_USER = "UPDATE_USER";
 export const UPDATE_PROFILE = "UPDATE_PROFILE";
-export const UPDATE_REVIEW = 'UPDATE_REVIEW'
+export const UPDATE_REVIEW = 'UPDATE_REVIEW';
+export const UPDATE_MULT_BET = "UPDATE_MULT_BET";
+export const UPDATE_STATUS_BET = "UPDATE_STATUS_BET";
+export const UPDATE_AMOUNT_BET = "UPDATE_AMOUNT_BET";
 
 // POST
 export const POST_BET = "POST_BET";

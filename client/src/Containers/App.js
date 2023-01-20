@@ -24,6 +24,7 @@ import UsersDashboard from "../Components/Dashboard/UsersDashboard/UsersDashboar
 import BetsDashboard from "../Components/Dashboard/BetsDashboard/BetsDashboard.jsx";
 import MatchesDashboard from "../Components/Dashboard/MatchesDashboard/MatchesDashboard.jsx";
 import DepositsDashboard from "../Components/Dashboard/DepositsDashboard/DepositsDashboard.jsx";
+import ReviewsDashboard from "../Components/Dashboard/ReviewsDashboard/ReviewsDashboard.jsx";
 
 import "./App.css";
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="/dashboard/matches" element={ <MatchesDashboard/> }/>
           <Route path="/dashboard/deposits" element={ <DepositsDashboard/> }/>
           <Route path="/dashboard/config" element={ <DepositsDashboard/> }/>
+          <Route path="/dashboard/reseñas" element={ <ReviewsDashboard/> }/>
         </Routes>
       </BrowserRouter>
       {error.length === 0

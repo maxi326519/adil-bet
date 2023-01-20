@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import  { Link } from 'react-router-dom';
+
 import "./Wallet.css";
+import wallet from '../../../Assets/svg/Nav/wallet.svg';
 
 export default function Wallet() {
   const walletStatus = useSelector((state) => state.userDates.wallet);
@@ -14,7 +16,8 @@ export default function Wallet() {
 
   return (
     <nav className="wallet">
-      <button className="btn btn-primary btn-color" onClick={HandleStyle}>Billetera</button>
+      { console.log() }
+      <button className="btn btn-primary btn-color" onClick={HandleStyle}><img src={ wallet } alt='wallet'/></button>
       <div className={`${style ? "container-style" : ""}`}>
         <div className={`container-all-info`}>
           <div className="container-wallet-title">

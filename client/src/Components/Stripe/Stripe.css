@@ -1,10 +1,15 @@
 .background {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100vh;
     background-image: url(https://images4.alphacoders.com/102/102944.jpg);
     background-size: cover;
+}
+
+.card-body{
+    max-width: 400px;
 }
 
 .loading-container {
@@ -16,7 +21,8 @@
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: #0001;
+    background-color: #0004;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 

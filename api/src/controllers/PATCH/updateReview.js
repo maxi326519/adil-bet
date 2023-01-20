@@ -1,22 +1,21 @@
 const { Review } = require("../../db");
 
-const updateReview = async (id, status) => {
-    console.log(status, id)
+const updateReview = async (id, status, score, reviewData) => {
+  status === undefined ? (status = "Pending") : null;
   try {
     const review = await Review.findOne({
       where: {
         userId: id,
       },
     });
+    review.update({
+      status: status,
+      score: score,
+      reviewData: reviewData,
+    });
+    await review.save();
 
-    if (review.id) {
-        review.update({
-        status: status,
-      });
-      await review.save();
-
-    }
-    return {messaje: "succesfull update"}
+    return { messaje: "succesfull update" };
   } catch (error) {
     throw new Error("Review not found");
   }
