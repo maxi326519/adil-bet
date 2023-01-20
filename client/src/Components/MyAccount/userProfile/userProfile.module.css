@@ -4,3 +4,17 @@
   border-radius: 20px;
   background-color: white;
 }
+
+.profile form {
+  width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+.profile form div{
+  margin: 20px;
+}
+
+.btnContainer button{
+  margin-right: 20px;
+}

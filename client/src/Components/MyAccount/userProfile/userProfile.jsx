@@ -1,9 +1,10 @@
-import React, { /*useEffect,*/ useState } from "react";
+import React, { /*useEffect,*/ useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../../../redux/actions/PATCH/index";
 import /*useParams*/ "react-router";
 import { FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
 
 import styles from "./userProfile.module.css";
 
@@ -20,12 +21,13 @@ export default function UserProfile() {
 
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userDates);
+  const user = useSelector((state) => state.userDates)[0];
 
   const handleChange = (e) => {
     // Validar formato de correo electrónico y teléfono
     if (e.target.name === "email") {
       const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
       if (!emailRegex.test(e.target.value)) {
         setEmailError("Debes ingresar un correo válido");
       } else {
@@ -51,7 +53,6 @@ export default function UserProfile() {
         console.log("usuario actualizado correctamente!");
 
         setShowSuccessAlert(true);
-        
       })
       .catch((error) => {
         console.log("Error al actualizar usuario:", error);
@@ -65,11 +66,17 @@ export default function UserProfile() {
   };
 
   const handleDisabled = () => {
+    setUserData({
+      name: user.name,
+      userName: user.userName,
+      email: user.email,
+      phone: user.phone,
+    });
     setDisabled(!disabled);
   };
 
   return (
-    <form className={ styles.profile } onSubmit={handleSubmit}>
+    <div className={styles.profile} onSubmit={handleSubmit}>
       {showSuccessAlert && (
         <Swal
           title="¡Exito!"
@@ -79,66 +86,96 @@ export default function UserProfile() {
         />
       )}
 
-      <div>
-        <h3>{user.name} </h3>
-        <FaUser />
+      <FaUser />
+      {/* NOMBRE */}
+      <form>
         <div className="containerProfile">
-          <h3>Usuario</h3>
+          <label for="exampleInputEmail1">Nombre y Apellido</label>
           <input
-            className="inputProfile"
+            type="text"
+            name="name"
+            className="form-control"
+            value={userData.name}
+            placeholder={user.name}
+            onChange={(e) => handleChange(e)}
+            onKeyDown={handleKeyDown}
+            disabled={disabled}
+          />
+          <small className="form-text text-muted invalid-feedback">
+            {/* Agregar validaciones del usuario */}
+          </small>
+        </div>
+
+        {/* USUARIO */}
+        <div className="containerProfile">
+          <label for="exampleInputEmail1">Usuario</label>
+          <input
             type="text"
             name="userName"
-            value={
-              user.userName !== userData.userName
-                ? userData.userName
-                : user.userName
-            }
+            className="form-control"
+            value={userData.userName}
             placeholder={user.userName}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
           />
+          <small className="form-text text-muted invalid-feedback">
+            {/* Agregar validaciones del usuario */}
+          </small>
         </div>
-        <h3>Email</h3>
-        <div>
+
+        {/* EMAIL */}
+        <div className="form-group">
+          <label for="exampleInputEmail1">Email address</label>
           <input
-            className="inputProfile"
             type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             name="email"
-            value={user.email !== userData.email ? userData.email : user.email}
+            className="form-control"
+            value={userData.email}
             placeholder={user.email}
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
           />
-          <h5>{emailError}</h5>
+          <small className="invalid-feedback">{emailError}</small>
         </div>
-        <h3>Phone</h3>
-        <div>
+
+        {/* TELEFONO */}
+        <div className="form-group">
+          <label for="exampleInputEmail1">Telefono</label>
           <input
-            className="inputProfile"
             type="tel"
-            pattern="[+]{0,1}[0-9]{0,}"
             name="phone"
-            value={user.phone !== userData.phone ? userData.phone : user.phone}
+            className="form-control"
+            pattern="[+]{0,1}[0-9]{0,}"
+            value={userData.phone}
             placeholder={user.phone}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
           />
-          <h5>{phoneError}</h5>
+          <small className="invalid-feedback">{phoneError}</small>
         </div>
-      </div>
-      <div className="buttonsProfile">
-        <button className="button1" onClick={handleDisabled}>
-          Modificar
-        </button>
-        <button className="button2" type="submit">
-          Guardar
-        </button>
-      </div>
-      <h4>Wallet : $ {user.wallet} </h4>
-    </form>
+        {disabled ? (
+          <div className="btn-container">
+            <button className="btn btn-success" onClick={handleDisabled}>
+              Modificar
+            </button>
+          </div>
+        ) : (
+          <div className={styles.btnContainer}>
+            <button className="btn btn-success" type="submit">
+              Guardar
+            </button>
+            <button className="btn btn-success" onClick={handleDisabled}>
+              Cancelar
+            </button>
+          </div>
+        )}
+      </form>
+    </div>
   );
 }
