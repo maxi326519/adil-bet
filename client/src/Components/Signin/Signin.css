@@ -7,7 +7,7 @@
 
 .container-register-form {
   display: flex;
-  background-color: white;
+  background-color: #ddd;
   justify-content: center;
   align-items: center;
 }
@@ -30,28 +30,14 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 20px;
-  padding: 30px 100px 0 100px;
-  background-color: rgb(241, 241, 241);
+  padding: 30px;
+  box-shadow: 0px 0px 10px 10px #0002;
+  background-color: white;
 }
 
 .title-form {
-  font-size: 50px;
-  margin: 0;
-}
-
-.form-input {
-  border: 0;
-  border-radius: 20px;
-  padding: 15px;
-  background-color: rgb(191, 191, 191);
-  color: white;
-  width: 100%;
-}
-
-.span-form {
-  position: relative;
-  color: red;
-  font-size: 11px;
+  font-size: 35px;
+  margin-bottom: 30px;
 }
 
 .text-form {
@@ -59,20 +45,56 @@
   margin: 5px;
 }
 
+.form-body .form-floating{
+  width: 400px;
+}
+
 .button-check-register {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 40px;
 }
 
-.button-register {
-  text-decoration: none;
-  color: white;
+.text-form-register{
+  margin-top: 30px;
+}
+
+.register-link{
+  display: flex;
+  flex-direction: column;
+}
+
+.button-check-register button{
+  font-size: 18px;
+}
+
+.register-link a, .button-register:hover{
+  color: #591411;
+  background-color: transparent;
+  border-color: #591411;
+}
+
+.register-link a:hover, .button-register{
   background-color: #591411;
-  border: 0;
-  border-radius: 20px;
-  padding: 7px 50px 7px 50px;
-  margin: 10px;
-  font-size: 15px;
+  border-color: #591411;
+  color: white;
+}
+
+/* Boton de google */
+.google-logo {
+  width: 30px;
+}
+
+.container-google {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid rgb(199, 199, 199);
+  margin-top: 15px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.container-google:hover {
+  cursor: pointer;
+  filter: brightness(90%)
 }
