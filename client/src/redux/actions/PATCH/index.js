@@ -40,7 +40,7 @@ export function updateWalletUser({ userId, wallet }) {
   };
   return async function (dispatch) {
     try {
-      const result = await axios.patch(`/user/${userId}`, payload);
+      const result = await axios.patch(`/userupdate/${userId}`, payload);
       return dispatch({
         type: "UPDATE_WALLET_USER",
         payload: result.data,
@@ -76,7 +76,7 @@ export function userActive({userId, isActive}) {
   console.log(payload)
 return async function (dispatch) {
 try {
- const result = await axios.patch(`${api}/user/${userId}`, payload);
+ const result = await axios.patch(`${api}/userupdate/${userId}`, payload);
  return dispatch({
    type: 'UPDATE_ACTIVE_USER',
    payload: result.data,
@@ -94,7 +94,7 @@ export function userAdmin({userId, isAdmin}) {
   }
 return async function (dispatch) {
 try {
- const result = await axios.patch(`${api}/user/${userId}`, payload);
+ const result = await axios.patch(`${api}/userupdate/${userId}`, payload);
  console.log(result.data)
  return dispatch({
    type: 'UPDATE_ADMIN_USER',
