@@ -4,6 +4,7 @@ import BetsButton from "../../../BetsButton/BetsButton";
 import logo from "../../../../Assets/Images/favicon.png";
 
 export default function Card({
+  handleWindow,
   league,
   homeTeam,
   awayTeam,
@@ -32,7 +33,7 @@ export default function Card({
         </div>
       </Link>
       <div className={styles.buttons}>
-        <BetsButton />
+        <button onClick={ handleWindow }>Apostar</button>
       </div>
     </div>
   );

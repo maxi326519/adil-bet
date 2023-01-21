@@ -15,6 +15,7 @@ export default function BetsButtonInput({ id }) {
     idUser: userDates.id,
     idMatch: id,
   };
+
   const [bet, setBet] = useState(initialState);
   const dispatch = useDispatch();
   const multiplier = {
@@ -25,7 +26,6 @@ export default function BetsButtonInput({ id }) {
 
   const handleChange = (evt) => {
     const { name, value } = evt.currentTarget;
-    console.log(bet);
     setBet({
       ...bet,
       [name]: value,
@@ -35,8 +35,6 @@ export default function BetsButtonInput({ id }) {
   useEffect(() => {
     localStorage.setItem("cartItem", JSON.stringify(jj));
   }, [jj]);
-  console.log("es esto", ff);
-  console.log("cart = ", jj);
 
   const handleAddBet = () => {
     dispatch(addBet(bet));

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getMatchs, handleSetPage } from "../../redux/actions/GET";
+import { useDispatch } from "react-redux";
+import { getMatchs } from "../../redux/actions/GET";
 
 import Nav from "../Nav/Nav";
 import Searchbar from "./Searchbar/Searchbar";
