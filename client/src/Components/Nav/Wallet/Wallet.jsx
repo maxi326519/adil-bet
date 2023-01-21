@@ -17,7 +17,7 @@ export default function Wallet() {
   return (
     <nav className="wallet">
       { console.log() }
-      <button className="btn btn-primary btn-color" onClick={HandleStyle}><img src={ wallet } alt='wallet'/></button>
+      <button className="btn btn-primary btn-color" onClick={HandleStyle}><img src={ wallet } alt='wallet' className="logo-wallet"/></button>
       <div className={`${style ? "container-style" : ""}`}>
         <div className={`container-all-info`}>
           <div className="container-wallet-title">
