@@ -443,7 +443,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   }
 
   .list-item {
-    font-size: 10px;
+    font-size: 13px;
     margin: 0;
   }
 
@@ -463,17 +463,16 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
     border-radius: 10px;
     padding: 10px;
     margin: 0;
-    font-size: 10px;
   }
 
   .text-button {
-    font-size: 8px;
+    font-size: 13px;
     margin: 0;
     padding: 0;
   }
 
   .title-promo-landing {
-    font-size: 15px;
+    font-size: 20px;
     margin: 5px;
   }
 

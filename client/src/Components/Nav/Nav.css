@@ -77,19 +77,16 @@
   display: flex;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .header {
-    display: flex;
-    background-color: var(--primary-color);
     width: 100%;
-    height: 50px;
+    height: 70px;
     padding: 10px 15px;
-    z-index: 100;
-    box-shadow: 0px 0px 10px 3px #0003;
+    align-items: center;
   }
 
   .nav-menu-link {
-    font-size: 10px;
+    font-size: 13px;
     text-decoration: none;
     color: white;
   }
@@ -97,6 +94,7 @@
   .nav {
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
 
   .logo {
@@ -107,6 +105,7 @@
   .menu {
     flex-grow: 1;
     display: flex;
+    align-items: center;
     align-items: center;
   }
 
@@ -119,6 +118,7 @@
   .container-buttons .btn {
     display: flex;
     margin: 0 5px;
+    align-items: center;
   }
 
   .sesions-btn,
@@ -130,11 +130,13 @@
     font-size: 13px;
     text-decoration: none;
     color: white;
+    align-items: center;
   }
 
   .nav-menu-link {
     padding: 3px 7px;
     border-radius: 3px;
+    align-items: center;
   }
 
   .nav-menu-link:hover {
@@ -146,14 +148,17 @@
   .login {
     /* gap: 20px; */
     width: 80px;
+    align-items: center;
   }
 
   .signin {
     /* gap: 20px; */
     width: 80px;
+    align-items: center;
   }
 
   .sesion {
     display: flex;
+    align-items: center;
   }
 }

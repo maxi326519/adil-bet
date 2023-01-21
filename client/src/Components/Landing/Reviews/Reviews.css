@@ -47,36 +47,15 @@
 }
 
 @media (max-width: 800px) {
-    .divReview {
-      margin: 20px;
-    }
-  
-    .userName {
-      margin: 0;
-    }
-  
-    .reviewData {
-      font-size: 18px;
-      margin: 0;
-    }
-  
-    .puntuation{
-      font-size: 20px;
-    }
-  
-    .star-logo {
-      width: 20px;
-      margin: 0 5px;
-    }
-  }
-
-@media (max-width: 400px) {
   .divReview {
     margin: 20px;
+    width: 250px;
+    height: 100%;
   }
 
   .userName {
     margin: 0;
+    font-size: 25px;
   }
 
   .reviewData {
@@ -85,11 +64,40 @@
   }
 
   .puntuation{
-    font-size: 20px;
+    font-size: 19px;
+    margin: 5px;
   }
 
   .star-logo {
-    width: 20px;
+    width: 15px;
+    margin: 0 5px;
+  }
+  }
+
+@media (max-width: 400px) {
+  .divReview {
+    margin: 20px;
+    width: 250px;
+    height: 100%;
+  }
+
+  .userName {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .reviewData {
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .puntuation{
+    font-size: 15px;
+    margin: 5px;
+  }
+
+  .star-logo {
+    width: 15px;
     margin: 0 5px;
   }
 }
