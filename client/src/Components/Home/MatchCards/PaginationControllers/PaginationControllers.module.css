@@ -1,0 +1,18 @@
+.buttonback{
+    border: 0;
+    background-color: #591411;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    border-radius: 10px;
+    transition: all 500ms ease;
+    box-shadow: 0 2px 2px black;
+}
+.buttonback:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 4px black;
+}
+
+.numberpage{
+    font-size: 18px;
+}

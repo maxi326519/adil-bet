@@ -3,14 +3,16 @@
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  margin: 10px;
-  outline: 1px solid gray;
+  margin: 12px;
+  outline: 1px solid rgb(210, 210, 210);
   width: max-content;
+  box-shadow: 0 4px 8px #0006;
+  transition: all 500ms ease;
 }
 
 .card:hover{
   transform: scale(1.05);
-  box-shadow: 0 0 10px 2px #0006;
+  box-shadow: 0 8px 8px #0006;
 }
 
 .Link {
@@ -50,7 +52,7 @@
   flex-direction: column;
   color: black;
 
-  outline: 1px solid gray;
+  outline: 1px solid rgb(214, 214, 214);
   min-width: 400px;
 }
 

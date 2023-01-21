@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { postCreateUser } from "../../redux/actions/POST/index";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./Signin.css";
 import Logo from "../../Assets/Images/Logo.png";
 const INITIAL_STATE = {
@@ -22,6 +24,7 @@ const expresiones = {
 };
 
 const CreateUserForm = () => {
+  const { loginWithRedirect } = useAuth0();
   const [register, setRegister] = useState(INITIAL_STATE);
   const [validateRegister, setValidateRegister] = useState({
     name: true,
@@ -73,85 +76,80 @@ const CreateUserForm = () => {
       </div>
       <div className="container-register-form">
         <div className="container-form-body">
-          <h3 className="title-form">Registrate.</h3>
+          <h3 className="title-form">Registrate</h3>
           <form onSubmit={handleSubmitRegister} className="form-body">
-            <div
-              className={
-                "container-input-name" + validateRegister.name
-                  ? null
-                  : " nameError"
-              }
-            >
-              <p className="text-form">Nombre</p>
+            {/* NOMBRE */}
+            <div class="form-floating mb-3 ">
               <input
-                placeholder="Nombre"
-                value={register.name}
+                type="text"
                 name="name"
+                class={`form-control ${ validateRegister.name ? "" : "is-invalid" }`}
+                id={ validateRegister.name ? "floatingInputInvalid" : "floatingInput" }
+                placeholder="name"
                 onChange={handleChange}
-                type="text"
-                className="form-input"
               />
-              {validateRegister.name ? null : (
-                <div>
-                  <span className="span-form">
-                    El nombre no puede contener numeros y menos de 5 letras
-                  </span>
-                </div>
-              )}
+              <label for="floatingInput">Nombre</label>
             </div>
-            <div className="container-input-name">
-              <p className="text-form">Nombre de Usuario</p>
+            {validateRegister.name ? null : (
+              <span className="span-form">El nombre no puede contener numeros y menos de 5 letras</span>
+            )}
+
+            {/* USUARIO */}
+            <div class="form-floating mb-3">
               <input
-                placeholder="Nombre de Usuario"
-                value={register.userName}
+                type="text"
                 name="userName"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name"
                 onChange={handleChange}
-                type="text"
-                className="form-input"
               />
+              <label for="floatingInput">Nombre de usuario</label>
             </div>
 
-            <div className="container-input-name">
-              <p className="text-form">Correo Electronico</p>
+            {/* EMAIL */}
+            <div class="form-floating mb-3">
               <input
-                placeholder="Correo Electronico"
-                value={register.email}
-                name="email"
-                onChange={handleChange}
                 type="email"
-                className="form-input"
+                name="email"
+                class={`form-control ${ validateRegister.email ? "" : "is-invalid" }`}
+                id={ validateRegister.email ? "floatingInputInvalid" : "floatingInput" }
+                placeholder="name@example.com"
+                onChange={handleChange}
               />
-              {validateRegister.email ? null : (
-                <span className="span-form">
-                  El correo electronico no es valido
-                </span>
-              )}
+              <label for="floatingInput">Email address</label>
             </div>
+            {validateRegister.email ? null : (
+              <span className="span-form">El correo electronico no es valido</span>
+            )}
 
-            <div className="container-input-name">
-              <p className="text-form">Contraseña</p>
+            {/* CONTRASEÑA */}
+            <div class="form-floating mb-3">
               <input
+                type="password"
+                name="password"
+                class="form-control"
+                id="floatingInput"
                 placeholder="Contraseña"
                 value={register.password}
-                name="password"
                 onChange={handleChange}
-                type="password"
-                className="form-input"
               />
+            <label for="floatingInput">Contraseña</label>
             </div>
 
-            <div className="container-input-name">
-              <p className="text-form">Confirmar Contraseña</p>
+            {/* CONFIRMAR CONTRASEÑA */}
+            <div className="form-floating mb-3">
               <input
-                placeholder="Confirmar Contraseña"
-                value={register.confirm_password}
-                name="confirm_password"
-                onChange={handleChange}
                 type="password"
-                className="form-input"
+                name="confirm_password"
+                placeholder="Confirmar Contraseña"
+                class={`form-control ${ validateRegister.password ? "" : "is-invalid" }`}
+                id={ validateRegister.password ? "floatingInputInvalid" : "floatingInput" }
+                value={register.confirm_password}
+                onChange={handleChange}
               />
+            <label for="floatingInput">Confirmar contraseña</label>
             </div>
-
             {validateRegister.password ? null : (
               <span className="span-form">
                 La contraseña tiene que contener minimo 8 caracteres
@@ -162,22 +160,43 @@ const CreateUserForm = () => {
               <span className="span-form">Las contraseñas no coinciden</span>
             ) : null}
 
-            <div className="container-input-name">
-              <p className="text-form">Numero de telefono</p>
+            {/* TELEFONO */}
+            <div className="form-floating mb-3">
               <input
-                placeholder="Telefono"
-                value={register.phone}
-                name="phone"
-                onChange={handleChange}
                 type="text"
-                className="form-input"
+                name="phone"
+                placeholder="Telefono"
+                class="form-control"
+                id="floatingInput"
+                value={register.phone}
+                onChange={handleChange}
               />
+            <label for="floatingInput">Telefono</label>
+            </div>
+            
+            {/* BOTON DE REGISTRO */}
+            <div className="button-check-register">
+              <button className="btn btn-primary btn-color">Registrarse</button>
             </div>
 
-            <div className="button-check-register">
-              <button className="button-register">Confirma registro</button>
-            </div>
+            {/* Auth0 de 3ros */}
+              <button
+                onClick={() => loginWithRedirect()}
+                className="container-google"
+              >
+              <img
+                src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
+                alt="google-logo"
+                className="google-logo"
+              />
+                Iniciar con Google
+              </button>
+
           </form>
+          <div className="register-link">
+            <p className="text-form-register">¿Ya tienes cuenta?</p>
+            <Link to="/login" className="btn btn-outline-primary">Iniciar sesion</Link>
+          </div>
         </div>
       </div>
     </div>

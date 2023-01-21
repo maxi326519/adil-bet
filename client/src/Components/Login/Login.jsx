@@ -45,52 +45,52 @@ const Login = () => {
           </button>
         </Link>
         <div className="container-form">
-          <h3 className="title-login">Inicia Sesion.</h3>
+          <h3 className="title-login">Inicia Sesion</h3>
           <form onSubmit={handleSubmit} className="form-body">
-            <p className="text-login">Correo electronico</p>
-            <input
-              className="form-input"
-              placeholder="Correo Electronico"
-              name="email"
-              onChange={handleChange}
-              value={login.email}
-              type="email"
-            />
-            <p className="text-login">Contraseña</p>
-            <input
-              className="form-input"
-              placeholder="Contraseña"
-              name="password"
-              onChange={handleChange}
-              value={login.password}
-              type="password"
-            />
-            <div className="container-button-login">
-              <button type="submit" className="button-form-login">
-                Ingresar
-              </button>
-              <div>
-                <p className="text-form-register">No tienes cuenta?</p>
-                <div className="button-form-register-cont">
-                  <Link to="/signin" className="button-form-register">
-                    Registrate
-                  </Link>
-                </div>
-              </div>
+
+          {/* EMAIL */}
+          <div class="form-floating mb-3">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="name@example.com"
+                onChange={handleChange}
+              />
+              <label for="floatingInput">Correo electronico</label>
             </div>
+
+            {/* PASSWORD */}
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="name@example.com"
+                onChange={handleChange}
+              />
+              <label for="floatingInput">Contraseña</label>
+            </div>
+
+            <div className="button-check-register">
+              <button className="btn btn-primary btn-color">Iniciar Sesion</button>
+            </div>
+
           </form>
-          <div className="container-google">
+            <button
+              onClick={() => loginWithRedirect()}
+              className="container-google"
+            >
             <img
               src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
               alt="google-logo"
               className="google-logo"
             />
-            <button
-              onClick={() => loginWithRedirect()}
-              className="button-google"
-            >
-              Registrarte con Google
+              Registrarse con Google
             </button>
+            <div className="register-link">
+              <p className="text-form-register">¿No tienes cuenta?</p>
+              <Link to="/signin" className="btn btn-outline-primary">Registarse</Link>
           </div>
         </div>
       </div>
