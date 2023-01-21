@@ -5,11 +5,13 @@ import /*useParams*/ "react-router";
 import { FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import styles from "./userProfile.module.css";
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({
+    name: "",
     userName: "",
     email: "",
     phone: "",
@@ -17,7 +19,6 @@ export default function UserProfile() {
   // nuevos estados para mostrar mensajes de error
   const [emailError, setEmailError] = useState("");
   const [phoneError, setPhoneError] = useState("");
-  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ export default function UserProfile() {
     // Validar formato de correo electrónico y teléfono
     if (e.target.name === "email") {
       const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-
       if (!emailRegex.test(e.target.value)) {
         setEmailError("Debes ingresar un correo válido");
+        console.log();
       } else {
         setEmailError("");
       }
@@ -50,12 +51,10 @@ export default function UserProfile() {
     e.preventDefault();
     await dispatch(updateProfile(user.id, userData))
       .then(() => {
-        console.log("usuario actualizado correctamente!");
-
-        setShowSuccessAlert(true);
+        toast("usuario actualizado correctamente!");
       })
       .catch((error) => {
-        console.log("Error al actualizar usuario:", error);
+        toast("Error al actualizar usuario", error);
       });
   };
 
@@ -76,19 +75,22 @@ export default function UserProfile() {
   };
 
   return (
-    <div className={styles.profile} onSubmit={handleSubmit}>
-      {showSuccessAlert && (
-        <Swal
+    <div className={styles.profile}>
+      <ToastContainer />
+{/*       {showSuccessAlert && (
+  <Swal
           title="¡Exito!"
           text="El perfil del usuario ha sido actualizado."
           icon="success"
           onClose={() => setShowSuccessAlert(false)}
         />
-      )}
+      )} */}
 
-      <FaUser />
       {/* NOMBRE */}
-      <form>
+      <form onSubmit={handleSubmit}>
+        <div className={ styles.avatar }>
+          <FaUser />
+        </div>
         <div className="containerProfile">
           <label for="exampleInputEmail1">Nombre y Apellido</label>
           <input
@@ -140,7 +142,7 @@ export default function UserProfile() {
             onKeyDown={handleKeyDown}
             disabled={disabled}
           />
-          <small className="invalid-feedback">{emailError}</small>
+          <small>{emailError}</small>
         </div>
 
         {/* TELEFONO */}
@@ -167,11 +169,11 @@ export default function UserProfile() {
           </div>
         ) : (
           <div className={styles.btnContainer}>
-            <button className="btn btn-success" type="submit">
-              Guardar
-            </button>
             <button className="btn btn-success" onClick={handleDisabled}>
               Cancelar
+            </button>
+            <button className="btn btn-success" type="submit">
+              Guardar
             </button>
           </div>
         )}
