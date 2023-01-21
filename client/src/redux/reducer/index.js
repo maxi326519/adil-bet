@@ -11,12 +11,17 @@ import {
   GET_REVIEW_BY_ID,
   POST_REVIEW,
   DELETE_REVIEW,
-  GET_USER_INFO
+  GET_USER_INFO,
+  DELETE_WITHDRAW,
+  GET_ALL_WITHDRAWS,
+  UPDATE_WITHDRAW,
+  POST_WITHDRAW,
 } from "../actions/types";
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
 
 const initialState = {
+  withdraws: [],
   reviews: [],
   reviewById: [],
   matches: [],
@@ -245,6 +250,12 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         reviewById:false
+      }
+    }
+    case GET_ALL_WITHDRAWS:{
+      return {
+        ...state,
+        withdraw: action.payload
       }
     }
     default:

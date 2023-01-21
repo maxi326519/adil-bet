@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // Importar los actions types necesarios
 import { 
-    DELETE_REVIEW
+    DELETE_REVIEW,
+    DELETE_WITHDRAW
 } from "../types"
 
 export function deleteOrder (){
@@ -32,4 +33,18 @@ export function deleteReview(id) {
         throw new Error(error.message);
       }
     };
+  }
+
+  export function deleteWithdraw(id){
+    return async function(dispatch){
+        try{
+          const result = await axios.delete(`/withdraw/${id}`)
+          return dispatch({
+            type: DELETE_WITHDRAW,
+            payload: result.data,
+          })
+      }catch(error){
+        throw new Error(error.message)
+      }
+    }
   }

@@ -11,6 +11,7 @@ import {
   GET_REVIEWS,
   GET_REVIEW_BY_ID,
   GET_USER_INFO,
+  GET_ALL_WITHDRAWS,
 } from "../types";
 
 export function searchTeam(name) {
@@ -162,6 +163,20 @@ export function getReviewById(id){
       })
     }catch(err){
       console.log(err)
+    }
+  }
+}
+
+export function getWithdras(){
+  return async (dispatch)=>{
+    try{
+      const response = await axios.get(`/allWithdraws`)
+      dispatch({
+        type: GET_ALL_WITHDRAWS,
+        payload: response.data
+      })
+    }catch(error){
+      console.log(error.message)
     }
   }
 }

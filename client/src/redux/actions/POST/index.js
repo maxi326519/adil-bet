@@ -176,4 +176,16 @@ export function addReview(payload) {
     }
   };
 }
-
+export function addWithdraw(payload){
+  return async function (dispatch){
+    try{
+      const response = await axios.post(`/withdraw`, payload);
+      return dispatch({
+        type: "POST_WITHDRAW",
+        payload: response.data
+      })
+    }catch(error){
+      throw new Error(error.message)
+    }
+  }
+}

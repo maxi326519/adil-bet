@@ -1,4 +1,6 @@
 // Importar los actions types necesarios
+// import UPDATE_WITHDRAW from "../types";
+
 import axios from "axios";
 
 export function updateMatch() {
@@ -59,6 +61,23 @@ export function updateReview (userId, reviewData){
     }catch(err){
       console.log(err)
       throw new Error(err.message)
+    }
+  }
+}
+
+export function updateWithdraw(id ,data){
+  const payload = {
+    ...data
+  }
+  return async function(dispatch){
+    try{
+      const response = await axios.patch(`/withdraw/${id}`, payload)
+      return dispatch({
+        type: "UPDATE_WITHDRAW",
+        payload: response.data
+      })
+    }catch(error){
+      throw new Error(error.mesasge)
     }
   }
 }

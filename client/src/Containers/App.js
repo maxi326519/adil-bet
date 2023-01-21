@@ -17,6 +17,7 @@ import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
 import Cart from "../Components/Cart/Cart.jsx";
 import UserActivity from "../Components/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
+import WithdrawTable from "../Components/WithdrawaTable/WithdrawaTable.jsx";
 
 // Dashboard
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -44,6 +45,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/withdraw" element={<WithdrawTable />} />
           <Route path="/details/:id" element={<MatchDetails />} />
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/tutorial" element={<Inprocess />} />
