@@ -13,7 +13,7 @@ const postWithdraw = async ({
     throw new Error("missing parameters", { statusCode: 400 });
 
   const newWithdraw = await Withdraw.create({
-    amount: amount,
+    amount: parseFloat(amount),
     method: method,
     status: status,
     document: document,

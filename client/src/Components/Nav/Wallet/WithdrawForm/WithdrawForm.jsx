@@ -16,24 +16,33 @@ export default function WithdrawlForm({ window, handleWindow }) {
   });
 
   function handleClose() {
+    setInput({
+      amount: 0,
+      phone: '',
+      method: '',
+      document: ''
+    })
     handleWindow();
   }
 
 
   function handlerSubmit(e) {
     e.preventDefault();
-    if (!input.amount) alert("amount is need");
+    if (!input.amount && input.amount <= 0) alert("amount is need");
     else if (!input.method) alert("Select the type");
     else if (!input.document) alert("Choose document.");
     else if (!input.phone) alert("Choose phone.");
     else {
+      setInput({
+        amount: parseInt(input.amount)
+      })
       dispatch(addWithdraw(input));
       swal({
         title: "RETIRO RECIBIDO",
         text: "MUCHAS GRACIAS POR SU RETIRO EN 48 HORAS SERA EFECTUADO",
         button: "ACEPTAR",
       }).then(function () {
-        window.location = "/home";
+        handleClose()
       });
     }
   }
@@ -63,8 +72,9 @@ export default function WithdrawlForm({ window, handleWindow }) {
         <div className="">
           <label for="floatingInput">Monto USD *:</label>
           <input
-            type="text"
+            type="number"
             name="amount"
+            value={input.amount}
             className=""
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
@@ -75,6 +85,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
           <select
             className="selectdocument"
             name="method"
+            value={input.method ? input.method : null}
             onChange={handlerChange}
           >
             <option>Select</option>
@@ -87,6 +98,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
           <input
             type="text"
             name="document"
+            value={input.document}
             className=""
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
@@ -97,6 +109,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
           <input
             type="text"
             name="phone"
+            value={input.phone}
             className=""
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
