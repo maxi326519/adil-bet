@@ -84,7 +84,7 @@ export default function UserProfile() {
         <h3>{user.name} </h3>
         <FaUser />
         <div className="containerProfile">
-          <h3>Usuario</h3>
+          <h3 className="titleInput">Usuario</h3>
           <input
             className="inputProfile"
             type="text"
@@ -100,7 +100,7 @@ export default function UserProfile() {
             disabled={disabled}
           />
         </div>
-        <h3>Email</h3>
+        <h3 className="titleInput">Email</h3>
         <div>
           <input
             className="inputProfile"
@@ -115,7 +115,7 @@ export default function UserProfile() {
           />
           <h5>{emailError}</h5>
         </div>
-        <h3>Phone</h3>
+        <h3 className="titleInput">Phone</h3>
         <div>
           <input
             className="inputProfile"

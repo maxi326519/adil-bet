@@ -12,12 +12,14 @@ export default function MyAccount() {
   return (
     <div className="main_container">
       <div className="myAccount">
+        <div>
+          <p>MI CUENTA</p>
+        </div>
+        <UserProfile />
+        <UserActivity />
         <Link to="/home">
           <button className="home-button">Home</button>
         </Link>
-        <p>MI CUENTA</p>
-        <UserProfile />
-        <UserActivity />
       </div>
     </div>
   );

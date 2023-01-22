@@ -23,8 +23,8 @@ export default function UserActivity() {
   };
 
   return (
-    <>
-      <h3>Historial</h3>
+    <div className="cntall">
+      <h3 className="title-history">Historial</h3>
       <div className="container">
         <div className="history">
           <div >
@@ -39,6 +39,6 @@ export default function UserActivity() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

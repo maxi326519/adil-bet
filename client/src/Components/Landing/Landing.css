@@ -443,7 +443,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   }
 
   .list-item {
-    font-size: 13px;
+    font-size: 14px;
     margin: 0;
   }
 
