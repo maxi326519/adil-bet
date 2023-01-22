@@ -24,15 +24,15 @@ export default function Landing() {
 
           <div className="slide">
             <div className="item-slide">
-              <img src={ImageLanding} alt="Slide-1" className="image-slides" width="100%" height="100%"/>
+              <img src={ImageLanding} alt="Slide-1" className="image-slides"/>
             </div>
 
             <div className="item-slide">
-              <img src={ImageLanding2} alt="Slide-2" className="image-slides" width="100%" height="100%"/>
+              <img src={ImageLanding2} alt="Slide-2" className="image-slides"/>
             </div>
 
             <div className="item-slide">
-              <img src={ImageLanding3} alt="Slide-3" className="image-slides" width="100%" height="100%"/>
+              <img src={ImageLanding3} alt="Slide-3" className="image-slides"/>
             </div>
           </div>
 
