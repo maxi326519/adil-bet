@@ -24,15 +24,15 @@ export default function Landing() {
 
           <div className="slide">
             <div className="item-slide">
-              <img src={ImageLanding} alt="Slide-1" className="image-slides" />
+              <img src={ImageLanding} alt="Slide-1" className="image-slides" width="100%" height="100%"/>
             </div>
 
             <div className="item-slide">
-              <img src={ImageLanding2} alt="Slide-2" className="image-slides" />
+              <img src={ImageLanding2} alt="Slide-2" className="image-slides" width="100%" height="100%"/>
             </div>
 
             <div className="item-slide">
-              <img src={ImageLanding3} alt="Slide-3" className="image-slides" />
+              <img src={ImageLanding3} alt="Slide-3" className="image-slides" width="100%" height="100%"/>
             </div>
           </div>
 
@@ -60,28 +60,28 @@ export default function Landing() {
           <div className="container-promo">
             <h3 className="title-promo-landing">¡Super Promo del año!</h3>
             <ul className="list-promo-landing">
-              <li>Registrate GRATIS!</li>
+              <li>Regístrate GRATIS!</li>
               <li>
                 Beneficios por ser <br /> primera vez!
               </li>
               <li>CASHBACK por primer recarga</li>
-              <li>Atencion 24hs</li>
+              <li>Atención 24hs</li>
             </ul>
             <a href="/singin">
               <button className="promo-button">
-                <p>REGISTRATE AQUI!</p>
+                <p>REGÍSTRATE AQUÍ!</p>
               </button>
             </a>
           </div>
         </div>
         <div className="container-clients-review">
-          <h3 className="title-clients">Clientes Satisfechos.</h3>
+          <h3 className="title-clients">Clientes Satisfechos</h3>
           <Reviews />
         </div>
         <div>
           <h3 className="text-landing">
-            y asi como ellos, tu puedes ser parte de esta experiencia. <br />{" "}
-            Animate!
+            y así como ellos, tú puedes ser parte de esta experiencia. <br />{" "}
+            Anímate!
           </h3>
         </div>
       </div>

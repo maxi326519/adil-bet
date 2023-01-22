@@ -33,7 +33,7 @@ export default function AddBet({ window, handleWindow }) {
             <button type="button" class="btn-close" aria-label="Close" onClick={ handleClose }></button>
         </div>
         <div className="mb-3">
-          <label className="form-label">Elije un monto</label>
+          <label className="form-label">Elige un monto</label>
           <input className="form-control" type="number" name="amount" onChange={ (e) => setAmount(e.target.value) } />
         </div>
         <div class="form-check">

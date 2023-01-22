@@ -10,22 +10,22 @@ export default function Footer() {
       <ul className="list-footer">
         <li className="list-item-footer">
           <Link to="/404" className="list-item-footer">
-            Acerca de nosotros.
+            Acerca de nosotros
           </Link>
         </li>
         <li className="list-item-footer">
           <Link to="/404" className="list-item-footer">
-            Terminos y condiciones.
+            Términos y condiciones
           </Link>
         </li>
         <li className="list-item-footer">
           <Link to="/404" className="list-item-footer">
-            Politica y privacidad.
+            Política de privacidad
           </Link>
         </li>
         <li className="list-item-footer">
           <Link to="/404" className="list-item-footer">
-            Quejas y reclamos.
+            Quejas y reclamos
           </Link>
         </li>
       </ul>
@@ -49,9 +49,9 @@ export default function Footer() {
         <img src={logos} alt="logos" className="logos-payment-footer"/>
       </div>
       <p className="text-footer">
-        Nos reservamos todos los derechos de autor y de identidad.
+        Nos reservamos todos los derechos de autor y de identidad
       </p>
-      <p className="text-footer">Gracias por preferirnos.</p>
+      <p className="text-footer">Gracias por preferirnos</p>
     </div>
   );
 }

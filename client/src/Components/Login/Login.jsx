@@ -45,7 +45,7 @@ const Login = () => {
           </button>
         </Link>
         <div className="container-form">
-          <h3 className="title-login">Inicia Sesion</h3>
+          <h3 className="title-login">Inicia Sesión</h3>
           <form onSubmit={handleSubmit} className="form-body">
 
           {/* EMAIL */}
@@ -57,7 +57,7 @@ const Login = () => {
                 placeholder="name@example.com"
                 onChange={handleChange}
               />
-              <label for="floatingInput">Correo electronico</label>
+              <label for="floatingInput">Correo electrónico</label>
             </div>
 
             {/* PASSWORD */}
@@ -73,7 +73,7 @@ const Login = () => {
             </div>
 
             <div className="button-check-register">
-              <button className="btn btn-primary btn-color">Iniciar Sesion</button>
+              <button className="btn btn-primary btn-color">Iniciar Sesión</button>
             </div>
 
           </form>
@@ -86,11 +86,11 @@ const Login = () => {
               alt="google-logo"
               className="google-logo"
             />
-              Registrarse con Google
+              Regístrate con Google
             </button>
             <div className="register-link">
               <p className="text-form-register">¿No tienes cuenta?</p>
-              <Link to="/signin" className="btn btn-outline-primary">Registarse</Link>
+              <Link to="/signin" className="btn btn-outline-primary">Regístrate</Link>
           </div>
         </div>
       </div>

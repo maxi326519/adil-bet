@@ -48,7 +48,7 @@ export default function ReviewForm() {
   }
   return (
     <div className="formDiv">
-      <h2>Dejanos tu reseña</h2>
+      <h2>Déjanos tu reseña</h2>
       <form className="form" onSubmit={handleSubmit}>
         <input className="inputReview" type="text" onChange={handleChange} />
         <button className="btnSubmit">Enviar</button>
@@ -58,7 +58,7 @@ export default function ReviewForm() {
           name="league"
           onChange={(e) => handleScore(e)}
         >
-          <option value="def">puntuacion</option>
+          <option value="def">puntuación</option>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>

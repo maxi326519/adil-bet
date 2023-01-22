@@ -76,7 +76,7 @@ const CreateUserForm = () => {
       </div>
       <div className="container-register-form">
         <div className="container-form-body">
-          <h3 className="title-form">Registrate</h3>
+          <h3 className="title-form">Regístrate</h3>
           <form onSubmit={handleSubmitRegister} className="form-body">
             {/* NOMBRE */}
             <div class="form-floating mb-3 ">
@@ -91,7 +91,7 @@ const CreateUserForm = () => {
               <label for="floatingInput">Nombre</label>
             </div>
             {validateRegister.name ? null : (
-              <span className="span-form">El nombre no puede contener numeros y menos de 5 letras</span>
+              <span className="span-form">El nombre no puede contener números y menos de 5 letras</span>
             )}
 
             {/* USUARIO */}
@@ -120,7 +120,7 @@ const CreateUserForm = () => {
               <label for="floatingInput">Email address</label>
             </div>
             {validateRegister.email ? null : (
-              <span className="span-form">El correo electronico no es valido</span>
+              <span className="span-form">El correo electrónico no es válido</span>
             )}
 
             {/* CONTRASEÑA */}
@@ -152,7 +152,7 @@ const CreateUserForm = () => {
             </div>
             {validateRegister.password ? null : (
               <span className="span-form">
-                La contraseña tiene que contener minimo 8 caracteres
+                La contraseña debe contener mínimo 8 caracteres
               </span>
             )}
             {register.password !== register.confirm_password &&
@@ -171,12 +171,12 @@ const CreateUserForm = () => {
                 value={register.phone}
                 onChange={handleChange}
               />
-            <label for="floatingInput">Telefono</label>
+            <label for="floatingInput">Teléfono</label>
             </div>
             
             {/* BOTON DE REGISTRO */}
             <div className="button-check-register">
-              <button className="btn btn-primary btn-color">Registrarse</button>
+              <button className="btn btn-primary btn-color">Regístrate</button>
             </div>
 
             {/* Auth0 de 3ros */}
@@ -189,13 +189,13 @@ const CreateUserForm = () => {
                 alt="google-logo"
                 className="google-logo"
               />
-                Iniciar con Google
+                Inicia con Google
               </button>
 
           </form>
           <div className="register-link">
             <p className="text-form-register">¿Ya tienes cuenta?</p>
-            <Link to="/login" className="btn btn-outline-primary">Iniciar sesion</Link>
+            <Link to="/login" className="btn btn-outline-primary">Inicia sesión</Link>
           </div>
         </div>
       </div>
