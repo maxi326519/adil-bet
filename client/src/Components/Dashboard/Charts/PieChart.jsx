@@ -58,7 +58,7 @@ export function PieChart() {
                 itemsSpacing: 0,
                 itemWidth: 100,
                 itemHeight: 18,
-                itemTextColor: '#7eda55',
+                itemTextColor: "var(--primary-color)",
                 itemDirection: 'left-to-right',
                 itemOpacity: 1,
                 symbolSize: 18,
@@ -67,7 +67,7 @@ export function PieChart() {
                     {
                         on: 'hover',
                         style: {
-                            itemTextColor: '#7eda55'
+                            itemTextColor: "var(--primary-color)"
                         }
                     }
                 ]

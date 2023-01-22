@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getActivity } from "../../redux/actions/GET/index";
+import { Link } from "react-router-dom";
 
 import "./userActivity.css";
 
@@ -35,7 +36,9 @@ export default function UserActivity() {
             </select>
           </div>
           <div >
+            <Link to="/useractivities">
             <button className="buscar" onClick={handleOnClick}>buscar</button>
+            </Link>
           </div>
         </div>
       </div>
