@@ -1,19 +1,26 @@
 import React from "react";
 import { useState } from "react";
-import { addWithdraw } from "../../redux/actions/POST/index";
+import { addWithdraw } from "../../../../redux/actions/POST/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
 
-export default function WithdrawTable() {
+import styles from "./WithdrawForm.module.css";
+
+export default function WithdrawlForm({ window, handleWindow }) {
+  const user = useSelector(state => state.userDates)
   const dispatch = useDispatch();
-  const user = JSON.parse(window.localStorage.getItem('user'))
   const [errors, setErrors] = useState({});
+  const [errorW, setErrorW] = useState({ value: false, msg: "" });
   const [input, setInput] = useState({
-    userId: user[0].id,
+    userId: user.id,
   });
 
+  function handleClose() {
+    handleWindow();
+  }
+
+
   function handlerSubmit(e) {
-    console.log(input);
     e.preventDefault();
     if (!input.amount) alert("amount is need");
     else if (!input.method) alert("Select the type");
@@ -38,9 +45,21 @@ export default function WithdrawTable() {
       [e.target.name]: e.target.value,
     });
   }
+
   return (
-    <div>
-      <form onSubmit={handlerSubmit} className="">
+    <div class={`${styles.container} ${window ? styles.isActive : null}`}>
+      <form
+        className={`${styles.window} ${errorW.value ? styles.error : null}`}
+        onSubmit={handlerSubmit}
+      >
+        <div className={styles.closeContainer}>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            onClick={handleClose}
+          ></button>
+        </div>{" "}
         <div className="">
           <label for="floatingInput">Monto USD *:</label>
           <input
@@ -84,20 +103,15 @@ export default function WithdrawTable() {
           />
         </div>
         <div>
-          {!input.amount ||
-          !input.document ||
-          !input.phone ||
-          !input.method ||
-          Object.entries(errors).length ? (
-            <button className="btnsend" type="submit" disabled={false}>
-              ENVIAR
-            </button>
-          ) : (
-            <button className="btnsend" type="submit">
-              ENVIAR
-            </button>
-          )}
+          {
+              <button className="btnsend" type="submit">
+                ENVIAR
+              </button>
+            }
         </div>
+        {errorW.value ? (
+          <span className={styles.spanError}>{errorW.msg}</span>
+        ) : null}
       </form>
     </div>
   );
