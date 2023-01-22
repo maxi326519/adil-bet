@@ -17,6 +17,7 @@ import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
 import Cart from "../Components/Cart/Cart.jsx";
 import UserActivity from "../Components/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
+import BetsDepositUser from "../Components/userActivity/BetsDepositUser.jsx";
 
 // Dashboard
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -54,6 +55,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/payment" element={<Stripe />} />
+          <Route path="/useractivities" element={<BetsDepositUser />} />
 
           {/* DASHBOARD */}
           <Route path="/dashboard" element={ <Dashboard/> }/>

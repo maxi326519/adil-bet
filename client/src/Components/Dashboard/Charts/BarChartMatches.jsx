@@ -54,7 +54,7 @@ export function BarChartMatches() {
         margin={{ top: 50, right: 40, bottom: 30, left: 60 }}
         padding={0.4}
         valueScale={{ type: "linear" }}
-        colors="#7eda55"
+        colors="var(--primary-color)"
         animate={true}
         enableLabel={false}
         axisTop={null}
