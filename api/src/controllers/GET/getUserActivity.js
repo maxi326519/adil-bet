@@ -41,7 +41,7 @@ const getUserActivity = async (id, activity, page) => {
       offset,
     })
 
-    return userAllBets
+    return { Bets: { userAllBets }}
   }
 
   if (id && activity === "deposit") {
@@ -53,7 +53,7 @@ const getUserActivity = async (id, activity, page) => {
       offset,
     })
 
-    return userAllDeposit
+    return {Deposit: { userAllDeposit }}
   }
 
   if (id && activity === "withdraw") {
@@ -65,7 +65,7 @@ const getUserActivity = async (id, activity, page) => {
       offset,
     })
 
-    return userAllWithdraw
+    return {Withdraw: { userAllWithdraw }}
   }
 };
 
