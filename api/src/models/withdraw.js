@@ -27,6 +27,10 @@ module.exports = sequelize => {
       unique: true,
       defaultValue: null,
    },
+   card: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   },
   { updatedAt: false })
 }
