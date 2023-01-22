@@ -17,7 +17,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
 
   function handleClose() {
     setInput({
-      amount: 0,
+      amount: '',
       phone: '',
       method: '',
       document: ''
@@ -96,7 +96,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
         </div>
         <div className="">
           <input
-            type="text"
+            type="number"
             name="document"
             value={input.document}
             className=""
