@@ -321,7 +321,12 @@ export const Reducer = (state = initialState, action) => {
     case GET_ALL_WITHDRAWS:{
       return {
         ...state,
-        withdraw: action.payload
+        withdraws: action.payload
+      }
+    }
+    case 'UPDATE_WITHDRAW':{
+      return {
+        ...state,
       }
     }
     default:
