@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getActivity } from "../../../redux/actions/GET/index";
 
+import BetsDepositUser from './BetsDepositUser/BetsDepositUser';
+
 import styles from "./userActivity.module.css";
 
 export default function UserActivity() {
@@ -38,6 +40,7 @@ export default function UserActivity() {
             <button className="buscar" onClick={handleOnClick}>buscar</button>
           </div>
         </div>
+      <BetsDepositUser/>
       </div>
     </>
   );
