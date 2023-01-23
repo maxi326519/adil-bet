@@ -1,19 +1,32 @@
 import { useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBet } from '../../../redux/actions/POST';
 
 import styles from "./AddBet.module.css";
 
-export default function AddBet({ window, handleWindow }) {
+export default function AddBet({ window, handleWindow, match }) {
 
     const [selectedOption, setOption] = useState(null);
     const [amount, setAmount] = useState(0);
     const [error, setError] = useState({ value: false, msg: ''});
     const [checked, setCheck] = useState({ homeBet: false, awayBet: false});
+    const userDates = useSelector( state => state.userDates );
+    const dispatch = useDispatch();
 
     function handleSubmit(e){
         e.preventDefault();
 
+        console.log(match);
+
         if(selectedOption){
             if(amount){
+                dispatch(addBet({
+                  homeBet: checked.homeBet ? amount : "",
+                  awayBet: checked.awayBet ? amount : "",
+                  tieBet: "",
+                  idUser: userDates.id,
+                  idMatch: match,
+                }));
                 handleClose();
             }else  setError({ value: true, msg: 'No se selecciono un monto'});
         }else setError({ value: true, msg: 'No se selecciono un tipo de apuesta'});

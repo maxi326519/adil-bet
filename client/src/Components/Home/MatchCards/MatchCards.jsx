@@ -14,13 +14,15 @@ export default function MatchCards() {
   const currentPage = useSelector((state) => state.currentPage.data);
   const dispatch = useDispatch();
   const [window, setWindow] = useState(false); 
+  var [match, setMatch] = useState(0);
 
   useEffect(() => {
     if (matches.length > 0) dispatch(handleSetPage());
   }, [matches, dispatch]);
   
-  function handleWindow(){
+  function handleWindow(m){
     setWindow(!window);
+    setMatch(m);
   }
 
   return (
@@ -46,7 +48,7 @@ export default function MatchCards() {
         })}
       </div>
       <PaginationControllers />
-      <AddBet window={ window } handleWindow={ handleWindow }/>
+      <AddBet window={ window } handleWindow={ handleWindow } match={match}/>
     </div>
   );
 }
