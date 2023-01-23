@@ -1,4 +1,5 @@
 import React from "react";
+import './CardCart.css'
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBetToCart } from "../../../redux/actions/DELETE/index.js";
 
