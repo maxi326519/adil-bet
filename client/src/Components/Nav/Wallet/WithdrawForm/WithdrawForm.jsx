@@ -9,10 +9,11 @@ import styles from "./WithdrawForm.module.css";
 export default function WithdrawlForm({ window, handleWindow }) {
   const user = useSelector(state => state.userDates)
   const dispatch = useDispatch();
+  const localUser = localStorage.getItem('user')
   const [errors, setErrors] = useState({});
   const [errorW, setErrorW] = useState({ value: false, msg: "" });
   const [input, setInput] = useState({
-    userId: user.id,
+    userId: user.id ? user.id : localUser.id,
   });
 
   function handleClose() {
@@ -20,7 +21,8 @@ export default function WithdrawlForm({ window, handleWindow }) {
       amount: '',
       phone: '',
       method: '',
-      document: ''
+      document: '',
+      card: ''
     })
     handleWindow();
   }
@@ -28,13 +30,15 @@ export default function WithdrawlForm({ window, handleWindow }) {
 
   function handlerSubmit(e) {
     e.preventDefault();
-    if (!input.amount && input.amount <= 0) alert("amount is need");
+    if (!input.amount && !(input.amount <= 0)) alert("amount is needed");
     else if (!input.method) alert("Select the type");
     else if (!input.document) alert("Choose document.");
     else if (!input.phone) alert("Choose phone.");
     else {
       setInput({
-        amount: parseInt(input.amount)
+        ...input,
+        amount: parseInt(input.amount),
+        card: parseInt(input.card)
       })
       dispatch(addWithdraw(input));
       swal({
@@ -110,6 +114,17 @@ export default function WithdrawlForm({ window, handleWindow }) {
             type="text"
             name="phone"
             value={input.phone}
+            className=""
+            placeholder="Introduzca la informacion..."
+            onChange={handlerChange}
+          />
+        </div>
+        <div className="">
+        <label>Número de Cuenta *:</label>
+          <input
+            type="number"
+            name="card"
+            value={input.card}
             className=""
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
