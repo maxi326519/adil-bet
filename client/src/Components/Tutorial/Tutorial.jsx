@@ -43,7 +43,16 @@ export default function Promotions() {
         <Accordion.Header>Como ingresar fondos a billetera?</Accordion.Header>
         <Accordion.Body>
           Debera presionar sobre el siguiente logo{" "}
-          <img src={wallet} alt="wallet" className="wallet" />
+          <img src={wallet} alt="wallet" className="wallet" /> se desplegara un
+          menu, en el cual debera darle click al boton "Recargar Billetera"
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header>Como retirar fondos?</Accordion.Header>
+        <Accordion.Body>
+          Debera presionar sobre el siguiente logo{" "}
+          <img src={wallet} alt="wallet" className="wallet" /> se desplegara un
+          menu, en el cual va a darle click al boton "Recargar Billetera"
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
