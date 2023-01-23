@@ -17,7 +17,6 @@ const stripePromise = loadStripe(
 export default function Stripe() {
 
   const [loading, setLoading] = useState(false);
-  useEffect(()=>{console.log(loading)},[loading]);
 
   return (
     <div className="background">

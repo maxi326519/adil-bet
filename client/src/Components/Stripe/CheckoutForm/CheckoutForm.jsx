@@ -51,7 +51,7 @@ export default function CheckoutForm({ setLoading }) {
     } catch (error) {
       setLoading(false);
       swal({
-        title: `Error ${error.response.status}`,
+        title: `Error`,
         text: error.response.data.error,
         button: "ACEPTAR",
       }).then(function () {
