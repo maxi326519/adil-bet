@@ -21,6 +21,8 @@ export default function Wallet() {
     setStyle(!style);
   }
 
+  console.log(walletStatus)
+
   return (
     <nav className="wallet">
       {console.log()}

@@ -10,7 +10,7 @@ const teamMembers = [
     image: require("../../Assets/Images/Image-laura.jpeg"),
     lema: "",
     ocupation: "Desarrollador Web FullStack",
-    linkedin: "https://www.linkedin.com/in/laura-valencia-polo",
+    linkedin: "https://www.linkedin.com/in/laura-valencia-91b480170/",
     github: "https://github.com/lauravalenciapolo",
   },
   {
@@ -18,7 +18,7 @@ const teamMembers = [
     image: require("../../Assets/Images/Imagen-luis.jpeg"),
     lema: "Controlar la complejidad es la esencia de la programación - Brian Kernigan",
     ocupation: "Desarrollador Web FullStack",
-    linkedin: "https://www.linkedin.com/in/luis-rodriguez-rodriguez-323a0222b",
+    linkedin: "https://www.linkedin.com/in/luis-antonio-rodriguez-rodriguez-323a0222b/",
     github: "https://github.com/LuisRodriguzz",
   },
   {
@@ -34,7 +34,7 @@ const teamMembers = [
     image: require("../../Assets/Images/avatar-perfil-png.png"),
     lema: "",
     ocupation: "Desarrollador Web FullStack",
-    linkedin: "https://www.linkedin.com/in/",
+    linkedin: "https://www.linkedin.com/in/manuel-matias-villalobos-ordo%C3%B1ez-983086227/",
     github: "https://github.com/manuord",
   },
   {
@@ -50,7 +50,7 @@ const teamMembers = [
     image: require("../../Assets/Images/Image-gaston.jpeg"),
     lema: "Para tener éxito la actitud es tan importante como la habilidad.",
     ocupation: "Desarrollador Web FullStack",
-    linkedin: "https://www.linkedin.com/in/luis-rodriguez",
+    linkedin: "https://www.linkedin.com/in/gaston-alonso-018374254/",
     github: "https://github.com/GastonA95",
   },
   {
@@ -67,7 +67,7 @@ const teamMembers = [
     image: require("../../Assets/Images/avatar-perfil-png.png"),
     ocupation: "Desarrollador Web FullStack",
     linkedin:
-      "https://www.linkedin.com/in/juan-carlos-gómez-cucaita-4677a218b/",
+      "https://www.linkedin.com/in/juan-carlos-g%C3%B3mez-cucaita-4677a218b/",
     github: "https://github.com/REALCHARLEX",
   },
 ];
