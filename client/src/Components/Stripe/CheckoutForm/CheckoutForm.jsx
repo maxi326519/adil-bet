@@ -50,7 +50,7 @@ export default function CheckoutForm({ setLoading }) {
       setLoading(false);
       swal({
         title: `Error`,
-        text: error ? error.response.data.error : 'error',
+        text: 'Hubo un error',
         button: "ACEPTAR",
       }).then(function () {
         window.location = "/payment";
