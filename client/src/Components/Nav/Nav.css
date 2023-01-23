@@ -110,8 +110,7 @@
   }
 
   .sesions-btn {
-    display: flex;
-    align-items: center;
+    display: none;
   }
 
   .sesions-btn button,

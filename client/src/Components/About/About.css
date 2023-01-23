@@ -1,23 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,200&family=Fira+Sans:wght@700&display=swap");
 
-.team-main-container {
-  font-size: 25px;
-}
 .team-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.cntimgandphoto{
+.cntimgandphoto {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  align-content: center;
 }
 
 .Adbilbet-team {
   font-size: 40px;
   font-family: "Fira Sans", sans-serif;
+  align-items: center;
+  margin: 20px;
 }
 
 .team-member {
@@ -32,6 +33,7 @@
   box-shadow: 0 10px 10px rgb(155, 155, 155);
   min-width: 350px;
   max-height: 400px;
+  align-items: center;
 }
 
 .team-member-photo {
@@ -47,12 +49,16 @@
   font-family: "Fira Sans Condensed", sans-serif;
 }
 
-.description-text{
+.GHyLDn {
+  font-size: 30px;
+}
+
+.description-text {
   font-size: 20px;
   max-width: 900px;
 }
 
-.name-member{
+.name-member {
   font-size: 20px;
   margin: 0;
 }
@@ -63,46 +69,61 @@
   margin: 15px;
 }
 
-.ocupation{
+.ocupation {
   font-size: 13px;
 }
 
 @media (max-width: 700px) {
-  .team-main-container {
-    font-size: 30px;
+  .GHyLDn {
+    font-size: 13px;
   }
-  
+
+  .member-info{
+    padding-top: 17px;
+  }
+
   .Adbilbet-team {
     font-size: 20px;
     font-family: "Fira Sans", sans-serif;
   }
-  
+
+  .team-member {
+    padding: 10px;
+    margin: 10px;
+    min-width: 180px;
+    max-height: 220px;
+  }
+
   .team-member-photo {
-    width: 150px;
+    width: 45px;
     border-radius: 90px;
   }
-  
+
   .team-description {
+    margin: 5px;
+  }
+
+  .member-info{
+    max-width: 90px;
+  }
+
+  .description-text {
+    font-size: 15px;
+    max-width: 300px;
     margin: 20px;
   }
-  
-  .description-text{
-    font-size: 18px;
-    max-width: 900px;
+
+  .name-member {
+    font-size: 12px;
   }
-  
-  .name-member{
-    font-size: 18px;
-    margin: 0;
-  }
-  
+
   .lema {
-    font-size: 15px;
+    font-size: 11px;
     max-width: 400px;
     margin: 15px;
   }
-  
-  .ocupation{
-    font-size: 12px;
+
+  .ocupation {
+    font-size: 9px;
   }
 }

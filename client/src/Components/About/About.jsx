@@ -6,7 +6,7 @@ import "./About.css";
 
 const teamMembers = [
   {
-    name: "Laura Valencia Polo",
+    name: "Laura Polo",
     image: require("../../Assets/Images/Image-laura.jpeg"),
     lema: "",
     ocupation: "Desarrollador Web FullStack",
@@ -15,10 +15,10 @@ const teamMembers = [
   },
   {
     name: "Luis Rodríguez",
-    image: require("../../Assets/Images/avatar-perfil-png.png"),
-    lema: "",
+    image: require("../../Assets/Images/Imagen-luis.jpeg"),
+    lema: "Controlar la complejidad es la esencia de la programación - Brian Kernigan",
     ocupation: "Desarrollador Web FullStack",
-    linkedin: "https://www.linkedin.com/in/luis-rodriguez",
+    linkedin: "https://www.linkedin.com/in/luis-rodriguez-rodriguez-323a0222b",
     github: "https://github.com/LuisRodriguzz",
   },
   {
@@ -63,7 +63,7 @@ const teamMembers = [
     github: "https://github.com/fabiangif",
   },
   {
-    name: "Juan Carlos Gómez",
+    name: "Juan Gómez",
     image: require("../../Assets/Images/avatar-perfil-png.png"),
     ocupation: "Desarrollador Web FullStack",
     linkedin:
@@ -86,7 +86,7 @@ const Team = () => {
                 alt={member.name}
                 className="team-member-photo"
               />
-              <div>
+              <div className="member-info">
                 <h6 className="name-member">{member.name}</h6>
                 <p className="ocupation">{member.ocupation}</p>
               </div>
