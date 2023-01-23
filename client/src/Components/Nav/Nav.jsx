@@ -15,7 +15,7 @@ import MyAccountButton from "./MyAccountButton/MyAccountButton";
 import Wallet from "./Wallet/Wallet";
 import { postLoginUser } from "../../redux/actions/POST/index.js";
 
-import cart from '../../Assets/svg/Nav/cart.svg'
+import cart from "../../Assets/svg/Nav/cart.svg";
 
 export default function Nav() {
   const { user } = useAuth0();
@@ -25,11 +25,10 @@ export default function Nav() {
   useEffect(() => {
     // const dataUser = JSON.parse(window.localStorage.getItem('user'));
     // !dataUser ?
-    dispatch(postLoginUserAuth0({ email: user?.email, name: user?.name }))
+    dispatch(postLoginUserAuth0({ email: user?.email, name: user?.name }));
     // :
     // dispatch(postLoginUser({ email: dataUser[0].email, name: dataUser[0].name}))
   }, [user]);
-
 
   return (
     <div className="header">
@@ -51,35 +50,27 @@ export default function Nav() {
           <span>Tutorial</span>
         </Link>
 
-          <Link to="/about" className="nav-menu-link">
-            <span>Nosotros</span>
-          </Link>
-        </div>
-
-        <div className="sesion">
-          {Object.entries(userDates).length === 0 ? (
-            
-            <LoginButton/>
-            
-          ) : (
-            <div className="sesions-btn">
-              <Wallet/>
-              <MyAccountButton />
-              <Link to="/cart">
-                <button className="btn btn-primary btn-color"><img src={ cart } alt='cart' /></button>
-              </Link>
-              <LogoutButton />
-            </div>
-            
-          )}
-        </div>
-        <div >
-          {userDates.isAdmin?  
-          <Link to="/dashboard">
-          <button className="btn btn-primary btn-color">ADMIN</button>
-          </Link>:null
-          }
-          </div>
+        <Link to="/about" className="nav-menu-link">
+          <span>Nosotros</span>
+        </Link>
       </div>
+
+      <div className="sesion">
+        {Object.entries(userDates).length === 0 ? (
+          <LoginButton />
+        ) : (
+          <div className="sesions-btn">
+            <Wallet />
+            <MyAccountButton />
+            <LogoutButton />
+            {userDates.isAdmin ? (
+              <Link to="/dashboard">
+                <button className="btn btn-primary btn-color">ADMIN</button>
+              </Link>
+            ) : null}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
