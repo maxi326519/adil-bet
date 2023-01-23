@@ -6,6 +6,7 @@ import { handleSetPage } from "../../../redux/actions/GET";
 import Card from "./Card/Card";
 import PaginationControllers from "./PaginationControllers/PaginationControllers";
 import AddBet from '../AddBet/AddBet';
+import Loading from '../../Loading/Loading'
 
 import styles from "./MatchCards.module.css";
 
@@ -28,6 +29,7 @@ export default function MatchCards() {
   return (
     <div className={styles.content}>
       <div className={styles.list}>
+        {currentPage.length >= 1 ? null : <Loading />}
         {currentPage.map((match) => {
           return (
             <Card
