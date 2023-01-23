@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getActivity } from "../../redux/actions/GET/index";
 
@@ -15,7 +15,7 @@ export default function UserActivity() {
 
   const handleOnSelect = (e) => {
     setData({ ...data, activity: e.target.value });
-    console.log(data);
+    // console.log(data);
   };
   const handleOnClick = (e) => {
     console.log(data);
@@ -31,6 +31,7 @@ export default function UserActivity() {
             <select className="select" onChange={(e) => handleOnSelect(e)}>
               <option value="bet">apuestas</option>
               <option value="deposit">depósitos</option>
+              <option value="withdraw">retiros</option>
               <option value="all">todas</option>
             </select>
           </div>

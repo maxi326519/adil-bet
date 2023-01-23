@@ -27,26 +27,6 @@ const updateProfile = async ({ id, userName, email, phone }) => {
   await profileFound.save();z
   return profileFound;
 
-  // if(profileFound && isAdmin && !wallet && !name && !userName && !email && !password && !phone && !isActive ){
-  //     profileFound.update({
-  //         isAdmin,
-  //     });
-  //     await profileFound.save();
-  //     return profileFound
-  // }
-
-
-
-
-  /*   if (profileFound) {
-      profileFound.update({
-        userName: userName,
-        email: email,             //--- esto no se pa' qué mierda lo pusieron... lol...
-        phone: phone,
-      });
-      await profileFound.save();
-      return profileFound;
-    } */
 };
 
 module.exports = updateProfile;

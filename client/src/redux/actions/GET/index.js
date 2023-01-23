@@ -11,8 +11,10 @@ import {
   GET_REVIEWS,
   GET_REVIEW_BY_ID,
   GET_USER_INFO,
+  GET_USER_ACTIVITY,
   GET_ALL_WITHDRAWS,
 } from "../types";
+
 
 export function searchTeam(name) {
   return async function (dispatch) {

@@ -23,7 +23,7 @@ export default function WithdrawTable() {
       dispatch(addWithdraw(input));
       swal({
         title: "RETIRO RECIBIDO",
-        text: "MUCHAS GRACIAS POR SU RETIRO EN 48 HORAS SERA EFECTUADO",
+        text: "MUCHAS GRACIAS POR SU RETIRO, EN 48 HORAS SERA EFECTUADO",
         button: "ACEPTAR",
       }).then(function () {
         window.location = "/home";
