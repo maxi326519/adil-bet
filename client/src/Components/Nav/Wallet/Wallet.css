@@ -7,12 +7,16 @@
 
 .container-all-info {
   width: 300px;
-  position: fixed;
+  position: absolute;
   top: 85px;
   flex-direction: column;
   border: 2px solid #591411;
   background-color: white;
   z-index: 2;
+}
+
+.adminWallet{
+  right: 10px;
 }
 
 .wwalet {
