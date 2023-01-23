@@ -186,8 +186,7 @@ export const Reducer = (state = initialState, action) => {
     }
     case "DELETE_BET_TO_CART": {
       const matches = state.cart.filter(
-        (match) => Number(match.idMatch) !== action.payload
-      );
+        (match) => Number(match.idMatch) !== action.payload.id || match.amount !== action.payload.amount || match.betTo !== action.payload.team)
       return {
         ...state,
         cart: matches,

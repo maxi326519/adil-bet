@@ -14,10 +14,16 @@ export function deleteUser (){
     console.log('deleteUser')
 }
 
-export function deleteBetToCart(id) {
+export function deleteBetToCart({id, team, amountbet}) {
+  const payload1 = {
+    id,
+    team,
+    amount: amountbet
+  }
+  console.log(payload1)
     return ({
         type: 'DELETE_BET_TO_CART',
-        payload: id,
+        payload: payload1,
       });
 }
 
