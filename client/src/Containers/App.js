@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { updateRedux } from "../redux/actions/POST/index.js";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 // Componentes
 import Landing from "../Components/Landing/Landing.jsx";
@@ -18,6 +18,7 @@ import Cart from "../Components/Cart/Cart.jsx";
 import UserActivity from "../Components/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
 import BetsDepositUser from "../Components/userActivity/BetsDepositUser.jsx";
+import Tutorial from "../Components/Tutorial/Tutorial";
 
 // Dashboard
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -26,18 +27,20 @@ import BetsDashboard from "../Components/Dashboard/BetsDashboard/BetsDashboard.j
 import MatchesDashboard from "../Components/Dashboard/MatchesDashboard/MatchesDashboard.jsx";
 import DepositsDashboard from "../Components/Dashboard/DepositsDashboard/DepositsDashboard.jsx";
 import ReviewsDashboard from "../Components/Dashboard/ReviewsDashboard/ReviewsDashboard.jsx";
-import WithdrawDashboard from "../Components/Dashboard/WithdrawDashboard/WithdrawDashboard.jsx"
+import WithdrawDashboard from "../Components/Dashboard/WithdrawDashboard/WithdrawDashboard.jsx";
 
 import "./App.css";
 
 function App() {
   const error = useSelector((state) => state.error);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
-    const loged = JSON.parse(window.localStorage.getItem('user'))
-    if(loged){dispatch(updateRedux(loged)) }
-  })  
+  useEffect(() => {
+    const loged = JSON.parse(window.localStorage.getItem("user"));
+    if (loged) {
+      dispatch(updateRedux(loged));
+    }
+  });
 
   return (
     <div className="App">
@@ -49,7 +52,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/details/:id" element={<MatchDetails />} />
           <Route path="/promotions" element={<Promotions />} />
-          <Route path="/tutorial" element={<Inprocess />} />
+          <Route path="/tutorial" element={<Tutorial />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
@@ -59,14 +62,14 @@ function App() {
           <Route path="/useractivities" element={<BetsDepositUser />} />
 
           {/* DASHBOARD */}
-          <Route path="/dashboard" element={ <Dashboard/> }/>
-          <Route path="/dashboard/users" element={ <UsersDashboard/> }/>
-          <Route path="/dashboard/bets" element={ <BetsDashboard/> }/>
-          <Route path="/dashboard/matches" element={ <MatchesDashboard/> }/>
-          <Route path="/dashboard/deposits" element={ <DepositsDashboard/> }/>
-          <Route path="/dashboard/config" element={ <DepositsDashboard/> }/>
-          <Route path="/dashboard/reseñas" element={ <ReviewsDashboard/> }/>
-          <Route path="/dashboard/retiros" element={ <WithdrawDashboard/> }/>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/users" element={<UsersDashboard />} />
+          <Route path="/dashboard/bets" element={<BetsDashboard />} />
+          <Route path="/dashboard/matches" element={<MatchesDashboard />} />
+          <Route path="/dashboard/deposits" element={<DepositsDashboard />} />
+          <Route path="/dashboard/config" element={<DepositsDashboard />} />
+          <Route path="/dashboard/reseñas" element={<ReviewsDashboard />} />
+          <Route path="/dashboard/retiros" element={<WithdrawDashboard />} />
         </Routes>
       </BrowserRouter>
       {error.length === 0
