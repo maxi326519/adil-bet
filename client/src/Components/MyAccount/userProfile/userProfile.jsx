@@ -24,6 +24,15 @@ export default function UserProfile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userDates)[0];
 
+  useEffect(()=>{
+    setUserData({
+      name: user.name,
+      userName: user.userName,
+      email: user.email,
+      phone: user.phone,
+    });
+  },[user]);
+
   const handleChange = (e) => {
     // Validar formato de correo electrónico y teléfono
     if (e.target.name === "email") {
@@ -77,14 +86,6 @@ export default function UserProfile() {
   return (
     <div className={styles.profile}>
       <ToastContainer />
-{/*       {showSuccessAlert && (
-  <Swal
-          title="¡Exito!"
-          text="El perfil del usuario ha sido actualizado."
-          icon="success"
-          onClose={() => setShowSuccessAlert(false)}
-        />
-      )} */}
 
       {/* NOMBRE */}
       <form onSubmit={handleSubmit}>
@@ -98,7 +99,7 @@ export default function UserProfile() {
             name="name"
             className="form-control"
             value={userData.name}
-            placeholder={user.name}
+            placeholder={userData.name}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
@@ -116,7 +117,7 @@ export default function UserProfile() {
             name="userName"
             className="form-control"
             value={userData.userName}
-            placeholder={user.userName}
+            placeholder={userData.userName}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
@@ -134,7 +135,7 @@ export default function UserProfile() {
             name="email"
             className="form-control"
             value={userData.email}
-            placeholder={user.email}
+            placeholder={userData.email}
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
@@ -154,7 +155,7 @@ export default function UserProfile() {
             className="form-control"
             pattern="[+]{0,1}[0-9]{0,}"
             value={userData.phone}
-            placeholder={user.phone}
+            placeholder={userData.phone}
             onChange={(e) => handleChange(e)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
