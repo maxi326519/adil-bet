@@ -6,6 +6,7 @@ import {
   CardElement,
   useStripe,
   useElements,
+  PaymentElement,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import swal from "sweetalert";
@@ -21,6 +22,7 @@ const CheckoutForm = (props) => {
   const stripe = useStripe();
   const elementsUse = useElements();
   const user = useSelector(state => state.userDates);
+  const [ data, setData] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,8 +32,8 @@ const CheckoutForm = (props) => {
       type: "card",
       card: elementsUse.getElement(CardElement),
       billing_details: {
-        name: user.name,
-        email: user.email,
+        name: data.name,
+        email: data.email,
 
       }
     });
@@ -39,7 +41,8 @@ const CheckoutForm = (props) => {
     const response = await axios.post('/create-checkout-session', {
       payment_method: paymentMethod.id,
       amount:  amount /* Traer del estado */,
-      userId: user.id
+      userId: user.id,
+      dataEmail: data
     })
 
     props.handleLoading()
@@ -55,6 +58,13 @@ const CheckoutForm = (props) => {
     }
   }
 
+  function handlerData (e){
+    setData({
+      ...data,
+    [e.target.name]: e.target.value
+    })
+  }
+
   const handleInputChange = (inputAmount) => {
     setAmount(inputAmount);
   }
@@ -62,20 +72,29 @@ const CheckoutForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} className="card card-body">
+      <div className="mb-3">
+      <label for="exampleFormControlInput2" className="form-label">Name of owner</label>
+      <input type="text" className="form-control" name="name" id="exampleFormControlInput2" placeholder="account holder name" onChange={handlerData}/>
+      </div>
+      <div className="mb-3">
+      <label for="exampleFormControlInput1" className="form-label">Email address</label>
+      <input type="email" className="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" onChange={handlerData}/>
+      </div>
       <div className="form-group">
-        <CardElement className="form-control" />
+      <label for="card-element">Credit or debit card</label>
+        <CardElement className="bg-white rounded-md py-3 my-6" />
       </div>
       <select
         onChange={e => handleInputChange(e.target.value)}
         id="monto"
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
-        <option value="">Seleccione el monto a recargar</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-        <option value="200">200</option>
-        <option value="500">500</option>
-        <option value="1000">1000</option>
+        <option value="">Select the amount to top up</option>
+        <option value="50">$50</option>
+        <option value="100">$100</option>
+        <option value="200">$200</option>
+        <option value="500">$500</option>
+        <option value="1000">$1000</option>
       </select>
       <button className="btn btn-success" type='submit'>Pagar</button>
     </form>

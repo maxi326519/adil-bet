@@ -1,6 +1,5 @@
 .container{
     display: none;
-    position: fixed;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -17,11 +16,13 @@
 }
 
 .window{
-    width: 300px;
+    width: 500px;
+    height: 300px;
     padding: 20px;
     border-radius: 20px;
     text-align: left;
     background-color: white;
+    gap: 10px;
 }
 
 .closeContainer{

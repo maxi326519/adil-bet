@@ -73,6 +73,13 @@ export default function Nav() {
             
           )}
         </div>
+        <div >
+          {userDates.isAdmin?  
+          <Link to="/dashboard">
+          <button className="btn btn-primary btn-color">ADMIN</button>
+          </Link>:null
+          }
+          </div>
       </div>
   );
 }

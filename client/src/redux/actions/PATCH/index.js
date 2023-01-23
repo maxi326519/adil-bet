@@ -205,10 +205,10 @@ export function updateDeposit({id, amount, method }) {
   };
 }
 
-export function updateWithdraw(id ,data){
+export function updateWithdraw({id ,status}){
   const payload = {
-    ...data
-  }
+    "status" : status==='Pending'? 'Sent':'Pending'
+  };
   return async function(dispatch){
     try{
       const response = await axios.patch(`/withdraw/${id}`, payload)

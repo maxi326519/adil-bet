@@ -37,7 +37,7 @@ export function BarChartBets() {
 
   if(bets.length >0){
   return (
-    <div className={styles.cnttable}>
+    <div style={{ height: 400, width: '100%' }}>
       <ResponsiveBar
         classname={styles.table}
         data={betsData}
@@ -46,7 +46,7 @@ export function BarChartBets() {
         margin={{ top: 50, right: 40, bottom: 30, left: 60 }}
         padding={0.4}
         valueScale={{ type: "linear" }}
-        colors="#7eda55"
+        colors="var(--primary-color)"
         animate={true}
         enableLabel={false}
         axisTop={null}

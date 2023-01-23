@@ -23,6 +23,7 @@ export default function SidebarDashboard (){
             <ButtonMenu img={ depositsIcon } link={ '/dashboard/deposits' } value={ 'Depositos' }/>
             <ButtonMenu className={ style.config } img={ configurationsIcon } link={ '/dashboard/config' } value={ 'Configuracion' }/>
             <Link to={'/dashboard/reseñas'}><p>Reseñas</p></Link>
+            <Link to={'/dashboard/retiros'}><p>Retiros</p></Link>
         </div>
     )
 }

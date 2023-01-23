@@ -79,11 +79,11 @@ const CreateUserForm = () => {
           <h3 className="title-form">Registrate</h3>
           <form onSubmit={handleSubmitRegister} className="form-body">
             {/* NOMBRE */}
-            <div class="form-floating mb-3 ">
+            <div className="form-floating mb-3 ">
               <input
                 type="text"
                 name="name"
-                class={`form-control ${ validateRegister.name ? "" : "is-invalid" }`}
+                className={`form-control ${ validateRegister.name ? "" : "is-invalid" }`}
                 id={ validateRegister.name ? "floatingInputInvalid" : "floatingInput" }
                 placeholder="name"
                 onChange={handleChange}
@@ -95,11 +95,11 @@ const CreateUserForm = () => {
             )}
 
             {/* USUARIO */}
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="text"
                 name="userName"
-                class="form-control"
+                className="form-control"
                 id="floatingInput"
                 placeholder="name"
                 onChange={handleChange}
@@ -108,11 +108,11 @@ const CreateUserForm = () => {
             </div>
 
             {/* EMAIL */}
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="email"
                 name="email"
-                class={`form-control ${ validateRegister.email ? "" : "is-invalid" }`}
+                className={`form-control ${ validateRegister.email ? "" : "is-invalid" }`}
                 id={ validateRegister.email ? "floatingInputInvalid" : "floatingInput" }
                 placeholder="name@example.com"
                 onChange={handleChange}
@@ -124,11 +124,11 @@ const CreateUserForm = () => {
             )}
 
             {/* CONTRASEÑA */}
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="password"
                 name="password"
-                class="form-control"
+                className="form-control"
                 id="floatingInput"
                 placeholder="Contraseña"
                 value={register.password}
@@ -143,7 +143,7 @@ const CreateUserForm = () => {
                 type="password"
                 name="confirm_password"
                 placeholder="Confirmar Contraseña"
-                class={`form-control ${ validateRegister.password ? "" : "is-invalid" }`}
+                className={`form-control ${ validateRegister.password ? "" : "is-invalid" }`}
                 id={ validateRegister.password ? "floatingInputInvalid" : "floatingInput" }
                 value={register.confirm_password}
                 onChange={handleChange}
@@ -166,7 +166,7 @@ const CreateUserForm = () => {
                 type="text"
                 name="phone"
                 placeholder="Telefono"
-                class="form-control"
+                className="form-control"
                 id="floatingInput"
                 value={register.phone}
                 onChange={handleChange}

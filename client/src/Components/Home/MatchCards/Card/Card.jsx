@@ -14,8 +14,13 @@ export default function Card({
   logoHome,
   logoAway,
   scoreHome,
-  scoreAway,
+  scoreAway
 }) {
+
+  function handleBet(){
+    handleWindow(matchId);
+  }
+
   return (
     <div className={styles.cardcnt}>
       <div className={styles.card}>
@@ -34,7 +39,7 @@ export default function Card({
           </div>
         </Link>
         <div className={styles.buttons}>
-          <button onClick={handleWindow} className={styles.textbutton}>
+          <button onClick={handleBet} className={styles.textbutton}>
             Apostar
           </button>
         </div>

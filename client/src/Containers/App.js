@@ -15,9 +15,8 @@ import Inprocess from "../Components/Inprocess/Inprocess.jsx";
 import Stripe from "../Components/Stripe/Stripe";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
 import Cart from "../Components/Cart/Cart.jsx";
-import UserActivity from "../Components/userActivity/userActivity.jsx";
+import UserActivity from "../Components/MyAccount/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
-import WithdrawTable from "../Components/WithdrawaTable/WithdrawaTable.jsx";
 
 // Dashboard
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -26,6 +25,7 @@ import BetsDashboard from "../Components/Dashboard/BetsDashboard/BetsDashboard.j
 import MatchesDashboard from "../Components/Dashboard/MatchesDashboard/MatchesDashboard.jsx";
 import DepositsDashboard from "../Components/Dashboard/DepositsDashboard/DepositsDashboard.jsx";
 import ReviewsDashboard from "../Components/Dashboard/ReviewsDashboard/ReviewsDashboard.jsx";
+import WithdrawDashboard from "../Components/Dashboard/WithdrawDashboard/WithdrawDashboard.jsx"
 
 import "./App.css";
 
@@ -46,7 +46,6 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/withdraw" element={<WithdrawTable />} />
           <Route path="/details/:id" element={<MatchDetails />} />
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/tutorial" element={<Inprocess />} />
@@ -65,6 +64,7 @@ function App() {
           <Route path="/dashboard/deposits" element={ <DepositsDashboard/> }/>
           <Route path="/dashboard/config" element={ <DepositsDashboard/> }/>
           <Route path="/dashboard/reseñas" element={ <ReviewsDashboard/> }/>
+          <Route path="/dashboard/retiros" element={ <WithdrawDashboard/> }/>
         </Routes>
       </BrowserRouter>
       {error.length === 0
