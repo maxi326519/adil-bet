@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { getActivity } from "../../redux/actions/GET/index";
 import { Link } from "react-router-dom";
@@ -6,20 +7,25 @@ import { Link } from "react-router-dom";
 import "./userActivity.css";
 
 export default function UserActivity() {
+
+  const userId = useSelector(state => state.userDates[0].id)
+
   const initialState = {
-    id: 1,
+    id: null,
     page: 1,
     activity: "bets",
   };
   const [data, setData] = useState(initialState);
   const dispatch = useDispatch();
 
+  useEffect(()=>{
+    if(!data.id) setData({ ...data, id: userId });
+  },[data]);
+
   const handleOnSelect = (e) => {
     setData({ ...data, activity: e.target.value });
-    console.log(data);
   };
   const handleOnClick = (e) => {
-    console.log(data);
     dispatch(getActivity(data));
   };
 
