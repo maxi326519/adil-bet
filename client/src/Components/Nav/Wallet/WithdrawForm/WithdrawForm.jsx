@@ -11,6 +11,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
   const dispatch = useDispatch();
   const localUser = localStorage.getItem('user')
   const [errors, setErrors] = useState({});
+  const walletUser = useSelector(state => state.userDates.wallet)
   const [errorW, setErrorW] = useState({ value: false, msg: "" });
   const [input, setInput] = useState({
     userId: user.id ? user.id : localUser.id,
@@ -18,22 +19,48 @@ export default function WithdrawlForm({ window, handleWindow }) {
 
   function handleClose() {
     setInput({
+      userId: user.id ? user.id : localUser.id,
       amount: '',
       phone: '',
-      method: '',
+      method: 'Select',
       document: '',
       card: ''
     })
     handleWindow();
   }
 
-
   function handlerSubmit(e) {
     e.preventDefault();
-    if (!input.amount && !(input.amount <= 0)) alert("amount is needed");
-    else if (!input.method) alert("Select the type");
-    else if (!input.document) alert("Choose document.");
-    else if (!input.phone) alert("Choose phone.");
+    if (!input.amount || input.amount <= 0 || input.amount === ''){
+      swal({
+        title: "Se necesita el monto a retirar",
+        button: "ACEPTAR",
+      })}
+    else if(input.amount > walletUser){
+      swal({
+        title: "Fondos insuficientes",
+        button: "ACEPTAR",
+      })}
+    else if (!input.method || input.method === 'Select' ){
+      swal({
+        title: "Seleccione el tipo de documento",
+        button: "ACEPTAR",
+      })}
+    else if (!input.document){
+      swal({
+        title: "Se necesita el documento",
+        button: "ACEPTAR",
+      })}
+    else if (!input.phone){
+      swal({
+        title: "Se necesita el telefono",
+        button: "ACEPTAR",
+      })}
+      else if (!input.card){
+        swal({
+          title: "Se necesita el numero de cuenta",
+          button: "ACEPTAR",
+        })}
     else {
       setInput({
         ...input,

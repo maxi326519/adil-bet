@@ -24,7 +24,6 @@ module.exports = sequelize => {
     },
     phone: {
       type: DataTypes.STRING,
-      unique: true,
       defaultValue: null,
    },
    card: {

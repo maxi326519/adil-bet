@@ -9,7 +9,6 @@ const postWithdraw = async ({
   phone,
   card,
 }) => {
-  console.log(userId)
   if (!amount && !status && !document && !userId && !phone && !card)
     throw new Error("missing parameters", { statusCode: 400 });
 
