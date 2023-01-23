@@ -72,13 +72,13 @@ const CheckoutForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit} className="card card-body">
-      <div class="mb-3">
-      <label for="exampleFormControlInput2" class="form-label">Name of owner</label>
-      <input type="text" class="form-control" name="name" id="exampleFormControlInput2" placeholder="account holder name" onChange={handlerData}/>
+      <div className="mb-3">
+      <label for="exampleFormControlInput2" className="form-label">Name of owner</label>
+      <input type="text" className="form-control" name="name" id="exampleFormControlInput2" placeholder="account holder name" onChange={handlerData}/>
       </div>
-      <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-      <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" onChange={handlerData}/>
+      <div className="mb-3">
+      <label for="exampleFormControlInput1" className="form-label">Email address</label>
+      <input type="email" className="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" onChange={handlerData}/>
       </div>
       <div className="form-group">
       <label for="card-element">Credit or debit card</label>

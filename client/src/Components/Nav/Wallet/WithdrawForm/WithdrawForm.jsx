@@ -56,7 +56,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
   }
 
   return (
-    <div class={`${styles.container} ${window ? styles.isActive : null}`}>
+    <div className={`${styles.container} ${window ? styles.isActive : null}`}>
       <form
         className={`${styles.window} ${errorW.value ? styles.error : null}`}
         onSubmit={handlerSubmit}
@@ -64,7 +64,7 @@ export default function WithdrawlForm({ window, handleWindow }) {
         <div className={styles.closeContainer}>
           <button
             type="button"
-            class="btn-close"
+            className="btn-close"
             aria-label="Close"
             onClick={handleClose}
           ></button>

@@ -49,11 +49,11 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="form-body">
 
           {/* EMAIL */}
-          <div class="form-floating mb-3">
+          <div className="form-floating mb-3">
               <input
                 type="email"
                 name="email"
-                class="form-control"
+                className="form-control"
                 placeholder="name@example.com"
                 onChange={handleChange}
               />
@@ -61,11 +61,11 @@ const Login = () => {
             </div>
 
             {/* PASSWORD */}
-            <div class="form-floating mb-3">
+            <div className="form-floating mb-3">
               <input
                 type="password"
                 name="password"
-                class="form-control"
+                className="form-control"
                 placeholder="name@example.com"
                 onChange={handleChange}
               />

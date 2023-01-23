@@ -31,6 +31,12 @@ export default function AddBet({ window, handleWindow, match }) {
             }else  setError({ value: true, msg: 'No se selecciono un monto'});
         }else setError({ value: true, msg: 'No se selecciono un tipo de apuesta'});
     }
+    
+    function handleCheck(e){
+      if(e.target.id === 'homeBet') setCheck({ homeBet: true, awayBet: false});
+      if(e.target.id === 'awayBet') setCheck({ homeBet: false, awayBet: true});
+      setOption(e.target.id)
+    }
 
     function handleClose(){
         handleWindow();
@@ -40,31 +46,25 @@ export default function AddBet({ window, handleWindow, match }) {
         setError({ value: false, msg: ''});
     }
 
-    function handleCheck(e){
-      if(e.target.id === 'homeBet') setCheck({ homeBet: true, awayBet: false});
-      if(e.target.id === 'awayBet') setCheck({ homeBet: false, awayBet: true});
-      setOption(e.target.id)
-    }
-
   return (
-    <div class={`${styles.container} ${window ? styles.isActive : null}`}>
+    <div className={`${styles.container} ${window ? styles.isActive : null}`}>
       <form className={`${styles.window} ${ error.value ? styles.error : null}`} onSubmit={ handleSubmit }>
         <div className={styles.closeContainer}>
-            <button type="button" class="btn-close" aria-label="Close" onClick={ handleClose }></button>
+            <button type="button" className="btn-close" aria-label="Close" onClick={ handleClose }></button>
         </div>
         <div className="mb-3">
           <label className="form-label">Elije un monto</label>
           <input className="form-control" type="number" name="amount" value={amount} onChange={ (e) => setAmount(e.target.value) } />
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="typeBet" id="homeBet" checked={checked.homeBet} onClick={handleCheck}/>
-          <label class="form-check-label" for="flexRadioDefault1">
+        <div className="form-check">
+          <input className="form-check-input" type="radio" name="typeBet" id="homeBet" checked={checked.homeBet} onChange={handleCheck}/>
+          <label className="form-check-label" for="flexRadioDefault1">
             Apuesta al equipo local
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="typeBet" id="awayBet" checked={checked.awayBet} onClick={handleCheck}/>
-          <label class="form-check-label" for="flexRadioDefault2">
+        <div className="form-check">
+          <input className="form-check-input" type="radio" name="typeBet" id="awayBet" checked={checked.awayBet} onChange={handleCheck}/>
+          <label className="form-check-label" for="flexRadioDefault2">
             Apuesta al equipo visitante
           </label>
         </div>
