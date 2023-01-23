@@ -10,3 +10,31 @@
 .search input, .search button{
     padding: 5px 10px;
 }
+
+.search input{
+    color: white;
+    border: 0;
+    margin: 10px 0;
+}
+
+.btn{
+    border: 0;
+    margin: 10px 0;
+}
+
+@media (max-width: 400px) {
+    .search{
+        width: 100%;
+        padding: 0;
+    }
+    .search input{
+        color: white;
+        border: 0;
+        margin: 0 0 25px 0;
+    }
+    
+    .btn{
+        border: 0;
+        margin: 0 0 25px 0;
+    }
+}

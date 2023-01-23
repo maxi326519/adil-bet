@@ -10,3 +10,21 @@
     flex-grow: 1;
     margin: 30px;
 }
+
+@media (max-width: 450px) {
+    .list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 0;
+        margin: auto;
+        width: max-content;
+    }
+    
+    .content{
+        flex-grow: 1;
+        margin: 30px;
+    }
+    
+}

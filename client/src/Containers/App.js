@@ -25,6 +25,7 @@ import BetsDashboard from "../Components/Dashboard/BetsDashboard/BetsDashboard.j
 import MatchesDashboard from "../Components/Dashboard/MatchesDashboard/MatchesDashboard.jsx";
 import DepositsDashboard from "../Components/Dashboard/DepositsDashboard/DepositsDashboard.jsx";
 import ReviewsDashboard from "../Components/Dashboard/ReviewsDashboard/ReviewsDashboard.jsx";
+import WithdrawDashboard from "../Components/Dashboard/WithdrawDashboard/WithdrawDashboard.jsx"
 
 import "./App.css";
 
@@ -63,6 +64,7 @@ function App() {
           <Route path="/dashboard/deposits" element={ <DepositsDashboard/> }/>
           <Route path="/dashboard/config" element={ <DepositsDashboard/> }/>
           <Route path="/dashboard/reseñas" element={ <ReviewsDashboard/> }/>
+          <Route path="/dashboard/retiros" element={ <WithdrawDashboard/> }/>
         </Routes>
       </BrowserRouter>
       {error.length === 0

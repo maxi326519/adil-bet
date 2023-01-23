@@ -15,11 +15,16 @@ import {
   UPDATE_MULT_BET,
   UPDATE_STATUS_BET,
   UPDATE_AMOUNT_BET,
+  DELETE_WITHDRAW,
+  GET_ALL_WITHDRAWS,
+  UPDATE_WITHDRAW,
+  POST_WITHDRAW,
 } from "../actions/types";
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
 
 const initialState = {
+  withdraws: [],
   reviews: [],
   reviewById: [],
   matches: [],
@@ -312,6 +317,17 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    }
+    case GET_ALL_WITHDRAWS:{
+      return {
+        ...state,
+        withdraws: action.payload
+      }
+    }
+    case 'UPDATE_WITHDRAW':{
+      return {
+        ...state,
+      }
     }
     default:
       return state;

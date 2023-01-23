@@ -1,5 +1,29 @@
-.Dashboard{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,200&family=Fira+Sans:wght@700&display=swap");
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+.cnttables {
+  width: 100%;
+}
+
+.titletable {
+  font-size: 40px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+@media (max-width: 900px) {
+    .titletable {
+        font-size: 25px;
+        font-family: "Fira Sans", sans-serif;
+      }
+}
+
+@media (max-width: 600px) {
+    .titletable {
+        font-size: 20px;
+        font-family: "Fira Sans", sans-serif;
+      }
 }

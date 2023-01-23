@@ -1,4 +1,6 @@
 // Importar los actions types necesarios
+// import UPDATE_WITHDRAW from "../types";
+
 import axios from "axios";
 import {
   UPDATE_MULT_BET,
@@ -201,4 +203,21 @@ export function updateDeposit({id, amount, method }) {
       throw new Error(error.message);
     }
   };
+}
+
+export function updateWithdraw({id ,status}){
+  const payload = {
+    "status" : status==='Pending'? 'Sent':'Pending'
+  };
+  return async function(dispatch){
+    try{
+      const response = await axios.patch(`/withdraw/${id}`, payload)
+      return dispatch({
+        type: "UPDATE_WITHDRAW",
+        payload: response.data
+      })
+    }catch(error){
+      throw new Error(error.mesasge)
+    }
+  }
 }

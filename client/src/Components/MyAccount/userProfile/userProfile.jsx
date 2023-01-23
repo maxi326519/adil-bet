@@ -110,7 +110,7 @@ export default function UserProfile() {
 
         {/* USUARIO */}
         <div className="containerProfile">
-          <label for="exampleInputEmail1">Usuario</label>
+          <label for="exampleInputEmail1" className="titleInput">Usuario</label>
           <input
             type="text"
             name="userName"

@@ -6,8 +6,9 @@ import { getDeposits } from "../../../redux/actions/GET/index.js"
 export function BarChartDeposits() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getDeposits()), [])
+  useEffect(() =>{
+      dispatch(getDeposits())
+    }, [])
   const deposits = useSelector(state => state.deposits)
 
   const array = []
@@ -40,10 +41,10 @@ export function BarChartDeposits() {
         data={depositsData}
         keys={["amount"]}
         indexBy="userId"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 40, bottom: 30, left: 60 }}
         padding={0.4}
         valueScale={{ type: "linear" }}
-        colors="#7eda55"
+        colors="var(--primary-color)"
         animate={true}
         enableLabel={false}
         axisTop={null}

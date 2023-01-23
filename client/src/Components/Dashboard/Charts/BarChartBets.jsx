@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import { ResponsiveBar } from '@nivo/bar'
 import { useDispatch, useSelector } from 'react-redux';
 import { getBets } from "../../../redux/actions/GET/index.js"
+import styles from './BarChart.module.css'
 
 export function BarChartBets() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getBets()), [])
+  useEffect(() =>{
+      dispatch(getBets())
+    }, [])
   const bets = useSelector(state => state.bets)
 
   const array = []
@@ -37,13 +39,14 @@ export function BarChartBets() {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <ResponsiveBar
+        classname={styles.table}
         data={betsData}
         keys={["amount"]}
         indexBy="userId"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 40, bottom: 30, left: 60 }}
         padding={0.4}
         valueScale={{ type: "linear" }}
-        colors="#7eda55"
+        colors="var(--primary-color)"
         animate={true}
         enableLabel={false}
         axisTop={null}

@@ -1,21 +1,27 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { handleSetPage } from "../../../redux/actions/GET";
+
+// Components
 import Card from "./Card/Card";
 import PaginationControllers from "./PaginationControllers/PaginationControllers";
-import { Link } from "react-router-dom";
+import AddBet from '../AddBet/AddBet';
 
 import styles from "./MatchCards.module.css";
 
-export default function MatchCards({ currentMatchs }) {
+export default function MatchCards() {
   const matches = useSelector((state) => state.matches);
   const currentPage = useSelector((state) => state.currentPage.data);
   const dispatch = useDispatch();
+  const [window, setWindow] = useState(false); 
 
   useEffect(() => {
     if (matches.length > 0) dispatch(handleSetPage());
   }, [matches, dispatch]);
+  
+  function handleWindow(){
+    setWindow(!window);
+  }
 
   return (
     <div className={styles.content}>
@@ -23,6 +29,7 @@ export default function MatchCards({ currentMatchs }) {
         {currentPage.map((match) => {
           return (
             <Card
+              handleWindow={handleWindow}
               key={match.id}
               matchId={match.id}
               league={match.league}
@@ -39,6 +46,7 @@ export default function MatchCards({ currentMatchs }) {
         })}
       </div>
       <PaginationControllers />
+      <AddBet window={ window } handleWindow={ handleWindow }/>
     </div>
   );
 }

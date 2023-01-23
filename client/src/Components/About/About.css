@@ -1,23 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,200&family=Fira+Sans:wght@700&display=swap");
+
 .team-main-container {
-  background-color: rgb(59, 3, 3);
-  font-family: Cinzel, serif;
-  font-size: 20px;
-  color: rgb(236, 213, 84);
+  font-size: 25px;
 }
 .team-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
+
+.cntimgandphoto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Adbilbet-team {
+  font-size: 40px;
+  font-family: "Fira Sans", sans-serif;
+}
+
 .team-member {
   width: calc(25% - 90px);
-  margin: 10px;
   text-align: center;
+  font-family: "Fira Sans", sans-serif;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px;
+  background-color: rgb(243, 243, 243);
+  box-shadow: 0 10px 10px rgb(155, 155, 155);
+  min-width: 350px;
+  max-height: 400px;
 }
+
 .team-member-photo {
-  width: 100%;
+  width: 180px;
+  border-radius: 90px;
 }
-.team-description{
-  font-family: Rajdhani, serif;
+
+.team-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+
+.description-text{
   font-size: 20px;
+  max-width: 900px;
+}
+
+.name-member{
+  font-size: 20px;
+  margin: 0;
+}
+
+.lema {
+  font-size: 15px;
+  max-width: 400px;
+  margin: 15px;
+}
+
+.ocupation{
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .team-main-container {
+    font-size: 30px;
+  }
+  
+  .Adbilbet-team {
+    font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
+  }
+  
+  .team-member-photo {
+    width: 150px;
+    border-radius: 90px;
+  }
+  
+  .team-description {
+    margin: 20px;
+  }
+  
+  .description-text{
+    font-size: 18px;
+    max-width: 900px;
+  }
+  
+  .name-member{
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .lema {
+    font-size: 15px;
+    max-width: 400px;
+    margin: 15px;
+  }
+  
+  .ocupation{
+    font-size: 12px;
+  }
 }

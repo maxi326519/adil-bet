@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap");
 
 .container-style {
-    display: none;
+  display: none;
 }
 
 .container-all-info {
@@ -23,7 +23,7 @@
 .dates {
   font-size: 18px;
   margin: 10px;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
 }
 
 .button-cash {
@@ -56,8 +56,8 @@
   font-family: "Work Sans", sans-serif;
 }
 
-.title-navbar-wallet{
-    padding: 10px;
+.title-navbar-wallet {
+  padding: 10px;
 }
 
 .cash-currently {
@@ -66,13 +66,104 @@
   padding: 5px;
 }
 
-.button-wallet{
+.button-wallet {
+  background-color: #591411;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px #3a0e0b;
+  color: white;
+}
+
+.button-wallet:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .container-style {
+    display: none;
+  }
+  
+  .btn-primary{
+    margin: 0;
+    width: 5px;
+    height: 5px;
+  }
+
+  .container-all-info {
+    width: 150px;
+    position: fixed;
+    top: 55px;
+    right: 200px;
+    flex-direction: column;
+    border: 1px solid #591411;
+    background-color: white;
+    z-index: 2;
+  }
+
+  .wwalet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dates {
+    font-size: 10px;
+    margin: 5px;
+    font-family: "Fira Sans Condensed", sans-serif;
+  }
+
+  .button-cash {
+    border: 0;
+    background-color: #591411;
+    padding: 10px;
+    font-size: 9px;
+    margin: 10px;
+    color: white;
+    border-radius: 20px;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  .button-cash:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 2px gray;
+  }
+
+  .container-wallet-title {
+    background-color: #591411;
+    margin: 0;
+    padding: 0;
+  }
+
+  .wallet-title {
+    color: white;
+    margin: 0;
+    padding: 10px;
+    font-size: 10px;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  .title-navbar-wallet {
+    padding: 0;
+  }
+
+  .cash-currently {
+    font-size: 10px;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .button-wallet {
     background-color: #591411;
     border-radius: 20px;
     box-shadow: 0 2px 2px #3a0e0b;
     color: white;
-}
+  }
 
-.button-wallet:hover{
+  .button-wallet:hover {
     cursor: pointer;
+  }
+
+  .logo-wallet{
+    width: 10px;
+    margin: 0;
+    padding: 0;
+  }
 }

@@ -6,8 +6,9 @@ import { getMatchs } from "../../../redux/actions/GET/index.js"
 export function BarChartMatches() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getMatchs()), [])
+  useEffect(() =>{
+      dispatch(getMatchs())
+    }, [])
   const matches = useSelector(state => state.matches)
 
   const array = []
@@ -50,10 +51,10 @@ export function BarChartMatches() {
         data={matchesDatainfo}
         keys={["amount"]}
         indexBy="id"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 40, bottom: 30, left: 60 }}
         padding={0.4}
         valueScale={{ type: "linear" }}
-        colors="#7eda55"
+        colors="var(--primary-color)"
         animate={true}
         enableLabel={false}
         axisTop={null}

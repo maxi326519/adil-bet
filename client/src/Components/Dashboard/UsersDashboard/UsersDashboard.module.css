@@ -1,8 +1,15 @@
+.cntall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .dashboard{
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #ccc;
+    background-color: rgb(255, 255, 255);
 }
 
 .container{
@@ -46,7 +53,7 @@
 
 .data{
     flex-grow: 1;
-    margin: 10px;
+    margin: 10px; 
     border-radius: 25px;
     background-color: white;
 }

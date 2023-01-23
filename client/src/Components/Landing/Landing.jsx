@@ -54,26 +54,29 @@ export default function Landing() {
       <div className="second-container">
         <h1 className="text__second-container">¡BIENVENIDOS A ADILBET!</h1>
       </div>
-      <div>
+      <div className="cntpromoinfo">
         <div className="container-image-team">
           <img src={ImageTeam} alt="Team-landing" className="image-landing" />
-          <div className="container-promo">
-            <h3 className="title-promo-landing">¡Super Promo del año!</h3>
-            <ul className="list-promo-landing">
-              <li>Registrate GRATIS!</li>
-              <li>
-                Beneficios por ser <br /> primera vez!
-              </li>
-              <li>CASHBACK por primer recarga</li>
-              <li>Atencion 24hs</li>
-            </ul>
-            <a href="/singin">
-              <button className="promo-button">
-                <p>REGISTRATE AQUI!</p>
-              </button>
-            </a>
-          </div>
         </div>
+        <div className="container-promo">
+          <h3 className="title-promo-landing">¡Super Promo del año!</h3>
+          <div className="cntpromo">
+            <p className="list-item">CASHBACK por primera recarga</p>
+            <p className="list-item">Atencion 24Hs</p>
+            <p className="list-item">Excelentes pagas</p>
+            <p className="list-item">
+              Esto y mucho mas en seccion <br /> de Promociones
+            </p>
+          </div>
+          <a href="/singin">
+            <button className="promo-button">
+              <p className="text-button">REGISTRATE AQUI!</p>
+            </button>
+          </a>
+        </div>
+      </div>
+      <hr className="linea" />
+      <div className="cntreviews">
         <div className="container-clients-review">
           <h3 className="title-clients">Clientes Satisfechos.</h3>
           <Reviews />
@@ -85,6 +88,7 @@ export default function Landing() {
           </h3>
         </div>
       </div>
+      <hr className="linea" />
 
       <div className="createReview">{userData.id ? <ReviewForm /> : null}</div>
 

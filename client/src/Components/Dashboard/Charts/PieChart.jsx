@@ -6,8 +6,9 @@ import { getUsers } from "../../../redux/actions/GET/index.js"
 export function PieChart() {
 
   const dispatch = useDispatch();
-  useEffect(() =>
-      dispatch(getUsers()), [])
+  useEffect(() =>{
+      dispatch(getUsers())
+    }, [])
   const users = useSelector(state => state.users)
 
   const usersData = []

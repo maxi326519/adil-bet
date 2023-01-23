@@ -5,6 +5,7 @@ import { getUsers } from '../../../redux/actions/GET/index';
 import SidebarDashboard from "../SidebarDashboard/SidebarDashboard";
 import { Link, useNavigate } from 'react-router-dom'
 import { userActive, userAdmin } from '../../../redux/actions/PATCH/index'
+import styles from './UsersDashboard.module.css'
 
 
 import style from "./UsersDashboard.module.css";
@@ -115,7 +116,7 @@ export default function UserDashboard() {
       <div className={style.container}>
         <SidebarDashboard />
         {users?.length > 0 ? (
-          <>
+          <div className={styles.cntall}>
             <h1>USUARIOS REGISTRADOS</h1>
             <div style={{ height: 450, width: '100%' }}>
               <DataGrid
@@ -127,7 +128,7 @@ export default function UserDashboard() {
                 columns={columns}
               />
             </div>
-          </>
+          </div>
         ) : null}
 
       </div>
