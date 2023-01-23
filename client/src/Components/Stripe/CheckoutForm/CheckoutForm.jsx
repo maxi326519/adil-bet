@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
-  Elements,
   CardElement,
   useStripe,
   useElements,
-  PaymentElement,
 } from "@stripe/react-stripe-js";
 import axios from "axios";
 import swal from "sweetalert";
@@ -52,7 +50,7 @@ export default function CheckoutForm({ setLoading }) {
       setLoading(false);
       swal({
         title: `Error`,
-        text: error.response.data.error,
+        text: error ? error.response.data.error : 'error',
         button: "ACEPTAR",
       }).then(function () {
         window.location = "/payment";
