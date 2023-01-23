@@ -18,11 +18,6 @@ export default function Cart() {
   const userId = userDates.id;
   const [style, setStyle] = useState(false);
 
-  const items = useSelector((state) => state.items);
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(items));
-  }, [items]);
-
   let total = 0;
   cart.map((e) => {
     return (total = total + e.amount);

@@ -13,6 +13,7 @@ const INITIAL_STATE = {
 };
 
 const Login = () => {
+  window.localStorage.removeItem('user')
   const { loginWithRedirect } = useAuth0();
   const [login, setLogin] = useState(INITIAL_STATE);
   const dispatch = useDispatch();

@@ -21,8 +21,6 @@ import {
   POST_WITHDRAW,
 } from "../actions/types";
 
-const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
-
 const initialState = {
   withdraws: [],
   reviews: [],
@@ -118,7 +116,8 @@ export const Reducer = (state = initialState, action) => {
       };
 
     case "POST_CREATE_USER": {
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify({id: action.payload.id, email: action.payload.email, password:action.payload.password}));
+      console.log(action.payload)
       return {
         ...state,
         userDates: action.payload,
@@ -126,8 +125,9 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "LOGIN_USER": {
-      console.log(action.payload);
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify({id: action.payload.id, email: action.payload.email, password:action.payload.password}));
+
+      console.log(action.payload)
       return {
         ...state,
         userDates: action.payload,
@@ -135,8 +135,7 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "CREATE_USER_AUTH0": {
-      console.log(action.payload);
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify({id: action.payload.id, email: action.payload.email, password:action.payload.password}));
       return {
         ...state,
         userlogin: true,
@@ -152,7 +151,6 @@ export const Reducer = (state = initialState, action) => {
     case 'UPDATE_REDUX':{
       return{
         ...state,
-        userDates: action.payload,
         userlogin: true
       };
     }

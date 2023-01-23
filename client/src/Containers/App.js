@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { updateRedux } from "../redux/actions/POST/index.js";
+import { postLoginUserAuth0, updateRedux } from "../redux/actions/POST/index.js";
 import Swal from 'sweetalert2';
 
 // Componentes
@@ -28,15 +28,21 @@ import ReviewsDashboard from "../Components/Dashboard/ReviewsDashboard/ReviewsDa
 import WithdrawDashboard from "../Components/Dashboard/WithdrawDashboard/WithdrawDashboard.jsx"
 
 import "./App.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch()
+  const { user } = useAuth0();
 
-  useEffect(()=>{
-    const loged = JSON.parse(window.localStorage.getItem('user'))
-    if(loged){dispatch(updateRedux(loged)) }
-  })  
+
+  useEffect(() => {
+    const dataUser = JSON.parse(window.localStorage.getItem('user'));
+    !dataUser ?
+    dispatch(postLoginUserAuth0({ email: user?.email, name: user?.name }))
+    :
+    dispatch(postLoginUserAuth0({ email: dataUser.email, name: dataUser.name}))
+  }, [user]);
 
   return (
     <div className="App">

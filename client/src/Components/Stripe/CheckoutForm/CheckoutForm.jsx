@@ -14,7 +14,8 @@ export default function CheckoutForm({ setLoading }) {
   const [amount, setAmount] = useState(0);
   const stripe = useStripe();
   const elementsUse = useElements();
-  const user = useSelector((state) => state.userDates[0]);
+  const user = useSelector((state) => state.userDates);
+  const userLocal = JSON.parse(window.localStorage.getItem('user'))
   const [data, setData] = useState({});
 
   const handleAxios = async (e) => {
@@ -32,7 +33,7 @@ export default function CheckoutForm({ setLoading }) {
       const response = await axios.post("/create-checkout-session", {
         payment_method: paymentMethod.id,
         amount: amount /* Traer del estado */,
-        userId: user.id,
+        userId: user.id ? user.id : userLocal.id,
         dataEmail: data,
       });
 
