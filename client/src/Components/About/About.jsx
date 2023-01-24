@@ -24,7 +24,7 @@ const teamMembers = [
   {
     name: "Maximiliano García",
     image: require("../../Assets/Images/Imagen-maxi.jpeg"),
-    lema: "El codigo ha sido mi metodo de expresion",
+    lema: "Medir el progreso del desarrollo de software por líneas de código es como medir el progreso de la construcción de un avión por su peso - Bill Gates",
     ocupation: "Desarrollador Web FullStack",
     linkedin: "https://www.linkedin.com/in/maxi-garcia-fsd/",
     github: "https://github.com/maxi326519",
