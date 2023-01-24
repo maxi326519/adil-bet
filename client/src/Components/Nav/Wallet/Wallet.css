@@ -15,35 +15,35 @@
   z-index: 2;
 }
 
+.cntbuttonspay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cntbuttonspay button, .cntbuttonspay a {
+  width: 100%;
+  margin: 5px;
+  text-align: center;
+}
+
 .adminWallet{
   right: 10px;
 }
 
 .wwalet {
   display: flex;
+  align-items: center;
   flex-direction: column;
+  margin: 5px;
 }
 
 .dates {
   font-size: 18px;
   margin: 10px;
   font-family: "Fira Sans Condensed", sans-serif;
-}
-
-.button-cash {
-  border: 0;
-  background-color: #591411;
-  padding: 10px;
-  font-size: 20px;
-  margin: 15px;
-  color: white;
-  border-radius: 20px;
-  font-family: "Work Sans", sans-serif;
-}
-
-.button-cash:hover {
-  cursor: pointer;
-  box-shadow: 0 2px 2px gray;
 }
 
 .container-wallet-title {

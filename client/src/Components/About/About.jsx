@@ -23,8 +23,8 @@ const teamMembers = [
   },
   {
     name: "Maximiliano García",
-    image: require("../../Assets/Images/avatar-perfil-png.png"),
-    lema: "",
+    image: require("../../Assets/Images/Imagen-maxi.jpeg"),
+    lema: "El codigo ha sido mi metodo de expresion",
     ocupation: "Desarrollador Web FullStack",
     linkedin: "https://www.linkedin.com/in/maxi-garcia-fsd/",
     github: "https://github.com/maxi326519",
@@ -39,8 +39,8 @@ const teamMembers = [
   },
   {
     name: "Carlos Ciliberti",
-    image: require("../../Assets/Images/avatar-perfil-png.png"),
-    lema: "",
+    image: require("../../Assets/Images/Imagen-carlos.jpeg"),
+    lema: "Sin dolor no hay ganancia.",
     ocupation: "Desarrollador Web FullStack",
     linkedin: "https://www.linkedin.com/in/",
     github: "https://github.com/calituz",
