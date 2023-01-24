@@ -35,7 +35,6 @@ function App() {
   const dispatch = useDispatch()
   const { user } = useAuth0();
 
-
   useEffect(() => {
     const dataUser = JSON.parse(window.localStorage.getItem('user'));
     !dataUser ?
@@ -58,7 +57,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/payment" element={<Stripe />} />
 

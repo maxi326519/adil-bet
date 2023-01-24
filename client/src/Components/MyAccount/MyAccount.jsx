@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 // Components
 import Nav from "../Nav/Nav";
@@ -9,9 +10,14 @@ import UserProfile from "./userProfile/userProfile";
 import styles from "./MyAccount.module.css";
 
 export default function MyAccount() {
+  const userLogin = useSelector((state) => state.userLogin);
   const [sections, setSection] = useState({
     profile: true,
     activity: false,
+  });
+
+  useEffect(()=>{
+    if(!userLogin) window.location = "/login";
   });
 
   function handleSections(section) {
@@ -21,7 +27,7 @@ export default function MyAccount() {
     console.log(sections);
   }
 
-  return (
+  return !userLogin ? window.location = "/login" : (
     <div className={styles.myAccount}>
       <Nav />
       <div className={styles.content}>

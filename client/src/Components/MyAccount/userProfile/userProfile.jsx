@@ -4,16 +4,16 @@ import { updateProfile } from "../../../redux/actions/PATCH/index";
 import /*useParams*/ "react-router";
 import { FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./userProfile.module.css";
 
 export default function UserProfile() {
   const [userData, setUserData] = useState({
-    name: "",
-    userName: "",
-    email: "",
+    name: "...",
+    userName: "...",
+    email: "...",
     phone: "",
   });
   // nuevos estados para mostrar mensajes de error
@@ -22,16 +22,19 @@ export default function UserProfile() {
 
   const [disabled, setDisabled] = useState(true);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userDates)[0];
+  const user = useSelector((state) => state.userDates);
 
-  useEffect(()=>{
-    setUserData({
-      name: user.name,
-      userName: user.userName,
-      email: user.email,
-      phone: user.phone,
-    });
-  },[user]);
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      setUserData({
+        name: user.name,
+        userName: user.userName,
+        email: user.email,
+        phone: user.phone,
+      });
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     // Validar formato de correo electrónico y teléfono
@@ -60,7 +63,7 @@ export default function UserProfile() {
     e.preventDefault();
     await dispatch(updateProfile(user.id, userData))
       .then(() => {
-        toast("usuario actualizado correctamente!");
+        toast("¡Usuario actualizado correctamente!");
       })
       .catch((error) => {
         toast("Error al actualizar usuario", error);
@@ -87,83 +90,87 @@ export default function UserProfile() {
     <div className={styles.profile}>
       <ToastContainer />
 
-      {/* NOMBRE */}
-      <form onSubmit={handleSubmit}>
-        <div className={ styles.avatar }>
-          <FaUser />
-        </div>
-        <div className="containerProfile">
-          <label for="exampleInputEmail1">Nombre y Apellido</label>
-          <input
-            type="text"
-            name="name"
-            className="form-control"
-            value={userData.name}
-            placeholder={userData.name}
-            onChange={(e) => handleChange(e)}
-            onKeyDown={handleKeyDown}
-            disabled={disabled}
-          />
-          <small className="form-text text-muted invalid-feedback">
-            {/* Agregar validaciones del usuario */}
-          </small>
-        </div>
+      <div className={styles.formContainer}>
+        {/* NOMBRE */}
+        <form onSubmit={handleSubmit}>
+          <div className={styles.avatar}>
+            <FaUser />
+          </div>
+          <div className="containerProfile">
+            <label for="exampleInputEmail1">Nombre y Apellido</label>
+            <input
+              type="text"
+              name="name"
+              className="form-control"
+              value={userData.name}
+              placeholder={userData.name}
+              onChange={(e) => handleChange(e)}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
+            />
+            <small className="form-text text-muted invalid-feedback">
+              {/* Agregar validaciones del usuario */}
+            </small>
+          </div>
 
-        {/* USUARIO */}
-        <div className="containerProfile">
-          <label for="exampleInputEmail1" className="titleInput">Usuario</label>
-          <input
-            type="text"
-            name="userName"
-            className="form-control"
-            value={userData.userName}
-            placeholder={userData.userName}
-            onChange={(e) => handleChange(e)}
-            onKeyDown={handleKeyDown}
-            disabled={disabled}
-          />
-          <small className="form-text text-muted invalid-feedback">
-            {/* Agregar validaciones del usuario */}
-          </small>
-        </div>
+          {/* USUARIO */}
+          <div className="containerProfile">
+            <label for="exampleInputEmail1" className="titleInput">
+              Usuario
+            </label>
+            <input
+              type="text"
+              name="userName"
+              className="form-control"
+              value={userData.userName}
+              placeholder={userData.userName}
+              onChange={(e) => handleChange(e)}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
+            />
+            <small className="form-text text-muted invalid-feedback">
+              {/* Agregar validaciones del usuario */}
+            </small>
+          </div>
 
-        {/* EMAIL */}
-        <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input
-            type="email"
-            name="email"
-            className="form-control"
-            value={userData.email}
-            placeholder={userData.email}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            onChange={(e) => handleChange(e)}
-            onKeyDown={handleKeyDown}
-            disabled={disabled}
-          />
-          <small>{emailError}</small>
-        </div>
+          {/* EMAIL */}
+          <div className="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              name="email"
+              className="form-control"
+              value={userData.email}
+              placeholder={userData.email}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              onChange={(e) => handleChange(e)}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
+            />
+            <small>{emailError}</small>
+          </div>
 
-        {/* TELEFONO */}
-        <div className="form-group">
-          <label for="exampleInputEmail1">Telefono</label>
-          <input
-            type="tel"
-            name="phone"
-            className="form-control"
-            pattern="[+]{0,1}[0-9]{0,}"
-            value={userData.phone}
-            placeholder={userData.phone}
-            onChange={(e) => handleChange(e)}
-            onKeyDown={handleKeyDown}
-            disabled={disabled}
-          />
-          <small className="invalid-feedback">{phoneError}</small>
-        </div>
+          {/* TELEFONO */}
+          <div className="form-group">
+            <label for="exampleInputEmail1">Telefono</label>
+            <input
+              type="tel"
+              name="phone"
+              className="form-control"
+              pattern="[+]{0,1}[0-9]{0,}"
+              value={userData.phone}
+              placeholder={userData.phone}
+              onChange={(e) => handleChange(e)}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
+            />
+            <small className="invalid-feedback">{phoneError}</small>
+          </div>
+        </form>
         {disabled ? (
-          <div className="btn-container">
+          <div className={styles.btnContainer}>
             <button className="btn btn-success" onClick={handleDisabled}>
               Modificar
             </button>
@@ -173,12 +180,12 @@ export default function UserProfile() {
             <button className="btn btn-success" onClick={handleDisabled}>
               Cancelar
             </button>
-            <button className="btn btn-success" type="submit">
+            <button className="btn btn-success" onClick={handleSubmit}>
               Guardar
             </button>
           </div>
         )}
-      </form>
+      </div>
     </div>
   );
 }

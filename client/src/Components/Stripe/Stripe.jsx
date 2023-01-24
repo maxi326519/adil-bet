@@ -15,10 +15,10 @@ const stripePromise = loadStripe(
 );
 
 export default function Stripe() {
-
+  const userLogin = useSelector((state) => state.userLogin);
   const [loading, setLoading] = useState(false);
 
-  return (
+  return !userLogin ? window.location = "/login" : (
     <div className="background">
       <Elements stripe={stripePromise}>
         <CheckoutForm setLoading={setLoading} />

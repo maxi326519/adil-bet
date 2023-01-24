@@ -16,21 +16,16 @@ export function updateUser() {
   console.log("updateUser");
 }
 
-export function updateProfile(id, { userName, email, phone }) {
-  const payload = {
-    userName,
-    email,
-    phone,
-  };
+export function updateProfile(id, userData) {
   return async function (dispatch) {
     try {
-      const result = await axios.patch(`/user/${id}`, payload);
+      const result = await axios.patch(`/user/${id}`, userData);
       return dispatch({
         type: "UPDATE_PROFILE",
         payload: result.data,
       });
     } catch (error) {
-      throw new Error(error.message);
+      console.log(error.message);
     }
   };
 }
@@ -47,7 +42,7 @@ export function updateWalletUser({ userId, wallet }) {
         payload: result.data,
       });
     } catch (error) {
-      throw new Error(error.message);
+      console.log(error.message);
     }
   };
 }
@@ -65,7 +60,6 @@ export function updateReview (userId, reviewData){
       })
     }catch(err){
       console.log(err)
-      throw new Error(err.message)
     }
   }
 }

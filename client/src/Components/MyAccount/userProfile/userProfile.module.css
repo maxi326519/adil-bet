@@ -4,13 +4,16 @@
   margin: 10px;
 }
 
-.profile form {
+.formContainer{
   width: 500px;
   margin: auto;
   padding: 10px;
-  text-align: left;
-  border-radius: 20px;
   background-color: white;
+  border-radius: 20px;
+}
+
+.profile form {
+  text-align: left;
 }
 
 .avatar{
@@ -34,5 +37,5 @@
 }
 
 .btnContainer button{
-  margin-right: 20px;
+  margin: 10px 10px;
 }
