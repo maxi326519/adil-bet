@@ -1,60 +1,81 @@
 import React from "react";
 import "./Tutorial.css";
 import Accordion from "react-bootstrap/Accordion";
-import wallet from "../../Assets/svg/Nav/wallet.svg";
+import wallet from "../../Assets/Images/wallet-tutorial.png";
+import Nav from "../Nav/Nav";
 
 export default function Promotions() {
   return (
-    <Accordion>
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Como registrarse?</Accordion.Header>
-        <Accordion.Body>
-          En la parte superior derecha de la aplicación, encontrarás un botón
-          con el texto "Registrar", al dar click te mostrará un formulario,
-          llénalo con tus datos y oprime "Regístrate", o puedes iniciar sesión
-          con google en el botón que está abajo, en el siguiente formulario
-          selecciona "continuar con google", selecciona tu cuenta y listo.
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="1">
-        <Accordion.Header>Como iniciar sesion?</Accordion.Header>
-        <Accordion.Body>
-          En la parte superior derecha de la aplicación, encontraras un boton de
-          "inicio", al darle click te redireccionara para que puedas iniciar
-          sesion ingrsanto tu mail y contraseña manualmente o puedes seleccionar
-          la opcion de "iniciar con Google".Si aun no estas registrado, deberas
-          hacerlo para poder ingresar.
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="2">
-        <Accordion.Header>Como hacer apuesta?</Accordion.Header>
-        <Accordion.Body>
-          Para hacer una apuesta, deberas dirigirte a la pagina
-          principal("Home"), ahi encontraras todos los partidos. Una vez elegido
-          el equipo por el cual quieres apostar, deberas darle click al boton
-          "Apostar", te saldra un menu de opciones en el cual tienes que
-          ingresar el monto que quieres apostar y seleccionar el equipo.Tambien
-          podras hacer la apuesta haciendo click sobre la tarjeta del partido,
-          esta te permitira ver los detalles y tambien hacer tu apuesta. Para
-          poder realizarla deberas contar con saldo en tu billetera.
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="3">
-        <Accordion.Header>Como ingresar fondos a billetera?</Accordion.Header>
-        <Accordion.Body>
-          Debera presionar sobre el siguiente logo{" "}
-          <img src={wallet} alt="wallet" className="wallet" /> se desplegara un
-          menu, en el cual debera darle click al boton "Recargar Billetera"
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="3">
-        <Accordion.Header>Como retirar fondos?</Accordion.Header>
-        <Accordion.Body>
-          Debera presionar sobre el siguiente logo{" "}
-          <img src={wallet} alt="wallet" className="wallet" /> se desplegara un
-          menu, en el cual va a darle click al boton "Recargar Billetera"
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
+    <div className="containerrrrrr">
+      <div>
+        <Nav />
+      </div>
+      <div className="container-accordion">
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Como registrarse?</Accordion.Header>
+            <Accordion.Body>
+              En la parte superior derecha de la página, verás un botón con el
+              texto <mark>"Registrar"</mark>, al dar click te mostrará un
+              formulario, llénalo con tus datos y oprime "Regístrate", o puedes
+              iniciar sesión con google en el botón que está abajo, en el
+              siguiente formulario selecciona "continuar con google", selecciona
+              tu cuenta y listo.
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Como iniciar sesión?</Accordion.Header>
+            <Accordion.Body>
+              En la parte superior derecha de la aplicación, encontrarás un
+              boton de
+              <mark>"inicio"</mark>, al darle click te redireccionará para que
+              puedas iniciar sesión ingresando tu mail y contraseña manualmente
+              o puedes seleccionar la opción de "iniciar con Google". Si aún no
+              estás registrado, deberás hacerlo para poder ingresar.
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2">
+            <Accordion.Header>Como hacer apuestas?</Accordion.Header>
+            <Accordion.Body>
+              Para hacer una apuesta, deberás dirigirte a la página
+              principal("Home"), ahí encontrarás todos los partidos. Una vez
+              elegido el equipo por el cual quieres apostar, deberás darle click
+              al boton
+              <mark>"Apostar"</mark>, te saldrá un menú de ópciones en el cual
+              tienes que ingresar el monto que quieres apostar y seleccionar el
+              equipo. También podrás hacer la apuesta haciendo click sobre la
+              tarjeta del partido, ésta te permitirá ver los detalles y también
+              hacer tu apuesta. Para poder realizarla deberás contar con saldo
+              en tu billetera.
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="3">
+            <Accordion.Header>
+              Como ingresar fondos a billetera?
+            </Accordion.Header>
+            <Accordion.Body>
+              Deberás presionar sobre el siguiente logo{" "}
+              <img src={wallet} alt="wallet" className="walletacc" /> se
+              desplegará un menú, en el cual vas a dar click al boton "Recargar
+              Billetera", saldrá un formulario que deberás completar con tu
+              nombre, email y datos de la tarjeta que vas a utilizar. Al
+              finalizar te llegará un email al correo confirmando tu pago.
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="4">
+            <Accordion.Header>Como retirar fondos?</Accordion.Header>
+            <Accordion.Body>
+              Para retirar fondos debes presionar sobre el siguiente logo{" "}
+              <img src={wallet} alt="wallet" className="walletacc" />, se
+              desplegará un menú, en el cual debes dar click al botón "Retiros",
+              verás una tarjeta que te pedirá el monto a retirar, tipo y número
+              de documento y número de celular, completa la información y da
+              click en enviar, listo, en las próximas 48 horas recibirás tu
+              depósito.
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </div>
+    </div>
   );
 }

@@ -8,22 +8,42 @@
   font-weight: 10;
 } */
 
+.container-accordion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerrrrrr {
+  background-image: url("../../Assets/Images/field.jpg");
+
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
 .accordion {
   /* Border */
   border: 1px solid #d1d5db;
   border-bottom-color: transparent;
   border-radius: 4px;
+  width: 70%;
+  margin: 80px;
+
+  /* height: 100vh; */
 }
 
-.accordion__item {
-  border-bottom: 1px solid #d1d5db;
-}
+/*.accordion__item {
+   border-bottom: 1px solid #d1d5db;
+} */
 
 .accordion__header {
   /* Center the content horizontally */
   align-items: center;
   display: flex;
-
+  background: #591411;
   cursor: pointer;
   padding: 16px;
 }
@@ -49,11 +69,11 @@
   display: block;
 }
 
-.wallet {
+.walletacc {
   background-color: #591411;
   border-radius: 1px;
-  /* box-shadow: 0 2px 2px #3a0e0b; */
+
   color: white;
   height: 20px;
-  width: 20px;
+  width: 30px;
 }
