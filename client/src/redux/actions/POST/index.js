@@ -74,7 +74,11 @@ export function postCreateUser(payload) {
         payload: result.data,
       });
     } catch (error) {
-      throw new Error(error.message);
+      console.group(error);
+      return dispatch({
+        type: "ERROR_BACK",
+        payload: error.response.data.error,
+      });
     }
   };
 }
@@ -91,7 +95,7 @@ export function postLoginUser(payload) {
     } catch (error) {
       return dispatch({
         type: "ERROR_BACK",
-        payload: "Error, inténtalonuevamente",
+        payload: "Error, inténtalo nuevamente",
       });
     }
   };

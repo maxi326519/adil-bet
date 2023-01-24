@@ -40,7 +40,7 @@ const initialState = {
     country: [],
     teams: [],
   },
-  error: [],
+  error: '',
   cart: [],
   userActivities: [],
   userProfile: [],

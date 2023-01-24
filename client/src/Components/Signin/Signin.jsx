@@ -63,10 +63,10 @@ const CreateUserForm = () => {
         ...validateRegister,
       });
     }
-    dispatch(postCreateUser(register));
+    dispatch(postCreateUser(register))
     // // window.localStorage.setItem(PASSWORD, register.password);
     setRegister(INITIAL_STATE);
-    return navigate("/home");
+/*     return navigate("/home"); */
   };
 
   return (

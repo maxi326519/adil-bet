@@ -1,19 +1,16 @@
-const {User, Deposit, Bet} = require ("../../db.js")
+const { User, Deposit, Bet } = require("../../db.js");
 
-const loginUser= async (email, password) => {
-  console.log(email)
-      const user = await User.findOne({
-        where: { email,},
-        include: [
-          {
-            model: Deposit,
-            attributes: [
-                'amount',
-              ],
-          },
-        ],
-      });
-      return user
-  };
+const loginUser = async (email, password) => {
+  const user = await User.findOne({
+    where: { email },
+    include: [
+      {
+        model: Deposit,
+        attributes: ["amount"],
+      },
+    ],
+  });
+  return user;
+};
 
-  module.exports = loginUser;
+module.exports = loginUser;

@@ -16,10 +16,6 @@ export default function MyAccount() {
     activity: false,
   });
 
-  useEffect(()=>{
-    if(!userLogin) window.location = "/login";
-  });
-
   function handleSections(section) {
     if (section === "profile") setSection({ profile: true, activity: false });
     if (section === "activity") setSection({ profile: false, activity: true });
@@ -27,7 +23,7 @@ export default function MyAccount() {
     console.log(sections);
   }
 
-  return !userLogin ? window.location = "/login" : (
+  return (
     <div className={styles.myAccount}>
       <Nav />
       <div className={styles.content}>
