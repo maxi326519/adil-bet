@@ -64,7 +64,8 @@ const teamMembers = [
   },
   {
     name: "Juan Gómez",
-    image: require("../../Assets/Images/avatar-perfil-png.png"),
+    image: require("../../Assets/Images/Imagen-juan.jpeg"),
+    lema: "Programar es como vivir, no lo estás haciendo realmente si no aprendes algo nuevo cada día.",
     ocupation: "Desarrollador Web FullStack",
     linkedin:
       "https://www.linkedin.com/in/juan-carlos-g%C3%B3mez-cucaita-4677a218b/",

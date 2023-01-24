@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap');
+
 .header {
   display: flex;
   background-color: var(--primary-color);
@@ -28,6 +30,7 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
+  padding: 0 100px;
 }
 
 .sesions-btn {
@@ -53,14 +56,16 @@
 }
 
 .nav-menu-link {
-  padding: 8px 12px;
+  padding: 5px 20px;
   border-radius: 3px;
+  transition: all 100ms ease;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .nav-menu-link:hover {
-  background-color: rgba(255, 100, 100, 0.394);
+  transform: scale(1.05);
   color: white;
-  transition: 0.2s;
+  border-bottom: 2px solid white;
 }
 
 .login {

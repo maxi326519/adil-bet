@@ -1,10 +1,12 @@
 .search{
     display: flex;
     width: 100%;
+    font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .search input{
     flex-grow: 1;
+    font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .search input, .search button{

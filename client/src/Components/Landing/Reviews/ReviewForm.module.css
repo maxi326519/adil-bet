@@ -29,7 +29,7 @@
 }
 
 .buttonReview {
-  margin: 30px;
+  margin: 10px;
   border: 1px solid rgb(209, 209, 209);
   padding: 10px 30px;
   border-radius: 10px;
@@ -47,6 +47,7 @@
 .puntuation {
   border: 1px solid rgb(190, 190, 190);
   padding: 10px 20px;
+  margin: 20px;
 }
 
 .reviewContainer {

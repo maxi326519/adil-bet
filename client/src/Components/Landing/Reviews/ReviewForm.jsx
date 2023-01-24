@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReviewById } from "../../../redux/actions/GET";
 import { addReview } from "../../../redux/actions/POST";
 import { updateReview } from "../../../redux/actions/PATCH";
-import styles from './ReviewForm.module.css'
+import styles from "./ReviewForm.module.css";
 
 export default function ReviewForm() {
   const dispatch = useDispatch();
@@ -49,10 +49,17 @@ export default function ReviewForm() {
   return (
     <div className={styles.formDiv}>
       <h2 className={styles.titleform}>DEJANOS TU RESEÑA</h2>
-      <p className={styles.textform}>Para nosotros como comunidad es muy importante tu opinion, por ende queremos saber tu opinion respecto a este gran trabajo</p>
+      <p className={styles.textform}>
+        Para nosotros como comunidad es muy importante tu opinion, por ende
+        queremos saber tu opinion respecto a este gran trabajo
+      </p>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <input className={styles.inputReview} type="text" onChange={handleChange} placeholder="Escribe tu reseña..."/>
-        <button className={styles.buttonReview}>Enviar</button>
+        <input
+          className={styles.inputReview}
+          type="text"
+          onChange={handleChange}
+          placeholder="Escribe tu reseña..."
+        />
         <select
           className={styles.puntuation}
           value={setScore === "def" ? null : score}
@@ -66,6 +73,7 @@ export default function ReviewForm() {
           <option value={4}>4</option>
           <option value={5}>5</option>
         </select>
+        <button className={styles.buttonReview}>Enviar</button>
       </form>
     </div>
   );
