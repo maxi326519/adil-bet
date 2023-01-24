@@ -68,7 +68,7 @@ export default function Landing() {
               Esto y mucho mas en seccion <br /> de Promociones
             </p>
           </div>
-          <a href="/singin">
+          <a href="/signin">
             <button className="promo-button">
               <p className="text-button">REGISTRATE AQUI!</p>
             </button>
