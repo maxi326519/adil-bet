@@ -95,26 +95,26 @@ export default function WithdrawlForm({ window, handleWindow }) {
         <div className={styles.closeContainer}>
           <button
             type="button"
-            className="btn-close"
+            className={styles.btnclose}
             aria-label="Close"
             onClick={handleClose}
-          ></button>
+          >X</button>
         </div>{" "}
-        <div className="">
-          <label for="floatingInput">Monto USD *:</label>
+        <div className={styles.cntInput}>
+          <label className={styles.text} for="floatingInput">Monto USD *:</label>
           <input
             type="number"
             name="amount"
             value={input.amount}
-            className=""
+            className={styles.input}
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
           />
         </div>
-        <div className="">
-          <label>Tipo de documento *:</label>
+        <div className={styles.cntInput}>
+          <label className={styles.text}>Tipo de documento *:</label>
           <select
-            className="selectdocument"
+            className={styles.select}
             name="method"
             value={input.method ? input.method : null}
             onChange={handlerChange}
@@ -125,41 +125,41 @@ export default function WithdrawlForm({ window, handleWindow }) {
             <option>Driver's license</option>
           </select>
         </div>
-        <div className="">
+        <div className={styles.cntInput}>
           <input
             type="number"
             name="document"
             value={input.document}
-            className=""
+            className={styles.input}
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
           />
         </div>
-        <div className="">
-          <label>Número de Celular - coloca el código de área local *:</label>
+        <div className={styles.cntInput}>
+          <label className={styles.text}>Número de Celular - coloca el código de área local *:</label>
           <input
             type="text"
             name="phone"
             value={input.phone}
-            className=""
+            className={styles.input}
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
           />
         </div>
-        <div className="">
-        <label>Número de Cuenta *:</label>
+        <div className={styles.cntInput}>
+        <label className={styles.text}>Número de Cuenta *:</label>
           <input
             type="number"
             name="card"
             value={input.card}
-            className=""
+            className={styles.input}
             placeholder="Introduzca la informacion..."
             onChange={handlerChange}
           />
         </div>
-        <div>
+        <div className={styles.cntbtnsend}>
           {
-              <button className="btnsend" type="submit">
+              <button className={styles.btnsend} type="submit">
                 ENVIAR
               </button>
             }
