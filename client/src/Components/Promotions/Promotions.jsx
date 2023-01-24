@@ -75,7 +75,7 @@ const PromotionsCar = () => {
     <div className={styles.Promotions}>
       <Nav />
       <div className={styles.content}>
-        <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+        <Carousel activeIndex={activeIndex} next={next} previous={previous} interval={4000}>
           <CarouselIndicators
             items={items}
             activeIndex={activeIndex}
