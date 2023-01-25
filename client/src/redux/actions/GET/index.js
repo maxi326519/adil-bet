@@ -118,9 +118,6 @@ export function getUserInfo(id) {
   };
 }
 
-export function getUserOrders() {
-  console.log("userOrders");
-}
 export function getActivity({ id, page, activity }) {
   console.log(id);
   return async function (dispatch) {
@@ -153,6 +150,7 @@ export function getAllReviews() {
     }
   };
 }
+
 export function getReviewById(id){
   return async (dispatch) => {
     try{
