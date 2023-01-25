@@ -8,7 +8,6 @@ import Nav from "../Nav/Nav";
 
 import "./MatchDetails.css";
 import BetsButtonInput from "../BetsButtonInput/BetsButtonInput.jsx";
-import BetsButtonDetails from "../BetsButtonsDetails/BetsButton.jsx";
 import Cart from '../Cart/Cart.jsx'
 
 export default function MatchDetails() {

@@ -45,3 +45,11 @@
 .right-arrow {
   right: 2%;
 }
+
+.carousel__img-container{
+ max-height: 90vh;
+}
+
+.carousel-img{
+  width: 100%;
+}

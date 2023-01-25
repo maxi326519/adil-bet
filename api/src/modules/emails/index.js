@@ -9,15 +9,20 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function sendMail(email, subject, msgTemplate){
+async function sendMail(email, subject, msgTemplate) {
+  try {
+    console.log(email);
     await transporter.sendMail({
       from: '"AdilBets2022" <AdilBets2022@gmail.com>', //Emisor
-      to: email,                    //Receptor
-      subject: subject,             //Asunto
-      html: msgTemplate,            //Texto del mail
+      to: email, //Receptor
+      subject: subject, //Asunto
+      html: msgTemplate, //Texto del mail
     });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 module.exports = {
-  sendMail
-}
+  sendMail,
+};

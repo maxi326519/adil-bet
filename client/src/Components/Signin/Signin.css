@@ -98,3 +98,7 @@
   cursor: pointer;
   filter: brightness(90%)
 }
+
+small{
+  color: red;
+}
