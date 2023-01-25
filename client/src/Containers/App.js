@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { postLoginUserAuth0, updateRedux } from "../redux/actions/POST/index.js";
 import Swal from 'sweetalert2';
+import { addBet } from "../redux/actions/POST/index.js";
 
 // Componentes
 import Landing from "../Components/Landing/Landing.jsx";
@@ -36,6 +37,8 @@ function App() {
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch()
   const { user } = useAuth0();
+  const cartLocal = JSON.parse(localStorage.getItem('cart'))
+  // console.log(cart)
 
   useEffect(() => {
     const dataUser = JSON.parse(window.localStorage.getItem('user'));
@@ -44,6 +47,12 @@ function App() {
     :
     dispatch(postLoginUserAuth0({ email: dataUser.email, name: dataUser.name}))
   }, [user]);
+
+  useEffect(()=> {
+    if(cartLocal){
+      cartLocal.cart.map(e => dispatch(addBet(e)))
+    }
+  },[])
 
   useEffect(()=>{
     console.log(error);

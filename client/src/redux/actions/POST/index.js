@@ -2,6 +2,10 @@ import axios from "axios";
 import { func } from "prop-types";
 
 export function addBet(bet) {
+
+  const cartLocal = JSON.parse(window.localStorage.getItem('cart'))
+
+  console.log(bet)
   if (bet.homeBet) {
     const payload = {
       amount: Number(bet.homeBet),
@@ -10,7 +14,8 @@ export function addBet(bet) {
       idUser: bet.idUser,
       idMatch: bet.idMatch,
     };
-    console.log(payload);
+    console.log(cartLocal)
+    window.localStorage.setItem('cart', JSON.stringify(cartLocal ? {cart: cartLocal.cart.concat(payload)} : {cart:[payload]}) )
     return {
       type: "ADD_BET_TO_CART",
       payload,
