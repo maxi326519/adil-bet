@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMatchs } from '../../../redux/actions/GET/index.js';
 import SidebarDashboard from "../SidebarDashboard/SidebarDashboard.jsx";
 import { Link, useNavigate } from 'react-router-dom'
+import style from "./MatchesDashboard.module.css";
 
 export default function MatchesDashboard() {
 
@@ -25,8 +26,8 @@ export default function MatchesDashboard() {
 
 
   return (
-    <div>
-      <div>
+    <div className={style.dashboard}>
+      <div className={style.container}>
         <SidebarDashboard />
         {matches?.length > 0 ? (
           <>

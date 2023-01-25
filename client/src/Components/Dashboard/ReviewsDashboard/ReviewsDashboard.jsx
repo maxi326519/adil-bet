@@ -5,6 +5,7 @@ import { getReviews } from '../../../redux/actions/GET/index.js';
 import SidebarDashboard from "../SidebarDashboard/SidebarDashboard.jsx";
 import { reviewActive } from '../../../redux/actions/PATCH/index.js'
 import { Link, useNavigate } from 'react-router-dom'
+import style from "./ReviewsDashboard.module.css";
 
 export default function ReviewsDashboard() {
 
@@ -68,8 +69,8 @@ export default function ReviewsDashboard() {
   };
 
   return (
-    <div>
-      <div>
+    <div className={style.dashboard}>
+      <div className={style.container}>
         <SidebarDashboard />
         {reviews?.length > 0 ? (
           <>

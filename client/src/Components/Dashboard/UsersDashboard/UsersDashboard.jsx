@@ -116,7 +116,7 @@ export default function UserDashboard() {
       <div className={style.container}>
         <SidebarDashboard />
         {users?.length > 0 ? (
-          <div className={styles.cntall}>
+          <div>
             <h1>USUARIOS REGISTRADOS</h1>
             <div style={{ height: 450, width: '100%' }}>
               <DataGrid
