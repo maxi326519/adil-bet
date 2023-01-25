@@ -1,49 +1,48 @@
-const { User } = require("../../db")
+const { User } = require("../../db");
 
-const updateUser = async ({id, name, userName, email, password, phone, wallet, isActive, isAdmin}) => {
+const updateUser = async ({ id, name, userName, email, password, phone, wallet, isActive, isAdmin }) => {
+  const userFound = await User.findOne({
+    where: {
+      id: id,
+    },
+  });
 
-        const userFound = await User.findOne({
-            where: {
-                id: id
-            }
-        });
+  if (userFound && wallet && !name && !userName && !email && !password && !phone && !isActive && !isAdmin) {
+    userFound.update({
+      wallet,
+    });
+    await userFound.save();
+    return userFound;
+  }
+  if (userFound && isActive && !name && !userName && !email && !password && !phone && !wallet && !isAdmin) {
+    userFound.update({
+      isActive,
+    });
+    await userFound.save();
+    return userFound;
+  }
+  if (userFound && isAdmin && !name && !userName && !email && !password && !phone && !wallet && !isActive) {
+    userFound.update({
+      isAdmin,
+    });
+    await userFound.save();
+    return userFound;
+  }
 
-        if(userFound && wallet && !name && !userName && !email && !password && !phone && !isActive && !isAdmin ){
-            userFound.update({
-                wallet: wallet,
-            });
-            await userFound.save();
-            return userFound
-        }
-        if(userFound && isAdmin && !wallet && !name && !userName && !email && !password && !phone && !isActive ){
-            userFound.update({
-                isAdmin,
-            });
-            await userFound.save();
-            return userFound
-        }
-        if(userFound && isActive && !wallet && !name && !userName && !email && !password && !phone && !isAdmin ){
-            userFound.update({
-                isActive,
-            });
-            await userFound.save();
-            return userFound
-        }
+  if (userFound) {
+    userFound.update({
+      isAdmin,
+      name,
+      userName,
+      email,
+      password,
+      phone,
+      wallet,
+      isActive,
+    });
+    await userFound.save();
+    return userFound;
+  }
+};
 
-        if (userFound) {
-            userFound.update({
-                name: name,
-                userName: userName,
-                email: email,
-                password: password,
-                phone: phone,
-                wallet: wallet,
-                isActive: isActive,
-                isAdmin: isAdmin
-            });
-            await userFound.save();
-            return userFound
-}
-}
-
-module.exports = updateUser
+module.exports = updateUser;

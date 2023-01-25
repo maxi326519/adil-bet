@@ -1,0 +1,28 @@
+/* .container {
+  width: 100%;
+  height: 80px;
+} */
+
+.cntTyC_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100vw;
+  height: 60vh;
+}
+
+.TyC_text {
+  max-width: 1200px;
+  margin: 50px;
+}
+
+.h1 {
+  color: rgb(255, 72, 0);
+}
+
+.h2 {
+  color: rgb(0, 81, 255);
+}

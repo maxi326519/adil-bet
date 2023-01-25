@@ -11,12 +11,18 @@ import {
   GET_REVIEW_BY_ID,
   POST_REVIEW,
   DELETE_REVIEW,
-  GET_USER_INFO
+  GET_USER_INFO,
+  UPDATE_MULT_BET,
+  UPDATE_STATUS_BET,
+  UPDATE_AMOUNT_BET,
+  DELETE_WITHDRAW,
+  GET_ALL_WITHDRAWS,
+  UPDATE_WITHDRAW,
+  POST_WITHDRAW,
 } from "../actions/types";
 
-const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
-
 const initialState = {
+  withdraws: [],
   reviews: [],
   reviewById: [],
   matches: [],
@@ -34,10 +40,14 @@ const initialState = {
     country: [],
     teams: [],
   },
-  error: [],
+  error: '',
   cart: [],
   userActivities: [],
   userProfile: [],
+  users:[],
+  bets:[],
+  deposits:[],
+  reviews:[]
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -106,7 +116,8 @@ export const Reducer = (state = initialState, action) => {
       };
 
     case "POST_CREATE_USER": {
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify({id: action.payload.id, email: action.payload.email, password:action.payload.password}));
+      console.log(action.payload)
       return {
         ...state,
         userDates: action.payload,
@@ -114,8 +125,9 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "LOGIN_USER": {
-      console.log(action.payload);
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify({id: action.payload.id, email: action.payload.email, password:action.payload.password}));
+
+      console.log(action.payload)
       return {
         ...state,
         userDates: action.payload,
@@ -123,8 +135,7 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "CREATE_USER_AUTH0": {
-      console.log(action.payload);
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem('user', JSON.stringify({id: action.payload.id, email: action.payload.email, password:action.payload.password}));
       return {
         ...state,
         userlogin: true,
@@ -140,7 +151,6 @@ export const Reducer = (state = initialState, action) => {
     case 'UPDATE_REDUX':{
       return{
         ...state,
-        userDates: action.payload,
         userlogin: true
       };
     }
@@ -176,8 +186,7 @@ export const Reducer = (state = initialState, action) => {
     }
     case "DELETE_BET_TO_CART": {
       const matches = state.cart.filter(
-        (match) => Number(match.idMatch) !== action.payload
-      );
+        (match) => Number(match.idMatch) !== action.payload.id || match.amount !== action.payload.amount || match.betTo !== action.payload.team)
       return {
         ...state,
         cart: matches,
@@ -245,6 +254,76 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         reviewById:false
+      }
+    }
+    case 'GET_ALL_USERS':{
+      return {
+          ...state,
+          users: action.payload
+      }
+    }
+    case "UPDATE_ACTIVE_USER": {
+      return {
+        ...state,
+      };
+    }
+    case "UPDATE_ADMIN_USER": {
+      return {
+        ...state,
+      };
+    }
+    case 'GET_ALL_BETS':{
+      return {
+          ...state,
+          bets: action.payload
+      }
+    }
+    case 'GET_ALL_DEPOSITS':{
+      return {
+          ...state,
+          deposits: action.payload
+      }
+    }
+    case 'GET_ALL_REVIEWS':{
+      return {
+          ...state,
+          reviews: action.payload
+      }
+    }
+    case "UPDATE_REVIEW_STATUS": {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_MULT_BET: {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_AMOUNT_BET: {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_STATUS_BET: {
+      return {
+        ...state,
+      };
+    }
+    case 'UPDATE_DEPOSIT': {
+      return {
+        ...state,
+      };
+    }
+    case GET_ALL_WITHDRAWS:{
+      return {
+        ...state,
+        withdraws: action.payload
+      }
+    }
+    case 'UPDATE_WITHDRAW':{
+      return {
+        ...state,
       }
     }
     default:

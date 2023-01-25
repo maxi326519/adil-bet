@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap');
+
 .header {
   display: flex;
   background-color: var(--primary-color);
@@ -8,7 +10,7 @@
   box-shadow: 0px 0px 10px 3px #0003;
 }
 
-.nav-menu-link{
+.nav-menu-link {
   font-size: 18px;
   text-decoration: none;
   color: white;
@@ -19,7 +21,6 @@
   justify-content: space-around;
 }
 
-
 .logo {
   margin: 0;
   width: 90px;
@@ -29,19 +30,22 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
+  padding: 0 100px;
 }
 
-.sesions-btn{
+.sesions-btn {
   display: flex;
   align-items: center;
 }
 
-.sesions-btn button, .container-buttons .btn{
+.sesions-btn button,
+.container-buttons .btn {
   display: flex;
   margin: 0 5px;
 }
 
-.sesions-btn, .container-buttons{
+.sesions-btn,
+.container-buttons {
   text-decoration: none;
 }
 
@@ -52,14 +56,16 @@
 }
 
 .nav-menu-link {
-  padding: 8px 12px;
+  padding: 5px 20px;
   border-radius: 3px;
+  transition: all 100ms ease;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .nav-menu-link:hover {
-  background-color: rgba(255, 100, 100, 0.394);
+  transform: scale(1.05);
   color: white;
-  transition: 0.2s;
+  border-bottom: 2px solid white;
 }
 
 .login {
@@ -72,6 +78,91 @@
   width: 150px;
 }
 
-.sesion{
+.sesion {
   display: flex;
+}
+
+@media (max-width: 800px) {
+  .header {
+    width: 100%;
+    height: 70px;
+    padding: 10px 15px;
+    align-items: center;
+  }
+
+  .nav-menu-link {
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .logo {
+    margin: 0;
+    width: 40px;
+  }
+
+  .menu {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    align-items: center;
+  }
+
+  .sesions-btn {
+    display: none;
+  }
+
+  .sesions-btn button,
+  .container-buttons .btn {
+    display: flex;
+    margin: 0 5px;
+    align-items: center;
+  }
+
+  .sesions-btn,
+  .container-buttons {
+    text-decoration: none;
+  }
+
+  .nav a {
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+  }
+
+  .nav-menu-link {
+    padding: 3px 7px;
+    border-radius: 3px;
+    align-items: center;
+  }
+
+  .nav-menu-link:hover {
+    background-color: rgba(255, 100, 100, 0.394);
+    color: white;
+    transition: 0.2s;
+  }
+
+  .login {
+    /* gap: 20px; */
+    width: 80px;
+    align-items: center;
+  }
+
+  .signin {
+    /* gap: 20px; */
+    width: 80px;
+    align-items: center;
+  }
+
+  .sesion {
+    display: flex;
+    align-items: center;
+  }
 }

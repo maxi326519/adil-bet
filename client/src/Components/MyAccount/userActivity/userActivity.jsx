@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getActivity } from "../../redux/actions/GET/index";
+import { getActivity } from "../../../redux/actions/GET/index";
 
-import "./userActivity.css";
+import BetsDepositUser from './BetsDepositUser/BetsDepositUser';
+
+import styles from "./userActivity.module.css";
 
 export default function UserActivity() {
   const initialState = {
@@ -24,8 +26,8 @@ export default function UserActivity() {
 
   return (
     <>
+      <div className={ styles.activity }>
       <h3>Historial</h3>
-      <div className="container">
         <div className="history">
           <div >
             <select className="select" onChange={(e) => handleOnSelect(e)}>
@@ -38,6 +40,7 @@ export default function UserActivity() {
             <button className="buscar" onClick={handleOnClick}>buscar</button>
           </div>
         </div>
+      <BetsDepositUser/>
       </div>
     </>
   );

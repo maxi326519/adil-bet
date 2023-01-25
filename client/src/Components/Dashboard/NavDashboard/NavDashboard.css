@@ -1,3 +1,9 @@
 .nav{
     background-color: var(--primary-color);
 }
+
+.logodash{
+    width: 80px;
+    margin: 0 -16px;
+    padding: 0;
+}

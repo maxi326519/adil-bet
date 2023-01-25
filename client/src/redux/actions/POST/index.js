@@ -1,5 +1,4 @@
 import axios from "axios";
-import { func } from "prop-types";
 
 export function addBet(bet) {
   if (bet.homeBet) {
@@ -44,18 +43,6 @@ export function addBet(bet) {
   }
 }
 
-export function addOrder() {
-  console.log("addOrder");
-}
-
-export function addPayment() {
-  console.log("addPayment");
-}
-
-export function addUser() {
-  console.log("addUser");
-}
-
 export function updateRedux(dataUser) {
   return (dispatch) => {
     dispatch({
@@ -74,7 +61,11 @@ export function postCreateUser(payload) {
         payload: result.data,
       });
     } catch (error) {
-      throw new Error(error.message);
+      console.group(error);
+      return dispatch({
+        type: "ERROR_BACK",
+        payload: error.response.data.error,
+      });
     }
   };
 }
@@ -91,7 +82,7 @@ export function postLoginUser(payload) {
     } catch (error) {
       return dispatch({
         type: "ERROR_BACK",
-        payload: "Error, inténtalonuevamente",
+        payload: "Error, inténtalo nuevamente",
       });
     }
   };
@@ -176,4 +167,16 @@ export function addReview(payload) {
     }
   };
 }
-
+export function addWithdraw(payload){
+  return async function (dispatch){
+    try{
+      const response = await axios.post(`/withdraw`, payload);
+      return dispatch({
+        type: "POST_WITHDRAW",
+        payload: response.data
+      })
+    }catch(error){
+      throw new Error(error.message)
+    }
+  }
+}

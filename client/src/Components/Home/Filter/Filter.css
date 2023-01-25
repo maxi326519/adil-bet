@@ -1,20 +1,67 @@
-.filtersDiv h3{
-    margin-bottom: 0;
-    padding: 5px;
-    font-size: 15px;
-    color: white;
-    background-color: #222;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Fira+Sans:wght@900&display=swap');
+
+.filtersDiv h3 {
+  margin-bottom: 0;
+  padding: 3px;
+  font-size: 15px;
+  color: white;
+  background-color: #222;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
-.filtersDiv select{
+.filtersDiv select {
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: rgb(240, 240, 240);
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.filtersDiv button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  color: white;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-style: solid;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.filtersDiv select:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.filtersDiv button:hover {
+  background-color: var(--primary-color);
+}
+
+.filtersDiv button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 400px) {
+  .filtersDiv h3 {
+    margin-bottom: 0;
+    padding: 3px;
+    font-size: 13px;
+    color: white;
+    background-color: #222;
+  }
+  
+  .filtersDiv select {
     width: 100%;
     margin: 5px 0;
     padding: 5px;
-    border-color: white;
-    border-style: solid;
-}
-
-.filtersDiv button{
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: rgb(134, 134, 134);
+  }
+  
+  .filtersDiv button {
     width: 100%;
     margin-top: 10px;
     padding: 5px;
@@ -22,13 +69,5 @@
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     border-style: solid;
-}
-
-
-.filtersDiv button:hover{
-    filter: brightness(80%);
-}
-
-.filtersDiv button:active{
-    transform: scale(0.95);
+  }
 }

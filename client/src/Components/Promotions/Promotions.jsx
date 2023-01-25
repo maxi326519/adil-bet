@@ -62,7 +62,9 @@ const PromotionsCar = () => {
   const slides = items.map((item) => {
     return (
       <CarouselItem onExiting={onExiting} onExited={onExited} key={item.src}>
-        <img src={item.src} alt={item.altText} width="100%" height="600" />
+        <div className="carousel__img-container">
+          <img className="carousel-img" src={item.src} alt={item.altText} />
+        </div>
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}

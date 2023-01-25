@@ -1,15 +1,19 @@
 import React from "react";
+import './CardCart.css'
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBetToCart } from "../../../redux/actions/DELETE/index.js";
 
 export default function CardCart({ id, betTo, amount }) {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches);
-  const match = matches.filter((el) => el.id == id);
+  const match = matches.filter((el) => el.id == id );
   console.log(match);
 
   const handleOnDelete = () => {
-    dispatch(deleteBetToCart(match[0].id));
+    const id = match[0].id
+    const team = betTo
+    const amountbet = amount
+    dispatch(deleteBetToCart({id, team, amountbet}));
   };
 
   return (

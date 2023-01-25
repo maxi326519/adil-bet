@@ -1,40 +1,63 @@
-.bttmcontainer{
-    display: flex;
-    justify-content: space-around;
+.bttmcontainer {
+  display: flex;
+  justify-content: space-around;
 }
 
-.cntbuttons{
-    margin: 10px;
+.cntbuttons {
+  margin: 10px;
 }
 
-.inputbet{
-    border-radius: 10px;
-    border: 0;
-    margin: 10px;
-    padding: 10px;
+.inputbet {
+  border-radius: 10px;
+  border: 0;
+  margin: 10px;
+  padding: 10px;
 }
 
-.buttonbet{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    width: 100%;
-    border: 0;
-    background-color: #591411;
-    color: white;
-    transition: all 300ms ease;
-    padding: 5px;
-    border-radius: 10px;
+.buttonbet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  background-color: #591411;
+  color: white;
+  transition: all 300ms ease;
+  padding: 5px;
+  border-radius: 10px;
 }
 
-.buttonbet:hover{
-    transform: scale(1.05);
+.buttonbet:hover {
+  transform: scale(1.05);
 }
 
-.Button-bet:active{
-    transform: scale(0.95);
+.Button-bet:active {
+  transform: scale(0.95);
 }
 
-.team-name{
-    font-size: 15px;
+.team-name {
+  font-size: 15px;
+}
+
+.buttonbetout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 0;
+  background-color: #591411;
+  color: white;
+  transition: all 300ms ease;
+  padding: 5px;
+  width: 150px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.buttonbetout:hover {
+  transform: scale(1.05);
+}
+
+.login {
+  text-decoration: none;
 }

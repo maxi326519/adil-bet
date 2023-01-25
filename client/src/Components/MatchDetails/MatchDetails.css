@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Fira+Sans:wght@900&display=swap');
+
 .matchdetail {
   background: url("../../Assets/Images/field.jpg");
   width: 100vw;
@@ -11,10 +13,16 @@
 
 .text-vs {
   font-size: 40px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.team1{
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .name-teams {
   font-size: 20px;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .details-content {
@@ -23,6 +31,7 @@
   border: 1px solid rgb(221, 221, 221);
   border-radius: 50px;
   box-shadow: 0 10px 10px rgb(0, 0, 0);
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .cntleague {

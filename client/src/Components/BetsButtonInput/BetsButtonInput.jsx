@@ -15,6 +15,7 @@ export default function BetsButtonInput({ id }) {
     idUser: userDates.id,
     idMatch: id,
   };
+
   const [bet, setBet] = useState(initialState);
   const dispatch = useDispatch();
   const multiplier = {
@@ -25,7 +26,6 @@ export default function BetsButtonInput({ id }) {
 
   const handleChange = (evt) => {
     const { name, value } = evt.currentTarget;
-    console.log(bet);
     setBet({
       ...bet,
       [name]: value,
@@ -35,8 +35,6 @@ export default function BetsButtonInput({ id }) {
   useEffect(() => {
     localStorage.setItem("cartItem", JSON.stringify(jj));
   }, [jj]);
-  console.log("es esto", ff);
-  console.log("cart = ", jj);
 
   const handleAddBet = () => {
     dispatch(addBet(bet));
@@ -79,15 +77,15 @@ export default function BetsButtonInput({ id }) {
   } else {
     return (
       <div className={styles.bttmcontainer}>
-        <Link to="/login">
-          <button onClick={handleAddBet} className="Button-bet">
+        <Link to="/login" className={styles.login}>
+          <button onClick={handleAddBet} className={styles.buttonbetout}>
             <span className="team-name">Apuesta local: </span>
             <span>{multiplier.homebet}</span>
           </button>
         </Link>
 
-        <Link to="/login">
-          <button onClick={handleAddBet} className="Button-bet">
+        <Link to="/login" className={styles.login}>
+          <button onClick={handleAddBet} className={styles.buttonbetout}>
             <span className="team-name">Apuesta Visitante: </span>
             <span>{multiplier.awaybet}</span>
           </button>
