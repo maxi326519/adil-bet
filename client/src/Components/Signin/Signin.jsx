@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { postCreateUser } from "../../redux/actions/POST/index";
@@ -75,11 +76,40 @@ const CreateUserForm = () => {
 
   const handleSubmitRegister = async (evt) => {
     evt.preventDefault();
-    dispatch(postCreateUser(register));
-    setRegister(INITIAL_STATE);
-    return navigate("/home");
+    if(
+      validateRegister.name &&
+      validateRegister.userName &&
+      validateRegister.email &&
+      validateRegister.password &&
+      validateRegister.confirm &&
+      validateRegister.equalsPassword &&
+      validateRegister.phone &&
+      register.name !== "" &&
+      register.userName  !== "" &&
+      register.email !== "" &&
+      register.password !== "" &&
+      register.confirm_password !== "" &&
+      register.phone !== ""
+    ){
+      dispatch(postCreateUser(register));
+      setRegister(INITIAL_STATE);
+      return navigate("/home");
+    }else{
+      handleEmpty();
+    }
   };
 
+  function handleEmpty(){
+    setValidateRegister({
+      ...validateRegister,
+      name: register.name === "" ? false : validateRegister.name,
+      userName: register.userName === "" ? false : validateRegister.userName,
+      email: register.email === "" ? false : validateRegister.email,
+      password: register.password === "" ? false : validateRegister.password,
+      confirm: register.confirm === "" ? false : validateRegister.confirm
+    });
+  }
+  
   return (
     <div className="container-register">
       <div className="container-logo-adilbet">
@@ -94,6 +124,7 @@ const CreateUserForm = () => {
               <input
                 type="text"
                 name="name"
+                required
                 className={`form-control ${
                   validateRegister.name ? "" : "is-invalid"
                 }`}
@@ -118,6 +149,7 @@ const CreateUserForm = () => {
               <input
                 type="text"
                 name="userName"
+                required
                 className={`form-control ${
                   validateRegister.userName ? "" : "is-invalid"
                 }`}
@@ -141,6 +173,7 @@ const CreateUserForm = () => {
             <div className="form-floating mb-3">
               <input
                 type="email"
+                required
                 name="email"
                 className={`form-control ${
                   validateRegister.email ? "" : "is-invalid"
@@ -166,6 +199,7 @@ const CreateUserForm = () => {
               <input
                 type="password"
                 name="password"
+                required
                 className={`form-control ${
                   validateRegister.password && validateRegister.confirm ? "" : "is-invalid"
                 }`}
@@ -187,6 +221,7 @@ const CreateUserForm = () => {
               <input
                 type="password"
                 name="confirm_password"
+                required
                 placeholder="Confirmar Contraseña"
                 className={`form-control ${
                   validateRegister.confirm
