@@ -3,7 +3,6 @@ import axios from 'axios';
 import ReactDOM from 'react-dom/client';
 import App from './Containers/App';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store/index.js';
 import { Auth0Provider } from "@auth0/auth0-react";
