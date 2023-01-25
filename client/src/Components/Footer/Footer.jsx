@@ -30,14 +30,14 @@ export default function Footer() {
         </li>
       </ul>
       <div>
-        <Link to="/404" className="list-item-footer">
+        <Link to="" className="list-item-footer">
           <img
             src="https://www.sistemaimpulsa.com/blog/wp-content/uploads/2019/12/facebook-logo-redondo-PNG.png"
             alt="logo facebook"
             className="logo-social-footer"
           />
         </Link>
-        <Link to="/404" className="list-item-footer">
+        <Link to="" className="list-item-footer">
           <img
             src="https://i0.wp.com/eltallerdehector.com/wp-content/uploads/2022/06/033fd-logo-instagram-icon.png?fit=512%2C512&ssl=1"
             alt="logo instagram"
