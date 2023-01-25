@@ -77,15 +77,15 @@ export default function BetsButtonInput({ id }) {
   } else {
     return (
       <div className={styles.bttmcontainer}>
-        <Link to="/login">
-          <button onClick={handleAddBet} className="Button-bet">
+        <Link to="/login" className={styles.login}>
+          <button onClick={handleAddBet} className={styles.buttonbetout}>
             <span className="team-name">Apuesta local: </span>
             <span>{multiplier.homebet}</span>
           </button>
         </Link>
 
-        <Link to="/login">
-          <button onClick={handleAddBet} className="Button-bet">
+        <Link to="/login" className={styles.login}>
+          <button onClick={handleAddBet} className={styles.buttonbetout}>
             <span className="team-name">Apuesta Visitante: </span>
             <span>{multiplier.awaybet}</span>
           </button>
