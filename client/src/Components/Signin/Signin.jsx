@@ -163,11 +163,14 @@ const CreateUserForm = () => {
                 onChange={handleChange}
               />
               <label for="floatingInput">Nombre de usuario</label>
+<<<<<<< HEAD
               {validateRegister.userName ? null : (
                 <small className="span-form">
                   Letras, números y estos símbolos: _ . -
                 </small>
               )}
+=======
+>>>>>>> 6fff7bebb5d2faa01c109121f34ff3651dce6aac
             </div>
 
             {/* EMAIL */}
@@ -188,11 +191,14 @@ const CreateUserForm = () => {
                 onChange={handleChange}
               />
               <label for="floatingInput">Email address</label>
+<<<<<<< HEAD
               {validateRegister.email ? null : (
                 <small className="span-form">
                   El correo electrónico no es válido
                 </small>
               )}
+=======
+>>>>>>> 6fff7bebb5d2faa01c109121f34ff3651dce6aac
             </div>
 
             {/* CONTRASEÑA */}
@@ -211,12 +217,16 @@ const CreateUserForm = () => {
                 value={register.password}
                 onChange={handleChange}
               />
+<<<<<<< HEAD
               <label for="floatingInput">Contraseña</label>
               {validateRegister.password ? null : (
                 <small className="span-form">
                   La contraseña debe contener mínimo 8 caracteres
                 </small>
               )}
+=======
+            <label for="floatingInput">Contraseña</label>
+>>>>>>> 6fff7bebb5d2faa01c109121f34ff3651dce6aac
             </div>
 
             {/* CONFIRMAR CONTRASEÑA */}
@@ -237,12 +247,7 @@ const CreateUserForm = () => {
                 value={register.confirm}
                 onChange={handleChange}
               />
-              <label for="floatingInput">Confirmar contraseña</label>
-              {validateRegister.confirm ? null : (
-                <small className="span-form">
-                  Las contraseñas no coinciden
-                </small>
-              )}
+            <label for="floatingInput">Confirmar contraseña</label>
             </div>
 
             {/* TELEFONO */}
@@ -262,10 +267,14 @@ const CreateUserForm = () => {
                 value={register.phone}
                 onChange={handleChange}
               />
+<<<<<<< HEAD
               <label for="floatingInput">Teléfono</label>
               {validateRegister.phone ? null : (
                 <small className="span-form">El formato es incorrecto</small>
               )}
+=======
+            <label for="floatingInput">Telefono</label>
+>>>>>>> 6fff7bebb5d2faa01c109121f34ff3651dce6aac
             </div>
 
             {/* BOTON DE REGISTRO */}

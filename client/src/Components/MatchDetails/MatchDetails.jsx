@@ -15,7 +15,6 @@ export default function MatchDetails() {
   const { id } = useParams();
 
   const match = useSelector((state) => state.matchDetail);
-  console.log(match);
   useEffect(() => {
     dispatch(getMatchDetails(id));
   }, [dispatch, id]);
