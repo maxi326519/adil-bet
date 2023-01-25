@@ -14,12 +14,12 @@ export default function Footer() {
           </Link>
         </li>
         <li className="list-item-footer">
-          <Link to="/terminosYcondiciones" className="list-item-footer">
+          <Link to="/terminosycondiciones" className="list-item-footer">
             Terminos y condiciones.
           </Link>
         </li>
         <li className="list-item-footer">
-          <Link to="politicasDePrivacidad" className="list-item-footer">
+          <Link to="/politicasdeprivacidad" className="list-item-footer">
             Politica de privacidad.
           </Link>
         </li>

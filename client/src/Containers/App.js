@@ -66,11 +66,11 @@ function App() {
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/payment" element={<Stripe />} />
           <Route
-            path="/politicasDePrivacidad"
+            path="/politicasdeprivacidad"
             element={<PoliticasDePrivacidad />}
           />
           <Route
-            path="/terminosYcondiciones"
+            path="/terminosycondiciones"
             element={<TerminosYcondiciones />}
           />
 
