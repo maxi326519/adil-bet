@@ -58,7 +58,7 @@ const Login = () => {
                 placeholder="name@example.com"
                 onChange={handleChange}
               />
-              <label for="floatingInput">Correo electronico</label>
+              <label htmlFor="floatingInput">Correo electronico</label>
             </div>
 
             {/* PASSWORD */}
@@ -70,7 +70,7 @@ const Login = () => {
                 placeholder="name@example.com"
                 onChange={handleChange}
               />
-              <label for="floatingInput">Contraseña</label>
+              <label htmlFor="floatingInput">Contraseña</label>
             </div>
 
             <div className="button-check-register">

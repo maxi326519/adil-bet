@@ -88,7 +88,7 @@ const CreateUserForm = () => {
                 placeholder="name"
                 onChange={handleChange}
               />
-              <label for="floatingInput">Nombre</label>
+              <label htmlFor="floatingInput">Nombre</label>
             </div>
             {validateRegister.name ? null : (
               <span className="span-form">El nombre no puede contener numeros y menos de 5 letras</span>
@@ -104,7 +104,7 @@ const CreateUserForm = () => {
                 placeholder="name"
                 onChange={handleChange}
               />
-              <label for="floatingInput">Nombre de usuario</label>
+              <label htmlFor="floatingInput">Nombre de usuario</label>
             </div>
 
             {/* EMAIL */}
@@ -117,7 +117,7 @@ const CreateUserForm = () => {
                 placeholder="name@example.com"
                 onChange={handleChange}
               />
-              <label for="floatingInput">Email address</label>
+              <label htmlFor="floatingInput">Email address</label>
             </div>
             {validateRegister.email ? null : (
               <span className="span-form">El correo electronico no es valido</span>
@@ -134,7 +134,7 @@ const CreateUserForm = () => {
                 value={register.password}
                 onChange={handleChange}
               />
-            <label for="floatingInput">Contraseña</label>
+            <label htmlFor="floatingInput">Contraseña</label>
             </div>
 
             {/* CONFIRMAR CONTRASEÑA */}
@@ -148,7 +148,7 @@ const CreateUserForm = () => {
                 value={register.confirm_password}
                 onChange={handleChange}
               />
-            <label for="floatingInput">Confirmar contraseña</label>
+            <label htmlFor="floatingInput">Confirmar contraseña</label>
             </div>
             {validateRegister.password ? null : (
               <span className="span-form">
@@ -171,7 +171,7 @@ const CreateUserForm = () => {
                 value={register.phone}
                 onChange={handleChange}
               />
-            <label for="floatingInput">Telefono</label>
+            <label htmlFor="floatingInput">Telefono</label>
             </div>
             
             {/* BOTON DE REGISTRO */}

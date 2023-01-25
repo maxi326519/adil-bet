@@ -46,7 +46,6 @@ function App() {
   }, [user]);
 
   useEffect(()=>{
-    console.log(error);
     toast(error);
   },[error]);
 
