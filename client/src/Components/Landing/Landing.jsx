@@ -37,15 +37,15 @@ export default function Landing() {
           </div>
 
           <div className="pagination">
-            <label for="1" className="pagination-item">
+            <label htmlFor="1" className="pagination-item">
               <img src={ImageLanding} alt="Pagination-item1" />
             </label>
 
-            <label for="2" className="pagination-item">
+            <label htmlFor="2" className="pagination-item">
               <img src={ImageLanding2} alt="Pagination-item2" />
             </label>
 
-            <label for="3" className="pagination-item">
+            <label htmlFor="3" className="pagination-item">
               <img src={ImageLanding3} alt="Pagination-item3" />
             </label>
           </div>
