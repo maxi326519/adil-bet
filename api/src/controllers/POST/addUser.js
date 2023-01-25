@@ -20,11 +20,11 @@ const postUser = async (req, res) => {
     });
     
     // Enviamos finalmente un email de confirmacion
-    /*     sendMail(
+    sendMail(
       email,
       "¡Bienvenido a Adil Bet!",
       `<span>Tu cuenta fue creada satisfactoriamente</span>`
-      ); */
+    );
       
     return res.status(200).json(newUser);
   } catch (error) {
