@@ -52,25 +52,25 @@ export default function Landing() {
         </div>
       </div>
       <div className="second-container">
-        <h1 className="text__second-container">¡BIENVENIDOS A ADILBET!</h1>
+        <h1 className="text__second-container">¡ BIENVENIDOS A ADILBET !</h1>
       </div>
       <div className="cntpromoinfo">
         <div className="container-image-team">
           <img src={ImageTeam} alt="Team-landing" className="image-landing" />
         </div>
         <div className="container-promo">
-          <h3 className="title-promo-landing">¡Super Promo del año!</h3>
+          <h3 className="title-promo-landing">¡ Super Promo del año !</h3>
           <div className="cntpromo">
-            <p className="list-item">CASHBACK por primera recarga</p>
-            <p className="list-item">Atencion 24Hs</p>
+            <p className="list-item">CASHBACK por primer recarga</p>
+            <p className="list-item">Atención 24 Hs</p>
             <p className="list-item">Excelentes pagas</p>
             <p className="list-item">
-              Esto y mucho mas en seccion <br /> de Promociones
+              Esto, y mucho más en sección <br /> de Promociones
             </p>
           </div>
           <a href="/signin">
             <button className="promo-button">
-              <p className="text-button">REGISTRATE AQUI!</p>
+              <p className="text-button">REGÍSTRATE AQUÍ</p>
             </button>
           </a>
         </div>
@@ -78,13 +78,13 @@ export default function Landing() {
       <hr className="linea" />
       <div className="cntreviews">
         <div className="container-clients-review">
-          <h3 className="title-clients">Clientes Satisfechos.</h3>
+          <h3 className="title-clients">Clientes Satisfechos</h3>
           <Reviews />
         </div>
         <div>
           <h3 className="text-landing">
-            y asi como ellos, tu puedes ser parte de esta experiencia. <br />{" "}
-            Animate!
+            y así como ellos, tú puedes ser parte de esta experiencia <br />{" "}
+            ¡ Anímate !
           </h3>
         </div>
       </div>

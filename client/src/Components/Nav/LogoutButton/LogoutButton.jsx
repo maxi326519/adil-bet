@@ -13,7 +13,7 @@ const LogoutButton = () => {
 
   return (
     <button onClick={handleLogout} className='btn btn-primary btn-color'>
-      Cerrar Sesion
+      Cerrar Sesión
     </button>
   );
 };
