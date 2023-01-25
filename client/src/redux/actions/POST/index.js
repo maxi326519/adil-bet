@@ -1,5 +1,4 @@
 import axios from "axios";
-import { func } from "prop-types";
 
 export function addBet(bet) {
   if (bet.homeBet) {
@@ -42,18 +41,6 @@ export function addBet(bet) {
       payload,
     };
   }
-}
-
-export function addOrder() {
-  console.log("addOrder");
-}
-
-export function addPayment() {
-  console.log("addPayment");
-}
-
-export function addUser() {
-  console.log("addUser");
 }
 
 export function updateRedux(dataUser) {

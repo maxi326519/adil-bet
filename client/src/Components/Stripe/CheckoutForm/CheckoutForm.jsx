@@ -49,6 +49,7 @@ export default function CheckoutForm({ setLoading }) {
       setLoading(false);
     } catch (error) {
       setLoading(false);
+      console.log(error);
       swal({
         title: `Error`,
         text: 'Hubo un error',
