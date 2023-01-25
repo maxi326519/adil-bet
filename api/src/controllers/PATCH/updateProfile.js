@@ -9,7 +9,7 @@ const updateProfile = async (id, { name, userName, email, phone }) => {
     },
   });
 
-  if(!profileFound) throw new Error('Ee usuario no existe');
+  if(!profileFound) throw new Error('El usuario no existe');
   
   if (userName && userName.length !== 0) {
     profileFound.update({
