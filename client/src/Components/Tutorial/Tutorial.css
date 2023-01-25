@@ -1,10 +1,78 @@
-.Tutorial_text {
-    background-color: rgba(48, 44, 78, 0.637);
-    color: rgb(250, 239, 239);
-    width: 70%;
-    padding: 200px 0 0 180px;
-    font-family: "Zen Dots", cursive;
+/* .Tutorial_text {
+  background-color: rgba(48, 44, 78, 0.637);
+  color: rgb(250, 239, 239);
+  width: 70%;
+  padding: 200px 0 0 180px;
+  font-family: "Zen Dots", cursive;
   font-size: 20px;
   font-weight: 10;
-  }
-  
+} */
+
+.container-accordion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerrrrrr {
+  background-image: url("../../Assets/Images/field.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+}
+
+.accordion {
+  /* Border */
+  border: 1px solid #d1d5db;
+  border-bottom-color: transparent;
+  border-radius: 4px;
+  width: 70%;
+  margin: 80px;
+
+  /* height: 100vh; */
+}
+
+/*.accordion__item {
+   border-bottom: 1px solid #d1d5db;
+} */
+
+.accordion__header {
+  /* Center the content horizontally */
+  align-items: center;
+  display: flex;
+  background: #591411;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.accordion__toggle {
+  margin-right: 12px;
+}
+
+.accordion__title {
+  /* Take remaining width */
+  flex: 1;
+}
+
+.accordion__content {
+  border-top: 1px solid #d1d5db;
+  padding: 16px;
+}
+
+.accordion__item--collapsed .accordion__content {
+  display: none;
+}
+.accordion__item--expanded .accordion__content {
+  display: block;
+}
+
+.walletacc {
+  background-color: #591411;
+  border-radius: 1px;
+
+  color: white;
+  height: 20px;
+  width: 30px;
+}

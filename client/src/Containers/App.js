@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   postLoginUserAuth0,
-  updateRedux,
 } from "../redux/actions/POST/index.js";
-import Swal from "sweetalert2";
 
 // Componentes
 import Landing from "../Components/Landing/Landing.jsx";
@@ -17,11 +15,10 @@ import Signin from "../Components/Signin/Signin.jsx";
 import Inprocess from "../Components/Inprocess/Inprocess.jsx";
 import Stripe from "../Components/Stripe/Stripe";
 import MatchDetails from "../Components/MatchDetails/MatchDetails.jsx";
-import Cart from "../Components/Cart/Cart.jsx";
-import UserActivity from "../Components/MyAccount/userActivity/userActivity.jsx";
 import MyAccount from "../Components/MyAccount/MyAccount.jsx";
 import PoliticasDePrivacidad from "../Components/Footer/PoliticaDePrivacidad/PoliticaDePrivacidad.jsx";
 import TerminosYcondiciones from "../Components/Footer/TerminosYcondiciones/TerminosYcondiciones.jsx";
+import Tutorial from "../Components/Tutorial/Tutorial.jsx";
 
 // Dashboard
 import Dashboard from "../Components/Dashboard/Dashboard";
@@ -66,7 +63,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/details/:id" element={<MatchDetails />} />
           <Route path="/promotions" element={<Promotions />} />
-          <Route path="/tutorial" element={<Inprocess />} />
+          <Route path="/tutorial" element={<Tutorial />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/admin" element={<Inprocess />} />
@@ -92,16 +89,6 @@ function App() {
           <Route path="/dashboard/retiros" element={<WithdrawDashboard />} />
         </Routes>
       </BrowserRouter>
-{/*       {error.length === 0
-        ? null
-        : Swal.fire({
-            title: "Error!",
-            text: "Inténtalo nuevamente",
-            icon: "error",
-            confirmButtonText: "OK",
-          }).then(function () {
-            window.location = "/home";
-          })} */}
     </div>
   );
 }
