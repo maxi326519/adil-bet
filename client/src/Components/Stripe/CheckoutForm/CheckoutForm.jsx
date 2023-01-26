@@ -62,8 +62,14 @@ export default function CheckoutForm({ setLoading }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
-    handleAxios();
+    if(data.name && data.name.length > 0){
+
+    }else if(data.email && data.email.length > 0){
+
+    }else{
+      setLoading(true);
+      handleAxios();
+    }
   }
 
   function handlerData(e) {
