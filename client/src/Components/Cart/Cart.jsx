@@ -27,7 +27,7 @@ export default function Cart() {
 
   const handleOnPay = () => {
 
-    if (total < userDates.wallet) {
+    if (total < userDates.wallet ) {
       cart.map((e) => {
         dispatch(createBetDB(e));
       });
@@ -41,6 +41,7 @@ export default function Cart() {
         text: "MUCHAS GRACIAS POR SU APUESTA",
         button: "ACEPTAR",
       });
+      window.localStorage.removeItem('cart')
     } 
     if(total > userDates.wallet) {
       swal({
@@ -49,6 +50,13 @@ export default function Cart() {
         button: "ACEPTAR",
       }).then(() => {
         window.location.href="/payment"
+      })
+    }else if(!userDates.wallet){
+      swal({
+        title: "DEBES INICIAR SESION PARA APOSTAR",
+        button: "ACEPTAR",
+      }).then(() => {
+        window.location.href="/login"
       })
     }
   };

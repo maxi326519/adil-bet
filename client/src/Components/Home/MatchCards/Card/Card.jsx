@@ -22,7 +22,7 @@ export default function Card({
   }
 
   return (
-    <div className={styles.cardcnt}>
+    <div className={styles.container}>
       <div className={styles.card}>
         <Link to={`/details/${matchId}`} className={styles.Link}>
           <div className={styles.cntlogo}>

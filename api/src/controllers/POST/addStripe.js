@@ -1,7 +1,7 @@
 const stripe = require("stripe")(
-  "sk_test_51MPqgHHDF8goU6ElAtZxz40EN9SzKYYp0jc3PA0CHoiQEmdAlQzXeqYu0OtQMIeO944yawN3AZx1Jz2RJ3XFfUDQ00pc1lG9Of"
+  "sk_test_51MUWj9BawCLw8uloHWHJlaf4lkhrg0O2kyEA8n2ZFHBOBW7TaDR7gHBhRawsoaMOi8N3vZ4cfz1ox3ydH5jsDRs100zoJ0Ddl1"
 );
-const { User } = require("../../db.js");
+const { User, Deposit } = require("../../db.js");
 const { sendMail } = require("../../modules/emails");
 
 require("dotenv").config();
@@ -18,6 +18,11 @@ const postRecharge = async ({ payment_method, amount, userId, dataEmail }) => {
     confirm: true,
     statement_descriptor: "recarga",
   });
+
+  const deposits = await Deposit.create({
+    amount: amount,
+    userId: userId,
+  })
 
   // Actualiza el usuario
   const user = await User.findOne({

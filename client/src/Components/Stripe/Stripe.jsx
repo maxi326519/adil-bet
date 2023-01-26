@@ -10,7 +10,7 @@ import Loading from "../Loading/Loading";
 import "./Stripe.css";
 
 const stripePromise = loadStripe(
-  "pk_test_51MPqgHHDF8goU6ElSNxHEMDSRl3jnVFalpylIlOwIyF6ppIrWdXL8j6QI4JLwtO2h94rz0703e0zgoKuH8t6675C00VxHwEQzT"
+  "pk_test_51MUWj9BawCLw8uloI38vPLO0dieWdb37F9RM5i8Y5Q096rwD6790KV54ZZcI4E1IJblTG8pM4f4hiC8YxMx0bD37007zi7aenT"
 );
 
 export default function Stripe() {
