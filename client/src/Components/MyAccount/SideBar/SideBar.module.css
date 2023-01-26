@@ -1,0 +1,26 @@
+.sideBar{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: min-content;
+    margin:10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.sideBar h3{
+    font-size: 25px;
+    padding: 10px;
+}
+
+.sideBar button{
+    font-size: 18px;
+    padding: 8px;
+    border: none;
+    background-color: inherit;
+}
+
+.sideBar button:hover{
+    filter: brightness(90%);
+}

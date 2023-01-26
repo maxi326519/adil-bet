@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-export default function MyAccount () {
-    // LA INFORMACION DEL USUARIO ESTA EN EL ESTADO DE REDUX USERDATES REVISAR EL REDUCER
-    return (
-        <div>
-            <p>Soy Mi Cuenta</p>
-        </div>
-    )
+// Components
+import Nav from "../Nav/Nav";
+import SideBar from "./SideBar/SideBar";
+import UserActivity from "./userActivity/userActivity";
+import UserProfile from "./userProfile/userProfile";
+
+import styles from "./MyAccount.module.css";
+
+export default function MyAccount() {
+  const userLogin = useSelector((state) => state.userLogin);
+  const [sections, setSection] = useState({
+    profile: true,
+    activity: false,
+  });
+
+  function handleSections(section) {
+    if (section === "profile") setSection({ profile: true, activity: false });
+    if (section === "activity") setSection({ profile: false, activity: true });
+  }
+
+  return (
+    <div className={styles.myAccount}>
+      <Nav />
+      <div className={styles.content}>
+        <SideBar handleSections={handleSections} />
+        {sections.profile ? <UserProfile /> : null}
+        {sections.activity ? <UserActivity /> : null}
+      </div>
+    </div>
+  );
 }

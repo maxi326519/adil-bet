@@ -1,0 +1,15 @@
+.cntTyC_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    width: 100vw;
+    height: 60vh;
+}
+
+.TyC_text{
+    max-width: 1200px;
+    margin: 50px;
+}

@@ -1,70 +1,51 @@
- const Stripe = require("stripe");
-const stripe = new Stripe(
-  "sk_test_51MJPEXA6SeeS9tTlg2Nyv3BaNRDd6PRV7PqDZzLRxaK5rozoKTuTbjRY4ezRuI53X4DTFHVvx91PFLrANqYytk5k00HCYuDS2N"
+const stripe = require("stripe")(
+  "sk_test_51MUWj9BawCLw8uloHWHJlaf4lkhrg0O2kyEA8n2ZFHBOBW7TaDR7gHBhRawsoaMOi8N3vZ4cfz1ox3ydH5jsDRs100zoJ0Ddl1"
 );
-const { User } = require("../../db.js");
-const nodemailer = require("nodemailer");
+const { User, Deposit } = require("../../db.js");
+const { sendMail } = require("../../modules/emails");
 
 require("dotenv").config();
 
 //const stripe = Stripe(process.env.STRIPE_KEY);
 //const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // true for 465, false for other ports
-  auth: {
-    user: "AdilBets2022@gmail.com", // generated ethereal user
-    pass: "wgbcndetyaocjvxo", // generated ethereal password
-  },
-}); 
+const postRecharge = async ({ payment_method, amount, userId, dataEmail }) => {
+  const clientSecret = await stripe.paymentIntents.create({
+    amount: amount * 100,
+    currency: "usd",
+    payment_method: payment_method,
+    confirmation_method: "manual",
+    confirm: true,
+    statement_descriptor: "recarga",
+  });
 
-const postRecharge = async (req, res) => {
-  const { id, amount, userId } = req.body;
-  console.log(id,amount, userId)
+  const deposits = await Deposit.create({
+    amount: amount,
+    userId: userId,
+  })
 
-  try {
-    const payment = await stripe.paymentIntents.create({
-      amount,
-      currency: "USD",
-      description: "BET",
-      payment_method: id,
-      confirm: true,
-    });
-    console.log("holi1")
-    await transporter.sendMail({
-      from: '"AdilBets2022" <AdilBets2022@gmail.com>', //Emisor
-      to: user.email, //Receptor
-      subject: "Mail Verification", //Asunto
-      html: `<b>You have made a bet ${amount}</b>`, //Texto del mail
-    });
+  // Actualiza el usuario
+  const user = await User.findOne({
+    where: { id: userId },
+  });
 
-    const user = await User.findOne({
-      where: { id: userId },
-      attributes: ["wallet"],
-    });
-    console.log(user, "holii2")
-    // Actualiza el usuario
+  await user.update(
+    {
+      wallet: user.wallet + Number(amount),
+    },
+    {
+      return: true,
+      plain: true,
+    }
+  );
 
-    const updatedUser = await user.update(
-      {
-        wallet: user.wallet + amount,
-      },
-      {
-        where: {
-          id: userId,
-        },
-        return: true,
-        plain: true,
-      }
-    );
+  sendMail(
+    dataEmail.email,
+    "¡Recarga exitosa!",
+    `<span>Se recargaron $${amount} a tu billetera</span>`
+  );
 
-    console.log(updatedUser);
-    return res.status(200).json({ message: "Successful Payment" });
-  } catch (error) {
-    return res.status(400).json({ message: error.raw.message });
-  } 
+  return user;
 };
 
 module.exports = { postRecharge };

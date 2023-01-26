@@ -3,11 +3,16 @@ import Footer from "../Footer/Footer";
 import Nav from "../Nav/Nav";
 import "./Landing.css";
 import ImageTeam from "../../Assets/Images/team.png";
-import ImageLanding from "../../Assets/Images/Imagen-landing.png";
-import ImageLanding2 from "../../Assets/Images/image-landing2.png";
-import ImageLanding3 from "../../Assets/Images/Image-Landing3.png";
+import ImageLanding from "../../Assets/Images/Imagen-landing.jpg";
+import ImageLanding2 from "../../Assets/Images/image-landing2.jpg";
+import ImageLanding3 from "../../Assets/Images/Image-Landing3.jpg";
+import Reviews from "./Reviews/Reviews";
+import ReviewForm from "./Reviews/ReviewForm";
+import { useSelector } from "react-redux";
 
 export default function Landing() {
+  const userData = useSelector((state) => state.userDates);
+
   return (
     <div>
       <Nav />
@@ -32,97 +37,61 @@ export default function Landing() {
           </div>
 
           <div className="pagination">
-            <label for="1" className="pagination-item">
+            <label htmlFor="1" className="pagination-item">
               <img src={ImageLanding} alt="Pagination-item1" />
             </label>
 
-            <label for="2" className="pagination-item">
+            <label htmlFor="2" className="pagination-item">
               <img src={ImageLanding2} alt="Pagination-item2" />
             </label>
 
-            <label for="3" className="pagination-item">
+            <label htmlFor="3" className="pagination-item">
               <img src={ImageLanding3} alt="Pagination-item3" />
             </label>
           </div>
         </div>
       </div>
       <div className="second-container">
-        <h1 className="text__second-container">¡BIENVENIDOS A ADILBET!</h1>
+        <h1 className="text__second-container">¡ BIENVENIDOS A ADILBET !</h1>
       </div>
-      <div>
+      <div className="cntpromoinfo">
         <div className="container-image-team">
           <img src={ImageTeam} alt="Team-landing" className="image-landing" />
-          <div className="container-promo">
-            <h3 className="title-promo-landing">¡Super Promo del año!</h3>
-            <ul className="list-promo-landing">
-              <li>Registrate GRATIS!</li>
-              <li>
-                Beneficios por ser <br /> primera vez!
-              </li>
-              <li>CASHBACK por primer recarga</li>
-              <li>Atencion 24hs</li>
-            </ul>
-            <a href="/singin">
-              <button className="promo-button">
-                <p>REGISTRATE AQUI!</p>
-              </button>
-            </a>
-          </div>
         </div>
-        <div className="container-clients-review">
-          <h3 className="title-clients">Clientes Satisfechos.</h3>
-          <div className="container-client">
-            <div className="container-card-client">
-              <div className="client-header">
-                <img
-                  src="https://www.soyusuario.ift.org.mx/styles/imagen/Acceso%20Nuevos%20Usuarios_Mesa%20de%20trabajo%201.png"
-                  alt="image-client"
-                  className="image-client"
-                />
-                <p className="name-client">Jordy Rodriguez</p>
-              </div>
-              <p>
-                He apostado en esta pagina y ha sido <br /> lo mejor que he
-                podido hacer!!!!!
-              </p>
-            </div>
-            <div className="container-card-client">
-              <div className="client-header">
-                <img
-                  src="https://www.soyusuario.ift.org.mx/styles/imagen/Acceso%20Nuevos%20Usuarios_Mesa%20de%20trabajo%201.png"
-                  alt="image-client"
-                  className="image-client"
-                />
-                <p className="name-client">Estela Amouranth</p>
-              </div>
-              <p>
-                Nunca habia recibido un pago tan bueno <br /> como cuando aposte
-                en esta pagina, increible.
-              </p>
-            </div>
-            <div className="container-card-client">
-              <div className="client-header">
-                <img
-                  src="https://www.soyusuario.ift.org.mx/styles/imagen/Acceso%20Nuevos%20Usuarios_Mesa%20de%20trabajo%201.png"
-                  alt="image-client"
-                  className="image-client"
-                />
-                <p className="name-client">Juan Salazar</p>
-              </div>
-              <p>
-                Definitivamente es magnifico tener <br /> la posibilidadde
-                apostar tan facil
-              </p>
-            </div>
+        <div className="container-promo">
+          <h3 className="title-promo-landing">¡ Super Promo del año !</h3>
+          <div className="cntpromo">
+            <p className="list-item">CASHBACK por primer recarga</p>
+            <p className="list-item">Atención 24 Hs</p>
+            <p className="list-item">Excelentes pagas</p>
+            <p className="list-item">
+              Esto, y mucho más en sección <br /> de Promociones
+            </p>
           </div>
+          <a href="/signin">
+            <button className="promo-button">
+              <p className="text-button">REGÍSTRATE AQUÍ</p>
+            </button>
+          </a>
+        </div>
+      </div>
+      <hr className="linea" />
+      <div className="cntreviews">
+        <div className="container-clients-review">
+          <h3 className="title-clients">Clientes Satisfechos</h3>
+          <Reviews />
         </div>
         <div>
           <h3 className="text-landing">
-            y asi como ellos, tu puedes ser parte de esta experiencia. <br />{" "}
-            Animate!
+            y así como ellos, tú puedes ser parte de esta experiencia <br />{" "}
+            ¡ Anímate !
           </h3>
         </div>
       </div>
+      <hr className="linea" />
+
+      <div className="createReview">{userData.id ? <ReviewForm /> : null}</div>
+
       <Footer />
     </div>
   );

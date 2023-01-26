@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&display=swap');
+
+.container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000a;
+}
+
+.cntbtnsend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cntInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.select {
+    background-color: rgb(209, 209, 209);
+    border: 0;
+    box-shadow: 0 4px 4px grey;
+}
+
+.input {
+    background-color: rgb(209, 209, 209);
+    border: 0;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.isActive {
+    display: flex;
+    position: fixed;
+}
+
+.window {
+    width: 500px;
+    height: 470px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+    background-color: white;
+    border: 10px solid #591411;
+}
+
+.closeContainer {
+    display: flex;
+    justify-content: right;
+    
+ 
+}
+
+.window button[type="submit"] {
+    margin-top: 15px;
+    width: 30%;
+}
+
+.spanError {
+    width: 100%;
+    text-align: center;
+    color: red;
+}
+
+.error {
+    outline: 2px solid red;
+}
+
+.btnsend {
+    background-color: rgb(209, 209, 209);
+    border: 0;
+    text-align: center;
+    box-shadow: 0 5px 5px grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btnclose {
+    background-color: rgb(209, 209, 209);
+    border: 0;
+    box-shadow: 0 2px 2px grey; 
+    border-radius: 25px;
+    transition: all 500ms ease;
+}
+
+.btnclose:hover {
+    transform: scale(1.50);
+    box-shadow: 0 4px 4px grey; 
+   
+}

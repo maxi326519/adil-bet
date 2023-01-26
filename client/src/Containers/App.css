@@ -40,3 +40,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* GENERALS STYLES */
+.btn-color{
+  border-color: #3a0e0b;
+  background-color: #3a0e0b !important;
+}
+
+.btn-color:hover{
+  border-color: white;
+}
+
+.btn-color img{
+  height: 23px;
+  line-height: 23px;
+  filter: invert(100%);
+}
+
+.btn-color a{
+  text-decoration: none;
+}

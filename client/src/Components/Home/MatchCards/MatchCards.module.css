@@ -1,12 +1,39 @@
 .list{
+    flex-grow: 1;
     display: grid;
+    position: relative;
     grid-template-columns: 1fr 1fr;
     padding: 0 20px;
     margin: auto;
-    width: max-content;
+    width: 100%;
+    min-height: 80vh;
 }
 
 .content{
     flex-grow: 1;
     margin: 30px;
+}
+
+@media screen and (max-width: 1600px){
+    .list{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    .list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 0;
+        margin: auto;
+        width: max-content;
+    }
+    
+    .content{
+        flex-grow: 1;
+        margin: 30px;
+    }
+    
 }

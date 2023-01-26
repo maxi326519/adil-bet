@@ -1,0 +1,35 @@
+import React from "react";
+import './CardCart.css'
+import { useDispatch, useSelector } from "react-redux";
+import { deleteBetToCart } from "../../../redux/actions/DELETE/index.js";
+
+export default function CardCart({ id, betTo, amount }) {
+  const dispatch = useDispatch();
+  const matches = useSelector((state) => state.matches2);
+  const match = matches.filter((el) => el.id == id );
+  const handleOnDelete = () => {
+    const id = match[0].id
+    const team = betTo
+    const amountbet = amount
+    dispatch(deleteBetToCart({id, team, amountbet}));
+  };
+
+  return (
+    <div className="container-card-team-bet">
+      <div className="container-name-teams">
+        <div className="container-text-nameteams">
+          <span className="team1-text">{match[0]?.homeTeam} vs</span>
+          <span className="team2-text">{match[0]?.awayTeam}</span>
+        </div>
+        <span className="date-bet">{match[0]?.date}</span>
+        <span className="betto">Apuesta a: {betTo?betTo:null}</span>
+        <span className="quantity-bet">Cantidad: {amount?amount:null}</span>
+      </div>
+      <div className="container-button-delete">
+        <button className="button-delete" onClick={handleOnDelete}>
+          Eliminar
+        </button>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,900&display=swap");
+
+.formDiv {
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+
+.inputReview {
+  border: 1px solid rgb(209, 209, 209);
+  box-shadow: 0 10px 10px gray;
+  width: 700px;
+  height: 200px;
+  padding: 40px;
+  transition: all 500ms ease;
+}
+
+.inputReview:focus {
+  transform: scale(1.05);
+  outline: 1px solid rgb(187, 187, 187);
+  box-shadow: 0 10px 10px gray;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.buttonReview {
+  margin: 10px;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.titleform {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 40px;
+}
+
+.textform {
+  font-size: 20px;
+}
+
+.puntuation {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 10px 20px;
+  margin: 20px;
+}
+
+.reviewContainer {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+    .formDiv {
+      font-family: "Fira Sans Condensed", sans-serif;
+    }
+  
+    .inputReview {
+      width: 550px;
+      height: 150px;
+      padding: 20px;
+    }
+  
+    .form {
+      margin: 20px;
+    }
+  
+    .buttonReview {
+      margin: 20px;
+      padding: 10px 30px;
+      border-radius: 10px;
+    }
+  
+    .titleform {
+      font-size: 35px;
+    }
+  
+    .textform {
+      font-size: 20px;
+    }
+  
+    .puntuation {
+      padding: 5px 10px;
+    }
+  }
+
+@media (max-width: 800px) {
+    .formDiv {
+      font-family: "Fira Sans Condensed", sans-serif;
+    }
+  
+    .inputReview {
+      width: 400px;
+      height: 150px;
+      padding: 20px;
+    }
+  
+    .form {
+      margin: 30px;
+    }
+  
+    .buttonReview {
+      margin: 20px;
+      padding: 10px 30px;
+      border-radius: 10px;
+    }
+  
+    .titleform {
+      font-size: 30px;
+    }
+  
+    .textform {
+      font-size: 15px;
+    }
+  
+    .puntuation {
+      padding: 10px 10px;
+    }
+  }
+
+@media (max-width: 500px) {
+  .formDiv {
+    font-family: "Fira Sans Condensed", sans-serif;
+  }
+
+  .inputReview {
+    width: 350px;
+    height: 80px;
+    padding: 20px;
+  }
+
+  .form {
+    margin: 20px;
+  }
+
+  .buttonReview {
+    margin: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+  }
+
+  .titleform {
+    font-size: 30px;
+  }
+
+  .textform {
+    font-size: 15px;
+  }
+
+  .puntuation {
+    padding: 5px 10px;
+  }
+}

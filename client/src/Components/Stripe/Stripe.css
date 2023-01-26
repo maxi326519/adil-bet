@@ -1,0 +1,17 @@
+.background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://images4.alphacoders.com/102/102944.jpg);
+    background-size: cover;
+}
+
+.card-body{
+    max-width: 400px;
+}
+
+.btn-success {
+    margin-top: 25px;
+}

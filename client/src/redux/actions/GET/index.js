@@ -7,7 +7,13 @@ import {
   SET_PAGE,
   MATCH_DETAILS,
   MATCH_FILTERS,
-  ORDER_BY_NAME
+  ORDER_BY_NAME,
+  GET_REVIEWS,
+  GET_REVIEW_BY_ID,
+  GET_USER_INFO,
+  GET_USER_ACTIVITY,
+  GET_ALL_WITHDRAWS,
+  GET_MATCHS2
 } from "../types";
 
 export function searchTeam(name) {
@@ -41,12 +47,11 @@ export function handleSetPage(number) {
 }
 
 export function getMatchDetails(id) {
-  console.log(id);
   return async function (dispatch) {
     try {
       const result = await axios.get(`/details/${id}`);
       return dispatch({
-        type: MATCH_DETAILS,
+        type: 'MATCH_DETAILS',
         payload: result.data,
       });
     } catch (error) {
@@ -57,16 +62,32 @@ export function getMatchDetails(id) {
 
 export function getFilters() {
   return async (dispatch) => {
-    try{
+    try {
       const response = await axios.get(`/getFilters`);
       dispatch({
         type: MATCH_FILTERS,
-        payload: response.data
+        payload: response.data,
       });
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
   };
+}
+
+export function getMatchs2 (){
+  return async(dispatch)=>{
+    try{
+      const response = await axios.get(
+        `/matchs?league=&teams=&country=`)
+        dispatch({
+          type: GET_MATCHS2,
+          payload: response.data,
+        });
+
+    }catch(err){
+      console.log(err)
+    }
+  }
 }
 
 export function getMatchs(filters) {
@@ -89,21 +110,142 @@ export function getMatchs(filters) {
   };
 }
 
-export function orderByName(payload){
-  return{
-      type: ORDER_BY_NAME,
-      payload
-  }
+export function orderByName(payload) {
+  return {
+    type: ORDER_BY_NAME,
+    payload,
+  };
 }
 
 export function getUserActivity() {
   console.log("userActivity");
 }
 
-export function getUserInfo() {
-  console.log("userInfo");
+export function getUserInfo(id) {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/user/${id}`);
+      dispatch({
+        type: GET_USER_INFO,
+        payload: response.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
 
-export function getUserOrders() {
-  console.log("userOrders");
+export function getActivity({ id, page, activity }) {
+  return async function (dispatch) {
+    try {
+      const result = await axios.get(
+        `/activity/${id}?activity=${activity}&&page=${page}`
+      );
+
+      return dispatch({
+        type: "GET_USER_ACTIVITY",
+        payload: result.data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
+
+export function getAllReviews() {
+  return async (dispatch) => {
+    try{
+      const response = await axios.get(`/allreviews`);
+      dispatch({
+        type: GET_REVIEWS,
+        payload: response.data
+      });
+    }catch(err){
+      console.log(err);
+    }
+  };
+}
+
+export function getReviewById(id){
+  return async (dispatch) => {
+    try{
+      const response = await axios.get(`/reviews/${id}`);
+      dispatch({
+        type: GET_REVIEW_BY_ID,
+        payload: response.data
+      })
+    }catch(err){
+      console.log(err)
+    }
+  }
+}
+
+export function getUsers() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/alluser`);
+      dispatch({
+        type: 'GET_ALL_USERS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getBets() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/allBets`);
+      dispatch({
+        type: 'GET_ALL_BETS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getDeposits() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/allDeposits`);
+      dispatch({
+        type: 'GET_ALL_DEPOSITS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getReviews() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/allreviews`);
+      dispatch({
+        type: 'GET_ALL_REVIEWS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getWithdras(){
+  return async (dispatch)=>{
+    try{
+      const response = await axios.get(`/allWithdraws`)
+      dispatch({
+        type: GET_ALL_WITHDRAWS,
+        payload: response.data
+      })
+    }catch(error){
+      console.log(error.message)
+    }
+  }
 }

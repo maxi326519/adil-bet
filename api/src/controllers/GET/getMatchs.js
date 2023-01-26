@@ -1,4 +1,4 @@
-const { Match } = require('../../db.js');
+const { Match, Bet } = require('../../db.js');
 
 async function getMatchs(league, teams, country){
     let attributes = {}
@@ -10,7 +10,14 @@ async function getMatchs(league, teams, country){
       if(country) attributes['country'] = country;
       
     // Find matchs
-    let allMatchs = await Match.findAll({ where: attributes })
+    let allMatchs = await Match.findAll({ where: attributes,
+        include: {
+            model: Bet,
+            attributes: [
+              'amount',
+            ],
+          }, 
+    })
 
     if(!allMatchs) throw new Error('No existen partidos con esos filtros');
 

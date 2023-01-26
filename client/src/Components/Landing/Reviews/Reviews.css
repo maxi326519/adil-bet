@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@1,200&family=Fira+Sans:wght@700&display=swap");
+
+.reviewContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.divReview {
+  border: 1px solid rgb(233, 233, 233);
+  max-width: 300px;
+  margin: 30px;
+  padding: 50px;
+  max-height: 600px;
+  border-radius: 20px;
+  background-color: rgb(236, 236, 236);
+  box-shadow: 0 10px 10px rgb(201, 201, 201);
+  transition: all 500ms ease;
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+
+.divReview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 15px rgb(180, 180, 180);
+}
+
+.userName {
+  margin: 20px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.reviewData {
+  font-size: 20px;
+  margin: 0;
+}
+
+.cnt-puntuation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star-logo {
+  width: 20px;
+  margin: 10px;
+}
+
+@media (max-width: 800px) {
+  .divReview {
+    margin: 20px;
+    width: 250px;
+    height: 100%;
+  }
+
+  .userName {
+    margin: 0;
+    font-size: 25px;
+  }
+
+  .reviewData {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .puntuation{
+    font-size: 19px;
+    margin: 5px;
+  }
+
+  .star-logo {
+    width: 15px;
+    margin: 0 5px;
+  }
+  }
+
+@media (max-width: 400px) {
+  .divReview {
+    margin: 20px;
+    width: 250px;
+    height: 100%;
+  }
+
+  .userName {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .reviewData {
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .puntuation{
+    font-size: 15px;
+    margin: 5px;
+  }
+
+  .star-logo {
+    width: 15px;
+    margin: 0 5px;
+  }
+}
