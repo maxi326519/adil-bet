@@ -7,8 +7,6 @@ export default function CardCart({ id, betTo, amount }) {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches);
   const match = matches.filter((el) => el.id == id );
-  console.log(match);
-
   const handleOnDelete = () => {
     const id = match[0].id
     const team = betTo
@@ -20,12 +18,12 @@ export default function CardCart({ id, betTo, amount }) {
     <div className="container-card-team-bet">
       <div className="container-name-teams">
         <div className="container-text-nameteams">
-          <span className="team1-text">{match[0].homeTeam} vs</span>
-          <span className="team2-text">{match[0].awayTeam}</span>
+          <span className="team1-text">{match[0]?.homeTeam} vs</span>
+          <span className="team2-text">{match[0]?.awayTeam}</span>
         </div>
-        <span className="date-bet">{match[0].date}</span>
-        <span className="betto">Apuesta a: {betTo}</span>
-        <span className="quantity-bet">Cantidad: {amount}</span>
+        <span className="date-bet">{match[0]?.date}</span>
+        <span className="betto">Apuesta a: {betTo?betTo:null}</span>
+        <span className="quantity-bet">Cantidad: {amount?amount:null}</span>
       </div>
       <div className="container-button-delete">
         <button className="button-delete" onClick={handleOnDelete}>

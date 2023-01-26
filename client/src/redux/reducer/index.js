@@ -149,9 +149,10 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case 'UPDATE_REDUX':{
+      console.log('redux' ,action.payload)
       return{
         ...state,
-        userlogin: true
+        cart: action.payload
       };
     }
     case ORDER_BY_NAME: {
@@ -179,6 +180,12 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "ADD_BET_TO_CART": {
+      // const itemSave = JSON.parse(window.localStorage.getItem('cart'))
+      const itemSave = action.payload
+      const kk = {...itemSave}
+      const cc = state.cart
+      const save = state.cart.length === 0 ? {...kk} : { ...cc, kk }
+      window.localStorage.setItem('cart', JSON.stringify(save))
       return {
         ...state,
         cart: [...state.cart, action.payload],
@@ -187,7 +194,8 @@ export const Reducer = (state = initialState, action) => {
     case "DELETE_BET_TO_CART": {
       const matches = state.cart.filter(
         (match) => Number(match.idMatch) !== action.payload.id || match.amount !== action.payload.amount || match.betTo !== action.payload.team)
-      return {
+        window.localStorage.setItem('cart', JSON.stringify(matches))
+        return {
         ...state,
         cart: matches,
       };

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   postLoginUserAuth0,
+  updateRedux,
 } from "../redux/actions/POST/index.js";
 
 // Componentes
@@ -41,6 +42,24 @@ function App() {
 
   useEffect(() => {
     const dataUser = JSON.parse(window.localStorage.getItem("user"));
+    const cart = window.localStorage.getItem("cart")
+      ? JSON.parse(window.localStorage.getItem("cart"))
+      : null;
+
+    //----------------------------------------
+    
+    if (!(cart === null)) {
+      if (cart.amount) {
+        dispatch(updateRedux([cart]));
+      } else {
+        const savecart = [];
+        Object.entries(cart).map(e => {
+          savecart.push(e[1])
+        })
+        console.log(savecart)
+        dispatch(updateRedux(savecart));
+      }
+    }
     !dataUser
       ? dispatch(postLoginUserAuth0({ email: user?.email, name: user?.name }))
       : dispatch(
@@ -48,9 +67,9 @@ function App() {
         );
   }, [user]);
 
-  useEffect(()=>{
-    if(error !== "") toast(error);
-  },[error]);
+  useEffect(() => {
+    if (error !== "") toast(error);
+  }, [error]);
 
   return (
     <div className="App">
