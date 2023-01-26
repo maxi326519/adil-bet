@@ -46,6 +46,7 @@ export default function UserDashboard() {
     const id = cellValues.row.id;
     const amount = cellValues.row.amount;
     dispatch(updateDeposit({ id, amount }));
+    window.location.reload()
   };
 
   const handleCellClick = (param, event) => {

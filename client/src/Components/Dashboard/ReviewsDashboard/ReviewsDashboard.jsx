@@ -59,6 +59,7 @@ export default function ReviewsDashboard() {
     const id = cellValues.row.id;
     const status = cellValues.row.status;
     dispatch(reviewActive({ id, status }));
+    window.location.reload()
   };
 
   const handleCellClick = (param, event) => {

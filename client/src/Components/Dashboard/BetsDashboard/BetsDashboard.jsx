@@ -90,11 +90,13 @@ export default function BetsDashboard() {
     const id = cellValues.row.id;
     const status = cellValues.row.status;
     dispatch(betStatus({ id, status }));
+    window.location.reload()
   };
   const handleClickMult = (event, cellValues) => {
     const id = cellValues.row.id;
     const multiplier = cellValues.row.multiplier;
     dispatch(betMult({ id, multiplier }));
+    window.location.reload()
   };
   const handleClickAmount = (event, cellValues) => {
     const id = cellValues.row.id;
