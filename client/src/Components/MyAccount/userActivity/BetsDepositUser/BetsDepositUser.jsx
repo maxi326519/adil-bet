@@ -45,6 +45,7 @@ export default function BetsDepositUser() {
                          <div>
                              <p>Cantidad de retiro: {e.amount}</p>
                              <p>Fecha: {e.createdAt.slice(0,10)}</p>
+                             <p>Estado de la orden: {e.status}</p>
                          </div>
                      )
                  })}

@@ -26,7 +26,6 @@ export default function UserActivity() {
   const handleOnClick = (e) => {
     dispatch(getActivity(data));
   };
-  console.log(data)
 
   return (
     <>
