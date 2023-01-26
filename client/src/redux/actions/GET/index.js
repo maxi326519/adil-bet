@@ -124,7 +124,7 @@ export function getUserActivity() {
 export function getUserInfo(id) {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/user/${id}`);
+      const response = await axios.get(`/user/${id}`);
       dispatch({
         type: GET_USER_INFO,
         payload: response.data,
@@ -139,7 +139,7 @@ export function getActivity({ id, page, activity }) {
   return async function (dispatch) {
     try {
       const result = await axios.get(
-        `http://localhost:3001/activity/${id}?activity=${activity}&&page=${page}`
+        `/activity/${id}?activity=${activity}&&page=${page}`
       );
 
       return dispatch({
@@ -183,7 +183,7 @@ export function getReviewById(id){
 export function getUsers() {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/alluser`);
+      const response = await axios.get(`/alluser`);
       dispatch({
         type: 'GET_ALL_USERS',
         payload: response.data,
@@ -197,7 +197,7 @@ export function getUsers() {
 export function getBets() {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/allBets`);
+      const response = await axios.get(`/allBets`);
       dispatch({
         type: 'GET_ALL_BETS',
         payload: response.data,
@@ -211,7 +211,7 @@ export function getBets() {
 export function getDeposits() {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/allDeposits`);
+      const response = await axios.get(`/allDeposits`);
       dispatch({
         type: 'GET_ALL_DEPOSITS',
         payload: response.data,
@@ -225,7 +225,7 @@ export function getDeposits() {
 export function getReviews() {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/allreviews`);
+      const response = await axios.get(`/allreviews`);
       dispatch({
         type: 'GET_ALL_REVIEWS',
         payload: response.data,
