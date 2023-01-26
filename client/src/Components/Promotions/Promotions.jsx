@@ -63,7 +63,7 @@ const PromotionsCar = () => {
     return (
       <CarouselItem onExiting={onExiting} onExited={onExited} key={item.src}>
         <div className="carousel__img-container">
-          <img className="carousel-img" src={item.src} alt={item.altText} />
+          <img className="carousel-img" src={item.src} alt={item.altText} width="100%" height="650"/>
         </div>
         <CarouselCaption
           captionText={item.caption}
