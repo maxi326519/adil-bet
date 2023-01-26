@@ -7,7 +7,7 @@ import './NavDashboard.css'
 export default function NavDashboard() {
 
   return (
-    <div className="header">
+    <div className="header-dash">
       <div className="contlogo">
         <Link to="/">
           <img className="logodash" src={Logo} alt="logo_Adilbet" />
