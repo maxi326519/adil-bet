@@ -8,7 +8,7 @@ export default function BetsDepositUser() {
     const matches = useSelector(state => state.matches)
 
 
-    if (userActivities?.Bets?.userAllBets?.length > 0 && userActivities?.Deposit?.userAllDeposit?.length > 0) {
+    if (userActivities?.Bets?.userAllBets?.length > 0 && userActivities?.Deposit?.userAllDeposit?.length > 0 ) {
         return (
             <div>
                 <h3>Historial de apuestas</h3>
@@ -35,6 +35,15 @@ export default function BetsDepositUser() {
                      return (
                          <div>
                              <p>Cantidad recargada: {e.amount}</p>
+                             <p>Fecha: {e.createdAt.slice(0,10)}</p>
+                         </div>
+                     )
+                 })}
+                 <h3>Historial de retiros</h3>
+                 {userActivities.Withdraw.userAllWithdraw.map(e => {
+                     return (
+                         <div>
+                             <p>Cantidad de retiro: {e.amount}</p>
                              <p>Fecha: {e.createdAt.slice(0,10)}</p>
                          </div>
                      )
@@ -73,6 +82,21 @@ export default function BetsDepositUser() {
             </div>
         )
     } 
+    if (userActivities?.Withdraw?.userAllWithdraw?.length > 0 && !userActivities.Bets ) {
+        return (
+            <div>
+                <h3>Historial de retiros</h3>
+                 {userActivities.Withdraw.userAllWithdraw.map(e => {
+                     return (
+                         <div>
+                             <p>Cantidad de retiro: {e.amount}</p>
+                             <p>Fecha: {e.createdAt.slice(0,10)}</p>
+                         </div>
+                     )
+                 })}
+            </div>
+        )
+    }
     else {
         return (
             <div>

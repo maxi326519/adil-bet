@@ -3,15 +3,19 @@ import { useDispatch } from "react-redux";
 import { getActivity } from "../../../redux/actions/GET/index";
 
 import BetsDepositUser from './BetsDepositUser/BetsDepositUser';
+import { useSelector } from "react-redux";
 
 import styles from "./userActivity.module.css";
 
 export default function UserActivity() {
+
+  const userData = useSelector(state=>state.userDates)
   const initialState = {
-    id: 1,
+    id: userData?.id,
     page: 1,
     activity: "bets",
   };
+  console.log(initialState)
   const [data, setData] = useState(initialState);
   const dispatch = useDispatch();
 
@@ -22,6 +26,7 @@ export default function UserActivity() {
   const handleOnClick = (e) => {
     dispatch(getActivity(data));
   };
+  console.log(data)
 
   return (
     <>
@@ -30,7 +35,7 @@ export default function UserActivity() {
         <div className="history">
           <div >
             <select className="select" onChange={(e) => handleOnSelect(e)}>
-              <option value="bet">apuestas</option>
+              <option value="bets">apuestas</option>
               <option value="deposit">depósitos</option>
               <option value="withdraw">retiros</option>
               <option value="all">todas</option>
