@@ -36,7 +36,7 @@ export function BarChartDeposits() {
 
   if(depositsData.length >0){
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div className="char">
       <ResponsiveBar
         data={depositsData}
         keys={["amount"]}

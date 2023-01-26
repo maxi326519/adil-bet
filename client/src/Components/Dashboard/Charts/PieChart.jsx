@@ -32,7 +32,7 @@ export function PieChart() {
 
   if(usersData.length >0){
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div className="char">
       <ResponsivePie
         data={usersData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}

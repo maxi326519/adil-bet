@@ -72,7 +72,7 @@ function App() {
   }, [user]);
 
   useEffect(()=>{
-    toast(error);
+    if(error !== '') toast(error);
   },[error]);
 
   return (
