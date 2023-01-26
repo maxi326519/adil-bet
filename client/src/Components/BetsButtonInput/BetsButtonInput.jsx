@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./BetsButtonInput.module.css";
 import { addBet } from "../../redux/actions/POST";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function BetsButtonInput({ id }) {
   const userDates = useSelector((state) => state.userDates);
@@ -38,6 +39,13 @@ export default function BetsButtonInput({ id }) {
 
   const handleAddBet = () => {
     dispatch(addBet(bet));
+    swal({
+      title: "APUESTA EXITOSA",
+      text: "MUCHAS GRACIAS POR SU APUESTA",
+      button: "ACEPTAR",
+    }).then(() => {
+      window.location.href="/home"
+    });
   };
 
   if (Object.entries(userDates).length > 0) {

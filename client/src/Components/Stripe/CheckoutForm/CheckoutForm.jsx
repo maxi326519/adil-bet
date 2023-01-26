@@ -147,9 +147,9 @@ export default function CheckoutForm({ setLoading }) {
           </p>
         </div>
       </div>
-      <div>
-        <Link to="/home">
-          <button>
+      <div className="cntbuttonhome">
+        <Link to="/home" className="link">
+          <button className="button-gohome">
             <p>Vuelve al Inicio</p>
           </button>
         </Link>
