@@ -3,6 +3,8 @@ import { ResponsivePie } from '@nivo/pie'
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from "../../../redux/actions/GET/index.js"
 
+import style from './BarChart.module.css';
+
 export function PieChart() {
 
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ export function PieChart() {
 
   if(usersData.length >0){
   return (
-    <div className="char">
+    <div className={style.char}>
       <ResponsivePie
         data={usersData}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
