@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { ResponsiveBar } from '@nivo/bar'
 import { useDispatch, useSelector } from 'react-redux';
 import { getBets } from "../../../redux/actions/GET/index.js"
-import styles from './BarChart.module.css'
+
+import style from './BarChart.module.css';
 
 export function BarChartBets() {
 
@@ -37,9 +38,9 @@ export function BarChartBets() {
 
   if(bets.length >0){
   return (
-    <div className="char">
+    <div  className={style.char}>
       <ResponsiveBar
-        classname={styles.table}
+        classname={style.table}
         data={betsData}
         keys={["amount"]}
         indexBy="userId"

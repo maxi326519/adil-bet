@@ -9,7 +9,6 @@
 }
 
 .cnttables{
-  flex-grow: 1;
   displaY: grid;
   grid-gap: 50px;
   width: 100%;
