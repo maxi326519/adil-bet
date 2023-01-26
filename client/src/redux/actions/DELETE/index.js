@@ -20,7 +20,6 @@ export function deleteBetToCart({id, team, amountbet}) {
     team,
     amount: amountbet
   }
-  console.log(payload1)
     return ({
         type: 'DELETE_BET_TO_CART',
         payload: payload1,

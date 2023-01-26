@@ -84,13 +84,14 @@ export default function UserDashboard() {
     const userId = cellValues.row.id;
     const isActive = cellValues.row.isActive;
     dispatch(userActive({ userId, isActive }));
+    window.location.reload()
   };
   const handleClickAdmin = (event, cellValues) => {
     console.log(cellValues.row);
     const userId = cellValues.row.id;
     const isAdmin = cellValues.row.isAdmin;
     dispatch(userAdmin({ userId, isAdmin }));
-    // navigate("/dashboard/users")
+    window.location.reload()
   };
   const handleCellClick = (param, event) => {
     event.stopPropagation();

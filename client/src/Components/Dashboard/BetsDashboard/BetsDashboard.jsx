@@ -70,7 +70,6 @@ export default function BetsDashboard() {
               variant="contained"
               color="primary"
               onClick={(event) => {
-                console.log(cellValues);
                 handleClickMult(event, cellValues);
                 handleClickAmount(event, cellValues);
               }}
@@ -86,15 +85,16 @@ export default function BetsDashboard() {
   const dispatch = useDispatch();
 
   const handleClick = (event, cellValues) => {
-    console.log(cellValues.row);
     const id = cellValues.row.id;
     const status = cellValues.row.status;
     dispatch(betStatus({ id, status }));
+    window.location.reload()
   };
   const handleClickMult = (event, cellValues) => {
     const id = cellValues.row.id;
     const multiplier = cellValues.row.multiplier;
     dispatch(betMult({ id, multiplier }));
+    window.location.reload()
   };
   const handleClickAmount = (event, cellValues) => {
     const id = cellValues.row.id;

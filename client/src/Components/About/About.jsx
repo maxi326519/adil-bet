@@ -31,8 +31,8 @@ const teamMembers = [
   },
   {
     name: "Manuel Villalobos",
-    image: require("../../Assets/Images/avatar-perfil-png.png"),
-    lema: "",
+    image: require("../../Assets/Images/Image-manu.jpeg"),
+    lema: "A veces para aprender hace falta cuestionar lo que ya sabes",
     ocupation: "Desarrollador Web FullStack",
     linkedin: "https://www.linkedin.com/in/manuel-matias-villalobos-ordo%C3%B1ez-983086227/",
     github: "https://github.com/manuord",

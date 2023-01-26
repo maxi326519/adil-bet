@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   postLoginUserAuth0,
+  updateRedux,
 } from "../redux/actions/POST/index.js";
 
 // Componentes
@@ -33,6 +34,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "./App.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { getMatchs2 } from "../redux/actions/GET/index.js";
 
 function App() {
   const error = useSelector((state) => state.error);
@@ -41,6 +43,27 @@ function App() {
 
   useEffect(() => {
     const dataUser = JSON.parse(window.localStorage.getItem("user"));
+    const cart = window.localStorage.getItem("cart")
+      ? JSON.parse(window.localStorage.getItem("cart"))
+      : null;
+
+    //----------------------------------------
+
+    dispatch(getMatchs2())
+
+    //----------------------------------------
+    
+    if (!(cart === null)) {
+      if (cart.amount) {
+        dispatch(updateRedux([cart]));
+      } else {
+        const savecart = [];
+        Object.entries(cart).map(e => {
+          savecart.push(e[1])
+        })
+        dispatch(updateRedux(savecart));
+      }
+    }
     !dataUser
       ? dispatch(postLoginUserAuth0({ email: user?.email, name: user?.name }))
       : dispatch(
@@ -49,7 +72,7 @@ function App() {
   }, [user]);
 
   useEffect(()=>{
-    toast(error);
+    if(error !== '') toast(error);
   },[error]);
 
   return (

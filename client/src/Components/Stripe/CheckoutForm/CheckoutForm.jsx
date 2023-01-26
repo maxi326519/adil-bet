@@ -6,6 +6,7 @@ import swal from "sweetalert";
 import cards from "../../../Assets/Images/Cardsstripe.png";
 
 import "./CheckoutForm.css";
+import { Link } from "react-router-dom";
 
 export default function CheckoutForm({ setLoading }) {
   const [amount, setAmount] = useState(0);
@@ -18,7 +19,6 @@ export default function CheckoutForm({ setLoading }) {
   const handleAxios = async (e) => {
     try {
       const dataCard =  elementsUse.getElement(CardElement)
-      console.log(dataCard)
       // Creamos el metodo de pago
       const { paymentMethod } = await stripe.createPaymentMethod({
         type: "card",
@@ -157,6 +157,13 @@ export default function CheckoutForm({ setLoading }) {
             informacion estará encriptada.
           </p>
         </div>
+      </div>
+      <div className="cntbuttonhome">
+        <Link to="/home" className="link">
+          <button className="button-gohome">
+            <p>Vuelve al Inicio</p>
+          </button>
+        </Link>
       </div>
     </div>
   );

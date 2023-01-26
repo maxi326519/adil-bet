@@ -17,6 +17,7 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const GET_REVIEWS = 'GET_REVIEWS';
 export const GET_REVIEW_BY_ID = 'GET_REVIEW_BY_ID';
 export const GET_ALL_WITHDRAWS = "GET_ALL_WITHDRAWS";
+export const GET_MATCHS2 = "GET_MATCHS2" 
 
 // PATCH
 export const UPDATE_MATCH = "UPDATE_MATCH";

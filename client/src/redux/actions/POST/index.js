@@ -9,7 +9,6 @@ export function addBet(bet) {
       idUser: bet.idUser,
       idMatch: bet.idMatch,
     };
-    console.log(payload);
     return {
       type: "ADD_BET_TO_CART",
       payload,
@@ -74,7 +73,6 @@ export function postLoginUser(payload) {
   return async function (dispatch) {
     try {
       const result = await axios.post(`/login`, payload);
-      console.log(result.data);
       return dispatch({
         type: "LOGIN_USER",
         payload: result.data,
@@ -103,11 +101,9 @@ export function postLoginUserAuth0(payload) {
 }
 
 export function createBetDB(payload) {
-  console.log(payload);
   return async function (dispatch) {
     try {
       const result = await axios.post(`/order/bet`, payload);
-      console.log(result.data);
       return dispatch({
         type: "ADD_BET_DB",
         payload: result.data,
@@ -119,16 +115,13 @@ export function createBetDB(payload) {
   };
 }
 export function createOrder({ userId, total }) {
-  console.log(userId, total);
   const payload = {
     amount: total,
     idUser: userId,
   };
-  console.log(payload);
   return async function (dispatch) {
     try {
       const result = await axios.post(`/order`, payload);
-      console.log(result.data);
       return dispatch({
         type: "CREATE_ORDER",
         payload: result.data,

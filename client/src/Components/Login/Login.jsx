@@ -21,7 +21,6 @@ const Login = () => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    console.log(login);
     dispatch(postLoginUser(login));
     setLogin(INITIAL_STATE);
     return navigate("/home");

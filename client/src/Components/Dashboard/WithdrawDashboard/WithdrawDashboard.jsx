@@ -57,7 +57,6 @@ export default function WithdrawDashboard() {
   const dispatch = useDispatch();
 
   const handleClick = (event, cellValues) => {
-    console.log(cellValues.row);
     const id = cellValues.row.id;
     const status = cellValues.row.status;
     dispatch(updateWithdraw({ id, status }));

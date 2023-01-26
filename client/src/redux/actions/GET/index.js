@@ -13,6 +13,7 @@ import {
   GET_USER_INFO,
   GET_USER_ACTIVITY,
   GET_ALL_WITHDRAWS,
+  GET_MATCHS2
 } from "../types";
 
 export function searchTeam(name) {
@@ -73,6 +74,22 @@ export function getFilters() {
   };
 }
 
+export function getMatchs2 (){
+  return async(dispatch)=>{
+    try{
+      const response = await axios.get(
+        `/matchs?league=&teams=&country=`)
+        dispatch({
+          type: GET_MATCHS2,
+          payload: response.data,
+        });
+
+    }catch(err){
+      console.log(err)
+    }
+  }
+}
+
 export function getMatchs(filters) {
   return async (dispatch) => {
     try {
@@ -108,7 +125,6 @@ export function getUserInfo(id) {
   return async (dispatch) => {
     try {
       const response = await axios.get(`http://localhost:3001/user/${id}`);
-      console.log(response, "actionn");
       dispatch({
         type: GET_USER_INFO,
         payload: response.data,
@@ -120,7 +136,6 @@ export function getUserInfo(id) {
 }
 
 export function getActivity({ id, page, activity }) {
-  console.log(id);
   return async function (dispatch) {
     try {
       const result = await axios.get(
@@ -145,7 +160,6 @@ export function getAllReviews() {
         type: GET_REVIEWS,
         payload: response.data
       });
-      // console.log(response.data)
     }catch(err){
       console.log(err);
     }

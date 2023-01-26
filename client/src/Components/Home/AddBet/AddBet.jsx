@@ -16,7 +16,6 @@ export default function AddBet({ window, handleWindow, match }) {
     function handleSubmit(e){
         e.preventDefault();
 
-        console.log(match);
 
         if(selectedOption){
             if(amount){

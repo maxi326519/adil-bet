@@ -25,7 +25,6 @@ export default function UserProfile() {
   const user = useSelector((state) => state.userDates);
 
   useEffect(() => {
-    console.log(user);
     if (user) {
       setUserData({
         name: user.name,
@@ -41,13 +40,12 @@ export default function UserProfile() {
     if (e.target.name === "email") {
       const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
       if (!emailRegex.test(e.target.value)) {
-        setEmailError("Debes ingresar un correo válido");
-        console.log();
+        setEmailError("Debes ingresar un correo válido");//message ok
       } else {
         setEmailError("");
       }
     }
-    if (e.target.name === "phone") {
+    else if (e.target.name === "phone") {
       const phoneRegex = /^[+]{0,1}[0-9]{0,}$/;
       if (!phoneRegex.test(e.target.value)) {
         setPhoneError("Debes ingresar un número de teléfono válido");
@@ -154,12 +152,12 @@ export default function UserProfile() {
 
           {/* TELEFONO */}
           <div className="form-group">
-            <label for="exampleInputEmail1">Telefono</label>
+            <label for="exampleInputEmail1">Teléfono</label>
             <input
               type="tel"
               name="phone"
               className="form-control"
-              pattern="[+]{0,1}[0-9]{0,}"
+              pattern="[+]{0,1}[0-9]{0,}$"
               value={userData.phone}
               placeholder={userData.phone}
               onChange={(e) => handleChange(e)}

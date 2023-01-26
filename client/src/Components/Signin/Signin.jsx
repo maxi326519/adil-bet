@@ -60,7 +60,6 @@ const CreateUserForm = () => {
 
     if (name === "confirm_password") {
       if (value.length >= 8 && value !== register.password) {
-        console.log(value, register.password);
         setValidateRegister({
           ...validateRegister,
           confirm: false,
