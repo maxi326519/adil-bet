@@ -31,9 +31,10 @@ export default function UserActivity() {
     <>
       <div className={ styles.activity }>
       <h3>Historial</h3>
-        <div className="history">
+      <p className={styles.text}>Mira tu informacion</p>
+        <div className={styles.history}>
           <div >
-            <select className="select" onChange={(e) => handleOnSelect(e)}>
+            <select className={styles.select} onChange={(e) => handleOnSelect(e)}>
               <option value="bets">apuestas</option>
               <option value="deposit">depósitos</option>
               <option value="withdraw">retiros</option>
@@ -41,7 +42,7 @@ export default function UserActivity() {
             </select>
           </div>
           <div >
-            <button className="buscar" onClick={handleOnClick}>buscar</button>
+            <button className={styles.search} onClick={handleOnClick}>buscar</button>
           </div>
         </div>
       <BetsDepositUser/>

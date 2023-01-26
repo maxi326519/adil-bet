@@ -1,6 +1,38 @@
-.activity{
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Fira+Sans:wght@900&display=swap");
+
+.activity {
   flex-grow: 1;
-  margin: 10px;
+  margin: 20px 0 0 0;
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
   background-color: white;
+}
+
+.select {
+  padding: 5px;
+  margin: 10px;
+  border: 0;
+  outline: 1px solid rgb(229, 229, 229);
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgb(200, 200, 200);
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+
+.search {
+  border: 1px solid rgb(241, 241, 241);
+  padding: 0 10px;
+  outline: 1px solid rgb(214, 214, 214);
+  box-shadow: 0 3px 3px rgb(200, 200, 200);
+  font-family: "Fira Sans", sans-serif;
+  background-color: rgb(241, 241, 241);
+}
+
+.activity h3 {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.text {
+  margin: 0;
+  font-family: "Fira Sans Condensed", sans-serif;
 }
