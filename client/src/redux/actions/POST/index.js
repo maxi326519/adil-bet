@@ -9,7 +9,6 @@ export function addBet(bet) {
       idUser: bet.idUser,
       idMatch: bet.idMatch,
     };
-    console.log(payload);
     return {
       type: "ADD_BET_TO_CART",
       payload,
@@ -107,7 +106,6 @@ export function createBetDB(payload) {
   return async function (dispatch) {
     try {
       const result = await axios.post(`/order/bet`, payload);
-      console.log(result.data);
       return dispatch({
         type: "ADD_BET_DB",
         payload: result.data,

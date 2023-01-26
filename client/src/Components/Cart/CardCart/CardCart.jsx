@@ -7,7 +7,6 @@ export default function CardCart({ id, betTo, amount }) {
   const dispatch = useDispatch();
   const matches = useSelector((state) => state.matches);
   const match = matches.filter((el) => el.id == id );
-  console.log(match);
 
   const handleOnDelete = () => {
     const id = match[0].id

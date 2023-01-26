@@ -6,6 +6,7 @@ import swal from "sweetalert";
 import cards from "../../../Assets/Images/Cardsstripe.png";
 
 import "./CheckoutForm.css";
+import { Link } from "react-router-dom";
 
 export default function CheckoutForm({ setLoading }) {
   const [amount, setAmount] = useState(0);
@@ -145,6 +146,13 @@ export default function CheckoutForm({ setLoading }) {
             informacion estará encriptada.
           </p>
         </div>
+      </div>
+      <div>
+        <Link to="/home">
+          <button>
+            <p>Vuelve al Inicio</p>
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import { updateWalletUser } from "../../redux/actions/PATCH/index.js";
 import "./Cart.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -25,15 +26,32 @@ export default function Cart() {
   let wallet = userDates.wallet - total;
 
   const handleOnPay = () => {
-    //accion para crear cada una de las apuestas
-    cart.map((e) => {
-      dispatch(createBetDB(e));
-    });
-    //accion para descontar el wallet ruta put
-    console.log(wallet, userId);
-    dispatch(updateWalletUser({ wallet, userId }));
-    //accion para crear la orden
-    dispatch(createOrder({ total, userId }));
+    console.log(total, userDates)
+
+    if (total < userDates.wallet) {
+      cart.map((e) => {
+        dispatch(createBetDB(e));
+      });
+      //accion para descontar el wallet ruta put
+      dispatch(updateWalletUser({ wallet, userId }));
+      //accion para crear la orden
+      dispatch(createOrder({ total, userId }));
+      //accion para crear cada una de las apuestas
+      swal({
+        title: "APUESTA EXITOSA",
+        text: "MUCHAS GRACIAS POR SU APUESTA",
+        button: "ACEPTAR",
+      });
+    } 
+    if(total > userDates.wallet) {
+      swal({
+        title: "APUESTA RECHAZADA",
+        text: "NO TIENE SUFICIENTE SALDO",
+        button: "ACEPTAR",
+      }).then(() => {
+        window.location.href="/payment"
+      })
+    }
   };
 
   function HandleStyle() {
@@ -65,18 +83,13 @@ export default function Cart() {
         <div className="bet-buttons">
           <span className="total-pay">TOTAL A PAGAR: $ {total} </span>
           <button
-            disabled={Number(userDates.wallet) < Number(total) ? true : false}
+        
             onClick={handleOnPay}
             className="button-pay"
           >
             REALIZAR PAGO
           </button>
-          {Number(userDates.wallet) < Number(total) ? (
-            <span>
-              No tienes saldo suficiente, Recarga tu billetera{" "}
-              <Link to="/payment">aquí</Link>
-            </span>
-          ) : null}
+          
         </div>
       </div>
     </div>
