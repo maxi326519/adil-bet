@@ -37,7 +37,7 @@ export function BarChartBets() {
 
   if(bets.length >0){
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: '400px', width: '100%' }}>
       <ResponsiveBar
         classname={styles.table}
         data={betsData}

@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    width: 90px;
+    width: 300px;
     overflow: hidden;
     height: 100%;
     background-color: var(--primary-color);
@@ -10,19 +10,8 @@
     border: 5px solid #881711;
 }
 
-.container:hover{
-    width: 300px;
-    padding: 0 10px;
-}
-
-.container:hover span{
+.container span{
     left: 0px;
     opacity: 100%;
     transition: 0.5s;
-}
-
-.config{
-    position: absolute;
-    width: 220px;
-    bottom: 10px;
 }

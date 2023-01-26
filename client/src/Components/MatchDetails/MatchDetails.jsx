@@ -29,7 +29,7 @@ export default function MatchDetails() {
         </div>
         <div className="cnt-teams">
           <div className="container-list-statistics">
-            <h2>Estadisticas:</h2>
+            <h2>Estadísticas:</h2>
             <ul className="list-statistics">
               <li className="item-statistics-good">Partidos Ganados: 87% 🠕</li>
               <li className="item-statistics-bad">Promedio Rondas: 35 🠗</li>
@@ -53,7 +53,7 @@ export default function MatchDetails() {
             <p className="name-teams"> {match?.awayTeam}</p>
           </div>
           <div className="container-list-statistics">
-            <h2>Estadisticas:</h2>
+            <h2>Estadísticas:</h2>
             <ul className="list-statistics">
               <li className="item-statistics-good">Partidos Ganados: 65% 🠕</li>
               <li className="item-statistics-bad">Promedio Rondas: 20 🠗</li>

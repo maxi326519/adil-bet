@@ -8,11 +8,10 @@ import style from "./WithdrawDashboard.module.css";
 import { getWithdras } from "../../../redux/actions/GET";
 
 export default function WithdrawDashboard() {
-
-
   const withdraws = useSelector((state) => state.withdraws);
   useEffect(() => {
-    dispatch(getWithdras())}, []);
+    dispatch(getWithdras());
+  }, []);
 
   const columns = [
     { field: "id", headerName: "ID" },
@@ -71,27 +70,24 @@ export default function WithdrawDashboard() {
     event.stopPropagation();
   };
 
-
   return (
     <div className={style.dashboard}>
-      <div className={style.container}>
-        <SidebarDashboard />
-        {withdraws?.length > 0 ? (
-          <>
-            <h1>RETIROS</h1>
-            <div style={{ height: 450, width: "100%" }}>
-              <DataGrid
-                onCellClick={handleCellClick}
-                onRowClick={handleRowClick}
-                checkboxSelection
-                //   getRowId={(row) => row.user_id}
-                rows={withdraws}
-                columns={columns}
-              />
-            </div>
-          </>
-        ) : null}
-      </div>
+      <SidebarDashboard />
+      {withdraws?.length > 0 ? (
+        <div className={style.container}>
+          <h1>RETIROS</h1>
+          <div className={style.grid}>
+            <DataGrid
+              onCellClick={handleCellClick}
+              onRowClick={handleRowClick}
+              checkboxSelection
+              //   getRowId={(row) => row.user_id}
+              rows={withdraws}
+              columns={columns}
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

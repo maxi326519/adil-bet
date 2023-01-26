@@ -18,7 +18,7 @@ export default function Reviews() {
           <div className="divReview" key={r.id}>
             <h2 className="userName">{r.userName}</h2>
             <div className="cnt-puntuation">
-              <span className="puntuation">Puntuacion: {r.score}</span>
+              <span className="puntuation">Puntuación: {r.score}</span>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/1/18/Estrella_amarilla.png"
                 alt="star-logo"

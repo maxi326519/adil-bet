@@ -18,10 +18,12 @@ export default function CheckoutForm({ setLoading }) {
 
   const handleAxios = async (e) => {
     try {
+      const dataCard =  elementsUse.getElement(CardElement)
+      console.log(dataCard)
       // Creamos el metodo de pago
       const { paymentMethod } = await stripe.createPaymentMethod({
         type: "card",
-        card: elementsUse.getElement(CardElement),
+        card: dataCard,
         billing_details: {
           name: data.name,
           email: data.email,
@@ -48,20 +50,30 @@ export default function CheckoutForm({ setLoading }) {
     } catch (error) {
       setLoading(false);
       console.log(error);
-      swal({
-        title: `Error`,
-        text: "Hubo un error",
-        button: "ACEPTAR",
-      }).then(function () {
-        window.location = "/payment";
-      });
     }
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    setLoading(true);
-    handleAxios();
+    if(!data.name || data.name.length <= 0){
+      swal({
+        title: "Se necesita el nombre propiertario de la tarjeta",
+        button: "ACEPTAR",
+      })
+    }else if(!data.email || data.email.length <= 0){
+      swal({
+        title: "Se necesita el correo electronico",
+        button: "ACEPTAR",
+      })
+    } else if (!amount || amount <= 0 || amount === '') {
+      swal({
+        title: "Se Necesita un Monto",
+        button: "ACEPTAR",
+      })
+    }else{
+      setLoading(true);
+      handleAxios();
+    }
   }
 
   function handlerData(e) {

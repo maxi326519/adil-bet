@@ -11,8 +11,8 @@
     transition: 0.2s;
 }
 
-.button:nth-child(1){
-    margin-top: 20px;
+.button:first-child(1){
+    margin-top: 50px;
 }
 
 .button:hover{
@@ -28,14 +28,15 @@
 .button span{
     position: relative;
     left: -30px;
-    margin-left: 50px;
-    font-size: 15px;
+    margin-left: 20px;
+    font-size: 20px;
     color: white;
     opacity: 0;
     transition: 0.2s;
 }
 
 .img{
-    width: 40px;
+    margin-left: 30px;
+    width: 30px;
     filter: invert(100%);
 }

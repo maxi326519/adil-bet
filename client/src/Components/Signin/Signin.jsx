@@ -32,7 +32,7 @@ const CreateUserForm = () => {
     password: true,
     confirm: true,
     equalsPassword: true,
-    phone: true
+    phone: true,
   });
 
   const expresiones = {
@@ -40,7 +40,7 @@ const CreateUserForm = () => {
     userName: /^[a-zA-Z0-9_.+-]{5,40}$/,
     password: /^[\s\S]{8,25}$/, // 4 a 12 digitos.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    phone: /^[+]{0,1}[0-9]{0,}$/
+    phone: /^[+]{0,1}[0-9]{0,}$/,
   };
 
   const handleChange = (evt) => {
@@ -51,24 +51,24 @@ const CreateUserForm = () => {
       [name]: value,
     });
 
-    if(expresiones[name]){
+    if (expresiones[name]) {
       setValidateRegister({
         ...validateRegister,
         [name]: expresiones[name].test(value.trim()),
       });
     }
 
-    if(name === 'confirm_password'){
-      if((value.length >= 8) && (value !== register.password)){
+    if (name === "confirm_password") {
+      if (value.length >= 8 && value !== register.password) {
         console.log(value, register.password);
         setValidateRegister({
           ...validateRegister,
-          confirm: false
+          confirm: false,
         });
-      }else{
+      } else {
         setValidateRegister({
           ...validateRegister,
-          confirm: true
+          confirm: true,
         });
       }
     }
@@ -76,7 +76,7 @@ const CreateUserForm = () => {
 
   const handleSubmitRegister = async (evt) => {
     evt.preventDefault();
-    if(
+    if (
       validateRegister.name &&
       validateRegister.userName &&
       validateRegister.email &&
@@ -85,31 +85,31 @@ const CreateUserForm = () => {
       validateRegister.equalsPassword &&
       validateRegister.phone &&
       register.name !== "" &&
-      register.userName  !== "" &&
+      register.userName !== "" &&
       register.email !== "" &&
       register.password !== "" &&
       register.confirm_password !== "" &&
       register.phone !== ""
-    ){
+    ) {
       dispatch(postCreateUser(register));
       setRegister(INITIAL_STATE);
       return navigate("/home");
-    }else{
+    } else {
       handleEmpty();
     }
   };
 
-  function handleEmpty(){
+  function handleEmpty() {
     setValidateRegister({
       ...validateRegister,
       name: register.name === "" ? false : validateRegister.name,
       userName: register.userName === "" ? false : validateRegister.userName,
       email: register.email === "" ? false : validateRegister.email,
       password: register.password === "" ? false : validateRegister.password,
-      confirm: register.confirm === "" ? false : validateRegister.confirm
+      confirm: register.confirm === "" ? false : validateRegister.confirm,
     });
   }
-  
+
   return (
     <div className="container-register">
       <div className="container-logo-adilbet">
@@ -117,7 +117,7 @@ const CreateUserForm = () => {
       </div>
       <div className="container-register-form">
         <div className="container-form-body">
-          <h3 className="title-form">Registrate</h3>
+          <h3 className="title-form">Regístrate</h3>
           <form onSubmit={handleSubmitRegister} className="form-body">
             {/* NOMBRE */}
             <div className="form-floating mb-3 ">
@@ -139,7 +139,8 @@ const CreateUserForm = () => {
               <label for="floatingInput">Nombre</label>
               {validateRegister.name ? null : (
                 <small className="span-form">
-                  El nombre no puede contener numeros y menos de 5 letras
+                  El nombre no puede contener números, debe contener al menos 5
+                  letras
                 </small>
               )}
             </div>
@@ -162,6 +163,11 @@ const CreateUserForm = () => {
                 onChange={handleChange}
               />
               <label for="floatingInput">Nombre de usuario</label>
+              {validateRegister.userName ? null : (
+                <small className="span-form">
+                  Letras, números y estos símbolos: _ . -
+                </small>
+              )}
             </div>
 
             {/* EMAIL */}
@@ -182,6 +188,11 @@ const CreateUserForm = () => {
                 onChange={handleChange}
               />
               <label for="floatingInput">Email address</label>
+              {validateRegister.email ? null : (
+                <small className="span-form">
+                  El correo electrónico no es válido
+                </small>
+              )}
             </div>
 
             {/* CONTRASEÑA */}
@@ -191,14 +202,21 @@ const CreateUserForm = () => {
                 name="password"
                 required
                 className={`form-control ${
-                  validateRegister.password && validateRegister.confirm ? "" : "is-invalid"
+                  validateRegister.password && validateRegister.confirm
+                    ? ""
+                    : "is-invalid"
                 }`}
                 id="floatingInput"
                 placeholder="Contraseña"
                 value={register.password}
                 onChange={handleChange}
               />
-            <label for="floatingInput">Contraseña</label>
+              <label for="floatingInput">Contraseña</label>
+              {validateRegister.password ? null : (
+                <small className="span-form">
+                  La contraseña debe contener mínimo 8 caracteres
+                </small>
+              )}
             </div>
 
             {/* CONFIRMAR CONTRASEÑA */}
@@ -209,8 +227,7 @@ const CreateUserForm = () => {
                 required
                 placeholder="Confirmar Contraseña"
                 className={`form-control ${
-                  validateRegister.confirm
-                  ? null : "is-invalid"
+                  validateRegister.confirm ? null : "is-invalid"
                 }`}
                 id={
                   validateRegister.confirm
@@ -230,8 +247,7 @@ const CreateUserForm = () => {
                 name="phone"
                 placeholder="Telefono"
                 className={`form-control ${
-                  validateRegister.phone
-                  ? null : "is-invalid"
+                  validateRegister.phone ? null : "is-invalid"
                 }`}
                 id={
                   validateRegister.phone
@@ -241,12 +257,15 @@ const CreateUserForm = () => {
                 value={register.phone}
                 onChange={handleChange}
               />
-            <label for="floatingInput">Telefono</label>
+              <label for="floatingInput">Teléfono</label>
+              {validateRegister.phone ? null : (
+                <small className="span-form">El formato es incorrecto</small>
+              )}
             </div>
 
             {/* BOTON DE REGISTRO */}
             <div className="button-check-register">
-              <button className="btn btn-primary btn-color">Registrarse</button>
+              <button className="btn btn-primary btn-color">Regístrate</button>
             </div>
 
             {/* Auth0 de 3ros */}
@@ -259,13 +278,13 @@ const CreateUserForm = () => {
                 alt="google-logo"
                 className="google-logo"
               />
-              Iniciar con Google
+              Inicia con Google
             </button>
           </form>
           <div className="register-link">
             <p className="text-form-register">¿Ya tienes cuenta?</p>
             <Link to="/login" className="btn btn-outline-primary">
-              Iniciar sesion
+              Inicia sesión
             </Link>
           </div>
         </div>

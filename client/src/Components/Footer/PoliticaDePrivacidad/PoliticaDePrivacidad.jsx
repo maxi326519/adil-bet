@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../../Nav/Nav";
 import styles from "./PoliticaDePrivacidad.module.css";
 import image from "../../../Assets/Images/Termi.png";
+import Footer from "../Footer";
 
 export default function PoliticaDePrivacidad() {
   return (
@@ -311,6 +312,7 @@ export default function PoliticaDePrivacidad() {
           </p>
         </p>
       </div>
+      <Footer />
     </div>
   );
 }
