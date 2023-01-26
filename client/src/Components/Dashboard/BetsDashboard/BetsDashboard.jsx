@@ -12,18 +12,22 @@ import style from "./BetsDashboard.module.css";
 import { getBets } from "../../../redux/actions/GET";
 
 export default function BetsDashboard() {
-
-
   const bets = useSelector((state) => state.bets);
   useEffect(() => {
-    dispatch(getBets())}, []);
+    dispatch(getBets());
+  }, []);
 
   const columns = [
     { field: "id", headerName: "ID" },
     { field: "status", headerName: "Estado" },
-    { field: "amount", headerName: "Cantidad", type: 'number', editable: true },
+    { field: "amount", headerName: "Cantidad", type: "number", editable: true },
     { field: "betTo", headerName: "Apuesta a:" },
-    { field: "multiplier", headerName: "Multiplicador", type: 'number', editable: true },
+    {
+      field: "multiplier",
+      headerName: "Multiplicador",
+      type: "number",
+      editable: true,
+    },
     { field: "userId", headerName: "Id Usuario" },
     { field: "matchId", headerName: "Id Partido" },
     {
@@ -66,7 +70,7 @@ export default function BetsDashboard() {
               variant="contained"
               color="primary"
               onClick={(event) => {
-                console.log(cellValues)
+                console.log(cellValues);
                 handleClickMult(event, cellValues);
                 handleClickAmount(event, cellValues);
               }}
@@ -105,27 +109,24 @@ export default function BetsDashboard() {
     event.stopPropagation();
   };
 
-
   return (
     <div className={style.dashboard}>
-      <div className={style.container}>
-        <SidebarDashboard />
-        {bets?.length > 0 ? (
-          <>
-            <h1>APUESTAS REGISTRADAS</h1>
-            <div style={{ height: 450, width: "100%" }}>
-              <DataGrid
-                onCellClick={handleCellClick}
-                onRowClick={handleRowClick}
-                checkboxSelection
-                //   getRowId={(row) => row.user_id}
-                rows={bets}
-                columns={columns}
-              />
-            </div>
-          </>
-        ) : null}
-      </div>
+      <SidebarDashboard />
+      {bets?.length > 0 ? (
+        <div className={style.container}>
+          <h1>APUESTAS REGISTRADAS</h1>
+          <div className={style.grid}>
+            <DataGrid
+              onCellClick={handleCellClick}
+              onRowClick={handleRowClick}
+              checkboxSelection
+              //   getRowId={(row) => row.user_id}
+              rows={bets}
+              columns={columns}
+            />
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
