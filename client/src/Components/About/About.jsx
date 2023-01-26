@@ -114,8 +114,8 @@ const Team = () => {
           soluciones tecnológicas de alta calidad, es asi como presentamos la
           página de apuestas deportivas <b>ADILBET</b>. Estamos orgullosos de
           ser parte de un equipo tan talentoso, empático y dedicado, y estamos
-          seguros de que nuestra experiencia en este proyecto y en <b>HENRY</b>{" "}
-          Bootcamp nos permitirá enfrentar de la mejor manera cualquier reto en
+          seguros de que nuestra experiencia en este proyecto y en <b>HENRY{" "}
+          Bootcamp</b> nos permitirá enfrentar de la mejor manera cualquier reto en
           los proyectos en que participemos como programadores.
         </p>
       </div>

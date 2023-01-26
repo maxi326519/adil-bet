@@ -58,13 +58,13 @@ export default function AddBet({ window, handleWindow, match }) {
         </div>
         <div className="form-check">
           <input className="form-check-input" type="radio" name="typeBet" id="homeBet" checked={checked.homeBet} onChange={handleCheck}/>
-          <label className="form-check-label" for="flexRadioDefault1">
+          <label className="form-check-label" htmlFor="flexRadioDefault1">
             Apuesta al equipo local
           </label>
         </div>
         <div className="form-check">
           <input className="form-check-input" type="radio" name="typeBet" id="awayBet" checked={checked.awayBet} onChange={handleCheck}/>
-          <label className="form-check-label" for="flexRadioDefault2">
+          <label className="form-check-label" htmlFor="flexRadioDefault2">
             Apuesta al equipo visitante
           </label>
         </div>

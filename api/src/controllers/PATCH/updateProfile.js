@@ -37,7 +37,7 @@ const updateProfile = async (id, { name, userName, email, phone }) => {
   
   await profileFound.save();
   
-  sendMail(email, 'Actualizacion de datos del usuario', `<span>Se actualizo tu usuario correctamente</span>`);
+  sendMail(email, 'Actualización de datos del usuario', `<span>Se actualizó tu usuario correctamente</span>`);
 
   return profileFound;
 };
