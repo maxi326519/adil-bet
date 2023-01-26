@@ -45,7 +45,7 @@ export default function BetsButtonInput({ id }) {
       <div className={styles.bttmcontainer}>
         <div className={styles.cntbuttons}>
           <input
-            placeholder="Cuanto apuestas..."
+            placeholder="Cuánto apuestas..."
             name="homeBet"
             onChange={handleChange}
             value={bet.homeBet}
@@ -60,7 +60,7 @@ export default function BetsButtonInput({ id }) {
 
         <div className={styles.cntbuttons}>
           <input
-            placeholder="Cuanto apuestas..."
+            placeholder="Cuánto apuestas..."
             name="awayBet"
             onChange={handleChange}
             value={bet.awayBet}

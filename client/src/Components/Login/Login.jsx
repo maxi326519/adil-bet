@@ -53,11 +53,7 @@ const Login = () => {
                 placeholder="name@example.com"
                 onChange={handleChange}
               />
-<<<<<<< HEAD
               <label for="floatingInput">Correo electrónico</label>
-=======
-              <label htmlFor="floatingInput">Correo electronico</label>
->>>>>>> 6fff7bebb5d2faa01c109121f34ff3651dce6aac
             </div>
 
             {/* PASSWORD */}
