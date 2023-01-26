@@ -3,6 +3,8 @@ import { ResponsiveBar } from '@nivo/bar'
 import { useDispatch, useSelector } from 'react-redux';
 import { getMatchs } from "../../../redux/actions/GET/index.js"
 
+import style from './BarChart.module.css';
+
 export function BarChartMatches() {
 
   const dispatch = useDispatch();
@@ -44,7 +46,7 @@ export function BarChartMatches() {
 
   if(matches.length >0){
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div className={style.char}>
       <ResponsiveBar
         data={matchesDatainfo}
         keys={["amount"]}

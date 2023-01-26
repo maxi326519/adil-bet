@@ -3,13 +3,12 @@
 .dashboard {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   grid-template-columns: 0.5fr 1fr;
   background-color: #ccc;
 }
 
 .cnttables{
-  flex-grow: 1;
   displaY: grid;
   grid-gap: 50px;
   width: 100%;
