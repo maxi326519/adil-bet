@@ -11,7 +11,7 @@ import style from "./DepositsDashboard.module.css";
 export default function UserDashboard() {
   const columns = [
     { field: "id", headerName: "ID" },
-    { field: "amount", headerName: "Cantidad", type: 'number', editable: true },
+    { field: "amount", headerName: "Cantidad", type: "number", editable: true },
     { field: "userId", headerName: "Id Usuario" },
     // { field: "updateDeposit", headerName: "Actualizar" },
     {
@@ -46,6 +46,7 @@ export default function UserDashboard() {
     const id = cellValues.row.id;
     const amount = cellValues.row.amount;
     dispatch(updateDeposit({ id, amount }));
+    window.location.reload()
   };
 
   const handleCellClick = (param, event) => {
@@ -54,32 +55,30 @@ export default function UserDashboard() {
 
   const handleRowClick = (param, event) => {
     event.stopPropagation();
-  }
-    return (
-      <div className={style.dashboard}>
-        <div className={style.container}>
-          <SidebarDashboard />
-          {deposits?.length > 0 ? (
-            <>
-              <h1>DEPOSITOS</h1>
-              <div style={{ height: 450, width: "100%" }}>
-                <DataGrid
-                  columns={columns}
-                  rows={deposits}
-                  onRowClick={() => navigate(`/dashboard/deposit`)}
-                  // actions={[
-                  //   {
-                  //     icon: "edit",
-                  //     onClick: (row) => handleUpdateDeposit(row.id, row.amount),
-                  //   },
-                  // ]}
-                  onCellClick={handleCellClick}
-                  //onRowClick={handleRowClick}
-                />
-              </div>
-            </>
-          ) : null}
-        </div>
-      </div>
-    );
   };
+  return (
+    <div className={style.dashboard}>
+      <SidebarDashboard />
+      {deposits?.length > 0 ? (
+        <div className={style.container}>
+          <h1>DEPOSITOS</h1>
+          <div className={style.grid}>
+            <DataGrid
+              columns={columns}
+              rows={deposits}
+              onRowClick={() => navigate(`/dashboard/deposit`)}
+              // actions={[
+              //   {
+              //     icon: "edit",
+              //     onClick: (row) => handleUpdateDeposit(row.id, row.amount),
+              //   },
+              // ]}
+              onCellClick={handleCellClick}
+              //onRowClick={handleRowClick}
+            />
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}

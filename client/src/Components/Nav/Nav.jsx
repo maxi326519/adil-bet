@@ -51,7 +51,7 @@ export default function Nav() {
             <MyAccountButton />
             <LogoutButton />
             {userDates.isAdmin ? (
-              <Link to="/dashboard">
+              <Link to="/dashboard" className="link">
                 <button className="btn btn-primary btn-color">ADMIN</button>
               </Link>
             ) : null}

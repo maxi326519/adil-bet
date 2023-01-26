@@ -1,6 +1,6 @@
 const { Withdraw } = require("../../db");
 
-const updateWithdraw = async (id, status) => {
+const updateWithdraw = async (id, statuszz) => {
   status === undefined ? (status = "Pending") : null;
   try {
     const withdraw = await Withdraw.findOne({

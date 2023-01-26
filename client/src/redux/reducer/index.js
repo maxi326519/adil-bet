@@ -19,6 +19,8 @@ import {
   GET_ALL_WITHDRAWS,
   UPDATE_WITHDRAW,
   POST_WITHDRAW,
+  GET_USER_ACTIVITY,
+  UPDATE_DEPOSIT,
 } from "../actions/types";
 
 const initialState = {

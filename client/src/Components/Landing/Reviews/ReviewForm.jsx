@@ -48,10 +48,10 @@ export default function ReviewForm() {
   }
   return (
     <div className={styles.formDiv}>
-      <h2 className={styles.titleform}>DEJANOS TU RESEÑA</h2>
+      <h2 className={styles.titleform}>DÉJANOS TU RESEÑA</h2>
       <p className={styles.textform}>
-        Para nosotros como comunidad es muy importante tu opinion, por ende
-        queremos saber tu opinion respecto a este gran trabajo
+      Para nosotros como comunidad es muy importante tu opinión, por eso
+        queremos saber lo que piensas sobre este gran trabajo
       </p>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
@@ -66,7 +66,7 @@ export default function ReviewForm() {
           name="league"
           onChange={(e) => handleScore(e)}
         >
-          <option value="def">puntuacion</option>
+          <option value="def">puntuación</option>
           <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option>

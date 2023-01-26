@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Fira+Sans:wght@900&display=swap");
+
+.cntformcards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.cntallstripe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 30px;
+  padding: 40px;
+  border: 1px solid gray;
+}
+
+.cntpay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-stripe {
+  margin: 0;
+  padding: 40px;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 20px;
+}
+
+.cntbuttonhome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.button-gohome {
+  border: 0;
+  background-color: rgb(46, 107, 46);
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 10px 0 10px;
+}
+
+.mb-3 label {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.form-group label {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.form {
+  padding: 0 50px;
+  border-left: 1px solid gray;
+}

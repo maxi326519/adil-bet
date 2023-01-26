@@ -1,10 +1,10 @@
 import React from "react";
-import "./Tutorial.css";
+import Nav from "../Nav/Nav";
 import Accordion from "react-bootstrap/Accordion";
 import wallet from "../../Assets/Images/wallet-tutorial.png";
-import Nav from "../Nav/Nav";
+import "./Tutorial.css";
 
-export default function Promotions() {
+export default function tutorial() {
   return (
     <div className="containerrrrrr">
       <div>
@@ -56,7 +56,7 @@ export default function Promotions() {
             <Accordion.Body>
               Deberás presionar sobre el siguiente logo{" "}
               <img src={wallet} alt="wallet" className="walletacc" /> se
-              desplegará un menú, en el cual vas a dar click al boton "Recargar
+              desplegará un menú, en el cual vas a dar click al botón "Recargar
               Billetera", saldrá un formulario que deberás completar con tu
               nombre, email y datos de la tarjeta que vas a utilizar. Al
               finalizar te llegará un email al correo confirmando tu pago.

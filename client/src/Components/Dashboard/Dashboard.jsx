@@ -10,18 +10,30 @@ import BarChartMatches from "./Charts/BarChartMatches.jsx";
 export default function Dashboard() {
   return (
     <div className="dashboard">
-      <div>
-        <SidebarDashboard />
-      </div>
+      <SidebarDashboard />
       <div className="cnttables">
-        <h1 className="titletable">Gráfico Usuarios vs Apuestas Totales(dolares)</h1>
-        <BarChartBets />
-        <h1 className="titletable">Gráfico Usuarios vs Depositos Totales(dolares)</h1>
-        <BarChartDeposits />
-        <h1 className="titletable">Gráfico Partidos vs Apuestas Totales(dolares)</h1>
-        <BarChartMatches />
-        <h1 className="titletable">Gráfico Usuarios Activos</h1>
-        <PieChart />
+        <div className="chart__container">
+          <h1 className="titletable">
+            Gráfico Usuarios vs Apuestas Totales(dolares)
+          </h1>
+          <BarChartBets />
+        </div>
+        <div className="chart__container">
+          <h1 className="titletable">
+            Gráfico Usuarios vs Depositos Totales(dolares)
+          </h1>
+          <BarChartDeposits />
+        </div>
+        <div className="chart__container">
+          <h1 className="titletable">
+            Gráfico Partidos vs Apuestas Totales(dolares)
+          </h1>
+          <BarChartMatches />
+        </div>
+        <div className="chart__container">
+          <h1 className="titletable">Gráfico Usuarios Activos</h1>
+          <PieChart />
+        </div>
       </div>
     </div>
   );

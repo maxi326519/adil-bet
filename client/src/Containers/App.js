@@ -67,9 +67,9 @@ function App() {
         );
   }, [user]);
 
-  useEffect(() => {
-    if (error !== "") toast(error);
-  }, [error]);
+  useEffect(()=>{
+    toast(error);
+  },[error]);
 
   return (
     <div className="App">

@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../../Nav/Nav";
 import styles from "./PoliticaDePrivacidad.module.css";
 import image from "../../../Assets/Images/Termi.png";
+import Footer from "../Footer";
 
 export default function PoliticaDePrivacidad() {
   return (
@@ -14,8 +15,8 @@ export default function PoliticaDePrivacidad() {
       </div>
       <div className={styles.cntTyC_text}>
         <p className={styles.TyC_text}>
-          <h1 className="h1">POLÍTICA DE PRIVACIDAD</h1>
-          <h2 className="h2">1. POLÍTICA DE PRIVACIDAD Y CONFIDENCIALIDAD</h2>
+          <h1 className={styles.h1}>POLÍTICA DE PRIVACIDAD</h1>
+          <h2 className={styles.h2}>1. POLÍTICA DE PRIVACIDAD Y CONFIDENCIALIDAD</h2>
           <p>
             La información que nos facilite para abrir la cuenta de usuario y
             aquella otra información personal que sea recopilada como
@@ -76,7 +77,7 @@ export default function PoliticaDePrivacidad() {
             de forma que el usuario pueda tener conocimiento al acceder a la
             página web.
           </p>
-          <h2 className="h2">2. TRATAMIENTO DE DATOS PERSONALES</h2>
+          <h3 className={styles.h2}>2. TRATAMIENTO DE DATOS PERSONALES</h3>
           <p>
             AdilBet S.A.S. con domicilio social Bogotá, Colombia, es la entidad
             responsable del fichero en el que se van a incorporar sus datos de
@@ -100,11 +101,10 @@ export default function PoliticaDePrivacidad() {
             consentimiento al tratamiento por parte de esta Empresa de sus datos
             de carácter personal y quedando por tanto sujeto a la política de
             privacidad y confidencialidad de AdilBet.
-            <h2 className="h2">
-              COMPROBACION DE IDENTIDAD Y DEL REGISTRO DE INTERDICCIONES DE
-              ACCESO
-            </h2>
-            AL JUEGO
+            <h3 className={styles.h3}>
+              2.1 - COMPROBACION DE IDENTIDAD Y DEL REGISTRO DE INTERDICCIONES DE
+              ACCESO AL JUEGO
+            </h3>
           </p>
           <p>
             Una vez que han sido recabados los datos del usuario, según se ha
@@ -148,7 +148,7 @@ export default function PoliticaDePrivacidad() {
             completo de la cuenta, ni por tanto realizar ningún reintegro.
             Tampoco tendrá acceso a todos sus bonos.
           </p>
-          <h2 className="h2">MODIFICACIÓN DE DATOS PERSONALES</h2>
+          <h3 className={styles.h3}>2.2 - MODIFICACIÓN DE DATOS PERSONALES</h3>
           <p>
             Una vez creada la cuenta, el jugador puede modificar ciertos datos
             haciendo clic en el enlace «Mi Cuenta», apartado «Tu Identidad». Por
@@ -167,7 +167,7 @@ export default function PoliticaDePrivacidad() {
             datos modificados dirección, localidad y/o teléfono , debe de
             pinchar sobre el enlace “Guardar”.
           </p>
-          <h2 className="h2">CANCELACION DE DATOS</h2>
+          <h3 className={styles.h3}>2.3 - CANCELACION DE DATOS</h3>
           <p>
             Los datos personales y económicos facilitados por el usuario a
             AdilBet S.A.S. dejarán de ser tratados en el momento en que el
@@ -194,7 +194,7 @@ export default function PoliticaDePrivacidad() {
             comunicación a las Autoridades, y a la eliminación de los datos de
             su registro.
           </p>
-          <h2 className="h2">3.‐ OBJETO DEL TRATAMIENTO DE DATOS.‐</h2>
+          <h2 className={styles.h2}>3.‐ OBJETO DEL TRATAMIENTO DE DATOS.</h2>
           <p>
             El tratamiento de los datos de carácter personal que AdilBet S.A.S.
             realizará tendrá como finalidad el desarrollo y ejecución del
@@ -240,7 +240,7 @@ export default function PoliticaDePrivacidad() {
             historial de su actividad partidas jugadas, estadísticas de juego,
             histórico de depósitos, solicitudes de reintegro, etc… .
           </p>
-          <h2 className="h2">MEDIDAS DE SEGURIDAD</h2>
+          <h3 className={styles.h3}>3.1 - MEDIDAS DE SEGURIDAD</h3>
           <p>
             Los datos de carácter personal y de la cuenta de usuario facilitados
             por el usuario se transmiten de forma encriptada y segura a fin de
@@ -277,7 +277,7 @@ export default function PoliticaDePrivacidad() {
             aparecer en "noticias en vivo" cuando obtiene un premio, o en el
             ranking de premios obtenidos.{" "}
           </p>
-          <h2 className="h2">4.‐ CESION y USO DE DATOS</h2>
+          <h2 className={styles.h2}>4.‐ SESION Y USO DE DATOS</h2>
           <p>
             AdilBet S.A.S. se compromete a no ceder ninguno de los datos
             personales, ya sea gratuitamente o previo pago, a ningún tercero,
@@ -312,6 +312,7 @@ export default function PoliticaDePrivacidad() {
           </p>
         </p>
       </div>
+      <Footer />
     </div>
   );
 }
