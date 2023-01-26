@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllReviews } from "../../../redux/actions/GET";
 import "./Reviews.css";
+import logo2 from '../../../Assets/Images/logo2.png'
 
 export default function Reviews() {
   const dispatch = useDispatch();
@@ -15,11 +16,16 @@ export default function Reviews() {
       {reviews?.map((r) => {
         return r.status === "Aprobed" ? (
           <div className="divReview" key={r.id}>
-            <h2>{r.userName}</h2>
-            <br />
-            <span>{r.score}</span>
-            <br />
-            <span>{r.reviewData}</span>
+            <h2 className="userName">{r.userName}</h2>
+            <div className="cnt-puntuation">
+              <span className="puntuation">Puntuación: {r.score}</span>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/1/18/Estrella_amarilla.png"
+                alt="star-logo"
+                className="star-logo"
+              />
+            </div>
+            <span className="reviewData">{r.reviewData}</span>
           </div>
         ) : null;
       })}

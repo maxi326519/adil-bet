@@ -1,5 +1,4 @@
 import axios from "axios";
-import { func } from "prop-types";
 
 export function addBet(bet) {
   if (bet.homeBet) {
@@ -10,7 +9,6 @@ export function addBet(bet) {
       idUser: bet.idUser,
       idMatch: bet.idMatch,
     };
-    console.log(payload);
     return {
       type: "ADD_BET_TO_CART",
       payload,
@@ -44,18 +42,6 @@ export function addBet(bet) {
   }
 }
 
-export function addOrder() {
-  console.log("addOrder");
-}
-
-export function addPayment() {
-  console.log("addPayment");
-}
-
-export function addUser() {
-  console.log("addUser");
-}
-
 export function updateRedux(dataUser) {
   return (dispatch) => {
     dispatch({
@@ -74,7 +60,11 @@ export function postCreateUser(payload) {
         payload: result.data,
       });
     } catch (error) {
-      throw new Error(error.message);
+      console.group(error);
+      return dispatch({
+        type: "ERROR_BACK",
+        payload: error.response.data.error,
+      });
     }
   };
 }
@@ -83,7 +73,6 @@ export function postLoginUser(payload) {
   return async function (dispatch) {
     try {
       const result = await axios.post(`/login`, payload);
-      console.log(result.data);
       return dispatch({
         type: "LOGIN_USER",
         payload: result.data,
@@ -91,7 +80,7 @@ export function postLoginUser(payload) {
     } catch (error) {
       return dispatch({
         type: "ERROR_BACK",
-        payload: "Error, inténtalonuevamente",
+        payload: "Error, inténtalo nuevamente",
       });
     }
   };
@@ -112,11 +101,9 @@ export function postLoginUserAuth0(payload) {
 }
 
 export function createBetDB(payload) {
-  console.log(payload);
   return async function (dispatch) {
     try {
       const result = await axios.post(`/order/bet`, payload);
-      console.log(result.data);
       return dispatch({
         type: "ADD_BET_DB",
         payload: result.data,
@@ -128,16 +115,13 @@ export function createBetDB(payload) {
   };
 }
 export function createOrder({ userId, total }) {
-  console.log(userId, total);
   const payload = {
     amount: total,
     idUser: userId,
   };
-  console.log(payload);
   return async function (dispatch) {
     try {
       const result = await axios.post(`/order`, payload);
-      console.log(result.data);
       return dispatch({
         type: "CREATE_ORDER",
         payload: result.data,
@@ -176,4 +160,16 @@ export function addReview(payload) {
     }
   };
 }
-
+export function addWithdraw(payload){
+  return async function (dispatch){
+    try{
+      const response = await axios.post(`/withdraw`, payload);
+      return dispatch({
+        type: "POST_WITHDRAW",
+        payload: response.data
+      })
+    }catch(error){
+      throw new Error(error.message)
+    }
+  }
+}

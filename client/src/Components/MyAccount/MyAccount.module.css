@@ -1,0 +1,11 @@
+.myAccount{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ccc;
+}
+
+.content{
+    flex-grow: 1;
+    display: flex;
+}

@@ -1,39 +1,75 @@
-.container-footer{
-    background-color: var(--primary-color);
-    padding: 10px;
-    box-shadow: 1px 1px 6px 3px rgb(86, 86, 86);
+.container-footer {
+  background-color: var(--primary-color);
+  padding: 10px;
+  box-shadow: 1px 1px 6px 3px rgb(86, 86, 86);
 }
 
-.list-footer{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+.list-footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.list-item-footer{
+.list-item-footer {
+  margin: 10px;
+  padding-right: 20px;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+.title-footer {
+  color: white;
+  margin: 10px;
+}
+
+.text-footer {
+  color: white;
+  margin: 10px;
+}
+
+.logo-social-footer {
+  width: 50px;
+  margin: 10px;
+}
+
+.logos-payment-footer {
+  width: 350px;
+  margin: 10px;
+}
+
+@media (max-width: 500px) {
+  .container-footer {
+    padding: 5px;
+  }
+
+  .list-footer {
+    margin-bottom: 5px;
+  }
+
+  .list-item-footer {
+    margin: 5px;
+    padding-right: 5px;
+    font-size: 10px;
+  }
+
+  .title-footer {
+    margin: 5px;
+    font-size: 15px;
+  }
+
+  .text-footer {
+    margin: 5px;
+    font-size: 10px;
+  }
+
+  .logo-social-footer {
+    width: 30px;
+    margin: 5px;
+  }
+
+  .logos-payment-footer {
+    width: 200px;
     margin: 10px;
-    padding-right: 20px;
-    list-style: none;
-    text-decoration: none;
-    color: white;
-}
-
-.title-footer{
-    color: white;
-    margin: 10px;
-}
-
-.text-footer{
-    color: white;
-    margin: 10px;
-}
-
-.logo-social-footer{
-    width: 50px;
-    margin: 10px;
-}
-
-.logos-payment-footer{
-    width: 350px;
-    margin: 10px;
+  }
 }

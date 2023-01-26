@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./BetsButtonInput.module.css";
 import { addBet } from "../../redux/actions/POST";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 export default function BetsButtonInput({ id }) {
   const userDates = useSelector((state) => state.userDates);
@@ -15,6 +16,7 @@ export default function BetsButtonInput({ id }) {
     idUser: userDates.id,
     idMatch: id,
   };
+
   const [bet, setBet] = useState(initialState);
   const dispatch = useDispatch();
   const multiplier = {
@@ -25,7 +27,6 @@ export default function BetsButtonInput({ id }) {
 
   const handleChange = (evt) => {
     const { name, value } = evt.currentTarget;
-    console.log(bet);
     setBet({
       ...bet,
       [name]: value,
@@ -35,11 +36,16 @@ export default function BetsButtonInput({ id }) {
   useEffect(() => {
     localStorage.setItem("cartItem", JSON.stringify(jj));
   }, [jj]);
-  console.log("es esto", ff);
-  console.log("cart = ", jj);
 
   const handleAddBet = () => {
     dispatch(addBet(bet));
+    swal({
+      title: "APUESTA EXITOSA",
+      text: "MUCHAS GRACIAS POR SU APUESTA",
+      button: "ACEPTAR",
+    }).then(() => {
+      window.location.href="/home"
+    });
   };
 
   if (Object.entries(userDates).length > 0) {
@@ -47,7 +53,7 @@ export default function BetsButtonInput({ id }) {
       <div className={styles.bttmcontainer}>
         <div className={styles.cntbuttons}>
           <input
-            placeholder="Cuanto apuestas..."
+            placeholder="Cuánto apuestas..."
             name="homeBet"
             onChange={handleChange}
             value={bet.homeBet}
@@ -62,7 +68,7 @@ export default function BetsButtonInput({ id }) {
 
         <div className={styles.cntbuttons}>
           <input
-            placeholder="Cuanto apuestas..."
+            placeholder="Cuánto apuestas..."
             name="awayBet"
             onChange={handleChange}
             value={bet.awayBet}
@@ -79,15 +85,15 @@ export default function BetsButtonInput({ id }) {
   } else {
     return (
       <div className={styles.bttmcontainer}>
-        <Link to="/login">
-          <button onClick={handleAddBet} className="Button-bet">
+        <Link to="/login" className={styles.login}>
+          <button onClick={handleAddBet} className={styles.buttonbetout}>
             <span className="team-name">Apuesta local: </span>
             <span>{multiplier.homebet}</span>
           </button>
         </Link>
 
-        <Link to="/login">
-          <button onClick={handleAddBet} className="Button-bet">
+        <Link to="/login" className={styles.login}>
+          <button onClick={handleAddBet} className={styles.buttonbetout}>
             <span className="team-name">Apuesta Visitante: </span>
             <span>{multiplier.awaybet}</span>
           </button>

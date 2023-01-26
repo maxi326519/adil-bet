@@ -11,15 +11,25 @@ import {
   GET_REVIEW_BY_ID,
   POST_REVIEW,
   DELETE_REVIEW,
-  GET_USER_INFO
+  GET_USER_INFO,
+  UPDATE_MULT_BET,
+  UPDATE_STATUS_BET,
+  UPDATE_AMOUNT_BET,
+  DELETE_WITHDRAW,
+  GET_ALL_WITHDRAWS,
+  UPDATE_WITHDRAW,
+  POST_WITHDRAW,
+  GET_USER_ACTIVITY,
+  UPDATE_DEPOSIT,
+  GET_MATCHS2
 } from "../actions/types";
 
-const cartItemsFromLocalStorage = localStorage.getItem("cartItem") || "[]";
-
 const initialState = {
+  withdraws: [],
   reviews: [],
   reviewById: [],
   matches: [],
+  matches2: [],
   currentPage: {
     data: [],
     number: 1,
@@ -34,10 +44,14 @@ const initialState = {
     country: [],
     teams: [],
   },
-  error: [],
+  error: "",
   cart: [],
   userActivities: [],
   userProfile: [],
+  users: [],
+  bets: [],
+  deposits: [],
+  reviews: [],
 };
 
 export const Reducer = (state = initialState, action) => {
@@ -46,8 +60,8 @@ export const Reducer = (state = initialState, action) => {
     case ITEM_CART:
       return {
         ...state,
-        items: [...state.items, action.payload]
-      }
+        items: [...state.items, action.payload],
+      };
 
     case SEARCH_TEAM:
       return {
@@ -59,6 +73,11 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         matches: action.payload,
+      };
+    case GET_MATCHS2:
+      return {
+        ...state,
+        matches2: action.payload,
       };
 
     case GET_USER_INFO:
@@ -106,7 +125,14 @@ export const Reducer = (state = initialState, action) => {
       };
 
     case "POST_CREATE_USER": {
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: action.payload.id,
+          email: action.payload.email,
+          password: action.payload.password,
+        })
+      );
       return {
         ...state,
         userDates: action.payload,
@@ -114,8 +140,15 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "LOGIN_USER": {
-      console.log(action.payload);
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: action.payload.id,
+          email: action.payload.email,
+          password: action.payload.password,
+        })
+      );
+
       return {
         ...state,
         userDates: action.payload,
@@ -123,8 +156,14 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "CREATE_USER_AUTH0": {
-      console.log(action.payload);
-      window.localStorage.setItem('user', JSON.stringify([action.payload]));
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: action.payload.id,
+          email: action.payload.email,
+          password: action.payload.password,
+        })
+      );
       return {
         ...state,
         userlogin: true,
@@ -137,11 +176,10 @@ export const Reducer = (state = initialState, action) => {
         matchDetail: action.payload,
       };
     }
-    case 'UPDATE_REDUX':{
-      return{
+    case "UPDATE_REDUX": {
+      return {
         ...state,
-        userDates: action.payload,
-        userlogin: true
+        cart: action.payload,
       };
     }
     case ORDER_BY_NAME: {
@@ -169,6 +207,12 @@ export const Reducer = (state = initialState, action) => {
       };
     }
     case "ADD_BET_TO_CART": {
+      // const itemSave = JSON.parse(window.localStorage.getItem('cart'))
+      const itemSave = action.payload;
+      const kk = { ...itemSave };
+      const cc = state.cart;
+      const save = state.cart.length === 0 ? { ...kk } : { ...cc, kk };
+      window.localStorage.setItem("cart", JSON.stringify(save));
       return {
         ...state,
         cart: [...state.cart, action.payload],
@@ -176,13 +220,17 @@ export const Reducer = (state = initialState, action) => {
     }
     case "DELETE_BET_TO_CART": {
       const matches = state.cart.filter(
-        (match) => Number(match.idMatch) !== action.payload
+        (match) =>
+          Number(match.idMatch) !== action.payload.id ||
+          match.amount !== action.payload.amount ||
+          match.betTo !== action.payload.team
       );
+      window.localStorage.setItem("cart", JSON.stringify(matches));
       return {
         ...state,
         cart: matches,
       };
-    };
+    }
     case "ADD_BET_DB": {
       return {
         ...state,
@@ -195,14 +243,12 @@ export const Reducer = (state = initialState, action) => {
         userDates: action.payload,
       };
     }
-    case "CREATE_PAYMENT":{
-      console.log(action.payload)
+    case "CREATE_PAYMENT": {
       return {
         ...state,
       };
     }
     case "GET_USER_ACTIVITY": {
-      console.log(action.payload);
       return {
         ...state,
         userActivities: action.payload,
@@ -214,38 +260,120 @@ export const Reducer = (state = initialState, action) => {
         error: action.payload,
       };
     }
-    
+
     /* REVIEWS */
-    case 'POST_REVIEW':{
+    case "POST_REVIEW": {
       return {
-        ...state
-      }
+        ...state,
+      };
     }
-    case "GET_REVIEWS":{
-      // console.log(action.payload)
+    case "GET_REVIEWS": {
+      return {
+        ...state,
+        reviews: action.payload,
+      };
+    }
+
+    case "GET_REVIEW_BY_ID": {
+      return {
+        ...state,
+        reviewById: action.payload,
+      };
+    }
+    case "DELETE_REVIEW": {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_REVIEW: {
+      return {
+        ...state,
+        reviewById: false,
+      };
+    }
+    case "GET_ALL_USERS": {
+      return {
+        ...state,
+        users: action.payload,
+      };
+    }
+    case "UPDATE_ACTIVE_USER": {
+      return {
+        ...state,
+      };
+    }
+    case "UPDATE_PROFILE":{
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: action.payload.id,
+          email: action.payload.email,
+          password: action.payload.password,
+        })
+      );
       return{
         ...state,
-        reviews: action.payload
+        userDates: action.payload
       }
     }
-    
-    case "GET_REVIEW_BY_ID":{
-      return{
-        ...state,
-        reviewById: action.payload
-      }
-    }
-    case "DELETE_REVIEW":{
-      console.log(action.payload)
-      return {
-        ...state
-      }
-    }
-    case UPDATE_REVIEW:{
+    case "UPDATE_ADMIN_USER": {
       return {
         ...state,
-        reviewById:false
-      }
+      };
+    }
+    case "GET_ALL_BETS": {
+      return {
+        ...state,
+        bets: action.payload,
+      };
+    }
+    case "GET_ALL_DEPOSITS": {
+      return {
+        ...state,
+        deposits: action.payload,
+      };
+    }
+    case "GET_ALL_REVIEWS": {
+      return {
+        ...state,
+        reviews: action.payload,
+      };
+    }
+    case "UPDATE_REVIEW_STATUS": {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_MULT_BET: {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_AMOUNT_BET: {
+      return {
+        ...state,
+      };
+    }
+    case UPDATE_STATUS_BET: {
+      return {
+        ...state,
+      };
+    }
+    case "UPDATE_DEPOSIT": {
+      return {
+        ...state,
+      };
+    }
+    case GET_ALL_WITHDRAWS: {
+      return {
+        ...state,
+        withdraws: action.payload,
+      };
+    }
+    case "UPDATE_WITHDRAW": {
+      return {
+        ...state,
+      };
     }
     default:
       return state;

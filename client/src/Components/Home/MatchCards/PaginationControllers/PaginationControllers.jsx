@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handlePage, handleSetPage } from "../../../../redux/actions/GET";
+import styles from './PaginationControllers.module.css';
 
 export default function PaginationControllers() {
 
@@ -18,10 +19,10 @@ export default function PaginationControllers() {
     return (
       <div>
         <div>
-          <button onClick={ handlePrev }>{'<'}</button>
-          <span>{ number } - </span>
-          <span>{ totalPages }</span>
-          <button onClick={ handleNext }>{'>'}</button>
+          <button onClick={ handlePrev } className={styles.buttonback}>{'<'}</button>
+          <span className={styles.numberpage}>{ number } - </span>
+          <span className={styles.numberpage}>{ totalPages }</span>
+          <button onClick={ handleNext } className={styles.buttonback}>{'>'}</button>
         </div>
       </div>
     );

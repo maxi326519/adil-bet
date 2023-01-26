@@ -11,6 +11,9 @@ import {
   GET_REVIEWS,
   GET_REVIEW_BY_ID,
   GET_USER_INFO,
+  GET_USER_ACTIVITY,
+  GET_ALL_WITHDRAWS,
+  GET_MATCHS2
 } from "../types";
 
 export function searchTeam(name) {
@@ -48,7 +51,7 @@ export function getMatchDetails(id) {
     try {
       const result = await axios.get(`/details/${id}`);
       return dispatch({
-        type: GET_REVIEW_BY_ID,
+        type: 'MATCH_DETAILS',
         payload: result.data,
       });
     } catch (error) {
@@ -69,6 +72,22 @@ export function getFilters() {
       console.log(err);
     }
   };
+}
+
+export function getMatchs2 (){
+  return async(dispatch)=>{
+    try{
+      const response = await axios.get(
+        `/matchs?league=&teams=&country=`)
+        dispatch({
+          type: GET_MATCHS2,
+          payload: response.data,
+        });
+
+    }catch(err){
+      console.log(err)
+    }
+  }
 }
 
 export function getMatchs(filters) {
@@ -105,8 +124,7 @@ export function getUserActivity() {
 export function getUserInfo(id) {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/user/${id}`);
-      console.log(response, "actionn");
+      const response = await axios.get(`/user/${id}`);
       dispatch({
         type: GET_USER_INFO,
         payload: response.data,
@@ -117,15 +135,11 @@ export function getUserInfo(id) {
   };
 }
 
-export function getUserOrders() {
-  console.log("userOrders");
-}
 export function getActivity({ id, page, activity }) {
-  console.log(id);
   return async function (dispatch) {
     try {
       const result = await axios.get(
-        `http://localhost:3001/activity/${id}?activity=${activity}&&page=${page}`
+        `/activity/${id}?activity=${activity}&&page=${page}`
       );
 
       return dispatch({
@@ -146,12 +160,12 @@ export function getAllReviews() {
         type: GET_REVIEWS,
         payload: response.data
       });
-      // console.log(response.data)
     }catch(err){
       console.log(err);
     }
   };
 }
+
 export function getReviewById(id){
   return async (dispatch) => {
     try{
@@ -162,6 +176,76 @@ export function getReviewById(id){
       })
     }catch(err){
       console.log(err)
+    }
+  }
+}
+
+export function getUsers() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/alluser`);
+      dispatch({
+        type: 'GET_ALL_USERS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getBets() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/allBets`);
+      dispatch({
+        type: 'GET_ALL_BETS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getDeposits() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/allDeposits`);
+      dispatch({
+        type: 'GET_ALL_DEPOSITS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getReviews() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/allreviews`);
+      dispatch({
+        type: 'GET_ALL_REVIEWS',
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getWithdras(){
+  return async (dispatch)=>{
+    try{
+      const response = await axios.get(`/allWithdraws`)
+      dispatch({
+        type: GET_ALL_WITHDRAWS,
+        payload: response.data
+      })
+    }catch(error){
+      console.log(error.message)
     }
   }
 }

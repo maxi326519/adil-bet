@@ -8,14 +8,13 @@ import Nav from "../Nav/Nav";
 
 import "./MatchDetails.css";
 import BetsButtonInput from "../BetsButtonInput/BetsButtonInput.jsx";
-import BetsButtonDetails from "../BetsButtonsDetails/BetsButton.jsx";
+import Cart from '../Cart/Cart.jsx'
 
 export default function MatchDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
   const match = useSelector((state) => state.matchDetail);
-  console.log(match);
   useEffect(() => {
     dispatch(getMatchDetails(id));
   }, [dispatch, id]);
@@ -30,7 +29,7 @@ export default function MatchDetails() {
         </div>
         <div className="cnt-teams">
           <div className="container-list-statistics">
-            <h2>Estadisticas:</h2>
+            <h2>Estadísticas:</h2>
             <ul className="list-statistics">
               <li className="item-statistics-good">Partidos Ganados: 87% 🠕</li>
               <li className="item-statistics-bad">Promedio Rondas: 35 🠗</li>
@@ -42,7 +41,7 @@ export default function MatchDetails() {
           </div>
           <div>
             <img className="imgteam" src={match?.logoHome} alt="not found" />
-            <h3>Equipo local:</h3>
+            <h3 className="team1">Equipo local:</h3>
             <p className="name-teams"> {match?.homeTeam}</p>
           </div>
           <div className="text-vs">
@@ -50,11 +49,11 @@ export default function MatchDetails() {
           </div>
           <div>
             <img className="imgteam" src={match?.logoAway} alt="not found" />
-            <h3>Equipo Visitante:</h3>
+            <h3 className="team1">Equipo Visitante:</h3>
             <p className="name-teams"> {match?.awayTeam}</p>
           </div>
           <div className="container-list-statistics">
-            <h2>Estadisticas:</h2>
+            <h2>Estadísticas:</h2>
             <ul className="list-statistics">
               <li className="item-statistics-good">Partidos Ganados: 65% 🠕</li>
               <li className="item-statistics-bad">Promedio Rondas: 20 🠗</li>
@@ -68,6 +67,7 @@ export default function MatchDetails() {
         {/* <BetsButtonDetails /> */}
         <BetsButtonInput id={id}/>
       </div>
+      <Cart/>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 .dashboard{
     display: flex;
-    flex-direction: column;
     height: 100vh;
     background-color: #ccc;
 }
@@ -8,45 +7,21 @@
 .container{
     flex-grow: 1;
     display: flex;
-}
-
-.user{
-    display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    margin: 10px;
-    border-radius: 25px;
-}
-
-.user h2{
-    margin: 10px 30px;
-    text-align: left;
-    color: #666;
-}
-
-.graphics{
-    display: flex;
-}
-
-.graph1, .graph2{
-    display: flex;
-    align-items: center;
     justify-content: center;
-    width: 250px;
-    height: 200px;
-    margin: 10px;
-    border-radius: 25px;
-    color: #ccc;
+    align-items: center;
+    margin: 50px;
+    border-radius: 20px;
     background-color: white;
 }
 
-.graph2{
-    flex-grow: 1;
+.container h1{
+    width: 100%;
+    padding: 20px;
+    text-align: left;
 }
 
-.data{
+.grid{
     flex-grow: 1;
-    margin: 10px;
-    border-radius: 25px;
-    background-color: white;
+    width: 100%;
 }

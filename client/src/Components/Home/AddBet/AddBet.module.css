@@ -1,0 +1,45 @@
+.container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000a;
+}
+
+.isActive{
+    display: flex;
+    position: fixed;
+}
+
+.window{
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+    background-color: white;
+}
+
+.closeContainer{
+    display: flex;
+    justify-content: right;
+}
+
+.window button[type="submit"]{
+    margin-top: 15px;
+    width: 100%;
+}
+
+.spanError{
+    width: 100%;
+    text-align: center;
+    color: red;
+}
+
+.error{
+    outline: 2px solid red;
+}
