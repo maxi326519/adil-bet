@@ -34,6 +34,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "./App.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import { getMatchs2 } from "../redux/actions/GET/index.js";
 
 function App() {
   const error = useSelector((state) => state.error);
@@ -47,6 +48,10 @@ function App() {
       : null;
 
     //----------------------------------------
+
+    dispatch(getMatchs2())
+
+    //----------------------------------------
     
     if (!(cart === null)) {
       if (cart.amount) {
@@ -56,7 +61,6 @@ function App() {
         Object.entries(cart).map(e => {
           savecart.push(e[1])
         })
-        console.log(savecart)
         dispatch(updateRedux(savecart));
       }
     }

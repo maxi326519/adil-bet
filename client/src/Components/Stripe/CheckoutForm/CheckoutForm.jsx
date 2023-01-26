@@ -19,7 +19,6 @@ export default function CheckoutForm({ setLoading }) {
   const handleAxios = async (e) => {
     try {
       const dataCard =  elementsUse.getElement(CardElement)
-      console.log(dataCard)
       // Creamos el metodo de pago
       const { paymentMethod } = await stripe.createPaymentMethod({
         type: "card",

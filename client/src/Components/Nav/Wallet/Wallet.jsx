@@ -24,7 +24,6 @@ export default function Wallet() {
 
   return (
     <nav className="wallet">
-      {console.log()}
       <button className="btn btn-primary btn-color" onClick={HandleStyle}>
         <img src={wallet} alt="wallet" />
       </button>

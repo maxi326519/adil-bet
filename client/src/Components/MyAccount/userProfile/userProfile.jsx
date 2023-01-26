@@ -25,7 +25,6 @@ export default function UserProfile() {
   const user = useSelector((state) => state.userDates);
 
   useEffect(() => {
-    console.log(user);
     if (user) {
       setUserData({
         name: user.name,
@@ -42,7 +41,6 @@ export default function UserProfile() {
       const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
       if (!emailRegex.test(e.target.value)) {
         setEmailError("Debes ingresar un correo válido");//message ok
-        console.log();
       } else {
         setEmailError("");
       }

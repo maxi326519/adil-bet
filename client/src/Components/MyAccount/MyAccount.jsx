@@ -19,8 +19,6 @@ export default function MyAccount() {
   function handleSections(section) {
     if (section === "profile") setSection({ profile: true, activity: false });
     if (section === "activity") setSection({ profile: false, activity: true });
-    console.log(section);
-    console.log(sections);
   }
 
   return (

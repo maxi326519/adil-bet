@@ -68,7 +68,6 @@ export function userActive({userId, isActive}) {
   const payload={
     "isActive" : isActive? false:true
   }
-  console.log(payload)
 return async function (dispatch) {
 try {
  const result = await axios.patch(`/userupdate/${userId}`, payload);
@@ -90,7 +89,6 @@ export function userAdmin({userId, isAdmin}) {
 return async function (dispatch) {
 try {
  const result = await axios.patch(`/userupdate/${userId}`, payload);
- console.log(result.data)
  return dispatch({
    type: 'UPDATE_ADMIN_USER',
    payload: result.data,
@@ -109,7 +107,6 @@ export function reviewActive({id, status}) {
 return async function (dispatch) {
 try {
  const result = await axios.patch(`/reviews/${id}`, payload);
- console.log(result.data)
  return dispatch({
    type: 'UPDATE_REVIEW_STATUS',
    payload: result.data,
@@ -186,7 +183,6 @@ export function updateDeposit({id, amount, method }) {
         `/deposit/${id}`,
         payload
       );
-      console.log(result.data);
       return dispatch({
         type: "UPDATE_DEPOSIT",
         payload: result.data,

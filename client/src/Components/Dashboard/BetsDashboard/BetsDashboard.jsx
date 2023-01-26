@@ -70,7 +70,6 @@ export default function BetsDashboard() {
               variant="contained"
               color="primary"
               onClick={(event) => {
-                console.log(cellValues);
                 handleClickMult(event, cellValues);
                 handleClickAmount(event, cellValues);
               }}
@@ -86,7 +85,6 @@ export default function BetsDashboard() {
   const dispatch = useDispatch();
 
   const handleClick = (event, cellValues) => {
-    console.log(cellValues.row);
     const id = cellValues.row.id;
     const status = cellValues.row.status;
     dispatch(betStatus({ id, status }));

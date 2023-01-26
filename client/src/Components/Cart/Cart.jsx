@@ -26,7 +26,6 @@ export default function Cart() {
   let wallet = userDates.wallet - total;
 
   const handleOnPay = () => {
-    console.log(total, userDates)
 
     if (total < userDates.wallet) {
       cart.map((e) => {

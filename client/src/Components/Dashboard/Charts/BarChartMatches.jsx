@@ -40,8 +40,6 @@ export function BarChartMatches() {
     }
   })
 
-  console.log(matchesDatainfo)
-  // console.log(matchesData)
 
 
   if(matches.length >0){
