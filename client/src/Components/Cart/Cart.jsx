@@ -26,14 +26,16 @@ export default function Cart() {
 
   const handleOnPay = () => {
     //accion para crear cada una de las apuestas
-    cart.map((e) => {
-      dispatch(createBetDB(e));
-    });
-    //accion para descontar el wallet ruta put
-    console.log(wallet, userId);
-    dispatch(updateWalletUser({ wallet, userId }));
-    //accion para crear la orden
-    dispatch(createOrder({ total, userId }));
+    if (userDates.id) {
+      if(!cart.length === 0){cart.map((e) => {
+        dispatch(createBetDB(e));
+      });
+      //accion para descontar el wallet ruta put
+      console.log(wallet, userId);
+      dispatch(updateWalletUser({ wallet, userId }));
+      //accion para crear la orden
+      dispatch(createOrder({ total, userId }));}
+    }else{window.location.href = '/login'}
   };
 
   function HandleStyle() {
