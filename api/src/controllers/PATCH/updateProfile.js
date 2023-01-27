@@ -1,7 +1,7 @@
 const { User } = require("../../db");
 const { sendMail } = require("../../modules/emails");
 
-const updateProfile = async (id, { name, userName, email, phone }) => {
+const updateProfile = async (id, { name, userName, email, phone, avatar }) => {
   
   const profileFound = await User.findOne({
     where: {
@@ -32,6 +32,12 @@ const updateProfile = async (id, { name, userName, email, phone }) => {
   if (phone && phone.length !== 0) {
     profileFound.update({
       phone: phone,
+    });
+  }
+
+  if (avatar && avatar.length !== 0) {
+    profileFound.update({
+      avatar: avatar,
     });
   }
   

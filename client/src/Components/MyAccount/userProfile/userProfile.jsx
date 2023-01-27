@@ -15,6 +15,7 @@ export default function UserProfile() {
     userName: "...",
     email: "...",
     phone: "",
+    avatar: "",
   });
   // nuevos estados para mostrar mensajes de error
   const [emailError, setEmailError] = useState("");
@@ -31,6 +32,7 @@ export default function UserProfile() {
         userName: user.userName,
         email: user.email,
         phone: user.phone,
+        avatar: user.avatar,
       });
     }
   }, [user]);
@@ -80,6 +82,7 @@ export default function UserProfile() {
       userName: user.userName,
       email: user.email,
       phone: user.phone,
+      avatar: user.avatar,
     });
     setDisabled(!disabled);
   };
@@ -95,6 +98,7 @@ export default function UserProfile() {
             <FaUser />
           </div>
           <div className="containerProfile">
+            <img className={styles.avatar2} src={userData.avatar} alt="pic" />
             <label for="exampleInputEmail1">Nombre y Apellido</label>
             <input
               type="text"
@@ -165,6 +169,21 @@ export default function UserProfile() {
               disabled={disabled}
             />
             <small className="invalid-feedback">{phoneError}</small>
+          </div>
+          <div className="form-group">
+            <label for="">Avatar</label>
+            <input
+              
+              name="avatar"
+              className="form-control"
+              
+              value={userData.avatar}
+             
+              onChange={(e) => handleChange(e)}
+              onKeyDown={handleKeyDown}
+              disabled={disabled}
+            />
+            
           </div>
         </form>
         {disabled ? (

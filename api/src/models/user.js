@@ -24,10 +24,13 @@ module.exports = sequelize => {
       password: {
          type: DataTypes.STRING,
          allowNull: true
-      },      
+      },
       phone: {
          type: DataTypes.STRING,
          unique: true
+      },
+      avatar: {
+         type: DataTypes.TEXT,
       },
       wallet: {
          type: DataTypes.FLOAT,
