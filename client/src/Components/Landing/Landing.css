@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@1,800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&family=Fira+Sans:wght@900&display=swap');
 
 .body_full {
   display: flex;
@@ -125,15 +122,15 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   justify-content: center;
   background-color: #591411;
   margin: 40px;
-  border-radius: 40px;
-  box-shadow: 1px 1px 6px 1px rgb(72, 72, 72);
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgb(182, 182, 182);
 }
 
 .text__second-container {
   margin: 30px;
   color: white;
   font-size: 45px;
-  font-family: "Roboto Flex", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .container-promo {
@@ -141,7 +138,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   border-bottom-right-radius: 40px;
   color: white;
   box-shadow: 1px 1px 10px 6px gray;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .cntpromoinfo {
@@ -169,6 +166,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   border-radius: 20px;
   padding: 10px;
   cursor: pointer;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .promo-button:hover {
@@ -182,6 +180,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 
 .list-item {
   font-size: 20px;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .image-landing {
@@ -213,7 +212,7 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
 .title-clients {
   color: #591411;
   font-size: 50px;
-  font-family: "Fira Sans Extra Condensed", sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   text-shadow: 1px 1px 4px rgb(219, 219, 219);
 }
 
@@ -234,6 +233,8 @@ input[id="4"]:checked ~ .pagination .pagination-item[for="4"] {
   font-family: "Fira Sans Extra Condensed", sans-serif;
   color: #591411;
   font-size: 40px;
+  
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .linea {

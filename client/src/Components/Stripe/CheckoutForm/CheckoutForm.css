@@ -15,7 +15,8 @@
   background-color: white;
   border-radius: 30px;
   padding: 40px;
-  border: 1px solid gray;
+  border: 1px solid rgb(230, 229, 229);
+  box-shadow: 0 2px 20px rgb(202, 202, 202);
 }
 
 .cntpay {
@@ -41,6 +42,11 @@
 
 .link {
   text-decoration: none;
+}
+
+.select{
+  padding: 10px;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .button-gohome {
